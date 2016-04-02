@@ -8,6 +8,27 @@
     .ncs-goods-picture .levelD {
         cursor: url(<?php echo SHOP_TEMPLATES_URL;?>/images/shop/hand.cur), move \9;
     }
+    .goods_price_title{padding-top: 10px; margin-bottom: 10px;font-size: 16px; line-height: 25px;}
+    .goods_comment_title{margin: 0 auto; text-align: center;}
+    .goods_comment_title .rate{font-size:16px; line-height: 25px;}
+    .goods_comment_title .rate a:hover{ color:#ea9d00; text-decoration:none;}
+    
+    .goods_store_location{float: left; width:260px;}
+    .goods_store_location .store_name{ font-size:18px; line-height:35px;font-size:16px; font-weight: 600;}
+    .goods_store_location .address{ font-size:14px; line-height:35px;}
+    
+    
+    .goods_comment{ font-size:14px;float: left; width:340px; padding-top:10px;}
+    .goods_comment h5{ font-size:14px;color:#000000; line-height:30px;}
+    .goods_comment h5 strong{ font-size:14px; font-weight: 100; }
+    .goods_comment ul li{ font-size:13px;}
+    
+    
+    .goods_buy{ font-size:14px;}
+    .goods_buy .buy_title{ font-size:14px; line-height:32px;}
+    .goods_buy .ncs-figure-input span{ font-size:14px;line-height:32px;}
+
+    
 </style>
 
 <div id="content" class="wrapper pr">
@@ -33,7 +54,7 @@
                 <!-- S 煤炭发布价格 -->
                 <div style="float:left;width: 50%;">
                     <div style="margin: 0 auto; text-align: center;">
-                        <div style="padding-top: 10px; margin-bottom: 10px;font-size: 20px; line-height: 25px;"><?php echo $lang['goods_index_goods_price']; ?></div>
+                        <div class="goods_price_title"><?php echo $lang['goods_index_goods_price']; ?></div>
                         <div class="price">
                             <?php if (isset($output['goods']['title']) && $output['goods']['title'] != '') { ?>
                             <span class="tag"><?php echo $output['goods']['title']; ?></span>
@@ -50,11 +71,10 @@
 
                 <div class="service-star-warp" style="float:left; width: 50%; ">
               
-                    <div  style="margin: 0 auto; text-align: center;border-left: solid 1px #e6e6e6;">
-                        <div class="rate"> <!-- S 描述相符评分 --><a href="#ncGoodsRate">煤炭评分</a>
+                    <div  class="goods_comment_title">
+                        <div class="rate"><a href="#ncGoodsRate">煤炭评分</a>
 
-                            <div class="raty" style="margin: 10px 0px;"
-                                 data-score="<?php echo $output['goods_evaluate_info']['star_average']; ?>"></div>
+                            <div class="raty" style="margin: 10px 0px;" data-score="<?php echo $output['goods_evaluate_info']['star_average']; ?>"></div>
 
                             <!-- E 描述相符评分 --> </div>
                     </div>
@@ -97,37 +117,50 @@
             </div>
 
             <!--S 评分 -->
-            <div style="height: 120px; width: 100%;    border-top: dotted 1px #DDD;">
-                <div class="service-star-box" style="float: left; width:260px;">
-                    <div class="address" style="margin: 0 auto; text-align: center;"> <!-- S 描述相符评分 -->
-                        <h4 style="margin-bottom: 5px;"><?php echo $output['store_info']['store_name']; ?></h4>
-
-                        <span style="font-size:16px;"><img width="20px" height="20px" style="margin-top: -3px;" src="/shop/templates/default/images/location.png"/><?php echo $output['store_info']['area_info']; ?></span>
-
-
-                        <!-- E 描述相符评分 --> </div>
+            <div style="height: 120px; width: 100%; border-top: dotted 1px #DDD;">
+                <div class="goods_store_location service-star-box" style="">
+                    <div style="margin: 0 auto; text-align: center;">
+                        <!-- S 描述相符评分 -->
+                        <div class="store_name"><?php echo $output['store_info']['store_name']; ?></div>
+                        <div class="address"><img width="15px" height="15px" style="margin-top: -3px;" src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/location.png"/><?php echo $output['store_info']['area_info']; ?></div>
+                        <!-- E 描述相符评分 -->
+                    </div>
                 </div>
+                
+                
                 <div style="float:left;  border-left: dotted 1px #DDD; width: 1px;height: 80px; margin: 20px 0px;"></div>
-                <div class="service-star-box" style="float: left; width:340px; padding-top:10px;">
+                <div class="service-star-box goods_comment" style="">
                     <div class="ncs-detail-rate">
                         <h5><strong><?php echo $lang['nc_dynamic_evaluation'];?></strong>与行业相比</h5>
                         <ul>
                             <?php  foreach ($output['store_info']['store_credit'] as $value) {?>
-                            <li> <?php echo $value['text'];?><span class="credit"><?php echo $value['credit'];?> 分</span> <span class="<?php echo $value['percent_class'];?>"><i></i><?php echo $value['percent_text'];?><em><?php echo $value['percent'];?></em></span> </li>
+                            <li><?php echo $value['text'];?>
+                                <span class="credit"><?php echo $value['credit'];?>分</span> 
+                                <span class="<?php echo $value['percent_class'];?>"><i></i><?php echo $value['percent_text'];?>
+                                    <em><?php echo $value['percent'];?></em>
+                                </span> 
+                            </li>
                             <?php } ?>
                         </ul>
                     </div>
-
                 </div>
+                
+                
+                
+                
+                
                 <div style="float:left;  border-left: dotted 1px #DDD; width: 1px;height: 80px;margin: 20px 0px;"></div>
                 <div class="service-star-box" style="float: left; ">
-
-                    <div class="goto"  style="margin: 0 auto; text-align: center;"><a
+                    <div class="goto"  style="margin: 0 auto; text-align: center; line-height: 25px;"><a
                             href="<?php echo urlShop('show_store', 'index', array('store_id' => $output['store_info']['store_id']), $output['store_info']['store_domain']); ?>">进入该企业</a><a
                             href="javascript:collect_store('<?php echo $output['store_info']['store_id']; ?>','count','store_collect')">收藏该企业(<em
                                 nctype="store_collect"><?php echo $output['store_info']['store_collect'] ?></em>)</a>
                     </div>
                 </div>
+                
+                
+                
+                
 
 
             </div>
@@ -277,11 +310,10 @@
                 <?php } ?>
                     <!-- S 购买数量及库存 -->
                 <?php if ($output['goods']['goods_state'] != 0 && $output['goods']['goods_storage'] >= 0) { ?>
-                <dl>
-                    <dt><?php echo $lang['goods_index_buy_amount']; ?><?php echo $lang['nc_colon']; ?></dt>
+                    <dl class="goods_buy">
+                        <dt class="buy_title"><?php echo $lang['goods_index_buy_amount']; ?><?php echo $lang['nc_colon']; ?></dt>
                     <dd class="ncs-figure-input">
-
-                        <input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="text w30"
+                        <input type="text" name="" id="quantity" value="1" size="3" maxlength="6" class="input-text"
                                <?php if ($output['goods']['is_fcode'] == 1) { ?>readonly<?php } ?>>
                         <?php if ($output['goods']['is_fcode'] == 1) { ?>
                         <span style="margin-left: 5px;">（每个F码优先购买一吨煤炭）</span>(<?php echo $lang['goods_index_stock']; ?>

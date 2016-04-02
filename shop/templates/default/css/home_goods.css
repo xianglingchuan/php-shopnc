@@ -151,14 +151,14 @@ select option { line-height: 20px; height: 20px; padding: 4px;}
 .ncs-goods-summary .ncs-btn a.buynow,
 .ncs-goods-summary .ncs-btn a.addcart,
 .ncs-goods-summary .ncs-btn a.no-buynow,
-.ncs-goods-summary .ncs-btn a.no-addcart { font: lighter 20px/25px "Microsoft Yahei"; color: #FFF; text-align: center; display: inline-block; height: 28px; padding: 6px 18px; margin-right: 10px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 0 0 2px rgba(204,204,204,0.25);}
+.ncs-goods-summary .ncs-btn a.no-addcart { font: lighter 20px/25px "Microsoft Yahei"; color: #FFF; text-align: center; display: inline-block; /*height: 28px;*/ padding: 6px 14px; margin-right: 10px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 0 0 2px rgba(204,204,204,0.25);}
 .ncs-goods-summary .ncs-btn a.buynow:hover,
 .ncs-goods-summary .ncs-btn a.addcart:hover,
 .ncs-goods-summary .ncs-btn a.no-buynow:hover,
 .ncs-goods-summary .ncs-btn a.no-addcart:hover  { text-decoration: none;}
-.ncs-goods-summary .ncs-btn a.buynow { background-color: #BE000E;}
+.ncs-goods-summary .ncs-btn a.buynow { background-color: #BE000E; font-weight: 600;font:700 16px/32px "Microsoft Yahei";}
 .ncs-goods-summary .ncs-btn a:hover.buynow { background-color: #BB0000;}
-.ncs-goods-summary .ncs-btn a.addcart { background-color: #BE000E;}
+.ncs-goods-summary .ncs-btn a.addcart { background-color: #BE000E;font-weight: 600;font:700 16px/32px "Microsoft Yahei";}
 .ncs-goods-summary .ncs-btn a:hover.addcart { background-color: #BB0000;}
 .ncs-goods-summary .ncs-btn a.no-buynow, 
 .ncs-goods-summary .ncs-btn a.no-addcart,
@@ -166,7 +166,10 @@ select option { line-height: 20px; height: 20px; padding: 4px;}
 .ncs-goods-summary .ncs-btn a:hover.no-addcart { background-color: #AAA; cursor: not-allowed;}
 .ncs-goods-summary .ncs-btn a i { font-size: 17px; margin-right: 6px;}
 
-
+.ncs-figure-input .input-text{margin-top:-4px;  color:#333;font-family:Tahoma;font-size:16px;font-weight:600;line-height:41px;text-align:center;height:41px;width:41px;padding:0;border:solid 1px #eee}
+.ncs-figure-input a{font-size:0;background-color:#FFF;background:url(../images/shop/2014_ncs_public_img_new.png) no-repeat;display:block;width:20px;height:20px;border-style:solid;border-color:#eee;border-width:1px 1px 1px 0;position:absolute;z-index:1;left:42px;-webkit-text-size-adjust:none}
+.ncs-figure-input a:hover{color:#F32613;text-decoration:none}
+.ncs-figure-input a.increase{background-position:-100px -100px;top:0;}.ncs-figure-input a.decrease{background-position:-120px -100px;top:21px}
 
 /* 加入采购平台弹出提示框 */
 .ncs-cart-popup { background-color: #F5F5F5; display: none; width: 320px; height: 120px; border: solid 1px #D7D7D7; box-shadow: 0 0 3px rgba(153,153,153,0.25); position: absolute; z-index: 1; top: 72px; left: -1px;}
