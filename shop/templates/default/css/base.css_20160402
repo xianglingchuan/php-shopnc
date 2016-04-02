@@ -1158,7 +1158,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
     *word-spacing: -1px /*IE6、7*/;
     white-space: nowrap;
     padding: 0 0 20px 0;
-    margin-left: 10%;
+    margin-left: -1%
 }
 
 #faq li {
