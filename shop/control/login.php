@@ -142,6 +142,23 @@ class loginControl extends BaseHomeControl {
 		Tpl::showpage('register');
 	}
 
+        
+	/**
+	 * 会员注册页面
+	 *
+	 * @param
+	 * @return
+	 */
+	public function register2Op() {
+		Language::read("home_login_register");
+		$lang	= Language::getLangContent();
+		$model_member	= Model('member');
+		$model_member->checkloginMember();
+		Tpl::output('html_title',C('site_name').' - '.$lang['login_register_join_us']);
+		Tpl::showpage('register_2016');
+	}        
+        
+        
 	/**
 	 * 会员添加操作
 	 *

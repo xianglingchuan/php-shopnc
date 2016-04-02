@@ -1,5 +1,214 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
 
+<link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_TEMPLATES_URL; ?>/2016/css/register/base.css"/>
+<link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_TEMPLATES_URL; ?>/2016/css/register/home_header.css"/>
+<link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_TEMPLATES_URL; ?>/2016/css/register/member_login.css"/>
+<link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_TEMPLATES_URL; ?>/2016/css/register/font-awesome.min.css"/>
+
+<script>
+function tabRegister(type,_this){
+    if(type=="person"){
+        $("#default").show();
+        $("#register_company").hide();
+        $("#person").attr("class","tabulous_active");
+        $("#company_tab").attr("class","");
+    }else{
+        $("#default").hide();
+        $("#register_company").show();
+        $("#person").attr("class","");
+        $("#person_tab").attr("class","");
+    }
+    $(_this).attr("class","tabulous_active");
+}
+</script>
+
+
+<div class="nc-register-bg">
+  <div class="nc-register-box">
+    <div class="nc-register-layout">
+      <div class="left">
+        <div class="nc-register-mode">
+          <ul class="tabs-nav">
+              <li><a href="javascript:void(0)" id="person_tab" onclick="tabRegister('person', this)" class="tabulous_active">个人注册<i></i></a></li>
+              <li><a href="javascript:void(0)" id="company_tab" onclick="tabRegister('company', this)" class="">企业注册<i></i></a></li><span class="tabulousclear"></span>
+          </ul>
+          <div id="tabs_container" class="tabs-container" style="height: 549px;">
+            <div id="default" class="tabs-content" style="position: absolute; top: 0px;">
+              <form id="register_form" class="nc-login-form" method="post" action="http://www.nenhaitao.com/shop/index.php?act=login&amp;op=usersave">
+              	<input type="hidden" name="reg_source" id="reg_source" value="">
+                <input type="hidden" name="formhash" value="SeE4QaPk_WXkD4E5Q7aEhBmG4Dmz7dU">                <dl>
+                  <dt>用户名：</dt>
+                  <dd>
+                    <input type="text" id="user_name" name="user_name" class="text" tipmsg="请使用3-15个中、英文、数字及“-”符号组成，不能为纯数字，不能以“CBT”开头" value="请使用3-15个中、英文、数字及“-”符号组成，不能为纯数字，不能以“CBT”开头" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>设置密码：</dt>
+                  <dd>
+                    <input type="text" id="password" name="password" class="text" tipmsg="6-20个大小写英文字母、符号或数字" value="6-20个大小写英文字母、符号或数字" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>确认密码：</dt>
+                  <dd>
+                    <input type="text" id="password_confirm" name="password_confirm" class="text" tipmsg="请再次输入密码" value="请再次输入密码" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <div class="mt10">
+                <dl class="mt15">
+                  <dt>手机号码：</dt>
+                  <dd>
+                    <input type="text" id="tel" name="tel" class="text" tipmsg="输入常用手机号作为验证及找回密码使用" value="输入常用手机号作为验证及找回密码使用" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                                  <div class="code-div">
+                  <dl>
+                    <dt>验证码：</dt>
+                    <dd>
+                      <input type="text" id="captcha" name="captcha" class="text w80" size="10" autocomplete="off" tipmsg="输入验证码" value="输入验证码" style="color: rgb(187, 187, 187);">
+                    </dd>
+                  </dl>
+                  <span><img src="./嫩海淘 - 用户注册_files/index.php" name="codeimage" id="codeimage_1"> <a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById(&#39;codeimage_1&#39;).src=&#39;index.php?act=seccode&amp;op=makecode&amp;type=50,120&amp;nchash=1096ec3c&amp;t=&#39; + Math.random();">看不清，换一张</a></span></div>
+                </div>
+                <div class="tiptext" id="sms_text_1">确保上方手机号及验证码输入正确，点击<span><a href="javascript:void(0);" onclick="get_sms_captcha_1(&#39;1&#39;)"><i class="icon-mobile-phone"></i>发送短信验证</a></span>，并将您手机短信所接收到的“6位动态码”输入到下方短信验证，再点击“立即注册”。</div>
+                <dl>
+                  <dt>短信验证：</dt>
+                  <dd>
+                    <input type="text" name="sms_captcha_1" autocomplete="off" tipmsg="输入6位短信验证码" class="text" id="sms_captcha_1" size="15" value="输入6位短信验证码" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+      
+                <dl class="clause-div">
+                  <dd>
+                    <input name="agree" type="checkbox" class="checkbox" id="clause" value="1" checked="checked">
+                    阅读并同意<a href="http://www.nenhaitao.com/shop/index.php?act=document&amp;op=index&amp;code=agreement" target="_blank" class="agreement" title="阅读并同意">《服务协议》</a></dd>
+                </dl>
+                <div class="submit-div">
+                  <input type="submit" id="Submit" value="立即注册" class="submit">
+                </div>
+                <input type="hidden" value="http://www.nenhaitao.com/" name="ref_url">
+                <input name="nchash" type="hidden" value="1096ec3c">
+                <input type="hidden" name="form_submit" value="ok">
+				<input type="hidden" id="is_card_checked" value="0">
+              </form>
+            </div>
+              
+              
+            <div id="register_company" class="tabs-content" style="position: absolute; top: 0px; display: none;">
+              <form id="register_form" class="nc-login-form" method="post" action="http://www.nenhaitao.com/shop/index.php?act=login&amp;op=usersave">
+              	<input type="hidden" name="reg_source" id="reg_source" value="">
+                <input type="hidden" name="formhash" value="SeE4QaPk_WXkD4E5Q7aEhBmG4Dmz7dU">                <dl>
+                  <dt>用户名11：</dt>
+                  <dd>
+                    <input type="text" id="user_name" name="user_name" class="text" tipmsg="请使用3-15个中、英文、数字及“-”符号组成，不能为纯数字，不能以“CBT”开头" value="请使用3-15个中、英文、数字及“-”符号组成，不能为纯数字，不能以“CBT”开头" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>设置密码：</dt>
+                  <dd>
+                    <input type="text" id="password" name="password" class="text" tipmsg="6-20个大小写英文字母、符号或数字" value="6-20个大小写英文字母、符号或数字" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>确认密码：</dt>
+                  <dd>
+                    <input type="text" id="password_confirm" name="password_confirm" class="text" tipmsg="请再次输入密码" value="请再次输入密码" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <div class="mt10">
+                <dl class="mt15">
+                  <dt>手机号码：</dt>
+                  <dd>
+                    <input type="text" id="tel" name="tel" class="text" tipmsg="输入常用手机号作为验证及找回密码使用" value="输入常用手机号作为验证及找回密码使用" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                                  <div class="code-div">
+                  <dl>
+                    <dt>验证码：</dt>
+                    <dd>
+                      <input type="text" id="captcha" name="captcha" class="text w80" size="10" autocomplete="off" tipmsg="输入验证码" value="输入验证码" style="color: rgb(187, 187, 187);">
+                    </dd>
+                  </dl>
+                  <span><img src="./嫩海淘 - 用户注册_files/index.php" name="codeimage" id="codeimage_1"> <a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById(&#39;codeimage_1&#39;).src=&#39;index.php?act=seccode&amp;op=makecode&amp;type=50,120&amp;nchash=1096ec3c&amp;t=&#39; + Math.random();">看不清，换一张</a></span></div>
+                </div>
+                <div class="tiptext" id="sms_text_1">确保上方手机号及验证码输入正确，点击<span><a href="javascript:void(0);" onclick="get_sms_captcha_1(&#39;1&#39;)"><i class="icon-mobile-phone"></i>发送短信验证</a></span>，并将您手机短信所接收到的“6位动态码”输入到下方短信验证，再点击“立即注册”。</div>
+                <dl>
+                  <dt>短信验证：</dt>
+                  <dd>
+                    <input type="text" name="sms_captcha_1" autocomplete="off" tipmsg="输入6位短信验证码" class="text" id="sms_captcha_1" size="15" value="输入6位短信验证码" style="color: rgb(187, 187, 187);">
+                  </dd>
+                </dl>
+                <dl class="clause-div">
+        	       <dd style="font-weight: bold;"><input type="checkbox" name="card_check" id="card_check" value="1" class="checkbox"> 同时绑定会员卡</dd>
+                </dl>
+                <div class="mt10" id="card_reg" style="display: none;">
+                    <dl class="">
+                        <dt>会员卡号：</dt>
+                        <dd>
+                            <input type="text" name="card_num" id="card_num" class="text" tipmsg="在您的会员卡上，例如CBTA666666，无空格" value="在您的会员卡上，例如CBTA666666，无空格" style="color: rgb(187, 187, 187);">
+                        </dd>
+                    </dl>
+                    <dl class="">
+                        <dt>卡密码：</dt>
+                        <dd>
+                            <input type="text" id="card_pwd" name="card_pwd" class="text" tipmsg="请输入您在办理会员卡时设置的密码" value="请输入您在办理会员卡时设置的密码" style="color: rgb(187, 187, 187);">
+                        </dd>
+                    </dl>
+                </div>
+                <dl class="clause-div">
+                  <dd>
+                    <input name="agree" type="checkbox" class="checkbox" id="clause" value="1" checked="checked">
+                    阅读并同意<a href="http://www.nenhaitao.com/shop/index.php?act=document&amp;op=index&amp;code=agreement" target="_blank" class="agreement" title="阅读并同意">《服务协议》</a></dd>
+                </dl>
+                <div class="submit-div">
+                  <input type="submit" id="Submit" value="立即注册" class="submit">
+                </div>
+                <input type="hidden" value="http://www.nenhaitao.com/" name="ref_url">
+                <input name="nchash" type="hidden" value="1096ec3c">
+                <input type="hidden" name="form_submit" value="ok">
+				<input type="hidden" id="is_card_checked" value="0">
+              </form>
+            </div>
+              
+              
+         </div>
+        </div>
+      </div>
+      <div class="right">
+        <?php if (C('qq_isuse') == 1 || C('sina_isuse') == 1 || C('weixin_isuse') == 1){?>
+        <div class="api-login">
+          <h4>使用合作网站账号直接登录</h4>
+          <?php if (C('qq_isuse') == 1){?>
+          <a href="<?php echo MEMBER_SITE_URL;?>/api.php?act=toqq" title="QQ账号登录" class="qq"><i></i></a>
+          <?php } ?>
+          <?php if (C('sina_isuse') == 1){?>
+          <a href="<?php echo MEMBER_SITE_URL;?>/api.php?act=tosina" title="<?php echo $lang['nc_otherlogintip_sina']; ?>" class="sina"><i></i></a>
+          <?php } ?>
+          <?php if (C('weixin_isuse') == 1){?>
+          <a href="javascript:void(0);" onclick="ajax_form('weixin_form', '微信账号登录', '<?php echo urlLogin('connect_wx', 'index');?>', 360);" title="微信账号登录" class="wx"><i></i></a>
+          <?php } ?>
+        </div>
+        <?php } ?>
+        <div class="reister-after">
+          <h4><?php echo $lang['login_register_after_regist'];?></h4>
+          <ol>
+            <li class="ico01"><i></i><?php echo $lang['login_register_buy_info'];?></li>
+            <li class="ico02"><i></i><?php echo $lang['login_register_collect_info'];?></li>
+            <li class="ico03"><i></i><?php echo $lang['login_register_honest_info'];?></li>
+            <li class="ico04"><i></i><?php echo $lang['login_register_openstore_info'];?></li>
+            <li class="ico05"><i></i><?php echo $lang['login_register_talk_info'];?></li>
+            <li class="ico06"><i></i><?php echo $lang['login_register_sns_info'];?></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 
 
@@ -17,9 +226,6 @@
 }
 #footer {
     border-top: none!important;
-
-    /*padding-top: 30px;*/
-    /*margin-top: 30px;*/
 }
 #footer_container
 {
@@ -199,7 +405,7 @@
     </div>
     <div class="nc-login-bottom"></div>
   </div>
-  <div class="nc-login-left">
+<!--  <div class="nc-login-left">
     <h3><?php echo $lang['login_register_after_regist'];?></h3>
     <ol>
       <li class="ico05"><i></i><?php echo $lang['login_register_buy_info'];?></li>
@@ -212,7 +418,7 @@
     </ol>
     <h3 class="mt20"><?php echo $lang['login_register_already_have_account'];?></h3>
     <div class="nc-login-now mt10"><span class="ml20"><?php echo $lang['login_register_login_now_1'];?><a href="index.php?act=login&ref_url=<?php echo urlencode($output['ref_url']); ?>" title="<?php echo $lang['login_register_login_now'];?>" class="register"><?php echo $lang['login_register_login_now_2'];?></a></span><span><?php echo $lang['login_register_login_now_3'];?><a class="forget" href="index.php?act=login&op=forget_password"><?php echo $lang['login_register_login_forget'];?></a></span></div>
-  </div>
+  </div>-->
 </div>
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/jquery.poshytip.min.js" charset="utf-8"></script> 
 <script>
