@@ -1,0 +1,196 @@
+﻿
+#body
+{
+    width:950px; 
+}
+.barContent { width: 950px; }
+#homepage .barContent {width: 950px; }
+
+.qianggou .spectag.ptag-m1z1{left:11px; top:88px;}
+.pps li{ margin-left: 10px;}
+
+.helpCenter {width:815px;height:152px!important; float:left;}
+.helpCenter li{ float:left;}
+.helpCenter h4{width:110px;}
+.help1 { width: 150px; }
+.help2 { width: 140px; }
+.help2 h4{ width: 90px; }
+.help3 { width: 140px; }
+.help4 { width: 140px; }
+.help4 h4{ width: 100px; }
+.help5 { width: 205px; }
+.help5 h4{ width: 155px; }
+#body{width:950px;}
+.brand_list {left:0px;}
+.brandcontent .right{margin-right:10px;}
+.top_p_list{ width:380px;}
+.top_p_list_i{ width:125px;}
+
+.top-list b{filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src="/skin/df/images/home/home_2.png");background:none;}
+.tejiali b{ margin-top: 0px; padding-top: 0px; z-index:5;}
+.tejiali_current b{ margin-top: -198px; padding-top: 198px;}
+.jingpinli b{margin-top:-66px;padding-top: 66px; z-index:4;}
+.jingpinli_current b{margin-top: -265px;padding-top: 265px;}
+.xinpinli b{margin-top: -132px;padding-top: 132px; z-index:3}
+.xinpinli_current b{margin-top: -332px;padding-top: 332px;}
+
+.top_p_list_i b{ overflow:hidden;background:none;}
+.top_p_list_i b span{ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src="/skin/df/images/home/home_2.png");background:none; display:block; width:100%; height:100%;}
+.tejia b span{ margin: -65px 0 0 -169px; padding: 65px 0 0 169px;}
+.tuijian b span{ margin: 0px 0 0 -169px; padding: 0px 0 0 169px;}
+.xinpin b span{ margin: -132px 0 0 -169px; padding: 132px 0 0 169px;}
+
+
+
+.sorter li{width:54px;}
+.bar1 {height: 39px!important;}
+.menu3 span{top:3px;left:0px;}
+.productlist li { width: 160px; }
+.productdetail .center{margin-left:5px;}
+
+
+
+.cForm .signLinks{width: 200px!important; line-height:20px;}
+.cForm .signLinks label{ width: 80px!important;}
+.cForm .signLinks span{ left:230px!important;}
+.cForm .signLinks a{width:60px!important;}
+.passwordstrong .strongval span {  margin-top:10px; overflow:hidden; }
+
+
+#addressTbody select{width:120px!important;}
+
+.messagePanel span,.messagePanel div{ overflow:hidden!important;}
+
+.msgCart .messagePanel{width:966px!important;}
+
+.messagePanel .part1{ float:left;}
+.messagePanel .part2{ float:left;}
+.messagePanel .part3{ float:left;}
+
+.confirmOrderPanel .messagePanel .confirm1,.confirmOrderPanel .messagePanel .pay{float:left!important;}
+
+.orderTable .name{width:460px!important;}
+
+#divPayWeb{padding-bottom:20px!important;}
+
+.my_content_order_list td{height:25px;}
+
+.orderDetail .orderPanel .content li{margin-right:0px!important;}
+
+.couponPanel .ulcoupon li .memo{width:217px;}
+
+.divFavorite .FavoritePanel{ padding-left:14px!important; padding-left:15px;}
+.divFavorite .FavoritePanel .header{ border-top:#cfcfcf 1px solid;}
+.divFavorite .FavoritePanel li { border-bottom:#cfcfcf 1px solid;border-right:#cfcfcf 1px solid;border-left:#cfcfcf 1px solid; margin:0px!important;}
+.divFavorite .FavoritePanel li span{padding-right:0px!important;padding-left:0px!important; border:none!important;}
+.divFavorite .FavoritePanel .contentRow .pimg,#MyFavorite .lastRow .pimg{padding-bottom:0px!important; vertical-align:middle; display:inline;}
+
+
+.divAddress{margin-left:0px;}
+.divAddress .my_content_address_list{margin-left:20px;}
+.my_content_address_list #addressContainer{width:730px!important;}
+.my_content_address_list li{width:730px!important; margin:0px!important;}
+.my_content_address_list ul{width:auto!important;}
+.my_content_address_list li span{margin:0px; border-top-width:0px!important;}
+.my_content_address_list li .linkman{width:124px!important;}
+.my_content_address_list li .addrDetail{width:376px!important}
+.my_content_address_list ul .last .operate{ width:628px;} 
+#addAddressLink{margin-bottom:0px!important; margin-right:10px;} 
+.my_content_address_list #addressPanel ul{width:730px!important;}
+.my_content_address_list #addressPanel li{margin-right:0px!important; }
+.my_content_address_list #addressPanel li span{height:40px!important; }
+.my_content_address_list #addressPanel .liheight span{height:50px!important; }
+.my_content_address_list #addressPanel li .value{width:628px!important;}
+.my_content_address_list #addressPanel .last .value{width:724px!important}
+
+
+.password label.error{ }
+
+.productdetail .center{margin-left:8px!important;}
+.cloud-zoom-big { left:358px!important;}
+
+#order-table dl{width:350px!important;}
+
+.productdetail H2{height:20px!important;}
+
+
+.divReply .goalarrow{OVERFLOW: hidden; TOP: -9px! important; HEIGHT: 9px;}
+#qapage .comment_detail .goalarrow{ background-position:-1px -52px;}
+#myConsult .div_consult .cont .goalarrow{top:-7px;}
+#myConsult .div_consult .cont .close{left:639px; top:0;}
+
+.bgshoppingcart .left{ margin-left:110px; display:block; height:36px;}
+.bgshoppingcart .right{ margin-right:8px;display:block; height:36px; font-weight:bold;}
+
+.liCart .mnav_c .item span{ display:block;height:50px; margin-top:5px; margin:0px 5px; float:left;}
+.liCart .mnav_c .statdata div{ width:298px; height:25px; line-height:25px;}
+
+
+
+.servcall {background-position:right top;}
+.proBar .more{margin-bottom:1px;}
+.liCart .flash{margin-left:27px; display:inline;}
+.bgshoppingcart .left{margin-left:26px;}
+.bgshoppingcart .right{margin-right:5px;}
+
+
+
+.france-shop-pro-list-a ul li{margin-right:15px;}
+.america-shop-pro-list-a ul li{margin-left:10px;}
+.country-label ul li{margin-right:10px;}
+
+.rightboxpannel{ margin-right:2px; margin-left:2px;}
+
+.validateOpLink{display:inline;}
+#myGiftCard .line{margin-bottom:5px;}
+#cardlist ul li.title{padding-left:12px;}
+#cardlist .cno{ width:460px;}
+
+
+#rush .proArea{padding-left:0px;}
+#rush .proWFrame li{margin-left:38px;}
+#rush .xxqg li{ margin-left:20px;}
+#rush .tomrush ul{padding-right:0px; padding-left:0px;}
+#rush .tom0{width:300px; margin-left:6px;}
+#rush .tomrush li{ margin-left:8px;}
+#rush .tom5{width:575px; margin-left:15px;}
+#rush .xiushi{background:url("icon_xiushi.gif");}
+#rush .bottom{height:5px; overflow:hidden; display:inline; line-height:2px;}
+#rush .bottom .left{height:5px; overflow:hidden;}
+#rush .bottom .middle{height:5px; overflow:hidden;}
+#rush .bottom .middle.small{width:77px}
+#rush .bottom .middle.normal{width:157px;}
+#rush .bottom .middle.big{ width:352px;}
+#rush .bottom .right{height:5px; overflow:hidden;}
+#rush .proArea span{padding:0px;}
+
+
+
+.hotrec .left{ margin-left:20px;}
+
+
+.orderPanel{ padding-left:20px; padding-right:0px;}
+#salesgift .stxt{ height:20px;}
+#salesgift .changenum{ line-height:11px; padding-top:1px;}
+#salesgift .sright{ margin-right:50px;}
+
+.floatContent{ position:absolute;}
+
+.whitecollar .pannel2 .form{ width:450px;}
+.whitecollar .cmppannel .ctop .close{left:634px;}
+.whitecollar .pannel1 .ctop a.aalloffice{ left:610px; width:30px;}
+.whitecollar .pannel2 .form label.message{ height:24px; overflow:hidden; float:left; margin-left:86px; line-height:14px; padding:3px; width:315px;}  
+.whitecollar .pannel2 .form label.error { float:left; overflow:hidden; height:14px;}
+.liCart .toplink{ margin-left:10px; font-weight:bold;}
+.whitecollar .pannel2 li{ width:450px;}
+.bigshare a{background:url("/skin/df/images/bigshare.gif")}
+.staticbody{ margin-right:20px;}
+
+ #cst_mp_6{width:124px;}
+
+.tuijian .content span{background:url("/skin/df2/images/index/direct.gif");}
+ .pcategory .bar{margin-bottom:6px; margin-top:5px;}
+
+ .l_m_main2 ul li{margin-right:28px; height:150px;}
+#keyspan {width:340px;}
+.red_new_tag.new{left:65px;}

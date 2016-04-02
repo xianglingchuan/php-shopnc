@@ -40,7 +40,7 @@ if (($ua == '' || preg_match($uachar, $ua)) && !strpos(strtolower($_SERVER['REQU
     <link href="<?php echo SHOP_TEMPLATES_URL; ?>/css/home_header.css" rel="stylesheet" type="text/css">
     <link href="<?php echo SHOP_TEMPLATES_URL; ?>/css/home_login.css" rel="stylesheet" type="text/css">
     <link href="<?php echo SHOP_RESOURCE_SITE_URL; ?>/font/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo SHOP_SITE_URL; ?>/resource/css/main.css" rel="stylesheet" type="text/css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="<?php echo SHOP_RESOURCE_SITE_URL;?>/font/font-awesome/css/font-awesome-ie7.min.css">
 
@@ -296,7 +296,7 @@ $('#keyword').attr("value","<?php echo $_GET['keyword']; ?>");
     </div>-->
 
         <div class="head-app_img">
-            <img src="/images/erweima.png">
+            <img src="<?php echo SHOP_SITE_URL; ?>/resource/images/erweima.png">
         </div>
         <div class="head-user-menu" style="display: none;">
             <dl class="my-mall">

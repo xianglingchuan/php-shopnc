@@ -33,7 +33,6 @@ if (!is_file(BASE_ROOT_PATH."/shop/install/lock") && is_file(BASE_ROOT_PATH."/sh
 /**
  * 初始化
  */
-echo BASE_DATA_PATH . '/config/config.ini.php';
 Shopnc\Core::initializeApplication(require BASE_DATA_PATH . '/config/config.ini.php');
 
 define('DIR_SHOP','shop');
