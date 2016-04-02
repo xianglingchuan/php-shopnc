@@ -105,8 +105,8 @@ define('DEFAULT_SPEC_COLOR_ID', 1);
 /**
  * 煤炭图片
  */
-define('GOODS_IMAGES_WIDTH', '60,240,360,1280');
-define('GOODS_IMAGES_HEIGHT', '60,240,360,12800');
+define('GOODS_IMAGES_WIDTH', '60,280,360,1280');
+define('GOODS_IMAGES_HEIGHT', '60,280,360,12800');
 define('GOODS_IMAGES_EXT', '_60,_240,_360,_1280');
 
 /**
