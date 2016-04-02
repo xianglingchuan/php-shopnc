@@ -92,17 +92,17 @@ body { background-color: #FEFEFE; min-width: 1200px;}
 
 
 /*大图模式列表页*/
-.squares .list_pic { font-size: 0; *word-spacing:-1px/*IE6、7*/; display: block; width: 100%; margin-left: -16px;}
-.squares .list_pic li { font-size: 12px; vertical-align: middle; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE6,7*/;  width: 288px; height: 375px; margin: 12px 0 0 12px; *zoom:1;}
-.squares .goods-content { line-height: 18px; background-color: #FFF; width: 288px; height: 370px; margin: 3px; border: solid 1px #F0F0F0; border-radius: 2px; position:relative; z-index: 11; overflow: hidden; box-shadow: 0 0 3px rgba(153,153,153,0.1); transition: border-color 0.4s ease-in-out 0s;}
+.squares .list_pic { font-size: 0; *word-spacing:-1px/*IE6、7*/; display: block; width: 1000px; margin-left: -16px;}
+.squares .list_pic li { font-size: 12px; vertical-align: middle; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE6,7*/;  width: 238px; height: 375px; margin: 12px 0 0 12px; *zoom:1;}
+.squares .goods-content { line-height: 18px; background-color: #FFF; width: 230px; height: 370px; margin: 3px; border: solid 1px #F0F0F0; border-radius: 2px; position:relative; z-index: 11; overflow: hidden; box-shadow: 0 0 3px rgba(153,153,153,0.1); transition: border-color 0.4s ease-in-out 0s;}
 .squares .goods-content:hover { z-index: 12;}
-.squares .goods-pic { background: #FFF; width: 280px; height: 220px; padding: 5px 5px 0 5px; margin: 0; z-index: 1; top: 0; left: 0;}
-.squares .goods-pic a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 280px; height: 220px; overflow: hidden;}
+.squares .goods-pic { background: #FFF; width: 220px; height: 220px; padding: 5px 5px 0 5px; margin: 0; z-index: 1; top: 0; left: 0;}
+.squares .goods-pic a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 220px; height: 220px; overflow: hidden;}
 .squares .goods-pic img { max-width: 220px; max-height: 220px; margin-top: expression( 220-this.height/2); *margin-top:expression(110-this.height/2)/*IE6,7*/;}
-.squares .goods-info { width: 100%; margin: 0; position: absolute; z-index: 1; left: 0; top: 230px;}
-.squares .goods-pic-scroll-show { filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E5FFFFFF', endColorstr='#E5FFFFFF');background:rgba(255,255,255,0.9); width: 270px; height: 30px; padding: 5px 10px;}
-.squares .goods-pic-scroll-show ul { font-size: 0; *word-spacing: -1px/*IE6、7*/; width: 190px; height: 30px;}
-.squares .goods-pic-scroll-show ul li { vertical-align: middle; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 40px; height: 40px; margin: 0 5px 0 0; *zoom:1;}
+.squares .goods-info { width: 230px; margin: 0; position: absolute; z-index: 1; left: 0; top: 230px;}
+.squares .goods-pic-scroll-show { filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#E5FFFFFF', endColorstr='#E5FFFFFF');background:rgba(255,255,255,0.9); width: 210px; height: 30px; padding: 5px 10px;}
+.squares .goods-pic-scroll-show ul { font-size: 0; *word-spacing: -1px/*IE6、7*/; width: 180px; height: 30px;}
+.squares .goods-pic-scroll-show ul li { vertical-align: middle; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 30px; height: 30px; margin: 0 5px 0 0; *zoom:1;}
 .squares .goods-pic-scroll-show ul li a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 28px; height: 28px; padding: 0; border: solid 1px #EEE; overflow: hidden;}
 .squares .goods-pic-scroll-show ul li.selected a,
 .squares .goods-pic-scroll-show ul li a:hover { border-color: #BE000E; transition: border-color 0.4s ease-in-out 0s;}
@@ -130,14 +130,14 @@ body { background-color: #FEFEFE; min-width: 1200px;}
 
 
 .squares .sell-stat { width: 212px; margin: 0 auto; border-top: solid 1px #EEE; overflow: hidden;}
-.squares .sell-stat ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; width: 250px; margin-left: -1px;}
-.squares .sell-stat ul li { vertical-align: middle; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; *display: inline/*IE6,7*/; width: 70px; height: 40px; padding: 5px; margin: 0; border-left: solid 1px #EEE; overflow: hidden; *zoom:1;}
+.squares .sell-stat ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; width: 213px; margin-left: -1px;}
+.squares .sell-stat ul li { vertical-align: middle; letter-spacing: normal; word-spacing: normal; text-align: center; display: inline-block; *display: inline/*IE6,7*/; width: 60px; height: 40px; padding: 5px; margin: 0; border-left: solid 1px #EEE; overflow: hidden; *zoom:1;}
 .squares .sell-stat ul li a { font: 600 12px/20px Tahoma; color: #B57C5B;}
 .squares .sell-stat ul li a.status { color: #3388BB;}
 .squares .sell-stat ul li p { line-height: 20px; color: #999; height: 20px;}
 .squares .store { line-height: 20px; background-color: #F5F5F5; text-align: center; display: block; height: 20px; clear: both; padding: 8px 0; border-top: solid 1px #EEE;}
 .squares .add-cart { display: block;}
-.squares .add-cart a { font-weight: 600; font-size: 14px; line-height: 20px; color: #F5CDBF; text-shadow: -2px 0 0 rgba(0,0,0,0.05); background-color: #BE000E; text-align: center; display: block; width:100%; height: 20px; padding: 8px 0;}
+.squares .add-cart a { font-weight: 600; font-size: 14px; line-height: 20px; color: #F5CDBF; text-shadow: -2px 0 0 rgba(0,0,0,0.05); background-color: #BE000E; text-align: center; display: block; height: 20px; padding: 8px 0;}
 .squares .add-cart a i { margin-right: 4px;}
 .squares .add-cart a:hover { color: #FFF; text-decoration: none;}
 .squares li:hover .goods-content { height: 445px; margin: 0; border: solid 4px #BE000E; border-radius: 0; box-shadow: 0px 4px 4px rgba(102,102,102,0.65);}
