@@ -1,138 +1,66 @@
-/* 懒人图库 搜集整理 www.lanrentuku.com */
-* {
-margin : 0;
-padding : 0;
+html,body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: "Microsoft YaHei";
+	font-size: 12px;
+	line-height: 1.5;
+	outline: 0;
+	color:#333;
 }
-html {
-height : 100%;
+body{overflow-x:hidden}
+ol,ul,li{list-style:none}
+a {
+	text-decoration: none;
+	color: #444;
+	outline: none;
 }
-body {
-	height : 100%;
-	color : #a4a4a4;
-	cursor : default;
-	font-size : 11px;
-	line-height : 16px;
-	text-align : center;
-	background-color : #404040;
-	background-position : 50% 0;
-	background-repeat : no-repeat;
-	font-family : Tahoma, sans-serif;
+a, button {
+	cursor: pointer;
 }
-a:link, a:visited {
-color : #fff;
-text-decoration : none;
+.item_6 .banner {
+	border: 7px solid #CCC;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
-a img {
-border : 0;
+.item_6 .banner img {
+	display: block;
+	width: 100%;
+	/* main */
+
+
 }
-div.wrap {
-	width : 778px;
-	text-align : left;
-	height: 300px;
-	margin-top: 0;
-	margin-right: auto;
-	margin-bottom: 0;
-	margin-left: auto;
+.online_icon{overflow:hidden; }
+.online_icon a{ 
+	display: block;
+	width: 85px;
+	height: 148px;
+	background: url(../images/qq_online_trigger.png) no-repeat;
+	font-size: 16px;
+	text-align: center;
+	color: #000;
 }
-div#top div#nav {
-float : left;
-clear : both;
-width : 778px;
-height : 52px;
-margin : 22px 0 0;
-}
-div#top div#nav ul {
-float : left;
-width : 700px;
-height : 52px;
-list-style-type : none;
-}
-div#nav ul li {
-float : left;
-height : 52px;
-}
-div#nav ul li a {
-border : 0;
-height : 52px;
-display : block;
-line-height : 52px;
-text-indent : -9999px;
-}
-div#header {
-margin : -1px 0 0;
-}
-div#video-header {
-height : 683px;
-margin : -1px 0 0;
-}
-div#header div.wrap {
-	height : 300px;
-	background-position: 50% 0;
-	background-repeat: no-repeat;
-}
-div#header div#slide-holder {
-z-index : 40;
-width : 778px;
-height : 300px;
-position : absolute;
-}
-div#header div#slide-holder div#slide-runner {
-top : 0px;
-left : 9px;
-width : 778px;
-height : 300px;
-overflow : hidden;
-position : absolute;
-}
-div#header div#slide-holder img {
-margin : 0;
-display : none;
-position : absolute;
-}
-div#header div#slide-holder div#slide-controls {
-left : 0;
-bottom : 0px;
-width : 778px;
-height : 35px;
-display : none;
-position : absolute;
-background : url(../images/slide-bg.png) 0 0;
-}
-div#header div#slide-holder div#slide-controls p.text {
-float : left;
-color : #fff;
-display : inline;
-font-size : 10px;
-line-height : 16px;
-margin : 15px 0 0 20px;
-text-transform : uppercase;
-}
-div#header div#slide-holder div#slide-controls p#slide-nav {
-float : right;
-height : 24px;
-display : inline;
-margin : 11px 15px 0 0;
-}
-div#header div#slide-holder div#slide-controls p#slide-nav a {
-float : left;
-width : 24px;
-height : 24px;
-display : inline;
-font-size : 12px;
-margin : 0 5px 0 0;
-line-height : 24px;
-font-weight : bold;
-text-align : center;
-text-decoration : none;
-background-position : 0 0;
-background-repeat : no-repeat;
-}
-div#header div#slide-holder div#slide-controls p#slide-nav a.on {
-background-position : 0 -24px;
-}
-div#header div#slide-holder div#slide-controls p#slide-nav a {
-background-image : url(../images/silde-nav.png);
-}
-div#nav ul li a {
-background : url(../images/nav.png) no-repeat;
-}
+.online_windows{ width:144px;}
+.online_w_top{ background:url(../images/online_bg.png) no-repeat -36px 0; height:10px; _background:url(../images/online_bg_ie6.png) no-repeat -36px 0; _margin-bottom:-7px;}
+.online_w_c{ background:url(../images/online_bg.png) repeat-y 0 -185px; padding:0 5px; _background:url(../images/online_bg_ie6.png) repeat-y 0 -185px}
+.online_w_bottom{ background:url(../images/online_bg.png) repeat-y -36px -35px; height:29px; _background:url(../images/online_bg_ie6.png) repeat-y -36px -35px;}
+.online_content{ background:url(../images/online_bg.png) no-repeat -147px -185px; padding-top:11px; _background:url(../images/online_bg_ie6.png) no-repeat -147px -185px;}
+.online_content a.qq_icon{ background:url(../images/online_bg.png) no-repeat -37px -130px; width:121px; height:25px; display:block; margin:0 auto; text-indent:30px; line-height:23px; cursor:pointer; }
+.online_content a.qq_icon:hover{ background-position:-159px -130px; color:#FFF;}
+.online_bar h2{ background:url(../images/online_bg.png) repeat-x 0 -156px; height:29px; line-height:27px; font-size:12px; color:#666; text-align:left; }
+.online_bar h2 a{ display:block; padding-left:14px; margin-left:6px; cursor:pointer;}
+.expand h2 a{ background:url(../images/online_bg.png) no-repeat -36px -69px; _background:url(../images/online_bg_ie6.png) no-repeat -36px -69px;}
+.collapse h2 a{ background:url(../images/online_bg.png) no-repeat -36px -96px; _background:url(../images/online_bg_ie6.png) no-repeat -36px -96px;}
+.expand h2 a:hover,.collapse h2 a:hover{ text-decoration:none; color:#c81d04;}
+.online_content{ text-align:center; border-bottom:1px solid #d0d0d0;}
+.online_content ul li{ height:24px; line-height:24px; margin-bottom:4px;}
+.online_content ul li a:hover{color:#c81d04; }
+
+#online_qq_layer {position:absolute; right:-140px; top:80px; _position:absolute; z-index:20;}
+* html,* html body {_background-attachment:fixed;}
+* html #online_qq_layer {_bottom:auto;_top:expression(eval(document.documentElement.scrollTop + 150));}
+#online_qq_tab {float:left; margin-top: 50px;}
+#onlineService {float:left; margin-left:-4px;}
+#onlineType1, #onlineType2, #onlineType3, #onlineType4, #onlineType5, #onlineType6 {display:none;}
+#onlineType1 {display:block;}
