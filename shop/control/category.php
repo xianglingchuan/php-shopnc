@@ -20,6 +20,7 @@ class categoryControl extends BaseHomeControl {
 	 * 分类列表
 	 */
 	public function indexOp(){
+
 		Language::read('home_category_index');
 		$lang	= Language::getLangContent();
 		//导航

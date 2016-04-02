@@ -54,7 +54,7 @@
         <!-- <div class="nch-module"><?php /*echo loadadv(37,'html');*/ ?></div>-->
         <!-- 最近浏览 -->
 
-        <div class="nch-module nch-module-style03">
+<!--        <div class="nch-module nch-module-style03">
             <div class="title">
                 <h3><?php echo $lang['goods_class_viewed_goods']; ?></h3>
             </div>
@@ -80,10 +80,10 @@
                 </div>
                 <a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_goodsbrowse&op=list"
                    class="nch-sidebar-all-viewed">全部浏览历史</a></div>
-        </div>
+        </div>-->
 
     </div>
-    <div class="right">
+    <div class="right" style="width:100%">
         <?php if (!isset($output['goods_class_array']['child']) && empty($output['goods_class_array']['child']) && !empty($output['goods_class_array'])) { ?>
             <?php $dl = 1;  //dl标记?>
             <?php if ((!empty($output['brand_array']) && is_array($output['brand_array'])) || (!empty($output['attr_array']) && is_array($output['attr_array']))) { ?>
