@@ -276,7 +276,7 @@
         </div>
 
         <!-- 猜你喜欢 -->
-        <div id="guesslike_div" style="width:980px;"></div>
+<!--        <div id="guesslike_div" style="width:980px;"></div>-->
     </div>
 </div>
 <script src="<?php echo RESOURCE_SITE_URL; ?>/js/waypoints.js"></script>
