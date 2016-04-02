@@ -6,9 +6,9 @@
   'ap_display' => '2',
   'is_use' => '1',
   'ap_width' => '1920',
-  'ap_height' => '481',
+  'ap_height' => '500',
   'ap_price' => '100',
   'adv_num' => '0',
   'click_num' => '0',
-  'default_content' => '11.jpg',
+  'default_content' => '04927741840692506.jpg',
 );

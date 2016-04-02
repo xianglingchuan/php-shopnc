@@ -248,7 +248,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-49.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-49.html"
                                                 target="_blank"
                                                 title="康伟集团"/>
 
@@ -262,7 +262,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-52.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-52.html"
                                                 target="_blank"
                                                 title="山西沁新能源集团股份有限公司"/>
 
@@ -357,7 +357,7 @@
 
                             <div class="category category2">
                                 <div class="name">
-                                    <a href="http://www.zg03.com/shop/cate-3-0-0-0-0-0-0-0-0.html"><span>动力煤</span></a>
+                                    <a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><span>动力煤</span></a>
 
 
                                 </div>
@@ -388,7 +388,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-51.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-51.html"
                                                 target="_blank"
                                                 title="山西黄土坡鑫运煤业有限公司"/>
 
@@ -401,7 +401,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-62.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-62.html"
                                                 target="_blank"
                                                 title="山煤国际能源经坊煤业有限公司"/>
 
@@ -495,7 +495,7 @@
                             <div class="category category3">
                                 <div class="name">
 
-                                    <a href="http://www.zg03.com/shop/cate-4-0-0-0-0-0-0-0-0.html"><span>无烟煤</span></a>
+                                    <a href="<?php echo SHOP_SITE_URL; ?>/cate-4-0-0-0-0-0-0-0-0.html"><span>无烟煤</span></a>
                                 </div>
                                 <div class="line">
                                     <span
@@ -524,7 +524,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-87.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-87.html"
                                                 target="_blank"
                                                 title="龙辰工贸有限公司"/>
 
@@ -619,7 +619,7 @@
 
                                  >
                                 <div class="name">
-                                    <a href="http://www.zg03.com/shop/cate-6-0-205-0-0-0-0-0-0.html"><span>焦炭</span></a>
+                                    <a href="<?php echo SHOP_SITE_URL; ?>/cate-6-0-205-0-0-0-0-0-0.html"><span>焦炭</span></a>
                                 </div>
                                 <div class="line">
                                     <span
@@ -649,7 +649,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-93.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-93.html"
                                                 target="_blank"
                                                 title="潞宝集团"/>
 
@@ -662,7 +662,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-40.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-40.html"
                                                 target="_blank"
                                                 title="明源集团"/>
 
@@ -758,7 +758,7 @@
 
                                  >
                                 <div class="name">
-                                    <a href="http://www.zg03.com/shop/cate-6-0-204-0-0-0-0-0-0.html"><span>其他</span></a>
+                                    <a href="<?php echo SHOP_SITE_URL; ?>/cate-6-0-204-0-0-0-0-0-0.html"><span>其他</span></a>
                                 </div>
                                 <div class="line">
                                     <span
@@ -786,7 +786,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-116.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-116.html"
                                                 target="_blank"
                                                 title="山西潞博集团"/>
 
@@ -799,7 +799,7 @@
                                             <area
                                                 shape="rect"
                                                 coords="0,0,630,236"
-                                                href="http://www.zg03.com/shop/shop-31.html"
+                                                href="<?php echo SHOP_SITE_URL; ?>/shop-31.html"
                                                 target="_blank"
                                                 title="山西七一煤矿"/>
 
@@ -1113,40 +1113,40 @@
                                  class="swiper-container companybanner ">
                                 <ul style="padding-top: 20px;" class="swiper-wrapper">
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-1-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-1-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">振兴煤业</span></a></li>
 
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-7-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-7-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">新呈煤业</span></a></li>
 
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-6-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-6-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">新建煤业</span></a></li>
 
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-4-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-4-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">雄山煤炭</span></a></li>
 
 
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-3-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-3-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">西山煤业</span></a></li>
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-2-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-2-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">永丰煤业</span></a></li>
 
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-4-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-4-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">雄山煤炭</span></a></li>
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-11-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-11-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">晋瑞选煤厂</span></a></li>
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-3-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-3-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">西山煤业</span></a></li>
                                     <li class="swiper-slide companyitem"><a
-                                            href="/shop/brand-7-0-0-0-0-0-0.html" target="_blank"><span
+                                            href="<?php echo SHOP_SITE_URL; ?>/brand-7-0-0-0-0-0-0.html" target="_blank"><span
                                                 style="color:#ca0000; font-size:24px; ">新呈煤业</span></a></li>
                                 </ul>
                             </div>

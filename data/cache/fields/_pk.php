@@ -86,6 +86,7 @@
   'groupbuy_quota' => 'quota_id',
   'help' => 'help_id',
   'help_type' => 'type_id',
+  'ihuyi_sms' => 'id',
   'inform' => 'inform_id',
   'inform_subject' => 'inform_subject_id',
   'inform_subject_type' => 'inform_type_id',
