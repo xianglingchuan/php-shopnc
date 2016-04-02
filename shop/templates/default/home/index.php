@@ -4,9 +4,9 @@
 <!--[if IE 6]>
 <script type="text/javascript" src="<?php echo RESOURCE_SITE_URL; ?>/js/ie6.js" charset="utf-8"></script>
 <![endif]-->
-<link type="text/css" rel="Stylesheet" media="screen" href="/css/slideshow.css"/>
-<link rel="stylesheet" type="text/css" href="/index12345_files/home.css"/>
-<link rel="stylesheet" type="text/css" href="/index12345_files/tehuihuodong.css"/>
+<link type="text/css" rel="Stylesheet" media="screen" href="<?php echo SHOP_SITE_URL; ?>/resource/css/slideshow.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo SHOP_SITE_URL; ?>/resource/index12345_files/home.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo SHOP_SITE_URL; ?>/resource/index12345_files/tehuihuodong.css"/>
 
 <link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_SITE_URL; ?>/resource/css/swiper.min.css"/>
 <link type="text/css" rel="Stylesheet" media="screen" href="<?php echo SHOP_SITE_URL; ?>/resource/css/base.css"/>
@@ -28,7 +28,6 @@
 
 <!-- 客服
 <link href="http://www.zg03.com/css/index.css" rel="stylesheet" type="text/css" />
-
 <script src="http://www.zg03.com/js/kefu.js"></script>
 -->
 
@@ -181,7 +180,7 @@
                         <input placeholder="请输入您要搜索的煤炭关键字" name="keyword" id="keyword" type="text" class="input-text"
                                value="<?php echo $_GET['keyword']; ?>" maxlength="60" x-webkit-speech lang="zh-CN"
                                onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search"/>
-                        <img src="/shop/templates/default/images/sousuoicon.png"
+                        <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/sousuoicon.png"
                              style="margin-top: 5px; margin-left: 10px;width: 25px;">
                         <input type="submit" id="button" value="<?php echo $lang['nc_common_search']; ?>"
                                class="input-submit">
@@ -203,8 +202,8 @@
                 </div>
                 <div style="float:left; margin-top:20px; margin-left: 70px; vertical-align: middle; ">
 
-                    <img src="/shop/templates/default/images/dianhuaicon.png" style="float: left;">
-                    <img src="/shop/templates/default/images/haoma.png"
+                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/dianhuaicon.png" style="float: left;">
+                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/haoma.png"
                          style="float: left; margin-left: 15px; margin-top: 5px;">
                 </div>
             </div>
@@ -219,7 +218,7 @@
 
                             <div class="category category1">
                                 <div class="name">
-                                    <a href="http://www.zg03.com/shop/cate-2-0-0-0-0-0-0-0-0.html"><span>炼焦煤</span></a>
+                                    <a href="<?php echo SHOP_SITE_URL; ?>/cate-2-0-0-0-0-0-0-0-0.html"><span>炼焦煤</span></a>
                                 </div>
                                 <div class="line">
                                     <span
@@ -230,7 +229,7 @@
 
                             <!--固定广告位-->
                             <div class="fixed_adv1">
-                                <img src="/shop/templates/default/images/home/lianjiaomei/lianjiaomei.jpg"/>
+                                <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/lianjiaomei/lianjiaomei.jpg"/>
 
                             </div>
 
@@ -243,7 +242,7 @@
                                 <ul class="swiper-wrapper" style="width: 630px;">
                                     <li class="swiper-slide ">
                                         <img usemap="#lianjiaomap1"
-                                             src="/shop/templates/default/images/home/lianjiaomei/kwljm.jpg"/>
+                                             src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/lianjiaomei/kwljm.jpg"/>
                                         <map name="lianjiaomap1" id="lianjiaomap1">
 
                                             <area
@@ -257,7 +256,7 @@
                                         </a>
                                     </li>
                                     <li class="swiper-slide "><img usemap="#lianjiaomap2"
-                                                                   src="/shop/templates/default/images/home/lianjiaomei/qxnyjt.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/lianjiaomei/qxnyjt.jpg"/>
                                         <map name="lianjiaomap2" id="lianjiaomap2">
 
                                             <area
@@ -369,7 +368,7 @@
 
                             <!--固定广告位-->
                             <div class="fixed_adv1">
-                                <img src="/shop/templates/default/images/home/donglimei/donglimei.jpg"/>
+                                <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/donglimei/donglimei.jpg"/>
 
                             </div>
 
@@ -383,7 +382,7 @@
                                     <li class="swiper-slide ">
 
                                         <img usemap="#donglimei1"
-                                             src="/shop/templates/default/images/home/donglimei/htpmy.jpg"/>
+                                             src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/donglimei/htpmy.jpg"/>
                                         <map name="donglimei1" id="donglimei1">
 
                                             <area
@@ -396,7 +395,7 @@
                                         </map>
                                     </li>
                                     <li class="swiper-slide "><img usemap="#donglimei2"
-                                                                   src="/shop/templates/default/images/home/donglimei/smdlm.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/donglimei/smdlm.jpg"/>
                                         <map name="donglimei2" id="donglimei2">
 
                                             <area
@@ -507,7 +506,7 @@
 
                             <!--固定广告位-->
                             <div class="fixed_adv1">
-                                <img src="/shop/templates/default/images/home/wuyanmei/wuyanmei.jpg"/>
+                                <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/wuyanmei/wuyanmei.jpg"/>
                             </div>
 
                         </div>
@@ -519,7 +518,7 @@
                                 <ul class="swiper-wrapper" style="width: 630px">
                                     <li class="swiper-slide">
                                         <img usemap="#wuyanmei1"
-                                             src="/shop/templates/default/images/home/wuyanmei/lcwym.jpg"/>
+                                             src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/wuyanmei/lcwym.jpg"/>
                                         <map name="wuyanmei1" id="wuyanmei1">
 
                                             <area
@@ -630,7 +629,7 @@
 
                             <!--固定广告位-->
                             <div class="fixed_adv1">
-                                <img src="/shop/templates/default/images/home/jiaotan/jiaotan.jpg"/>
+                                <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/jiaotan/jiaotan.jpg"/>
                                 <!--  <span
                                       style="font-size:20px; color:#000; display: inline-block;margin-top: 10px;">山西优质动力煤</span>
                                   <a href="http://www.zg03.com/shop/shop-17.html"><span
@@ -644,7 +643,7 @@
                                  >
                                 <ul class="swiper-wrapper" style="width: 630px">
                                     <li class="swiper-slide "><img usemap="#jiaotan1"
-                                                                   src="/shop/templates/default/images/home/jiaotan/lbjt.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/jiaotan/lbjt.jpg"/>
                                         <map name="jiaotan1" id="jiaotan1">
 
                                             <area
@@ -657,7 +656,7 @@
                                         </map>
                                     </li>
                                     <li class="swiper-slide "><img usemap="#jiaotan2"
-                                                                   src="/shop/templates/default/images/home/jiaotan/my.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/jiaotan/my.jpg"/>
                                         <map name="jiaotan2" id="jiaotan2">
 
                                             <area
@@ -771,7 +770,7 @@
                             <!--固定广告位-->
                             <div class="fixed_adv1">
 
-                                <img src="/shop/templates/default/images/home/penchuimei/penchuimei.jpg"/>
+                                <img src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/penchuimei/penchuimei.jpg"/>
                             </div>
 
                         </div>
@@ -781,7 +780,7 @@
                                  >
                                 <ul class="swiper-wrapper" style="width: 630px">
                                     <li class="swiper-slide "><img usemap="#penchuimei1"
-                                                                   src="/shop/templates/default/images/home/penchuimei/lbjt.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/penchuimei/lbjt.jpg"/>
                                         <map name="penchuimei1" id="penchuimei1">
 
                                             <area
@@ -794,7 +793,7 @@
                                         </map>
                                     </li>
                                     <li class="swiper-slide "><img usemap="#penchuimei2"
-                                                                   src="/shop/templates/default/images/home/penchuimei/qypcm.jpg"/>
+                                                                   src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/images/home/penchuimei/qypcm.jpg"/>
                                         <map name="penchuimei2" id="penchuimei2">
 
                                             <area
@@ -1159,13 +1158,13 @@
             </div>
             <!--尾部-->
 
-            <script type="text/javascript" src="/js/jquery.autocomplete-min.js"></script>
-            <script type="text/javascript" src="/js/jquery.cookie.js"></script>
-            <script type="text/javascript" src="/js/cp_cutdown.js"></script>
-            <script type="text/javascript" src="/js/global.js"></script>
-            <script type="text/javascript" src="/js/jquery.alerts.js"></script>
-            <script type="text/javascript" src="/js/jquery.utility.js"></script>
-            <script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.autocomplete-min.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.cookie.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/cp_cutdown.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/global.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.alerts.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.utility.js"></script>
+            <script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.lazyload.js"></script>
             <!--<script type="text/javascript">
                 $("#licustomer").first().after("<li><div><span><a target=\"_blank\" href=\"http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzkzODAyMjk3OF84ODE1OV80MDAwMjA4ODc3XzJf\" class=\"onlineservice\"><b></b>在线客服</a></span></div></li>");
                 $(function () {
