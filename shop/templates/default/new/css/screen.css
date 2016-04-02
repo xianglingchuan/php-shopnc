@@ -1,0 +1,36 @@
+body{ background-color: #FFFFFF}
+.form-wrapper{width: 300px;margin: 0 auto;}
+.x_search{margin-top: 20px;}
+.input-wrapper{float: left;}
+.button-wrapper{float: right;background: #ec3500;color: #fff;padding:0 10px;}
+.form-hook{overflow: hidden;zoom:1;border:2px #ec3500 solid;}
+.input-hook{width: 213px;border: none;outline: none;}
+.button-hook{background-color: transparent;border: none;}
+.table tbody{border:1px #ddd solid;}
+.table>tbody>tr>td{border-right: 1px #ddd solid;}
+.color_col_top{margin-top: 20px;}
+.td_right b{display: block;margin-left: 20px;font-weight: normal;color: #025e78;float: left;cursor: pointer;line-height: 24px;}
+.td_right b a{color: #025e78;}
+
+.td_right b.x_orange{color: #ff6e27;}
+.td_right span{float: left;}
+.td_left{width: 100px;text-align: right;}
+.td_right_div{float: left;border-bottom: 1px #e4e4e4 dashed;margin-left: -8px;padding: 4px 0;padding-left: 28px;width: 100%;margin-right: -8px;}
+.td_right_div span{color: #999;}
+.col_content_list{padding: 10px 0;}
+.col_content_list h2{margin-top: 20px;border-bottom: 1px #000 solid;padding-bottom: 9px;text-align: center;font-size: 20px;}
+.content_list_all p{text-align: center;font-size: 13px;}
+.x_btn{margin: 0 auto; margin-bottom: 20px;border-radius: 5px;color: #fff;width: 100px;background: #d22c2c;    padding: 6px 12px;text-align: center;margin-top: 10px;cursor: pointer;}
+.content_list_all{padding: 0 20px;margin-left: 5px;border: 1px #342a27 solid;margin-right: 5px;}
+.col_list{border-bottom: 1px #e4e4e4 dashed;padding: 6px 0;}
+.col_list span{color: #999;}
+.col_list b{color: #025e78;}
+
+
+.x_page{position: relative;width: 100%;height: 26px;margin: 40px auto;text-align: center;line-height: 1.7em;text-decoration: none;margin-top: 20px;}
+.x_page a, .x_page span {font-size: 14px;font-weight: bold;background-color: #FFF;border: 1px solid #ccc;padding: 3px 9px;line-height: 24px;margin: 0 3px;text-decoration: none;width: 24px;color: #848484;}
+.x_page span {background: #dd1500;border: 1px solid #dd1500;color: #fff;}
+.x_page a.prev-page, .x_page a.next-page {background-color: #FFF;width: 50px;}
+.x_page a:hover{background: #dd1500;color: #fff;border: 1px solid #dd1500;}
+.x_page input{width: 40px;margin-right: 3px;}
+.p_btn{border:1px #dfdfdf solid;border-radius: 0;margin-left: 3px;}

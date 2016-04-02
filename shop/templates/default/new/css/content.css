@@ -1,0 +1,34 @@
+
+.x_content{background-color: #f6f6f6;}
+.color_col h1{color:#004458;font-weight: normal;font-size: 17px;}
+.crumbs_nav{padding: 5px 0;}
+.color_col{border:1px #e4e4e4 solid;background-color: #fff;}
+.x_supply{background-color: #ecf9ff;overflow: hidden;zoom:1;margin-left: -15px;margin-right: -15px;padding: 20px 15px;margin-top: 10px;}
+.x_supply01{width: 250px;border-right: 1px #c8eeff solid;}
+.x_supply02{width: 280px;border-right: 1px #c8eeff solid;padding-left: 20px;}
+.x_supply03{width: 230px;padding-left: 20px;}
+.color_orange{color: #ff6e27;}
+.color_orange b{font-weight: bolder;font-size: 24px;}
+.pay_way{padding-top: 10px;overflow: hidden;zoom:1;}
+.pay_way_line{margin-bottom: 6px;}
+.pay_way_line span{color: #999999;}
+.product_index h2{border-left: 5px #ca0000 solid;font-size: 20px;padding-left: 7px;}
+.product_index_top{border-top: 1px #e4e4e4 solid;margin-left: 0px;margin-right: 0px;margin-top: 19px;padding-top: 10px;}
+.color_col_r{background-color: #f6f6f6;}
+.color_col_r .table>tbody>tr>td,.color_col_r .table>tbody>tr>th,.color_col_r .table>tfoot>tr>td,.color_col_r .table>tfoot>tr>th,.color_col_r .table>thead>tr>td,.color_col_r .table>thead>tr>th{padding: 0;padding: 5px 0;border-top:none;}
+.td_left{text-align: right;width:30%;}
+.x_btn{padding: 4px 10px;text-align: center;border-radius: 4px;color: #fff;background-color: #ca0000;}
+.color_col_bottom{border:1px #e4e4e4 solid;padding: 10px;margin-top: 10px;background-color: #fff;}
+.color_col_top{/*border:1px #e4e4e4 solid;*/background-color: #fff;}
+.col_bottom.row{margin: 0;}
+.color_col_bottom >span{display: block;text-align: center;}
+.color_col_bottom >h4{text-align: center;margin-bottom: 40px;font-weight: bold;font-size: 16px;}
+.col_bottom{padding: 10px 0;border-top: 1px #c9c9c9 dotted;}
+.col_bottom>h3{font-size: 16px;font-weight: bold;margin: 10px 0;}
+.col_bottom .col-xs-6,.col_bottom .col-sm-6,.col_bottom .col-md-6,.col_bottom .col-lg-6{padding: 0;}
+.col_bottom .col-xs-6 span,.col_bottom .col-sm-6 span,.col_bottom .col-md-6 span,.col_bottom .col-lg-6 span{display: block;color: #c9c9c9;}
+.col_bottom .col-xs-6 span i,.col_bottom .col-sm-6 span i,.col_bottom .col-md-6 span i,.col_bottom .col-lg-6 span i{color: #e20300;}
+.col_bottom_img img{width: 90%;vertical-align: middle;}
+.label_color i{color: #ec3500;}
+.btn:hover{color: #fff;}
+.table-responsive {min-height: .01%;overflow-x: auto;padding-top: 5px;padding-left: 5px;}

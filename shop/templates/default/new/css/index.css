@@ -1,0 +1,99 @@
+ul{list-style: none;}
+body{font-family: "微软雅黑";}
+.header{background-color:#242735;}
+.top_left ul,.top_right ul{overflow: hidden;zoom:1;margin-bottom: 0;}
+.top_left li{float: left;width: 50px;text-align: center;}
+.top_left li:first-child{text-align: left;}
+.top_left li a{color: #fff;line-height: 30px;}
+.top_right li a{color: #fff;line-height: 30px;}
+.x_index_nav li{float: left;line-height: 56px;margin-left: 30px;}
+.container {min-width: 1170px;}
+.x_index_nav li a{color: #000;}
+.x_index_nav li a:hover{color: #000;}
+.x_index_nav li.nav_active a{color: #c90000}
+.x_index_nav li:last-child{margin-left: 50px;}
+.x_index_nav ul{overflow: hidden;zoom:1;}
+.carousel {position: relative;min-height: 500px;}
+.nav{padding: 6px 0;}
+.x_index_logo span{line-height: 56px;padding-left: 20px;margin-left: 10px; border-left: 1px #808080 solid;}
+.x_carousel{position: relative;}
+.login-modern{position: absolute;top:50px;background: url(../img/index/slide02.png) no-repeat;background-position: top right;right: 23%;background-color: rgba(0,0,0,0.5);padding: 10px 40px;}
+.glyphicon{color: #fff;}
+.ui-user{background-color: #aaabab;padding: 5px 7px;    margin-left: 18px;}
+.ui-form-other{text-align: right;}
+.ui-form-other a{color: #fff;}
+.ui-form-other01 a{color: #fff;}
+.ui-button {display: block;text-align: center;text-decoration: none;vertical-align: middle;cursor: pointer;width: 219px;padding: 0 20px;font-size: 18px;line-height: 36px;height: 40px;color: #fff;font-weight: 400;font-weight: bold\0;_font-weight: bold;border: 0;outline: 0;background: #790000;-webkit-appearance: none;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+.ui-form-item{overflow: hidden;zoom:1;margin-bottom:8px;}
+.textlink,.register{font-size: 12px;}
+.ui-form-other01{text-align: left;margin-top: 4px;}
+.ui-form-other01 .textlink-ml20{margin-left: 5px;}
+.ui-form-other01 a.register{color: #df0000;}
+.register{float: right;margin-top: 3px;}
+.ui-form h2{color: #fff;text-align: center;}
+.ui-user,.ui-input-normal{float: left;}
+.ui-input-normal{height: 30px;}
+.col_img_all{width: 100px;height: 100px;border:1px #dedede solid;border-radius: 50%;margin: 0 auto;cursor: pointer;display: block;}
+.col_img01{background: url(../img/index/e.png) no-repeat center center;}
+.col_img02{background: url(../img/index/b.png) no-repeat center center;}
+.col_img03{background: url(../img/index/a.png) no-repeat center center;}
+.col_img04{background: url(../img/index/$.png) no-repeat center center;}
+.col_all_top span{display: block;text-align: center;margin-top: 10px;}
+.col_all_top{padding: 10px 0;}
+.x_list{margin-top: 50px;}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{min-height: 500px;}
+
+
+
+
+
+.nc-login-form { display: block;}
+.nc-login-form dl { background-color: #FFF; width: 300px; height: 48px; margin-top: -1px; border: solid 1px #E6E6E6; position: relative; z-index: 1;}
+.nc-login-form dl.focus { border-color: #7ABD54; z-index: 3;}
+.nc-login-form dl.error { border-color: #F32613 !important; z-index: 2;}
+.nc-login-form dl dt { font-size: 14px; line-height: 20px; color: #000000; width: 76px; padding: 16px 0 16px 20px; float: left;}
+.nc-login-form dl dd { height: 28px; float: left; padding: 8px 0;}
+.nc-login-form dl dd .text { font-family: "microsoft yahei"; font-size: 14px;
+       line-height: 35px; 
+       width: 210px; 
+       height: 35px; padding: 0; border: none 0;}
+
+
+
+
+.nc-login-form dl .note { color: #CCC; line-height: 16px; width: 145px; height: 32px; position: absolute; z-index: 1; top: 10px; left: 245px;}
+.nc-login-form dl.focus .note { color: #7ABD54;}
+
+.nc-login-form .code-div { width: 100%; height: 54px;}
+.nc-login-form .code-div dl { width: 180px; float: left;}
+.nc-login-form .code-div span { width: 120px; height: 46px; /*float: left;*/ margin: -1px 0 0 -1px; border: solid 1px #E6E6E6; position: relative; z-index: 1;}
+.nc-login-form .code-div span img { width: 120px; height: 46px;}
+.nc-login-form .code-div span a { font-size: 14px; text-decoration: none; line-height: 52px; color: #FFF; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7F000000', endColorstr='#7F000000');background:rgba(0,0,0,0.5); text-align: center; display: none; width: 120px; height: 52px; position: absolute; z-index: 1; top: 0; left: 0;}
+.nc-login-form .code-div span:hover a { display: block;}
+.nc-login-form .clause-div { font-size: 14px; color: #666; line-height: 30px; width: 400px; height: 30px; margin-top: 15px; border: none 0;}
+.nc-login-form .clause-div dd { padding: 0; height: auto;}
+.nc-login-form .clause-div .checkbox { vertical-align: middle; margin-right: 8px;}
+.nc-login-form .tiptext { line-height: 20px; color: #999; margin: 15px 0;}
+.nc-login-form .tiptext a { line-height: 22px; color: #FFF; background-color: #21b384; vertical-align: middle; display: inline-block; height: 22px; padding: 0 8px; margin: 0 4px; border-radius: 2px;}
+.nc-login-form .tiptext a:hover { text-decoration: none; background-color: #1FA67A;}
+.nc-login-form .tiptext a i { font-size: 14px; margin-right: 4px;}
+.nc-login-form .submit-div { margin-top: 15px;}
+.nc-login-form .submit-div .submit { font-family: "microsoft yahei"; font-size: 16px; font-weight: 600; color: #FFF; background-color: #F32613; width: 300px; height: 42px; border: solid 1px #D91E17; border-radius: 3px; cursor: pointer;}
+
+.nc-login-form label.error { color: #000; line-height: 24px; background: #FFF5D9 no-repeat 0 0; text-align: left; white-space: nowrap; height: 24px; padding: 8px 12px 8px 24px; position: absolute; z-index: 2; top: 5px; left: 300px; }
+.nc-login-form label.error i { font-size: 24px; margin-right: 12px; color: #FF875A; vertical-align: middle;}
+.nc-login-form .clause-div label.error { top: -5px; right: 50px;}
+.nc-login-form .code-div label.error { background: transparent none; min-width: auto; padding: 0; top: 15px; right: 0; left: auto;}
+
+
+.nc-login-form .handle-div { line-height: 20px; margin-top: 15px; overflow: hidden;}
+.nc-login-form .handle-div .auto { color: #ffffff; float: left;}
+.nc-login-form .handle-div .auto .checkbox { vertical-align: middle; display: inline-block; margin-right: 4px; margin-top: -3px;}
+.nc-login-form .handle-div .auto em { line-height: 20px; color: #ff3238; vertical-align: top; display: inline-block; margin-left: 6px;}
+.nc-login-form .handle-div .forget { float: right;}
+
+
+.ui-form-title{ color: #FFFFFF; text-align: center;}
+.nc-login-form dl dd .w100{ width: 100px;}
+
+
