@@ -1,0 +1,93 @@
+/* 
+---------------------------------
+Site: “短长协煤炭集采预售解决方案”
+Author: guanlibing
+Updated: 20141019 11:00
+Updated by: guanlibing
+--------------------------------- 
+*/ 
+/* ------------------------------------全局定义---------------------------------------- */
+
+/* 将具有默认margin和padding的标记置零，所有标记的margin、padding都在使用时具体定义 */
+*{ margin:0;padding:0;}
+
+/* 修正ie5.x和ie6的斜体溢出bug */
+* html body{ overflow:visible;}
+* html iframe, * html frame{ overflow:auto;}
+* html frameset{ overflow:hidden;}
+
+/* 常用标签，基本标签默认样式取消，html标签，取消基本标签默认样式，防止不同浏览器显示效果不同，text-align:center; 解决不同浏览器居中问题 */
+body{ color:#333;  background:#e9ecf1; font:12px/22px Verdana,arial,sans-serif,"times new roman",宋体; text-align:center; }
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,tr{ margin:0; padding:0;}
+input,select{ font-size:12px; vertical-align:middle;}
+.gys_bd{ background:url(../gys_img/page_bg.jpg);}
+/* 设置内容左对齐，恢复因bodY设置剧中产生的继承 */
+body div{ text-align:left; font-size:12px;}
+
+/* 标签属性，textarea,input 强制输入时内容超出时换行 */
+textarea,input{ word-wrap:break-word; word-break:break-all; padding:0px;}
+
+/* 清除ul列表标记的样式，ul列表更多的用在不需要列表前置符号的样式里 */
+li{ list-style-type:none;}
+
+/* 定义图片边框，当图片作为链接内容被填充时，会有默认边框出现，重定义掉 */
+img{ border:0 none;}
+
+/* 定义默认的链接样式，仅仅是作为默认样式提供，可以在各自的实例中覆盖掉 */
+a:hover{ cursor:pointer;}
+.hcolor:hover{color:#f06135;}
+.bn{border:none;}/*去边线*/
+/* 定义h系列标签，覆盖h系列标签默认属性 */
+h1{ font-size:0px; width:0; height:0; overflow:hidden;}
+h2{ font-size:20px;}
+h3{ font-size:18px;}
+h4{ font-size:16px;}
+h5{ font-size:14px;}
+h6{ font-size:12px;}
+
+/* ------------------------------------通用属性定义---------------------------------------- */
+
+
+/* 鼠标样式 */
+.pointer{ cursor:pointer;}
+
+/* 取消边框 */
+.nb{ border:0 none;}
+
+/* 文本对齐方式 */
+.t_l{ text-align:left;}
+.t_c{ text-align:center;}
+.t_r{ text-align:right;}
+
+/* 字母和单词换行设置，强制内容换行，强制内容不换行 */
+.break{ word-break:break-all; word-wrap:break-word;}
+.nobreak{ word-break:keep-all; word-wrap:normal;}
+
+/*字体颜色*/
+.font_red{ color:#d00;}
+.font_blue{ color:#0175b6;}
+.font_gray{ color:#999;}
+
+/*缩进字符*/
+.font_3em{ text-indent:3em;}
+
+/* 浮动定义 */
+.fl{ float:left;}
+.fr{ float:right;}
+.fm{ margin:0 auto;}
+
+/* 清理浮动元素,当浮动换行时后面元素不希望浮动，添加此属性，防止ie bug */
+.clear{ clear:both; height:0px; width:100%; font-size:1px; line-height:0px; visibility:hidden; overflow:hidden;}
+
+/*块级元素*/
+.block{ display:block; overflow:hidden;}
+.dn{display:none;}
+td{font-size:12px;}
+/*省略号*/
+.slh_ys{ display:block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+/*main start*/
+.main_box{display:block; overflow:hidden; background:#fff; width:1024px;}
+.main_box_gys{display:block; overflow:hidden; width:1024px;}
+.main_gd{display:block; overflow:hidden; width:1024px;}
+.main_st{display:block; overflow:hidden; width:1024px; }
+/*main end*/

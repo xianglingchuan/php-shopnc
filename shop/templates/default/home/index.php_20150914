@@ -1,0 +1,1544 @@
+<?php defined('InShopNC') or exit('Access Invalid!'); ?>
+<link href="<?php echo SHOP_TEMPLATES_URL; ?>/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo SHOP_RESOURCE_SITE_URL; ?>/js/home_index.js" charset="utf-8"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/ie6.js" charset="utf-8"></script>
+<![endif]-->
+<link type="text/css" rel="Stylesheet" media="screen" href="/css/slideshow.css"/>
+<link rel="stylesheet" type="text/css" href="/index12345_files/home.css"/>
+<link rel="stylesheet" type="text/css" href="/index12345_files/tehuihuodong.css"/>
+
+<link type="text/css" rel="stylesheet" media="screen" href="/css/swiper.min.css"/>
+<link type="text/css" rel="Stylesheet" media="screen" href="/css/base.css"/>
+<link type="text/css" rel="Stylesheet" media="screen" href="/css/homepage.css"/>
+<link type="text/css" rel="Stylesheet" media="screen" href="/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
+<!-- 导航菜单-->
+<style type="text/css">
+    .category {
+        display: block !important;
+    }
+</style>
+<!-- 导航菜单-->
+<script type="text/javascript" src="/js/jquery-1.4.1.min.js?1011"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript" src="/js/jquery.kxbdmarquee.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+
+<!-- 客服-->
+<link href="http://www.zg03.com/css/index.css" rel="stylesheet" type="text/css" />
+
+<script src="http://www.zg03.com/js/kefu.js"></script>
+<!-- 客服结束-->
+
+<style type="text/css">
+    <!--
+    .STYLE1 {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .STYLE2 {
+        font-size: 16px;
+        font-weight: bold;
+        color: red;
+    }
+
+    -->
+</style>
+
+
+<body>
+<!-- 客服代码-->
+<div class="keifu">
+  <div class="keifu_tab">
+    <div class="icon_keifu"></div>
+    <div class="keifu_box">
+      <div class="keifu_head"><a href="javascript:void(0)" class="keifu_close"></a></div>
+      <ul class="keifu_con">
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=523657767&site=qq&menu=yes"><img src="http://www.zg03.com/images/qq.png"/></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=502481339&site=qq&menu=yes"/><img src="http://www.zg03.com/images/qq.png"/></a></a></li>
+     
+        <li class="weixin"><img src="http://www.zg03.com/images/wxt.jpg" width="96" alt="官方微信平台" /></li>
+      </ul>
+      <div class="keifu_bot"></div>
+    </div>
+  </div>
+</div>
+<!-- 客服代码-->
+
+<div id="container">
+    <!-- S -->
+    <div class="w" style="position: relative;">
+        <div class="swiper-container adv_banner">
+            <div class="swiper-wrapper w adv_banner_2">
+                <div class="swiper-slide">
+                    <img
+                       src="/shop/templates/default/images/banner.jpg" />
+
+                </div>
+                <div class="swiper-slide">
+                    <img
+                         src="/shop/templates/default/images/banner1.jpg" />
+
+
+                </div>
+                <div class="swiper-slide">
+                    <img
+                         src="/shop/templates/default/images/banner2.jpg"  />
+
+                </div>
+
+            </div>
+            <!--  <div class="noway swiper-pagination swiper-pagination-white"></div>-->
+        </div>
+
+        <div class="adv_banner_front main">
+            <div class="swiper-container-horizontal">
+                <div class="noway swiper-pagination swiper-pagination-white"></div>
+            </div>
+
+            <div class="front_items ">
+                <ul>
+                   <!--交易数据开始 <li>
+                        <div class="w" style="padding-top: 10px;">
+                            <span style="font-size:20px; color: #7f7f7f;  ">交易数据</span>
+
+                        </div>
+
+                        <div class="w" style="padding: 10px; height: 20px; ">
+                            <span style="font-size: 16px; font-weight: bold; float: left;  color:#606060;">交易总额：</span>
+                            <span style="font-size: 16px; font-weight: bold; float: left; color: #ca0000;">520356</span>
+                            <span
+                                style="font-size: 16px; font-weight: bold; float: left;  color:#606060;margin-left: 8px;">万元</span>
+                        </div>
+                        <div class="w" style="height:20px; padding:0 10px 10px 10px;">
+                            <span style="font-size: 16px; font-weight: bold; float: left;  color:#606060;">交易笔数：</span>
+                            <span style="font-size: 16px; font-weight: bold; float: left; color: #ca0000;">20356</span>
+                            <span
+                                style="font-size: 16px; font-weight: bold; float: left;  color:#606060;margin-left: 8px;">笔</span>
+                        </div>
+
+                    </li> -->
+                    <li>
+                        <div class="w item">
+                            <img src="/shop/templates/default/images/meiqiruzhu.png"
+                                />
+
+                            <div>
+                                <a href="/shop/index.php?act=show_joinin&amp;op=index"
+                                   title="煤炭企业申请入驻；已提交申请，可查看当前审核状态。" target="_blank"
+                                  >煤企入驻</a>
+                                <span
+                                    >COAL ENTERPRISE SETTLED</span>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="w item">
+                            <img src="/shop/templates/default/images/dianzihetou.png"
+                                />
+
+                            <div>
+                                <a href="http://60.220.226.210:8090/APWebPF/"
+                                   title="电子合同系统" target="_blank">电子合同</a>
+                                <span
+                                    >ELECTRONIC CONTRACT</span>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="w item">
+                            <img src="/shop/templates/default/images/meitanwuliu.png"
+                                />
+
+                            <div >
+                                <a href="/delivery"
+                                   title="煤炭运输车辆查询系统" target="_blank"
+                                   >煤炭物流</a>
+                                <span>COAL ENTERPRISE SETTLED</span>
+                            </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <!--顶部-->
+        <!-- 搜索 -->
+        <div class="w"
+             style=" height: 70px; background: url(/shop/templates/default/images/sousuobac.png) no-repeat; margin-top: 10px; margin-bottom:10px;">
+            <div style="float:left; width:25%; height: 100%;"></div>
+            <div id="search" class="head-search-bar" style="display: block; margin-top: 15px;">
+                <!--煤炭和企业-->
+                <ul class="tab hide">
+                    <li title="请输入您要搜索的煤炭关键字" act="search" class="current">煤炭</li>
+                    <li title="请输入您要搜索的企业关键字" act="store_list">企业</li>
+                </ul>
+                <form class="search-form" method="get" action="<?php echo SHOP_SITE_URL; ?>">
+                    <input type="hidden" value="search" id="search_act" name="act">
+                    <input placeholder="请输入您要搜索的煤炭关键字" name="keyword" id="keyword" type="text" class="input-text"
+                           value="<?php echo $_GET['keyword']; ?>" maxlength="60" x-webkit-speech lang="zh-CN"
+                           onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search"/>
+                    <img src="/shop/templates/default/images/sousuoicon.png"
+                         style="margin-top: 5px; margin-left: 10px;width: 25px;">
+                    <input type="submit" id="button" value="<?php echo $lang['nc_common_search']; ?>"
+                           class="input-submit">
+                </form>
+                <!--搜索关键字-->
+                <div class="keyword hide"><?php echo $lang['hot_search'] . $lang['nc_colon']; ?>
+                    <ul>
+                        <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])) {
+                            foreach ($output['hot_search'] as $val) { ?>
+                                <li>
+                                    <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>"><?php echo $val; ?></a>
+                                </li>
+                            <?php }
+                        } ?>
+                    </ul>
+                </div>
+            </div>
+            <div style="float:left; margin-top:20px; margin-left: 70px; vertical-align: middle; ">
+
+                <img src="/shop/templates/default/images/dianhuaicon.png" style="float: left;">
+                <img src="/shop/templates/default/images/haoma.png"
+                     style="float: left; margin-left: 15px; margin-top: 5px;">
+            </div>
+        </div>
+
+
+        <!--第一行部分-->
+        <div id="th_main" style="margin-top: 0px;">
+            <div class="floatleft" style="width: 920px;">
+                <div class="item1">
+
+                    <div class="itemleft">
+
+                        <div class="category category1">
+                            <div class="name">
+                                <a href="http://www.zg03.com/shop/cate-2-0-0-0-0-0-0-0-0.html"><span>炼焦煤</span></a>
+                            </div>
+                            <div class="line">
+                                    <span
+                                        ></span>
+                            </div>
+
+                        </div>
+
+                        <!--固定广告位-->
+                        <div class="fixed_adv1">
+                            <img src="/shop/templates/default/images/home/lianjiaomei/lianjiaomei.jpg"/>
+
+                        </div>
+
+                    </div>
+                    <div class="ap_s floatleft" style="width: 630px;">
+
+                        <!--中部代码 -->
+                        <div class="autobanner1 autobanner swiper-container swiper-container-horizontal"
+                            >
+                            <ul class="swiper-wrapper" style="width: 630px;">
+                                <li class="swiper-slide ">
+                                    <img usemap="#lianjiaomap1"
+                                         src="/shop/templates/default/images/home/lianjiaomei/kwljm.jpg"/>
+                                    <map name="lianjiaomap1" id="lianjiaomap1">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-49.html"
+                                            target="_blank"
+                                            title="康伟集团"/>
+
+                                    </map>
+                                    </a>
+                                </li>
+                                <li class="swiper-slide "><img usemap="#lianjiaomap2"
+                                                               src="/shop/templates/default/images/home/lianjiaomei/qxnyjt.jpg"/>
+                                    <map name="lianjiaomap2" id="lianjiaomap2">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-52.html"
+                                            target="_blank"
+                                            title="山西沁新能源集团股份有限公司"/>
+
+                                    </map>
+                                </li>
+                            </ul>
+
+                            <div class="swiper-button-prev swiper-button-prev1"></div>
+                            <div class="swiper-button-next swiper-button-next1"></div>
+                        </div>
+                        <div class="datarow">
+                            <div class="tab_tit">
+                                <ul style="border-color: #2ca0ee">
+                                    <li><span
+                                            style="font-size: 18px; color: #5d5d5d;font-weight: 600;">炼焦煤</span>
+                                                        <span
+                                                            style="font-size: 18px; color: #2ca0ee;font-weight: 400; margin-left: 8px;">本周价格概况</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_cont">
+                                <div class="contents">
+                                    <table
+                                        width="100%" border="0" cellpadding="0" cellspacing="0"
+                                        style="color:#7c7c7c;font-size:14px;">
+                                        <tbody>
+                                        <tr data-cid="100086"
+                                            >
+                                            <td width="50"><span class="name">炼焦煤</span></td>
+                                            <td width="50"><span class="price">￥400.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span></td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span></td>
+                                            <td width="180"><span class="fareliang">发热量: 6000至6500大卡</span>
+                                            </td>
+
+                                        </tr>
+                                        <tr data-cid="100063"
+                                            >
+                                            <td width="50"><span class="name">炼焦煤</span></td>
+                                            <td width="50"><span class="price">￥200.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span></td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span></td>
+                                            <td width="180"><span class="fareliang">发热量: 6000至6500大卡</span>
+                                            </td>
+
+                                        </tr>
+                                        <tr data-cid="100052"
+                                            >
+                                            <td width="50"><span class="name">炼焦煤</span></td>
+                                            <td width="50"><span class="price">￥900.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span></td>
+                                            <td width="120"><span class="shuifen">水分: 不限</span></td>
+                                            <td width="180"><span class="fareliang">发热量: 不限</span>
+                                            </td>
+
+                                        </tr>
+                                        <tr data-cid="100016"
+                                            >
+                                            <td width="50"><span class="name">炼焦煤</span></td>
+                                            <td width="50"><span class="price">￥220.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 5500至6000大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100015"
+                                            >
+                                            <td width="50"><span class="name">炼焦煤</span></td>
+                                            <td width="50"><span class="price">￥190.00</span></td>
+                                            <td width="70"><span class="region">新疆煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 5000至6500大卡</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="item2">
+
+                    <div class="itemleft">
+
+                        <div class="category category2">
+                            <div class="name">
+                                <a href="http://www.zg03.com/shop/cate-3-0-0-0-0-0-0-0-0.html"><span>动力煤</span></a>
+
+
+                            </div>
+                            <div class="line">
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <!--固定广告位-->
+                        <div class="fixed_adv1">
+                            <img src="/shop/templates/default/images/home/donglimei/donglimei.jpg"/>
+
+                        </div>
+
+                    </div>
+                    <div class="ap_s floatleft" style="width: 630px;">
+
+                        <!--中部代码 -->
+                        <div class="autobanner2 autobanner swiper-container swiper-container-horizontal"
+                            >
+                            <ul class="swiper-wrapper" style="width: 630px">
+                                <li class="swiper-slide ">
+
+                                    <img usemap="#donglimei1"
+                                         src="/shop/templates/default/images/home/donglimei/htpmy.jpg"/>
+                                    <map name="donglimei1" id="donglimei1">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-51.html"
+                                            target="_blank"
+                                            title="山西黄土坡鑫运煤业有限公司"/>
+
+                                    </map>
+                                </li>
+                                <li class="swiper-slide "><img usemap="#donglimei2"
+                                                               src="/shop/templates/default/images/home/donglimei/smdlm.jpg"/>
+                                    <map name="donglimei2" id="donglimei2">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-62.html"
+                                            target="_blank"
+                                            title="山煤国际能源经坊煤业有限公司"/>
+
+                                    </map>
+                                </li>
+
+                            </ul>
+
+                            <div class="swiper-button-prev swiper-button-prev2"></div>
+                            <div class="swiper-button-next swiper-button-next2"></div>
+                        </div>
+                        <div class="datarow">
+                            <div class="tab_tit">
+                                <ul style="border-color: #fe6d6d">
+                                    <li><span
+                                            style="font-size: 18px; color: #5d5d5d;font-weight: 600;">动力煤</span>
+                                                        <span
+                                                            style="font-size: 18px; color: #2ca0ee;font-weight: 400; margin-left: 8px;">本周价格概况</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_cont">
+                                <div class="contents">
+                                    <table
+                                        width="100%" border="0" cellpadding="0" cellspacing="0"
+                                        style="color:#7c7c7c;font-size:14px;">
+                                        <tbody>
+                                        <tr data-cid="100130"
+                                            >
+                                            <td width="50"><span class="name">动力煤</span></td>
+                                            <td width="50"><span class="price">¥410.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100129"
+                                            >
+                                            <td width="50"><span class="name">动力煤</span></td>
+                                            <td width="50"><span class="price">¥315.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100128"
+                                            >
+                                            <td width="50"><span class="name">动力煤</span></td>
+                                            <td width="50"><span class="price">¥260.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100121"
+                                            >
+                                            <td width="50"><span class="name">动力煤</span></td>
+                                            <td width="50"><span class="price">¥120.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 5500至6000大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100120"
+                                            >
+                                            <td width="50"><span class="name">动力煤</span></td>
+                                            <td width="50"><span class="price">¥330.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="item3">
+
+                    <div class="itemleft">
+
+                        <div class="category category3">
+                            <div class="name">
+
+                                <a href="http://www.zg03.com/shop/cate-4-0-0-0-0-0-0-0-0.html"><span>无烟煤</span></a>
+                            </div>
+                            <div class="line">
+                                    <span
+                                        ></span>
+                            </div>
+
+                        </div>
+
+                        <!--固定广告位-->
+                        <div class="fixed_adv1">
+                            <img src="/shop/templates/default/images/home/wuyanmei/wuyanmei.jpg"/>
+                        </div>
+
+                    </div>
+                    <div class="ap_s floatleft" style="width: 630px;">
+
+                        <!--中部代码 -->
+                        <div class="autobanner3 autobanner swiper-container swiper-container-horizontal"
+                            >
+                            <ul class="swiper-wrapper" style="width: 630px">
+                                <li class="swiper-slide">
+                                    <img usemap="#wuyanmei1"
+                                         src="/shop/templates/default/images/home/wuyanmei/lcwym.jpg"/>
+                                    <map name="wuyanmei1" id="wuyanmei1">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-87.html"
+                                            target="_blank"
+                                            title="龙辰工贸有限公司"/>
+
+                                    </map>
+                                </li>
+
+                            </ul>
+
+                            <div class="swiper-button-prev swiper-button-prev3"></div>
+                            <div class="swiper-button-next swiper-button-next3"></div>
+                        </div>
+                        <div class="datarow">
+                            <div class="tab_tit">
+                                <ul style="border-color:#2CD91D">
+                                    <li><span
+                                            style="font-size: 18px; color: #5d5d5d;font-weight: 600;">无烟煤</span>
+                                                        <span
+                                                            style="font-size: 18px; color: #2ca0ee;font-weight: 400; margin-left: 8px;">本周价格概况</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_cont">
+                                <div class="contents">
+                                    <table
+                                        width="100%" border="0" cellpadding="0" cellspacing="0"
+                                        style="color:#7c7c7c;font-size:14px;">
+                                        <tbody>
+                                        <tr data-cid="100133"
+                                            >
+                                            <td width="50"><span class="name">无烟煤</span></td>
+                                            <td width="50"><span class="price">¥400.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100131"
+                                            >
+                                            <td width="50"><span class="name">无烟煤</span></td>
+                                            <td width="50"><span class="price">¥400.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100112"
+                                            >
+                                            <td width="50"><span class="name">无烟煤</span></td>
+                                            <td width="50"><span class="price">¥380.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100101"
+                                            >
+                                            <td width="50"><span class="name">无烟煤</span></td>
+                                            <td width="50"><span class="price">¥295.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 不限</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100075"
+                                            >
+                                            <td width="50"><span class="name">无烟煤</span></td>
+                                            <td width="50"><span class="price">¥200.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item4">
+
+                    <div class="itemleft">
+
+                        <div class="category category4"
+
+                            >
+                            <div class="name">
+                                <a href="http://www.zg03.com/shop/cate-5-0-0-0-0-0-0-0-0.html"><span>喷吹煤</span></a>
+                            </div>
+                            <div class="line">
+                                    <span
+                                        ></span>
+                            </div>
+
+                        </div>
+
+                        <!--固定广告位-->
+                        <div class="fixed_adv1">
+
+                            <img src="/shop/templates/default/images/home/penchuimei/penchuimei.jpg"/>
+                        </div>
+
+                    </div>
+                    <div class="ap_s floatleft" style="width: 630px;">
+
+                        <div class="autobanner4 autobanner swiper-container swiper-container-horizontal"
+                            >
+                            <ul class="swiper-wrapper" style="width: 630px">
+                                <li class="swiper-slide "><img usemap="#penchuimei1"
+                                                               src="/shop/templates/default/images/home/penchuimei/hyxmc.jpg"/>
+                                    <map name="penchuimei1" id="penchuimei1">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-55.html"
+                                            target="_blank"
+                                            title="山西潞安郭庄煤业有限公司"/>
+
+                                    </map>
+                                </li>
+                                <li class="swiper-slide "><img usemap="#penchuimei2"
+                                                               src="/shop/templates/default/images/home/penchuimei/qypcm.jpg"/>
+                                    <map name="penchuimei2" id="penchuimei2">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-31.html"
+                                            target="_blank"
+                                            title="山西七一煤矿"/>
+
+                                    </map>
+                                </li>
+
+                            </ul>
+
+                            <div class="swiper-button-prev swiper-button-prev4"></div>
+                            <div class="swiper-button-next swiper-button-next4"></div>
+                        </div>
+                        <div class="datarow">
+                            <div class="tab_tit">
+                                <ul style="border-color:#5C2EB3;">
+                                    <li><span
+                                            style="font-size: 18px; color: #5d5d5d;font-weight: 600;">喷吹煤</span>
+                                                        <span
+                                                            style="font-size: 18px; color: #2ca0ee;font-weight: 400; margin-left: 8px;">本周价格概况</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_cont">
+                                <div class="contents">
+
+                                    <table
+                                        width="100%" border="0" cellpadding="0" cellspacing="0"
+                                        style="color:#7c7c7c;font-size:14px;">
+                                        <tbody>
+                                        <tr data-cid="100135"
+                                            >
+                                            <td width="50"><span class="name">喷吹煤</span></td>
+                                            <td width="50"><span class="price">¥410.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100134"
+                                            >
+                                            <td width="50"><span class="name">喷吹煤</span></td>
+                                            <td width="50"><span class="price">¥480.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100114"
+                                            >
+                                            <td width="50"><span class="name">喷吹煤</span></td>
+                                            <td width="50"><span class="price">¥430.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100111"
+                                            >
+                                            <td width="50"><span class="name">喷吹煤</span></td>
+                                            <td width="50"><span class="price">¥220.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100110"
+                                            >
+                                            <td width="50"><span class="name">喷吹煤</span></td>
+                                            <td width="50"><span class="price">¥400.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">原煤</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 6000至6500大卡</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="item5">
+
+                    <div class="itemleft">
+
+                        <div class="category category5"
+
+                            >
+                            <div class="name">
+                                <a href="http://www.zg03.com/shop/cate-6-0-0-0-0-0-0-0-0.html"><span>焦炭</span></a>
+                            </div>
+                            <div class="line">
+                                    <span
+                                        ></span>
+                            </div>
+                        </div>
+
+                        <!--固定广告位-->
+                        <div class="fixed_adv1">
+                            <img src="/shop/templates/default/images/home/jiaotan/jiaotan.jpg"/>
+                            <!--  <span
+                                  style="font-size:20px; color:#000; display: inline-block;margin-top: 10px;">山西优质动力煤</span>
+                              <a href="http://www.zg03.com/shop/shop-17.html"><span
+                                      style="font-size:40px; color:#ca0000; display: inline-block;margin-top: 20px;">红山煤业</span></a>-->
+                        </div>
+
+                    </div>
+                    <div class="ap_s floatleft" style="width: 630px;">
+
+                        <div class="autobanner5 autobanner swiper-container swiper-container-horizontal"
+                            >
+                            <ul class="swiper-wrapper" style="width: 630px">
+                                <li class="swiper-slide "><img usemap="#jiaotan1"
+                                                               src="/shop/templates/default/images/home/jiaotan/lbjt.jpg"/>
+                                    <map name="jiaotan1" id="jiaotan1">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-93.html"
+                                            target="_blank"
+                                            title="潞宝集团"/>
+
+                                    </map>
+                                </li>
+                                <li class="swiper-slide "><img usemap="#jiaotan2"
+                                                               src="/shop/templates/default/images/home/jiaotan/my.jpg"/>
+                                    <map name="jiaotan2" id="jiaotan2">
+
+                                        <area
+                                            shape="rect"
+                                            coords="0,0,630,236"
+                                            href="http://www.zg03.com/shop/shop-40.html"
+                                            target="_blank"
+                                            title="明源集团"/>
+
+                                    </map>
+                                </li>
+
+                            </ul>
+
+                            <div class="swiper-button-prev swiper-button-prev5"></div>
+                            <div class="swiper-button-next swiper-button-next5"></div>
+                        </div>
+                        <div class="datarow">
+                            <div class="tab_tit">
+                                <ul style="border-color: #E93300;">
+                                    <li><span
+                                            style="font-size: 18px; color: #5d5d5d;font-weight: 600;">焦炭</span>
+                                                        <span
+                                                            style="font-size: 18px; color: #2ca0ee;font-weight: 400; margin-left: 8px;">本周价格概况</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab_cont">
+                                <div class="contents">
+
+                                    <table
+                                        width="100%" border="0" cellpadding="0" cellspacing="0"
+                                        style="color:#7c7c7c;font-size:14px;">
+                                        <tbody>
+                                        <tr data-cid="100127"
+                                            >
+                                            <td width="50"><span class="name">焦炭</span></td>
+                                            <td width="50"><span class="price">¥630.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">不限</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.5%以下</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100126"
+                                            >
+                                            <td width="50"><span class="name">焦炭</span></td>
+                                            <td width="50"><span class="price">¥780.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">不限</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 11%-20%</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100125"
+                                            >
+                                            <td width="50"><span class="name">焦炭</span></td>
+                                            <td width="50"><span class="price">¥600.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">不限</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100124"
+                                            >
+                                            <td width="50"><span class="name">焦炭</span></td>
+                                            <td width="50"><span class="price">¥620.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">不限</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 10%以下</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        <tr data-cid="100123"
+                                            >
+                                            <td width="50"><span class="name">焦炭</span></td>
+                                            <td width="50"><span class="price">¥690.00</span></td>
+                                            <td width="70"><span class="region">山西煤种</span></td>
+
+                                            <td width="30"><span class="category">不限</span></td>
+                                            <td width="120"><span class="liufen">硫份: 0.6%-1%</span>
+                                            </td>
+                                            <td width="120"><span class="shuifen">水分: 不限</span>
+                                            </td>
+                                            <td width="180"><span
+                                                    class="fareliang">发热量: 不限</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div id="sl_right" class="floatright" style="width: 280px;">
+                <div class="i_right">
+                    <div class="rightcontent" style="    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;">
+                        <h2 class="clearfix">
+                            <span class="name">用户</span>
+                            <span class="info">采购内容</span>
+                            <span class="state">交易状态</span>
+                            <span class="time">时间</span>
+                        </h2>
+
+                        <div id="dealRecordList" class="list">
+                            <ul>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">熊*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-23T14:51:33">14:51</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄*</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-23T14:45:33">14:45</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">赵**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-23T14:16:32">14:16</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">王*</span><span class="info">无烟煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-23T10:56:41">10:56</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">王*</span><span class="info">无烟煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-23T09:59:39">09:59</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:46:05">19:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:41:05">19:41</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:40:05">19:40</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:38:06">19:38</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:38:05">19:38</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:35:05">19:35</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:33:05">19:33</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:30:05">19:30</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:28:05">19:28</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:25:05">19:25</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:22:05">19:22</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:18:05">19:18</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:17:07">19:17</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">李*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:51:03">17:51</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">杨*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:46:03">17:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">闫**</span><span class="info">炼焦煤</span><span
+                                        class="state">付款完成</span><span class="time"
+                                                                       title="2015-08-22T17:24:02">17:24</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:03:02">17:03</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:58:02">16:58</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">威*</span><span class="info">炼焦煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-22T16:54:01">16:54</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:50:01">16:50</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黎**</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:46:01">16:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">单**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:25:01">16:25</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:22:01">16:22</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:21:01">16:21</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:20:01">16:20</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:19:01">16:19</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:18:00">16:18</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:17:01">16:17</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">孙**</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:16:01">16:16</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:16:01">16:16</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:15:01">16:15</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">孙**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:14:00">16:14</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">罗*</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:13:00">16:13</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">杨**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:11:00">16:11</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄</span><span class="info">焦炭</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:10:00">16:10</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">熊*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-23T14:51:33">14:51</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄*</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-23T14:45:33">14:45</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">赵**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-23T14:16:32">14:16</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">王*</span><span class="info">无烟煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-23T10:56:41">10:56</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">王*</span><span class="info">无烟煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-23T09:59:39">09:59</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:46:05">19:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:41:05">19:41</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:40:05">19:40</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:38:06">19:38</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">江**</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:38:05">19:38</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:35:05">19:35</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:33:05">19:33</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:30:05">19:30</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:28:05">19:28</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:25:05">19:25</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:22:05">19:22</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">动力煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:18:05">19:18</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span class="info">炼焦煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T19:17:07">19:17</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">李*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:51:03">17:51</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">杨*</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:46:03">17:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">闫**</span><span class="info">炼焦煤</span><span
+                                        class="state">付款完成</span><span class="time"
+                                                                       title="2015-08-22T17:24:02">17:24</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">林**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T17:03:02">17:03</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">小*</span><span
+                                        class="info">动力煤</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:58:02">16:58</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">威*</span><span class="info">炼焦煤</span><span
+                                        class="state">在线下单</span><span class="time"
+                                                                       title="2015-08-22T16:54:01">16:54</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:50:01">16:50</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黎**</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:46:01">16:46</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">单**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:25:01">16:25</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:22:01">16:22</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:21:01">16:21</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:20:01">16:20</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:19:01">16:19</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:18:00">16:18</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:17:01">16:17</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">孙**</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:16:01">16:16</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:16:01">16:16</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">叶**</span><span
+                                        class="info">焦炭</span><span class="state red">交易成功</span><span
+                                        class="time" title="2015-08-22T16:15:01">16:15</span></li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">孙**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:14:00">16:14</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">罗*</span><span class="info">喷吹煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:13:00">16:13</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">杨**</span><span class="info">无烟煤</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:11:00">16:11</span>
+                                </li>
+                                <li class="clearfix swiper-slide"><span
+                                        class="name">黄</span><span class="info">焦炭</span><span
+                                        class="state red">交易成功</span><span class="time"
+                                                                           title="2015-08-22T16:10:00">16:10</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div
+                            style=" width: 280px; height: 145px; background-color: #ca0000;text-align:center; vertical-align: middle; display: table-cell; line-height: 145px; ">
+                        <span style="color: #fff;  font-size: 30px;
+    float: left;
+    width: 100%; ">信誉煤炭企业</span>
+                        </div>
+
+                        <div style="display: block;  background: #c9c9c9; width: 280px; height: 600px;"
+                             class="swiper-container companybanner ">
+                            <ul style="padding-top: 20px;" class="swiper-wrapper">
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-1-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">振兴煤业</span></a></li>
+
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-7-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">新呈煤业</span></a></li>
+
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-6-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">新建煤业</span></a></li>
+
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-4-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">雄山煤炭</span></a></li>
+
+
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-3-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">西山煤业</span></a></li>
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-2-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">永丰煤业</span></a></li>
+
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-4-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">雄山煤炭</span></a></li>
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-11-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">晋瑞选煤厂</span></a></li>
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-3-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">西山煤业</span></a></li>
+                                <li class="swiper-slide companyitem"><a
+                                        href="/shop/brand-7-0-0-0-0-0-0.html" target="_blank"><span
+                                            style="color:#ca0000; font-size:24px; ">新呈煤业</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--尾部-->
+        　
+        <script type="text/javascript" src="/js/jquery.autocomplete-min.js"></script>
+        <script type="text/javascript" src="/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/cp_cutdown.js"></script>
+       <script type="text/javascript" src="/js/global.js"></script>
+        <script type="text/javascript" src="/js/jquery.alerts.js"></script>
+        <script type="text/javascript" src="/js/jquery.utility.js"></script>
+        <script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+        <!--<script type="text/javascript">
+            $("#licustomer").first().after("<li><div><span><a target=\"_blank\" href=\"http://wpa.b.qq.com/cgi/wpa.php?ln=1&amp;key=XzkzODAyMjk3OF84ODE1OV80MDAwMjA4ODc3XzJf\" class=\"onlineservice\"><b></b>在线客服</a></span></div></li>");
+            $(function () {
+                $.post("/Home/HomeIndexComments", {site: "上海", productid: "111014043"}, function (data) {
+                    $("#commlist").after(data);
+                });
+            });
+
+            //var topMenu = new TopMenu();
+            //HomepageView();
+            var staticView = new StaticView(true, true);
+            var showobj = new ShowBigImageAD();
+            var homepage = new HomepageView(819.5043953);
+            //MenuCartView();
+
+            cir_element($(".q_left"), $(".q_right"), $(".i_p_left ul"), $(".i_p_left ul li").length, $(".i_p_left ul li").width(), 500)
+
+            CategoryShow(false);
+            $(".i_category").show();
+            var home_float_ad_scroll = function () {
+                var left_fad = $(".left_float");
+                var right_fad = $(".right_float");
+                var winWidth = $(window).width();
+                if (winWidth < 1190) {
+                    $(".h_f_a_d").hide();
+                } else {
+                    $(".h_f_a_d").show();
+                    left_fad.css("left", (winWidth / 2 - 739) + "px");
+                    right_fad.css("right", (winWidth / 2 - 729) + "px");
+                }
+            }
+
+            $("#right_float_close_btn").data("hide", "no").click(function () {
+                $(this).data("hide", "yes");
+                $(this).parent().hide();
+            });
+
+            $("#right_float_close_btn2").data("hide", "no").click(function () {
+                $(this).data("hide", "yes");
+                $(this).parent().hide();
+            });
+
+            $(document).ready(function () {
+                $("img.lazy").unveil(150);
+
+                addGotoTopBar(home_float_ad_scroll);
+                //$(".middleregion .titles span[_index=1]").after($(".middleregion .titles span[_index=5]"));
+                $(".l_silder").unslider({
+                    fluid: true,
+                    dots: true,
+                    speed: 500,
+                    pause: true
+                });
+
+                var silders = $(".l_silder");
+                $(silders).each(function (index) {
+                    var licount = $(this).find("ul").find("li").length;
+                    if (licount < 2) {
+                        $(this).find(".dots").remove();
+                    }
+                })
+            });
+
+            PresentHintView("pro_item", "_trackproid");
+
+            ExtTrackManager.GoogleTrack.Common();
+            ExtTrackManager.MVQTrack.Common();
+            ExtTrackManager.BaiduTrack.Common();
+            ExtTrackManager.VRMTrack.Common();
+            ExtTrackManager.DSPTrack.Common();
+            ExtTrackManager.WSKJAdTrack.Common();
+            ExtTrackManager.ZZYTrack.Common();
+
+        </script>-->
+
+    </div>
+</div>

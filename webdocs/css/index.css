@@ -1,0 +1,638 @@
+/* 
+---------------------------------
+Site: “短长协煤炭集采预售解决方案”
+Author: guanlibing、kongxh
+Updated: 20141019 11:00
+Updated by: guanlibing、kongxh
+--------------------------------- 
+*/
+/*公告 start*/
+.gg_box {
+	display: block;
+	overflow: hidden;
+}
+
+.gg_nr {
+	display: block;
+	overflow: hidden;
+	width: 330px;
+	height: 280px;
+	padding: 3px 4px;
+}
+
+.gg_tit {
+	display: block;
+	overflow: hidden;
+	background: url(/webdocs/images/tim.png) 1.5% center no-repeat
+		#eff3f6;
+	padding-left: 35px;
+	height: 55px;
+	line-height: 55px;
+	color: #334c60;
+}
+
+.gg_tit1 {
+	display: block;
+	overflow: hidden;
+	padding-left: 35px;
+	height: 55px;
+	line-height: 55px;
+	color: #334c60;
+	font-size: 14px;
+}
+
+.gg_tit1 b {
+	width: 200px;
+	float: left;
+}
+
+.gg_tit1 a {
+	display: block;
+	overflow: hidden;
+	background: url(/webdocs/images/qus.png) center no-repeat;
+	float: right;
+	margin: 18px;
+	height: 23px;
+	width: 23px;
+}
+
+.gg_num {
+	display: block;
+	overflow: hidden;
+	font-weight: bold;
+	padding-left: 35px;
+	height: 90px;
+	line-height: 90px;
+}
+
+.gg_num_b {
+	font-size: 50px;
+	color: #fc2a34;
+	padding:0 20px 0 10px;
+}
+
+.danw_col {
+	font-family: Microsoft YaHei;
+	font-size: 24px;
+	color: #3f4658;
+}
+.danw_col  b{color:#334c60;}
+.gg_btn {
+	display: block;
+	overflow: hidden;
+	width: 286px;
+	_width: 300px;
+	margin: 10px auto;
+}
+
+.gg_btn a {
+	display: block;
+	overflow: hidden;
+	width: 127px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-family: Microsoft YaHei;
+	font-size: 14px;
+	font-weight: bold;
+	float: left;
+	margin: 0 8px;
+}
+
+.gg_btnbk1:hover {
+	background: #444851;
+}
+
+.gg_btnbk1 {
+	background: #0b6bd3;
+}
+
+.gg_btnbk2:hover {
+	background: #444851;
+}
+
+.gg_btnbk2 {
+	background: #1abeaa;
+}
+
+.gg_dcxsc {
+	display: block;
+	overflow: hidden;
+	width: 205px;
+	margin: 10px auto;
+}
+
+.gg_dcxsc span {
+	width: 150px;
+	color: #000;
+}
+
+.gg_dcxsc a {
+	color: #0b6bd3;
+	text-decoration: none;
+	margin: 0 5px;
+	font-weight:bold;
+}
+/*公告 end*/
+/*销售数量 start*/
+.xssl_box{display:block; overflow:hidden; margin-top:1px; cursor:auto; height:129px; background:url(/webdocs/images/xszl_box_bg.jpg); color:#fff; padding:17px 0; width:100%;}
+.xssl_box dl {
+	display: block;
+	overflow: hidden;
+	float: left;
+	font-weight: bold;
+	padding: 0 25px;
+	width:290px;
+}
+
+.xssl_lr {
+	border-right: 1px solid #bc0034;
+}
+
+.xssl_ll {
+	border-left: 1px solid #f13c6e;
+}
+
+.xssl_box dl dt {
+	font-size: 14px;
+	line-height: 35px;
+	font-weight: bold;
+}
+
+.xssl_box dl dd {
+	font-family: Microsoft YaHei;
+	font-size: 24px;
+	line-height: 90px;
+	padding-left: 30px;
+}
+
+.xssl_box dl dd b {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 48px;
+	margin: 0 10px;
+}
+/*销售数量 end*/
+/*战略供应商 start*/
+.zl_gys {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	background: url(/webdocs/images/b_k2.png) right repeat-y;
+	padding-bottom:8px;
+}
+
+.zl_tit {
+	display: block;
+	overflow: hidden;
+	height: 57px;
+	padding: 0 15px;
+}
+
+.zl_tit i {
+	display: block;
+	overflow: hidden;
+	width: 421px;
+	height: 30px;
+	border-bottom: 2px solid #425b71;
+	float: left;
+}
+
+.zl_tit b {
+	display: block;
+	overflow: hidden;
+	height: 63px;
+	width: 145px;
+	text-align: center;
+	line-height: 63px;
+	float: left;
+	color: #334c60;
+	font-family: Microsoft YaHei;
+	font-size: 18px;
+}
+
+.gys_box {
+	display: block;
+	overflow: hidden;
+	padding: 0 5px;
+	width: 1010px;
+	position: relative;
+}
+
+.gys_boxxs {
+	display: block;
+	overflow: hidden;
+	padding: 0 5px;
+	width: 1010px;
+	position: relative;
+}
+
+.gys_box a {
+	display: block;
+	overflow: hidden;
+	width: 28px;
+	height: 212px;
+	position: absolute;
+	top: 0px;
+	z-index: 2;
+}
+
+.gys_btn1 {
+	background: url(/webdocs/images/lb_jt1.png) center no-repeat;
+	left: 0px;
+}
+
+.gys_btn1:hover {
+	background: url(/webdocs/images/lb_jt2.png) center no-repeat;
+}
+
+.gys_btn2 {
+	background: url(/webdocs/images/lb_jt3.png) center no-repeat;
+	left: 0px;
+}
+
+.gys_btn11 {
+	background: url(/webdocs/images/lb_jt11.png) center no-repeat;
+	right: 0px;
+}
+
+.gys_btn11:hover {
+	background: url(/webdocs/images/lb_jt22.png) center no-repeat;
+}
+
+.gys_btn22 {
+	background: url(/webdocs/images/lb_jt33.png) center no-repeat;
+	right: 0px;
+}
+
+.gys_box ul {
+	display: block;
+	overflow: hidden;
+	width: 2000px;
+	position: relative;
+	left: -210px;
+}
+
+.gys_box ul li {
+	border-right: 1px solid #a5afb8;
+	padding: 0 10px;
+	width: 183px;
+	float: left;
+}
+
+.gys_box dl {
+	display: block;
+	overflow: hidden;
+	line-height: 35px;
+}
+
+.gys_dl dd {
+	display: block;
+	overflow: hidden;
+}
+
+.gys_dl dd span {
+	display: block;
+	overflow: hidden;
+	margin: 8px 0;
+	float: left;
+	background: #e5e8ea;
+	width: 48px;
+	height: 25px;
+	line-height: 25px;
+	margin-right: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 0 3px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.gys_dl dd b {
+	display: block;
+	overflow: hidden;
+	color: #f06135;
+	font-size: 18px;
+	text-align: center;
+}
+/*战略供应商 end*/
+/*上期已成交 start*/
+.cb {
+	clear: both;
+}
+
+.sq_st {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	background: url(/webdocs/images/b_k4.png) left no-repeat;
+	height: 850px;
+}
+
+.sq_lst {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	width: 975px;
+	float: left;
+	margin-right: 17px;
+}
+
+.sq_box {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	width: 975px;
+	float: left;
+	padding-left: 18px;
+}
+
+.title_st {
+	display: block;
+	overflow: hidden;
+	width: 945px;
+	height: 47px;
+	margin-top: 10px;
+	margin-bottom: 17px;
+	border-bottom: 1px solid #a5afb8;
+}
+
+.til {
+	color: #334c60;
+	height: 47px;
+	line-height: 47px;
+	font-family: Microsoft YaHei;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.gd {
+	width: 60px;
+	height: 24px;
+	line-height: 24px;
+	background-color: #425b71;
+	color: #fff;
+	margin-right: 5px;
+	margin-top: 12px;
+	text-align: center;
+	border-radius: 8px;
+}
+
+.gd a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.box_cnet {
+	width: 233px;
+	height: 361px;
+	margin-left: 1px;
+	border: 1px solid #e5e5e5;
+	border-radius: 3px;
+	box-shadow: 0px 3px 0px #cccccc;
+	margin-bottom: 20px;
+}
+
+.box_cnet .t1 {
+	width: 233px;
+	height: 62px;
+	line-height: 62px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom: 1px solid #e5e5e5;
+	text-align: center;
+}
+
+img {
+	border: 0
+}
+
+.p_box {
+	width: 233px;
+	margin-top: 16px;
+}
+
+.p_box p {
+	height: 36px;
+	line-height: 36px;
+}
+
+.p_box b {
+	width: 82px;
+	text-align: right;
+	font-size: 12px;
+	color: #425b71;
+	float: left;
+}
+
+.p_box a {
+	width: 151px;
+	float: right;
+	color: #798b9a;
+	text-decoration: none;
+}
+
+.p_box a:hover {
+	width: 151px;
+	float: right;
+	color: #425b71;
+	text-decoration: underline;
+}
+
+.jag_lin {
+	height: 46px;
+	line-height: 46px;
+}
+
+.jag_lin b {
+	width: 108px;
+	text-align: left;
+	font-family: Microsoft YaHei;
+	font-size: 22px;
+	color: #f06135;
+	padding-left: 13px;
+}
+
+.jag_lin span {
+ float:right;
+ padding-right:5px;
+}
+
+.sz {
+	color: #0099ff;
+	font-weight: bold;
+}
+
+.btn {
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	margin: auto auto;
+	background-color: #425b71;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-top: 12px;
+	cursor: pointer;
+}
+
+.btn_active,.btn:hover {
+	width: 105px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	margin: auto auto;
+	background-color: #1abeaa;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 3px;
+	margin-top: 12px;
+}
+/*上期已成交 end*/
+
+/*说出你的需求 start*/
+.sq_rst {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	width: 278px;
+	height: 850px;
+	background-color: #fafafa;
+	border: 1px solid #e5e5e5;
+}
+
+.scxq_tit {
+	display: block;
+	overflow: hidden;
+	background: url(/webdocs/images/bk2.jpg) no-repeat;
+	height: 54px;
+	width: 268px;
+	line-height: 60px;
+	padding: 5px;
+}
+
+.scxq_tit1 {
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 12px;
+	color: #405c74;
+}
+
+.scxq_tit2 {
+	font-size: 12px;
+	color: #425a74;
+	padding-left: 88px;
+}
+
+.scxq_tit2 b {
+	font-size: 14px;
+	color: #FF0000;
+}
+
+.scxq_boxlb {
+	display: block;
+	overflow: hidden;
+}
+
+.scxq_boxlb ul,.scxq_boxlb ul li {
+	display: block;
+	overflow: hidden;
+	width: 260px;
+	margin: auto auto;
+}
+
+.scxq_boxlb ul {
+	display: block;
+	overflow: hidden;
+}
+
+.scxq_boxlb ul li {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.scxq_boxlb dl {
+	display: block;
+	overflow: hidden;
+}
+
+.scxq_boxlb dd {
+	display: block;
+	overflow: hidden;
+	height: 31px;
+	line-height: 31px;
+	_height: 30px;
+	_line-height: 30px;
+	float: left;
+	width: 32%;
+	margin-left: 2px;
+	font-family: "Simsun";
+}
+
+.text_center {
+	text-align: center;
+}
+
+.text_right {
+	text-align: right;
+}
+
+.ysl_col1 {
+	color: #f06135;
+}
+
+.ysl_col2 {
+	color: #1abeaa;
+}
+/*说出你的需求 end*/
+/*图表 start*/
+.tb_box {
+	display: block;
+	overflow: hidden;
+	color: #798b9a;
+	background: url(/webdocs/images/b_k6.png) right repeat-y #e9ecf1;
+}
+
+.tb_box p {
+	text-align: center;
+	color: #16a0e8;
+	font-family: Microsoft YaHei;
+	font-size: 18px;
+	height: 78px;
+	line-height: 78px;
+	background: #f9fafa;
+}
+
+.tb_box1 {
+	display: block;
+	overflow: hidden;
+	width: 487px;
+	float: left;
+	border:1px solid #e5e5e5;
+}
+
+.tb_box2 {
+	display: block;
+	overflow: hidden;
+	width: 523px;
+	float: right;
+	border:1px solid #e5e5e5;
+	margin-right:3px;
+}
+.bj_bxbk1{height:3px; width:1024px; background: url(/webdocs/images/b_k1.png) top left no-repeat;}
+.bj_bxbk3{height:3px; width:1024px; background: url(/webdocs/images/b_k3.png) top left no-repeat;}
+.bj_bxbk5{height:3px; width:1024px; background: url(/webdocs/images/b_k5.png) top left no-repeat;}
+.bj_bxbk7{height:3px; width:1024px; background: url(/webdocs/images/b_k7.png) top left no-repeat;}
+.foo_bj{margin:10px  auto 30px  auto;}
+/*图表 end*/
+/** 上期已成交 鼠标在上面时候的css start **/
+.box_cnet:hover{
+	border:1px solid #1bbeab; box-shadow:0px 3px 0px #1bbeab;
+}
+/** 上期已成交 鼠标在上面时候的css end **/

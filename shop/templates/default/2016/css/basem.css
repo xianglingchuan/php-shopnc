@@ -1,0 +1,9 @@
+#faq1 { background-color: #FAFAFA; width: 100%; border-top: solid 1px #F5F5F5; border-bottom: solid 1px #F2F2F2; overflow: hidden;}
+#faq1 ul { font-size: 0; *word-spacing:-1px/*IE6¡¢7*/; white-space: nowrap; padding: 0 0 20px 0; margin-left: -1% }
+#faq1 li { font-size: 12px; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display: inline/*IE7*/; width: 30%; zoom:1;float:left;min-height:130px;}
+#faq1 dl { display: block; width: 90%; margin: 0 auto;}
+#faq1 dl dt { font: 16px/20px "microsoft yahei"; color: #666; padding: 10px 5px; margin: 5px 0; border-bottom: solid 1px #E6E6E6;}
+#faq1 dl dd { font: 12px/20px "microsoft yahei"; white-space: nowrap; text-overflow: ellipsis; display: block; clear: both; padding: 2px 5px; overflow: hidden; }
+#faq1 dl dd i { font-size: 0; line-height: 0; background: url(../images/top_bg.png) no-repeat -80px -10px; vertical-align: middle; display: inline-block; width: 3px; height: 3px; margin-right: 5px;}
+#faq1 dl dd a { color: #333;}
+.policys1 {float:right; width:230px;margin-top:5px;}

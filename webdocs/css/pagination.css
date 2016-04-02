@@ -1,0 +1,11 @@
+/*=====页码=====*/
+.dm_tpage{height:4px; border-bottom:3px solid #00a0e8; margin-top:2px;}
+.dm_mtpage{height:0px; border-bottom:1px solid #00a0e8;}
+.fy_dcx{ background:url(../../webdocs/images/fy_bk.gif) center no-repeat #fff; height:25px;  line-height:25px; padding:5px 0; width:99%; text-align:center;}
+.fy_dcxnr a{ text-decoration:none; color:#005d98;}
+.fy_dcxnr span{ padding:0 5px;}
+.fy_dcxnr i{ font-style:normal; padding:0 5px;}
+.fy_dcxnr select{width:41px; height:20px; line-height:20px; margin:0 5px;}
+.fy_dcxnr input{width:31px; height:20px; line-height:20px; margin:0 5px;}
+.button_blue{background:none; color:#005d98; cursor:pointer; border:0;}
+/*=====页码结束=====*/

@@ -1,0 +1,1244 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 宣传期 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>中国三号线煤炭网 — 煤炭平台</title>
+<meta name="keywords" content="中国三号线，三号线，煤炭交易平台，煤炭交易，三号线煤炭网" />
+<meta name="description" content="中国三号线为全国煤炭交易搭建平台,及时保障买家资金安全,卖家的及时信息,为买卖双方搭建桥梁。" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/webdocs/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/webdocs/js/jquery.cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="/webdocs/css/index.css" />
+<link rel="stylesheet" type="text/css" href="/webdocs/css/shop_fabu_part.css" />
+<link href="/webdocs/css/pagination.css" rel="stylesheet" charset="utf-8" type="text/css" />
+<script type="text/javascript" charset="utf-8" src="/webdocs/js/GD_WIN.js"></script>
+
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="/webdocs/css/holistic.css"/>
+<link rel="stylesheet" type="text/css" href="/webdocs/css/header_footer.css"/>
+
+<!--header start-->
+<div class="head_box">
+  <div class="head_topbk">
+    <div class="head_top1 fm" style=" ">
+      <p class="top_btn fl" id="notlogin"><a class="btn_lin1" href="/nacecweb/forelogin.do">登录</a><a class="btn_lin2" href="/nacecweb/jsp/users/custReg.jsp">注册</a></p>
+      <p class="fl" id="terrace"><a class="btn_lo_lin2" style="color: #fff;font-size:12px;" href="/excec/w-0/myTerrace.do">个人中心</a></p>
+      <p class="top_del fr box">
+        <a id="weixin" class="wxewm"><img src="/webdocs/images/pic1.png"/></a>
+        <a href="http://weibo.com/u/5597656955" target="_blank"><img src="/webdocs/images/pic2.png"/></a>
+        <a href="http://shang.qq.com/wpa/qunwpa?idkey=52c306337a79a5f8ef88f2c6615fb39e9682b65669f4b9cbe8f9b86cc9816ea9" target="_blank"><img src="/webdocs/images/pic3.png"/></a>
+      </p>
+    </div>
+  </div>
+  <div class="head_top2 fm">
+    <p class="head_logo fl"><a href="/index.shtml"><img src="/webdocs/images/logo.png"/></a><!-- <img src="/webdocs/images/line1.png"/> -->
+    
+    <!--<p class="head_searchbox fl head_bg_off" id="search_frame">
+    
+      <input type="text" placeholder="请输入关键字，如动力煤" id="keyWord" value="" maxlength="30"/>
+      <a href="javascript:void(0);" onClick="javascript:search_key();"></a> -->
+    </p>
+    
+  </div>
+</div>
+<!--header end--> 
+
+<!--悬浮框 start-->
+<div class="xuf_boxbk">
+<div class="xuf_box">
+<div class="xfk_box1">
+<p class="xfk_log4"><i></i></p>
+</div>
+<div class="xfk_box1"><a href="http://v.qq.com/boke/page/t/0/3/t0145xsom83.html" target="blank" class="xf_pic1"></a>
+<p class="xfk_log1"><span>三号线视频：</span><b onClick="javascript:window.open('http://v.qq.com/boke/page/t/0/3/t0145xsom83.html')" style="cursor:pointer;">立即观看</b><i></i></p>
+</div>
+<div class="xfk_box1"><a href="javascript:void(0);" class="xf_pic2"></a>
+<p class="xfk_log2"><span>服务热线：</span><br/><b class="colv">400-114-0369</b><i></i></p></div>
+<div class="xfk_box1"><a href="javascript:void(0);" class="xf_pic3"></a>
+<p class="xfk_top"><img src="/webdocs/images/er_num.png" /><i></i></p>
+</div>
+<div class="xfk_box1"><script type="text/javascript" src="http://qiao.baidu.com/v3/?module=default&controller=im&action=index&ucid=1822628&type=n&siteid=6702902"></script>
+<p class="xfk_log3"><span>在线客服：</span><b style="cursor:pointer;" onClick="doyoo.util.openChat('g=57');return false;">联系客服</b><i></i></p>
+</div>
+<div class="xfk_box1"><a href="#" class="xf_pic5"></a>
+</div>
+</div>
+</div>
+<!--悬浮框 end-->
+<script type="text/javascript">
+function search_key(){
+	window.location.href = "/nacecweb/dcx_new.do?method=dcxForResult&keyWord=" + encodeURI(encodeURI(jQuery("#keyWord").val()));
+}
+
+function close_demand(){
+	jQuery("#first_loading").hide();
+}
+
+jQuery(function(){
+	jQuery("#doyoo_panel").css("margin","auto");
+	jQuery("#keyWord").focusin(function(){
+		document.onkeydown=function(event){
+	        var e = event || window.event || arguments.callee.caller.arguments[0];
+	        if(e && e.keyCode==13){
+	        	search_key();
+	        }
+        }; 
+		jQuery("#search_frame").removeClass();
+		jQuery("#search_frame").addClass("head_searchbox fl head_bg_on");
+	});
+	jQuery("#keyWord").focusout(function(){
+		document.onkeydown=function(event){
+	        var e = event || window.event || arguments.callee.caller.arguments[0];
+	        if(e && e.keyCode==13){
+	        }
+        }; 
+		jQuery("#search_frame").removeClass();
+		jQuery("#search_frame").addClass("head_searchbox fl head_bg_off");
+	});
+	var x=5;
+	var y=5;
+	jQuery(".wxewm").mouseover(function(e){
+		var wx_content="<div class='big_box' style=\"z-index:999999999\">"+"<div class='wx_title'>"+"三号线官方微信"+"</div>"+"<div class='wx_ewm'>"+"<img src='/webdocs/images/new2014/code_ecoal.gif' width='128' height='128'>"+"</div>"+"<div class='wx_bottom'>"+"打开微信，然后选择'扫一扫'，就可以了！欢迎关注三号线煤炭网了！"+"</div></div>";
+		jQuery(".box").append(wx_content);
+		jQuery(".big_box").css({left:(e.pageX+x)+'px',top:(e.pageY+y)+'px'}).show("fast");
+	}).mouseout(function(){
+		jQuery(".big_box").remove();
+	}).mousemove(function(e){
+		jQuery(".big_box").css({left:(e.pageX+x)+'px',top:(e.pageY+y)+'px'});
+	});
+	 jQuery.ajax({
+ 		url:'/nacecweb/forelogin.do',
+ 		type:'post',
+ 		dataType:'text',
+ 		data:{method:'checkLogin'},
+ 		success:function(data){
+			if(data != ''){
+	           var name = decodeURI(data.split(",")[0],"UTF-8");
+	           var shortname = "";
+	           var len = 0;
+	           var j = 0;
+				for (var i = 0; i < name.length; i++) {
+				    var a = name.charAt(i);
+				    if (a.match(/[^\x00-\xff]/ig) != null){
+				       len += 2;
+				    }else{
+				       len += 1;
+				    }
+		            if(len > 12){
+		               j = i;
+		               break;
+		            }
+				}
+		        if(len > 12){
+		            shortname = name.substring(0,j) + "...";
+		        }else{
+		            shortname = name;
+		        }
+				_ozuid = name;
+		        jQuery("#notlogin").hide();
+		  		jQuery("#login").html("");
+		  		jQuery("#login").html("<span class=\"btn_lo_lin1\">你好，<a class=\"yh_id\" style=\"color: #FF0000;\" href=\"/excec/w-0/myTerrace.do\" title=\"" + name + "\">" + shortname + "</a><a href=\"javascript:void(0);\" class=\"esc_btn\" style=\"color:#cbcbcb;\" onclick=\"javascript:outTopLogin();\">退出</a></span>");
+		  		jQuery("#login").show();
+	 		}
+		}
+    });   
+});
+function outTopLogin(){
+    jQuery.ajax({
+    	url:'/nacecweb/admin/login.do',
+    	type:'post',
+    	data:{method:'newLogOut',typlx:'2',lxid:'2'},
+    	success:function(data){
+              window.location.href="/index.shtml";
+    	}
+    });
+}
+</script>
+<!--导航 start-->
+<!-- top_menu_active -->
+<div class="menu_box fm">
+  <ul>
+    <li id="dcx" onClick="window.location.href='/index.html'"><a href="/index.html"  class="menu_act1">首页</a></li>
+    <li id="tg" onClick="window.location.href='/nacecweb/tg.do'"><a href="http://www.zg03.com/shop/brand.html"  class="menu_act4">企业采购</a></li>
+    <li id="mfdcx" onClick="window.location.href='http://www.zg03.com/shop/cate-0-0-0-0-0-0-0-0-0.html'"><a href="http://www.zg03.com/shop/cate-0-0-0-0-0-0-0-0-0.html" class="menu_act6">个人采购</a></li>
+    <li id="rzfw" onClick="window.location.href='/jrwl/index.shtml'"><a href="/jrwl/index.shtml"  class="menu_act2">金融</a></li>
+    <li id="rzwl" onClick="window.location.href='http://www.zg03.com/delivery/index.php?act=login'"><a href="http://www.zg03.com/shop/cate-8-0-0-0-0-0-0-0-0.html"  class="menu_act3">物流</a></li>
+    <li id="xxfw" onClick="window.location.href=''"><a href="" class="menu_act5"></a></li>
+    <li id="xxfw"><a style="cursor:default;" href="javascript:void(0);" class="tel"><img src="/webdocs/images/adbtn.jpg"/></a></li>
+  </ul>
+</div>
+<!--导航 end--> 
+	<div class="main_box foo_bj">
+		<!--公告&销售数量 start-->
+<script type="text/javascript" src="/webdocs/js/httpInclude.js"></script>
+<script type="text/javascript" src="/webdocs/js/jquery.KinSlideshow-1.2.js"></script>
+<div class="gg_box">
+	<div class="fl" id="KinSlideshowa" style="visibility:hidden;">
+	</div>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=PT+Sans+Narrow" />
+
+<link rel="stylesheet" href="/webdocs/css/styles.css" />
+
+<link rel="stylesheet" href="/webdocs/css/demo1.css" />
+<style type="text/css">
+body,td,th {
+	font-family: "PT Sans Narrow", Aller;
+}
+</style>
+
+<!-- JavaScript includes -->
+<script src="/webdocs/js/jquery.min.js"></script>
+
+<script src="/webdocs/js/ipresenter.packed.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#ipresenter').iPresenter({
+			timerPadding: -1,
+			controlNav: true,
+			controlNavThumbs: true,
+			controlNavNextPrev: false
+		});
+	});
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<body>
+<!-- 代码 开始 -->
+	<div class="container">
+		<div id="ipresenter">
+			<div id="intro" class="step" data-x="0" data-y="0" data-thumbnail="/webdocs/images/thumbnails/1.jpg">
+				<img src="/webdocs/images/details.jpg" />
+							</div>
+
+			<div id="capture" class="step" data-x="1100" data-y="1200" data-scale="1.8" data-rotate="180" data-thumbnail="/webdocs/images/thumbnails/2.jpg">
+				<img src="/webdocs/images/ksp1.jpg" />
+</div>
+
+			<div id="view" class="step" data-x="-300" data-y="600" data-scale="0.2" data-rotate="270" data-thumbnail="/webdocs/images/thumbnails/3.jpg">
+				<img src="/webdocs/images/ksp2.jpg" />
+							</div>
+		</div>
+</div>
+
+<!-- 代码 结束 -->
+</body>
+</html>
+</div>
+
+
+<script type="text/javascript">
+jQuery(function(){
+	jQuery("#buy_before").click(function(){
+		var page = jQuery("#buy_page_id").val();
+		if(page == "1"){
+			alert("已经是第一页了！");
+		}else{
+			jQuery("#buy_" + page).hide();
+			jQuery("#buy_" + (parseInt(page)-1)).show();
+			jQuery("#buy_page_id").val((parseInt(page)-1));
+		}
+	});
+	jQuery("#buy_next").click(function(){
+		var page = jQuery("#buy_page_id").val();
+		if(page == "5"){
+			alert("已经是最后一页了！");
+		}else{
+			jQuery("#buy_" + page).hide();
+			jQuery("#buy_" + (parseInt(page)+1)).show();
+			jQuery("#buy_page_id").val((parseInt(page)+1));
+		}
+	});
+	jQuery("#buy_back").click(function(){
+		close_buy();
+	});
+});
+
+function close_buy(){
+	jQuery("#buy").hide();
+	jQuery("#buy_page_id").val("1");
+}
+</script>
+  </body>
+</html>
+<script type="text/javascript">
+jQuery(function(){
+	httpInclude('http://218.61.32.133/new2014/oct/dcxdmdt.htm','dcx_gg');
+	httpInclude('http://218.61.32.133/new2014/oct/dcxtplb.htm','KinSlideshowa');
+	check_login();
+});
+
+function buy_show(){
+	if(jQuery("#login_type").val() == "true"){
+		window.location.href="/nacecweb/dcx_new.do?method=dcxForMore";
+	}else{
+		jQuery("#buy").show();
+		jQuery("#buy_1").show();
+		jQuery("#buy_2").hide();
+		jQuery("#buy_3").hide();
+		jQuery("#buy_4").hide();
+		jQuery("#buy_5").hide();
+	}
+}
+
+function sell_show(){
+	if(jQuery("#login_type").val() == "true"){
+		window.location.href="/excec/s-0-d/dcxGoodsSale.do";
+	}else{
+		jQuery("#sell").show();
+		jQuery("#sell_1").show();
+		jQuery("#sell_2").hide();
+		jQuery("#sell_3").hide();
+	}
+}
+
+function check_login(){
+	 jQuery.ajax({
+ 		url:'/nacecweb/forelogin.do',
+ 		type:'post',
+ 		dataType:'text',
+ 		data:{method:'checkLogin'},
+ 		success:function(data){
+			if(data != ''){
+				jQuery("#login_type").val("true");
+	 		}else{
+				jQuery("#login_type").val("false");
+	 		}
+		}
+    });
+}
+</script>
+	<style type="text/css">
+a:link {
+	color: #FFF;
+}
+a:active {
+	color: #FFF;
+}
+a:visited {
+	color: #FFF;
+}
+a:hover {
+	color: #FFF;
+}
+body,td,th {
+	color: #FFF;
+}
+</style>
+<div class="xssl_box">
+			<dl class="xssl_lr" style="height:133px;">
+				<dt>&nbsp;</dt>
+				<dd>
+					<b style="font-size: 46px;"><a href="http://60.220.226.210:8090/APWebPF/" target="_blank">电子签章</a></b>
+				</dd>
+			</dl>
+			<dl class="xssl_lr xssl_ll">
+				<dt>&nbsp;</dt>
+				<dd>
+					<b><a href="http://www.zg03.com/delivery/index.php?act=login" target="_blank">物流查询</a></b></dd>
+			</dl>
+			<dl class="xssl_ll">
+				<dt>&nbsp;</dt>
+				<dd>
+					<b><!-- 28 -->
+					<a href="http://www.zg03.com/shop/index.php?act=show_joinin&op=index" target="_blank">企业入驻</a></b></dd>
+			</dl>
+</div>
+		<!--公告&销售数量 end-->
+		<div class="block bj_bxbk1">
+		</div>
+		
+		<div class="block bj_bxbk3">
+		</div>
+		<div class="sq_st">
+			<div class="sq_lst fl">
+<div class="sq_box">
+		<div class="title_st">
+			<div class="til fl">近期优秀煤炭企业</div>
+			<div class="gd fr">
+				<a href="http://www.zg03.com/shop/brand.html">更多</a>
+			</div>
+		</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="长治县晋瑞洗选煤场"><a href="http://www.zg03.com/shop/shop-20.html"><img onerror="this.onerror=null;this.src='/webdocs/images/1.jpg'"   src="http://www.zg03.com/shop/shop-20.html." alt="长治县晋瑞洗选煤场" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504220029")'>
+							<p>
+								<b>产品名称：</b><span title="大混">大混</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>5000 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								厂内
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥321</b>
+								
+								
+									<span><font class="sz"></font></span>
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504220029')">我想买</div>
+				</div>
+				
+			</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="北峙峪煤业"><a href="http://www.zg03.com/shop/shop-11.html"><img onerror="this.onerror=null;this.src='/webdocs/images/3.jpg'"   src="/webdocs/images/3.jpg" alt="北峙峪煤业" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504210068")'>
+							<p>
+								<b>产品名称：</b><span title="褐煤3650">褐煤3650</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>3650 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								厂内
+								
+								</span>
+							</p>
+							
+							
+							<div class="jag_lin">
+								<b>￥168</b>
+								
+								
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504210068')">我想买</div>
+				</div>
+				
+			</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="新建煤业"><a href="http://www.zg03.com/shop/shop-12.html"><img onerror="this.onerror=null;this.src='/webdocs/images/4.jpg'"   src="http://file.ecoalchina.com:1999//dcx/image/zlhz/_small." alt="新建煤业" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504210069")'>
+							<p>
+								<b>产品名称：</b><span title="长焰煤">长焰煤</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>5000 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								厂内
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥300</b>
+								
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504210069')">我想买</div>
+				</div>
+				
+			</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="屯留祥瑞焦化"><a href="http://www.zg03.com/shop/shop-13.html"><img onerror="this.onerror=null;this.src='/webdocs/images/8.jpg'"   src="/webdocs/images/8.jpg" alt="屯留祥瑞焦化" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504220025")'>
+							<p>
+								<b>产品名称：</b><span title="7000卡动力煤">7000卡动力煤</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>7000 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								永济
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥280</b>
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504220025')">我想买</div>
+				</div>
+				
+			</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="辽宁威远商贸"><a href="http://www.zg03.com/shop/shop-14.html"><img onerror="this.onerror=null;this.src='/webdocs/images/6.jpg'"   src="/webdocs/images/6.jpg" alt="辽宁威远商贸" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504220019")'>
+							<p>
+								<b>产品名称：</b><span title="洗褐煤 ">洗褐煤 </span>
+							</p>
+							<p>
+								<b>发热量：</b><span>4500 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								平庄
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥285</b>
+								
+																	
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504220019')">我想买</div>
+				</div>
+				
+			</div>
+		
+			<div class="box_cnet sqcj fl ">
+				<div class="t1" title="长治红兴煤业"><a href="http://www.zg03.com/shop/shop-16.html"><img onerror="this.onerror=null;this.src='/webdocs/images/9.jpg'"   src="/webdocs/images/9.jpg" alt="长治红兴煤业" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504210045")'>
+							<p>
+								<b>产品名称：</b><span title="烟煤3900">烟煤3900</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>3900 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								丹东
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥280</b>
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504210045')">我想买</div>
+				</div>
+				
+			</div>
+		<div class="box_cnet sqcj fl ">
+				<div class="t1" title="长治红山煤业"><a href="http://www.zg03.com/shop/shop-17.html"><img onerror="this.onerror=null;this.src='/webdocs/images/10.jpg'"   src="/webdocs/images/10.jpg" alt="长治红山煤业" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504210045")'>
+							<p>
+								<b>产品名称：</b><span title="烟煤3900">烟煤3900</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>3900 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								丹东
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥280</b>
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504210045')">我想买</div>
+				</div>
+				
+			</div>
+            <div class="box_cnet sqcj fl ">
+				<div class="t1" title="永丰煤业"><a href="http://www.zg03.com/shop/shop-18.html"><img onerror="this.onerror=null;this.src='/webdocs/images/11.jpg'"   src="/webdocs/images/11.jpg" alt="永丰煤业" width="233" height="62"></a></div>
+					<div class="p_box">
+						<div style="cursor: pointer;" onclick='to_buy("FS1504210045")'>
+							<p>
+								<b>产品名称：</b><span title="烟煤3900">烟煤3900</span>
+							</p>
+							<p>
+								<b>发热量：</b><span>3900 Kcal/kg</span>
+							</p>
+							<p>
+								<b>交付地：</b><span  >
+								
+								丹东
+								
+								</span>
+							</p>
+							
+							<div class="jag_lin">
+								<b>￥280</b>
+								
+								
+							</div>
+						</div>
+					<div class="cb btn" style="cursor: pointer;" onClick="wantBuy('FS1504210045')">我想买</div>
+				</div>
+				
+			</div>
+	</div>
+</div>
+			<br class="cb" />
+		</div>
+		<div class="block bj_bxbk5">
+		</div>
+<!--战略供应商 start-->
+		<div class="zl_gys"> 
+<script type="text/javascript">
+jQuery(function (){
+	if(jQuery("#zlLunBo").children().length >6){
+		jQuery("#l_arrow").show();
+		jQuery("#l_arrow").click(function (){
+			zlLunBo("right");
+		});
+		jQuery("#r_arrow").show();
+		jQuery("#r_arrow").click(function (){
+			zlLunBo("left");
+		});
+		var zlLength = 1000;
+		jQuery("#zlLunBo").children().each(function (){
+			zlLength += $(this).width();
+		});
+		jQuery("#zlLunBo").css("width",zlLength);
+	}
+	
+	$(".scx_list span[id=2015-05-07]").html("今天");
+});
+function zlLunBo(way){
+	var as = jQuery("#zlLunBo").children();
+	if(way == "right"){
+		var firstA = as.first();
+		jQuery("#zlLunBo:not(:animated)").animate({left:'-410px'},'slow',function(){
+			as.last().after(firstA.next());
+			jQuery("#zlLunBo").css({left:'-210px'});
+		});
+	}else{
+		if(!jQuery("#zlLunBo").is(":animated")){
+			as.first().html(as.last().html());
+			as.last().remove();
+			jQuery("#zlLunBo").animate({left:'-10px'},'slow',function(){
+				as.first().before(as.last());
+				jQuery("#zlLunBo").css({left:'-210px'});
+			});
+		}
+	}
+}
+function gysDetail(hydm){
+	window.open(baseUrl+"/dcx_new.do?method=gys_index&hydm_="+hydm);
+}
+</script>
+		<p class="zl_tit"><i></i><b id="gys_title">供应商</b><i></i></p>
+		    <div class="gys_box"> <a href="javascript:void(0);" class="gys_btn1" id="r_arrow" style="display:none;"></a> 
+		    					<a href="javascript:void(0);" class="gys_btn11" id="l_arrow" style="display:none;"></a>
+		      <div class="gys_boxxs">
+		        <ul id="zlLunBo">
+		          <li>
+		            <dl class="gys_dl">
+		              <dt><img src="" width="183" height="70" /></dt>
+		              <dt><span>供应产品：</span></dt>
+		              <dd><span>产品一产品一</span><span>产品二</span><span>产品三</span></dd>
+		             
+		            </dl>
+		          </li>
+		          
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="004048" onClick="gysDetail('004048')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/bf3d4fe0-ddd9-4874-abf4-571daab5bf26_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="蒙混5500" >蒙混5500</span>
+			              	
+			              		<span title="秦泰8" >秦泰8</span>
+			              	
+			              		<span title="秦泰2" >秦泰2</span>
+			              	
+			              	
+			              </dd>
+			              
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009614" onClick="gysDetail('009614')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/a92f98ae-98b8-4e69-8f1a-83d26f3acc75_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="平八" >平八</span>
+			              	
+			              		<span title="平九" >平九</span>
+			              	
+			              		<span title="平八" >平八</span>
+			              	
+			              	
+			              </dd>
+			              
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="002441" onClick="gysDetail('002441')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b4f2bcfb-9351-49cd-a75f-11ea3b514d30_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="珠电4500" >珠电4500</span>
+			              	
+			              		<span title="珠电4500" >珠电4500</span>
+			              	
+			              		<span title="珠电4号" >珠电4号</span>
+			              	
+			              	
+			              </dd>
+			            
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009272" onClick="gysDetail('009272')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/fc84c76b-906d-4640-a8a3-42bf91871c21_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="蒙混5000（粉）" >蒙混5000（粉）</span>
+			              	
+			              		<span title="蒙混5500（粉）" >蒙混5500（粉）</span>
+			              	
+			              		<span title="蒙混5000（粉）" >蒙混5000（粉）</span>
+			              	
+			              	
+			              </dd>
+			              
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="002603" onClick="gysDetail('002603')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b7c05486-93a2-479e-8a5e-501ffdcd7a3e_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="元露天矿块" >元露天矿块</span>
+			              	
+			              		<span title="元露天矿混煤" >元露天矿混煤</span>
+			              	
+			              		<span title="元露天矿混煤" >元露天矿混煤</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009017" onClick="gysDetail('009017')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/f5b99b84-acf8-4280-8653-6644730b8071_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="淮南煤" >淮南煤</span>
+			              	
+			              		<span title="淮南煤" >淮南煤</span>
+			              	
+			              		<span title="淮混3" >淮混3</span>
+			              	
+			              	
+			              </dd>
+			            
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="008814" onClick="gysDetail('008814')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/6cec38d5-6ae0-43fb-b64c-47fd72004580_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="中电1号" >中电1号</span>
+			              	
+			              		<span title="中电物流1号" >中电物流1号</span>
+			              	
+			              		<span title="中电1号" >中电1号</span>
+			              	
+			              	
+			              </dd>
+			            
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009502" onClick="gysDetail('009502')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b3e6986b-5156-4330-8791-603570353aae_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="洗末煤" >洗末煤</span>
+			              	
+			              		<span title="洗末煤" >洗末煤</span>
+			              	
+			              		<span title="洗末煤" >洗末煤</span>
+			              	
+			              	
+			              </dd>
+			            
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="004967" onClick="gysDetail('004967')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/5e1a9783-d335-43dd-95b0-d7b70f12ba47_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009874" onClick="gysDetail('009874')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b4ce2835-9007-4707-a23f-57872cd31b1a_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="005231" onClick="gysDetail('005231')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/9f180f23-2a70-4cee-88cb-58fb28c8f67a_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="动力煤5000" >动力煤5000</span>
+			              	
+			              		<span title="动力煤5500" >动力煤5500</span>
+			              	
+			              		<span title="动力煤5500" >动力煤5500</span>
+			              	
+			              	
+			              </dd>
+			         
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009226" onClick="gysDetail('009226')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/69b64b64-2f7f-4145-be15-63ac858249e0_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="洗褐煤" >洗褐煤</span>
+			              	
+			              		<span title="洗褐煤 " >洗褐煤 </span>
+			              	
+			              		<span title="洗褐煤 " >洗褐煤 </span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="003584" onClick="gysDetail('003584')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/8d9cf6a6-dbea-4f7c-af3c-c9e4abc386f1_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="瘦煤" >瘦煤</span>
+			              	
+			              		<span title="澳煤" >澳煤</span>
+			              	
+			              		<span title="澳煤" >澳煤</span>
+			              	
+			              	
+			              </dd>
+			
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009146" onClick="gysDetail('009146')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/d2bb2544-b571-405e-a9ad-2b4f28c5de46_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="5800卡动力煤" >5800卡动力煤</span>
+			              	
+			              		<span title="5500卡动力煤" >5500卡动力煤</span>
+			              	
+			              		<span title="5800卡动力煤" >5800卡动力煤</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009613" onClick="gysDetail('009613')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/5b737ebe-c0cc-4b72-bd3d-3e52aeef7d80_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="末煤2" >末煤2</span>
+			              	
+			              		<span title="末煤1" >末煤1</span>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              	
+			              </dd>
+			             
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="008937" onClick="gysDetail('008937')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/5072ae47-8208-40f8-9222-f5e4e63d7dd4_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="满世3号" >满世3号</span>
+			              	
+			              		<span title="满世混" >满世混</span>
+			              	
+			              		<span title="满世3号" >满世3号</span>
+			              	
+			              	
+			              </dd>
+			      
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009316" onClick="gysDetail('009316')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/2505d9d4-e984-4ad1-b923-a5bb986255ae_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="褐煤3500" >褐煤3500</span>
+			              	
+			              		<span title="褐煤3500" >褐煤3500</span>
+			              	
+			              		<span title="褐煤3500" >褐煤3500</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="008826" onClick="gysDetail('008826')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b2080db0-6b85-406b-bca1-07d73f7e484c_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="无烟煤" >无烟煤</span>
+			              	
+			              		<span title="无烟煤" >无烟煤</span>
+			              	
+			              		<span title="无烟煤" >无烟煤</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009769" onClick="gysDetail('009769')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/0ad08257-12b6-4684-9724-29063fc14fe0_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="008828" onClick="gysDetail('008828')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/e9d3e142-c4ee-4a9e-8e28-0d0917b04aa1_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="兴舟粒煤" >兴舟粒煤</span>
+			              	
+			              		<span title="兴舟洗粒" >兴舟洗粒</span>
+			              	
+			              		<span title="长焰动力煤4000" >长焰动力煤4000</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009841" onClick="gysDetail('009841')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/c2ad94c0-f3e0-4b1d-8d58-6e770c475383_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              		<span title="原煤" >原煤</span>
+			              	
+			              	
+			              </dd>
+			            
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="002591" onClick="gysDetail('002591')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/b0942fb4-b5d0-4571-8267-bdfc5fcd6d5b_small.png" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="洗煤1号" >洗煤1号</span>
+			              	
+			              		<span title="洗煤1号" >洗煤1号</span>
+			              	
+			              		<span title="洗煤1号" >洗煤1号</span>
+			              	
+			              	
+			              </dd>
+			        
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009276" onClick="gysDetail('009276')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/8e238020-2737-4cb2-9358-27bff24ddfa3_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              		<span title="褐煤3650" >褐煤3650</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009847" onClick="gysDetail('009847')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/aecc0e02-9109-481e-ad0f-3977c51fd857_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="褐煤" >褐煤</span>
+			              	
+			              		<span title="褐煤" >褐煤</span>
+			              	
+			              		<span title="褐煤" >褐煤</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="008827" onClick="gysDetail('008827')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/3470249c-f5a3-40a8-9b9c-e1d45ccb8c65_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="筛粒2700" >筛粒2700</span>
+			              	
+			              		<span title="金宝屯洗块" >金宝屯洗块</span>
+			              	
+			              		<span title="金宝屯洗粒" >金宝屯洗粒</span>
+			              	
+			              	
+			              </dd>
+			          
+			            </dl>
+			          </li>
+		          
+			          <li>
+			            <dl class="gys_dl">
+			              <dt lang="009616" onClick="gysDetail('009616')">
+			                <img style="cursor:pointer; " width="183" height="70" src="http://file.ecoalchina.com:1999//dcx/image/zlhz/3bd7dcbd-627f-4eb0-9859-485abc36d800_small.jpg" onerror="this.onerror=null;this.src='/webdocs/images/dcx_img/dcx_notj.jpg'"/></dt>
+			              <dt><span>供应产品：</span></dt>
+			              <dd>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              		<span title="动力煤" >动力煤</span>
+			              	
+			              	
+			              </dd>
+			           
+			            </dl>
+			          </li>
+		          
+		        </ul>
+		      </div>
+		    </div>
+		</div>	
+		<!--战略供应商 end-->
+<!--footer start-->
+<div class="foot_box1">
+  <div class="foot_box2">
+    <div class="foot_nr1 fm">
+      <ul>
+        <li>新手上路</li>
+        <li>买家入门</li>
+        <li>卖家入门</li>
+        <li>文档下载</li>
+        <li>三号线融资</li>
+      </ul>
+      <div class="er_box"> <img src="/webdocs/images/er_wm.png"  /> <a style="color:#fff;" href="javascript:void(0);">扫一扫关注</a> </div>
+      <ol>
+        <li><a class="hcolor" href="/">什么是三号线</a></li>
+        <li><a class="hcolor" href="/">三号线常见问题</a></li>
+        <li><a class="hcolor" href="/">三号线保障资金</a></li>
+      </ol>
+      <ol>
+        <li><a class="hcolor" href="/">三号线采购攻略</a></li>
+        <li><a class="hcolor" href="/">何时付款？</a></li>
+        <li><a class="hcolor" href="/">采购金如何出金？</a></li>
+      </ol>
+      <ol>
+        <li><a class="hcolor" href="/">如何在线发售?</a></li>
+      </ol>
+      <ol>
+        <li><a class="hcolor" href="javascript:void(0);" style="cursor:pointer;" onClick="javascript:window.open('/')">三号线排期表</a></li>
+
+        <li><a class="hcolor" href="javascript:void(0);" style="cursor:pointer;" onClick="javascript:window.open('/')">三号线服务手册</a></li>
+      </ol>
+      <ol>
+        <li><a class="hcolor" href="/">直送终端（送货）</a></li>
+        <li><a class="hcolor" href="/">直送终端（平仓）</a></li>
+        <li><a class="hcolor" href="/">下游场地提货</a></li>
+      </ol>
+    </div>
+  </div>
+  <div class="foot_nr2 fm">
+    <ul>
+      <li><a class="hcolor" name="__AD_gzwm" target="_blank" href="/">关于我们</a><span>|</span></li>
+      <li><a class="hcolor" name="__AD_bzzx" target="_blank" href="/">帮助中心</a><span>|</span></li>
+      <li><a class="hcolor" name="__AD_bzzx" target="_blank" href="/">创新园区</a><span>|</span></li>
+      <li><a class="hcolor" name="__AD_cpyc" target="_blank" href="/">诚聘英才</a><span>|</span></li>
+      <li><a class="hcolor" name="__AD_hzhb" target="_blank" href="/">合作伙伴</a><span>|</span></li>
+      
+    </ul>
+    <p><span id="lm_static">&copy; 中国三号线煤炭网 战略合作公司：深圳前海一讯、山西潞博、长治北斗</span><span>ICP备案号：<a class="hcolor" name="__AD_dxx" href="http://www.miit.gov.cn/" target="blank">晋ICP备14002302号</a></span><span><a class="hcolor" name="__AD_dx" onClick="javascript:window.open('http://www.0355999.com')" style="cursor:pointer;">合作企业：深圳前海壹讯、山西一讯、长治北斗</a></span></p>
+    
+      
+  </div>
+</div>
+<!--footer end-->
+<script type="text/javascript" src="/js/o_code.js"></script>
+
+	<!--我想买 start-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+//我想买
+function wantBuy(id){
+	jQuery.post(baseUrl+"/dcx.do?method=orderBuyer",{'fphm':id},function (data){
+		GDjs.showWin("#messBox",data,id);
+	},"json");
+}
+</script>
+
+
+<script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fce3c77669f8546b3ab8177abc4d6c53c' type='text/javascript'%3E%3C/script%3E")) </script>
+<!--我想买 end-->
+	<div id="left_tab"></div>
+</body>
+
+</html>

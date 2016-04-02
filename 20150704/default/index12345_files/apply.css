@@ -1,0 +1,55 @@
+﻿* { margin: 0; padding: 0; }
+ul { list-style: none; }
+a img { border: 0; }
+input { padding: 0; margin: 0; }
+.tal { text-align: left !important; }
+.tac { text-align: center !important; }
+.tar { text-align: right !important; }
+.l { float: left !important; }
+.r { float: right !important; }
+.c { zoom: 1; }
+.c:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+p { line-height: 18px; }
+a { text-decoration: none; outline: none;  font-family:微软雅黑}
+a:hover {   text-decoration: none; }
+body { font: 12px/1.5 tahoma, '\5b8b\4f53' , sans-serif; min-width: 1000px; }
+
+
+
+/* 办卡申请 */
+/* 轮播 */
+#slideshow {!important;border:0px !important; text-align:center;}
+#focus {width:789px; height:255px; overflow:hidden; position:relative;}
+#focus ul {height:270px; position:absolute;}
+#focus ul li {float:left; width:789px; height:350px; overflow:hidden; position:relative;}
+#focus ul li div {position:absolute; overflow:hidden;}
+#focus .btnBg {position:absolute; width:789px; left:0; bottom:0; }
+#focus .btn {position:absolute; width:789px; padding:0px; right:0; bottom:0; text-align:right; *margin-top:1px;}
+#focus .btn span.on{display:inline-block; _display:inline; _zoom:1; width:263px; height:10px; _font-size:0;  cursor:pointer; background:url(http://www.zg03.com/index12345_files/ap_bai.jpg);}
+#focus .btn span{display:inline-block; _display:inline; _zoom:1; width:263px; height:10px; _font-size:0;  cursor:pointer; background:url(http://www.zg03.com/index12345_files/ap_hui.jpg);}
+#focus .preNext {width:45px; height:100px; position:absolute; top:90px; background:url('http://www.zg03.com/index12345_files/sprite.png') no-repeat 0 0; cursor:pointer}
+#focus .pre {left:0;}
+#focus .next {right:0; background-position:right top;}
+#focus ul li .slideother { position:absolute; left:15px; top:280px; width:720px; height:80px;display:inline-block;background:url('http://www.zg03.com/index12345_files/bg_down.gif') no-repeat 0 0; }
+/* 轮播end */
+ 
+
+.ap_p { margin-top:10px;}
+.ap_p a { margin-left:1px;}
+.ap_s {background: url(http://www.zg03.com/index12345_files/ap_s.jpg); width: 777px; height: 50px; margin-top: 10px;}
+.ap_a {background: url(http://www.zg03.com/index12345_files/ap_k.jpg); width: 104px; height: 50px; display:inline-block; text-align:center; line-height:50px; font-size:14px;color:#fff; font-family:'Microsoft Yahei'; margin-left:20px;}
+.ap_s a{ width: 104px; height: 50px; display:inline-block; text-align:center; line-height:50px; font-size:14px;color:#fff;font-family:'Microsoft Yahei'; margin-left:20px;}
+.ap_s a:hover {background: url(http://www.zg03.com/index12345_files/ap_k.jpg); width: 104px; height: 50px; display:inline-block; text-align:center; line-height:50px; font-size:14px;color:#fff;font-family:'Microsoft Yahei'; margin-left:20px;}
+.bg1 {  width: 104px; height: 50px; display: inline-block; text-align: center; line-height: 50px; font-size: 14px; color: #fff; font-family: 'Microsoft Yahei'; margin-left: 20px; }
+.bg2 { background: url(http://www.zg03.com/index12345_files/ap_k.jpg); width: 104px; height: 50px; display: inline-block; text-align: center; line-height: 50px; font-size: 14px; color: #fff; font-family: 'Microsoft Yahei'; margin-left: 20px; }
+.sj_sccol  { font-family: 'Microsoft Yahei'; color: #000000; font-size: 14px; }
+.sj_sccol1 { font-family: 'Microsoft Yahei'; color: #61605e; font-size: 14px; line-height: 25px; }
+.sj_sccol2 { font-family: 'Microsoft Yahei'; color: #e5a600; font-size: 14px; line-height: 25px; }
+.shenqing { background: url(http://www.zg03.com/index12345_files/shenqing.png); width: 106px; height: 26px; display: inline-block; text-align: center; line-height: 26px; font-size: 15px; font-weight: bold; margin-top: 5px; color:#fff }
+
+.ap_co{width: 386px; float: left; height: 185px;}
+.ap_cu{width: 190px; float: left; height: 120px}
+.ap_ci{padding-bottom: 0px; padding-left: 0px; width: 142px; padding-right: 0px;padding-top: 10px}
+.ap_ca {width: 142px; text-align: center; display: inline-block}
+.ap_cx {padding-bottom: 0px; padding-left: 0px; width: 180px; padding-right: 0px; float: left; height: 120px; padding-top: 10px}
+ 

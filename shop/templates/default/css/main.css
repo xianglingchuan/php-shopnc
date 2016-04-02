@@ -1,0 +1,56 @@
+.policys { background-color: #FFF; width: 210px; height: 82px; padding: 8px 0 0;}
+.policys ul { width: 210px; height: 80px; }
+.policys ul li { line-height: 24px; color: #999; background: url(../images/CP.png) no-repeat; width: 50px; height: 24px; float: left; padding: 52px 10px 0 10px}
+.policys ul li.b1 { background-position: 0 0;}
+.policys ul li.b2 { background-position: -70px 0;}
+.policys ul li.b3 { background-position: -140px 0;}
+.tabs-panel .store-join-btn {
+	display: block;
+	width: 180px;
+	height: 60px;
+	margin: 20px auto 10px;
+	background-image: url(images/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 -200px;
+}
+.tabs-panel .store-join-btn1 {
+	display: block;
+	width: 180px;
+	height: 60px;
+	margin: 20px auto 10px;
+	background-image: url(../images/60副本.png);
+	background-repeat: no-repeat;
+	background-position: 0 -200px;
+}
+.tabs-panel .store-join-help { color: #999; display: block; text-align: center; }
+.tabs-panel .store-join-help:hover { text-decoration: none; color: #39C;}
+.tabs-panel .store-join-help i { font-size: 14px; margin-right: 4px;}
+/*中部推荐位广告图形式1*/
+.middle-banner-style01 { background-color:#000; width: 776px; height: 498px; position: relative; z-index: 1;}
+.middle-banner-style01 a { position: absolute; z-index: 1;}
+.middle-banner-style01 .a1,
+.middle-banner-style01 .a2,
+.middle-banner-style01 .c1,
+.middle-banner-style01 .c2,
+.middle-banner-style01 .a1 img,
+.middle-banner-style01 .a2 img,
+.middle-banner-style01 .c1 img,
+.middle-banner-style01 .c2 img { width: 194px; height: 194px;}
+.middle-banner-style01 .a1 { top: 0; left: 0;}
+.middle-banner-style01 .a2 { top: 194px; left: 0;}
+.middle-banner-style01 .b1 { width: 388px; height: 388px; top: 0; left: 194px;}
+.middle-banner-style01 .b1 img { width: 388px; height: 388px;}
+.middle-banner-style01 .c1 { top: 0; left: 582px;}
+.middle-banner-style01 .c2 { top: 194px; left: 582px;}
+.middle-banner-style01 .d1,
+.middle-banner-style01 .d2,
+.middle-banner-style01 .d3,
+.middle-banner-style01 .d4,
+.middle-banner-style01 .d1 img,
+.middle-banner-style01 .d2 img,
+.middle-banner-style01 .d3 img,
+.middle-banner-style01 .d4 img { width: 194px; height: 110px;}
+.middle-banner-style01 .d1 { top: 388px; left: 0;}
+.middle-banner-style01 .d2 { top: 388px; left: 194px;}
+.middle-banner-style01 .d3 { top: 388px; left: 388px;}
+.middle-banner-style01 .d4 { top: 388px; left: 582px;}

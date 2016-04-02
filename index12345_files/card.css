@@ -1,0 +1,177 @@
+@import url(general.css);
+
+/*main*/
+.main{width:1000px;margin:0 auto;}
+.left{width:777px;float:left;margin-top:10px;_display:inline;overflow:hidden;}
+.left .title{color:#696969;border-bottom:1px solid #d4d3d0;padding-bottom:10px;}
+.left .title a{color:#696969;font-family:'Microsoft Yahei';font-size:14px;font-weight:bold;margin-left:5px;}
+.left .title a:hover{color:#ab810c;border-bottom:1px solid #ab810c;padding-bottom:11px;text-decoration:none;}
+
+.menu_list_box{margin-top:10px;height:29px;border-bottom:4px solid #70665c;}
+.menu_list{border-left:1px solid #c8c7c4;float:left;}
+.menu_list li{float:left;width:72px;height:28px;border-top:1px solid #c8c7c4;border-right:1px solid #c8c7c4;}
+.menu_list li a{display:block;width:72px;height:28px;text-align:center;line-height:28px;color:#747474;font-family:'Microsoft Yahei';font-size:12px;}
+.menu_list li a:hover, .menu_list li.focus a{background:url(http://www.zg03.com/index12345_files/pic_1.png) no-repeat;width:73px;height:37px;line-height:33px;display:block;text-decoration:none;position:relative;color:#fff;margin:-1px -1px 0 -1px;_margin-bottom:-8px;z-index:10;}
+
+.more{float:right;color:#f08300;margin:8px 10px 0 0;_display:inline;}
+.more:hover{color:#f08300;text-decoration:none;}
+.title_one{color:#2c2c2c;font-family:'Microsoft Yahei';font-size:12px;margin-top:15px;border-bottom:4px solid #61605f;padding-bottom:7px;}
+.lab{border:1px solid #eeeeee;border-left:none;margin-top:10px;}
+.lab td, .lab th{text-align:center;height:42px;border-left:1px solid #eeeeee;}
+.lab th{border-bottom:1px solid #eeeeee;}
+.note{color:#2c2c2c;font-family:'Microsoft Yahei';font-size:12px;margin-top:40px;}
+.note span{color:#e50c0c;}
+.card_show{background:#faf9f9;border-bottom:4px solid #70665c;height:310px;position:relative;z-index:1;overflow:hidden;width:777px;}
+.card_show .m_left{background:url(http://www.zg03.com/index12345_files/pic_9.png) no-repeat;width:15px;height:29px;position:absolute;top:106px;left:12px;text-indent:-9999px;}
+.card_show .m_right{background:url(http://www.zg03.com/index12345_files/pic_10.png) no-repeat;width:15px;height:29px;position:absolute;top:106px;right:12px;text-indent:-9999px}
+.card_show .show_list_box{width:700px;overflow:hidden;margin:58px auto 0 auto;position:relative;}
+.card_show .show_list{width:10000px;position:relative; height:195px;overflow:hidden}
+.card_show .show_list li{width:94px;float:left;padding-right:34px;margin-top:30px;background:url(http://www.zg03.com/index12345_files/bg_point.jpg) no-repeat 110px 30px;}
+.card_show .show_list li .bimg{display:none}
+.card_show .show_list li .simg{display:block}
+.card_show .show_list li.focus{width:188px;margin-top:0;background:url(http://www.zg03.com/index12345_files/bg_point.jpg) no-repeat 205px 60px;}
+.card_show .show_list li.focus .bimg{display:block}
+.card_show .show_list li.focus .simg{display:none}
+
+.show_list .btn_1, .show_list .btn_2{background:url(http://www.zg03.com/index12345_files/pic_20.png) no-repeat;width:36px;height:20px;display:block;float:left;line-height:20px;text-align:center;color:#fff;margin-left:6px;_display:inline;}
+.show_list .btn_2{background:url(http://www.zg03.com/index12345_files/pic_21.png) no-repeat;}
+.show_list .btn_1:hover, .show_list .btn_2:hover{color:#fff;text-decoration:none;}
+.show_list p{text-align:center;}
+.card_show .show_list li.focus .btn_1{margin-left:56px;_display:inline;}
+.card_list_box{background:#faf9f9;height:105px;}
+.card_list{margin-left:40px;padding-top:40px;}
+.card_list li{float:left;width:190px;border-right:1px solid #eee;height:31px;margin-left:40px;_display:inline;}
+.card_list li a{font-size:12px;color:#827c70;}
+.card_list li a:hover{color:#827c70;text-decoration:none;}
+.card_list li img{margin: 0 20px 0 0;vertical-align:middle;}
+.card_list .bor{border-right:none;}
+.line{border-bottom:1px solid #dad9db;}
+.card_hot_title{color:#2c2c2c;font-family:'Microsoft Yahei';font-size:14px;margin-top:15px;border-bottom:4px solid #61605f;padding-bottom:7px;}
+.card_hot_title h2{float:left;font-size:14px;}
+.card_hot_title a{color:#f08300;width:50px;height:14px;font-weight:normal;display:block;float:right;line-height:14px;font-size:12px;margin-top:7px;_display:inline;}
+.card_hot_title a:hover{color:#f08300;text-decoration:none;}
+.card_hot_list_box{margin:10px 0 0 0;position:relative;}
+.card_hot_list_in{width:748px;overflow:hidden;margin:10px auto 0 auto;}
+.card_hot_list{width:10000px;}
+.card_hot_list li{float:left;width:172px;margin-right:20px;_display:inline;}
+.card_hot_list li .txt{color:#ffbc14;font-family:'Microsoft Yahei';font-size:12px;font-weight:bold;margin-top:10px;}
+.card_hot_list li .txt_1{font-family:'Microsoft Yahei';font-size:12px;color:#696969;}
+.card_hot_list_num{width:748px;overflow:hidden;margin:10px auto 0 auto;}
+.card_hot_list_num li{float:right;margin-left:10px;width:16px;}
+.card_hot_list_num a{width:16px;height:16px;background:#a1a1a0;text-align:center;line-height:16px;color:#fff;font-family:'Microsoft Yahei';font-size:12px;display:block;}
+.card_hot_list_num a:hover, .card_hot_list_num li.focus a{background:#f08300;color:#fff;text-decoration:none;}
+.list_show{border:1px solid #70665c;border-top:none;}
+.list_show_list{margin-left:30px;}
+.list_show_list li{width:162px;height:203px;float:left;margin:15px 0 0 18px;_display:inline;position:relative;}
+.list_show_list li p{text-align:center;}
+.list_show_list li .txt{color:#ffbc14;font-family:'Microsoft Yahei';font-size:12px;font-weight:bold;margin-top:10px;}
+.list_show_list li .txt_1{font-family:'Microsoft Yahei';font-size:12px;color:#696969;}
+.list_show_list li .btn{background:url(http://www.zg03.com/index12345_files/pic_23.png) no-repeat;width:76px;height:24px;line-height:24px;color:#fff;text-align:center;font-family:'Microsoft Yahei';font-size:12px;font-weight:bold;display:block;position:absolute;bottom:5px;left:40px;}
+.list_show_list li .btn:hover{color:#fff;text-decoration:none;}
+.bol{border-left:1px solid #70665c;}
+
+/*progressinquiry.shtml*/
+.left_one{width:778px;height:634px;border:6px solid #eeeeee;margin-top:10px;float:left;_display:inline;}
+.left_one .title{height:26px;background:#61605f;margin:-6px -6px 0 -6px;position:relative;}
+.left_one .title .img1{position:absolute;top:3px;right:14px;}
+.left_one .title .img2{position:absolute;top:0px;left:0px;}
+.left_one .title h2{font-size:12px;color:#fff;position:absolute;top:5px;left:20px;}
+.left_one dt, .left_one dd{float:left;width:280px;height:28px;line-height:28px;text-align:right;font-size:12px;font-weight:bold;}
+.left_one dd{width:300px;text-align:left;color:#999696;font-weight:normal;line-height:24px;}
+.left_one dd .inp1{width:256px;height:23px;line-height:23px;}
+.left_one dd .sel{width:260px;height:28px;color:#999696;}
+.left_one dd .inp2{width:108px;}
+.left_one dd a{color:#999696;margin-left:12px;height:24px;line-height:24px;}
+.left_one dd a:hover{color:#999696;text-decoration:none;}
+.left_one dd .img2{vertical-align:middle;*vertical-align:0;}
+.left_one dd .inp3{width:168px;}
+.left_one .btn_one, .left_one .btn_two{background:url(http://www.zg03.com/index12345_files/pic_5.png) no-repeat;width:93px;height:27px;line-height:27px;color:#fff;display:block;text-align:center;font-family:'Microsoft Yahei';font-size:14px;font-weight:bold;float:left;margin-left:285px;_display:inline;}
+.left_one .btn_two{background:url(http://www.zg03.com/index12345_files/pic_6.png) no-repeat;margin-left:20px;}
+.left_one .btn_one:hover, .left_one .btn_two:hover{color:#fff;text-decoration:none;}
+.left_one .bottom{margin-top:156px;}
+.left_one .bottom img{margin-left:22px;float:left;}
+.left_one .bottom p{color:#424242;margin-right:20px;}
+.left_one .bottom  a{color:#e17d26;margin-left:152px;}
+.left_one .bottom  a:hover{color:#e17d26;text-decoration:none;}
+
+
+.page{padding:20px 0;}
+.page ul{float:left;position:relative;left:50%;}
+.page li{float:left;margin-left:5px;_display:inline;text-align:center;color:#888788;left:-50%;position:relative;}
+.page li a{width:20px;text-align:center;line-height:20px;display:block;color:#888788;}
+.page li a:hover,.page li.focus a{background:#ef7a00;color:#fff;text-decoration:none;}
+.page .prev,.page .next{height:20px;float:left;color:#888788;margin-left:5px;_display:inline;line-height:20px;text-align:center;}
+.page .prev a,.page .next a{width:54px;}
+.page .prev:hover,.page .next:hover{text-decoration:none;background:#ef7a00;color:#fff;}
+.page span{width:21px;height:21px;background:#ef7a00;color:#fff;line-height:20px;text-align:center;display:block;}
+
+/* dialog */
+.card_dialog{width:544px;color:#747474;background:#fff;display:none;}
+.card_dialog_title{background:#f08300;width:544px;height:35px;display:block;position:relative;}
+.card_dialog_title h2{font-family:'Microsoft Yahei';font-size:14px;margin-left:18px;height:35px;line-height:35px;color:#fff;}
+
+.card_dialog_close{background:url(http://www.zg03.com/index12345_files/card_dialog_close.jpg) no-repeat;width:23px; height:23px;display:block;line-height:23px;position:absolute; top:7px; right:7px;text-indent:-9999px;}
+
+
+.card_dialog_content{background:url(http://www.zg03.com/index12345_files/bg_dialog_content.png) no-repeat;width:542px;display:block;height:187px;padding-top:50px;margin:17px auto 0 auto;}
+.card_dialog_content p{font-size:12px;float:left;}
+.card_dialog_content .txt1{width:110px;margin-left:65px;_display:inline;}
+.card_dialog_content .txt2{width:140px;margin-left:50px;_display:inline;}
+.card_dialog .btn_one{background:url(http://www.zg03.com/index12345_files/bg_dialog_btn.png) no-repeat;width:87px;height:30px;margin:0 auto 23px auto;display:block;line-height:30px;text-align:center;font-family:'Microsoft Yahei';font-size:14px;color:#fff;}
+.card_dialog .btn_one:hover{color:#fff;text-decoration:none;}
+.card_dialog .line{border-bottom:1px solid #b5b5b5;width:493px;margin:18px auto;}
+
+#buttetin_type_input{width:230px;border:none;border:1px solid #dadada;border-right:none;height:22px;line-height:22px;padding-left:5px;color:#666666;}
+#buttetin_type_btn{border:none;border:1px solid #dadada;border-left:none;height:24px;margin-top:-2px;}
+
+
+/*card_type*/
+.card_type{margin-top:25px;}
+.card_type_l{float:left;width:315px;}
+.card_type_l h2{color:#ab810c;font-family:'Microsoft Yahei';font-size:22px;font-weight:normal;}
+.card_type_l h2 span{margin-right:10px;}
+.card_type_l dl{zoom:1;font-family:'Microsoft Yahei';font-size:14px;color:#696969;}
+.card_type_l dt, .card_type_l dd{float:left;height:20px;line-height:20px;}
+.card_type_l dd{margin-left:20px;line-height:20px;}
+.card_type_l dd img{margin-top:3px;}
+.card_type_l dd .rad{vertical-align:middle;margin-right:10px;}
+.card_type_l .btn{background:url(http://www.zg03.com/index12345_files/card/pic_23.png) no-repeat;width:112px;height:34px;line-height:34px;text-align:center;display:block;color:#fff;font-family:'Microsoft Yahei';font-weight:bold;font-size:16px;margin-top:80px;}
+.card_type_l .btn:hover{color:#fff;text-decoration:none;}
+.card_type_r{float:right;width:410px;height:320px;}
+.card_type_r img{margin:auto;display:block;}
+.card_type_title{background:#f5f5f5;border-top:1px solid #e3e1e1;border-bottom:1px solid #e3e1e1;position:relative;height:27px;line-height:27px;font-family:'Microsoft Yahei';font-size:12px;color:#696969;width:155px;margin-top:20px;text-align:center;}
+.card_type_title_l{background:url(http://www.zg03.com/index12345_files/card/pic_10.png) no-repeat;width:5px;height:27px;display:block;position:absolute;top:0px;left:0px;}
+.card_type_title_r{background:url(http://www.zg03.com/index12345_files/card/pic_9.png) no-repeat;width:5px;height:27px;display:block;position:absolute;top:0px;right:0px;}
+.card_type_title h3{margin-left:1px; line-height:27px;height:27px;font-size:14px;}
+.card_type_title span{color:#f08300;}
+.card_type_title a{color:#696969;}
+.card_type_title a:hover{color:#f08300;text-decoration:none;}
+.card_type_txt{color:#696969;text-indent:24px;font-size:12px;margin-top:5px;font-family:"Microsoft Yahei"; line-height: 24px;}
+.card_type_line{border-bottom:2px solid #ffbc14;}
+.card_type_img{margin:10px 0 0 15px;}
+.card_type_menu{margin-top:5px;}
+.card_type_menu li{height:45px;border-top:1px dashed #dbdbdb;line-height:45px;}
+.card_type_menu .bot{border-top:none;}
+.card_type_menu li a{color:#696969;font-family:'Microsoft Yahei';font-size:12px;line-height:45px;}
+.card_type_menu li a:hover{color:#f08300;text-decoration:none;}
+.card_type_menu li img{vertical-align:middle;margin:-5px 25px 0 15px;_margin-top:4px;}
+.card_type_btn{background:#f08300;width:98px;height:30px;display:block;text-align:center;font-family:'Microsoft Yahei';font-size:12px;color:#fff;line-height:30px;margin-left:20px;float:left;}
+.card_type_btn:hover{color:#fff;text-decoration:none;}
+.card_type_tip{margin-top:55px;margin-left:15px;font-family:'Microsoft Yahei';font-size:12px;}
+.card_type_tip h3{color:#ffbc14;}
+.card_type_tip p{text-indent:24px;line-height:22px;}
+
+
+.wid{width:90px !important;}
+.mt_10{margin-top:10px;}
+.mt_15{margin-top:15px;}
+.mt_30{margin-top:30px;}
+.mt_50{margin-top:50px;}
+.mt_80{margin-top:80px;}
+.ml_1{margin-left:1px;}
+.mr_12{margin-right:12px;}
+.ml_48{margin-left:48px !important;_display:inline;}
+.pb_50{padding-bottom:50px;}
+.red{color:#f08300;font-size:10px;margin:3px 5px 0 0;float:left;_display:inline;}
+
+.card_type_r img { width:370px;}

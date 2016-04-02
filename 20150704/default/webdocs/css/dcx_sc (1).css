@@ -1,0 +1,55 @@
+.cb{ clear:both;}
+/*短长协服务手册弹出框 start*/
+.modal_bk{background: #000; bottom: 0; left:0; position:fixed; _position:absolute; right: 0; top: 0px; z-index: 1340; opacity: 0.4; display:block; overflow:hidden; height:1360px; border-radius:0px; width:100%; filter:alpha(opacity=40);}
+.map_box{position:absolute; background:#fff; width:894px; left:50%; top:10%; margin-left:-447px; z-index: 1341; padding:20px;}
+.map_box h4{display:block; overflow:hidden; width:894px; background:#00a0ea; border-bottom:1px solid #f2f2f2; height:50px; line-height:50px; color:#fff; font-family:Microsoft YaHei; font-size:18px; text-align:center;}
+.ml20{ margin-right:20px;}
+.blue{color:#06c;}
+.font_size14{ font-size:14px;}
+.sp_main{width:993px; margin:10px auto 0;}
+.sp_main_col_l{width:735px; float:left;}
+.sp_main_t{overflow:hidden;}
+.border_g{border:1px solid #dadada;}
+/*主体 start*/
+.box_st{ width:894px; margin:auto auto;}
+.tit_bg{ width:894px; height:44px; line-height:44px; color:#FFFFFF; text-align:center; font-size:14px; font-weight:bold; background-color:#00a0ea;}
+.box_tit{ width:894px; height:18px; background: url(../../../images/dcx/index/box_tit.jpg) no-repeat; margin-top:15px;}
+.box_cent{ width:894px; background: url(../../../images/dcx/index/box_cent.jpg) repeat-y; position:relative; padding-bottom:10px;}
+.mbtn{ width:320px; margin:auto auto; font-weight:bold;}
+.box_bot{ width:894px; height:45px; line-height:45px; background: url(../../../images/dcx/index/box_bot.jpg) left bottom no-repeat; padding-top:10px; text-align:center; }
+.box_bot a{display:block; overflow:hidden;  width:150px; height:30px; line-height:30px; background-color:#425b71; color:#fff; text-decoration: none; border-radius:3px;  }
+.box_bot a:hover{background-color:#1abeaa; color:#fff; text-decoration: none; border-radius:3px;  }
+.cent_st{width:816px; margin:auto auto; line-height:22px;}
+.bt1{ font-size:14px; font-weight:bold;}
+.bt2{ font-size:12px; font-weight:bold;}
+.zw{ font-size:12px;}
+.zw a{text-decoration: none; color:#00a0ea;}
+.zw a:hover{text-decoration: underline ; color:#00a0ea;}
+.lct{width:666px; height:67px; padding-top:10px;}
+.lct span{ float:left; font-size:14px; font-weight:bold;}
+.lc_bg{width:107px; height:57px; background:url(../../../images/dcx/index/lc_bg.jpg) no-repeat; margin-right:5px; text-align:center; color:#fff; line-height:57px;}
+.lc_bg_db{width:107px; height:47px; background:url(../../../images/dcx/index/lc_bg.jpg) no-repeat; margin-right:5px; text-align:center; color:#fff; line-height:20px; padding-top:10px;}
+.jt{width:30px; height:16px; background:url(../../../images/dcx/index/ico.jpg) no-repeat; margin-top:20px; margin-right:5px;}
+.btn_st{width:894px; margin:auto auto; text-align:right; margin-top:10px; }
+.btn_st b{ font-size:18px; color: #FF0000;}
+/*1 start*/
+.maif1_st{width:894px; margin:auto auto; }
+.box_le{ width:596px; }
+.box_ri{ width:298px; height:275px; padding-top:40px; background:url(../../../images/dcx/index/right_line.jpg) no-repeat 3px ;}
+.cpfs_st{ width:502px; margin-left:62px;}
+.cpfs_st_tit{ display: inline-block;  line-height:34px; border-bottom:1px solid #00a0ea; padding-right:20px;}
+.fz{ font-size:24px; color:#FF0000; font-weight:bold;}
+.fmz{ font-size:14px; }
+.cpfs_st_cont{ width:502px; margin-top:15px; }
+.ico_bg{ width:16px; height:19px; line-height:19px; background:url(../../../images/dcx/index/xuh.jpg) no-repeat 0 1px; _ background:url(../../../images/dcx/index/xuh.jpg) no-repeat;  font-weight:bold; color:#fff; padding-left:4px; _padding-left:6px; padding-top:1px; _padding-top:0px;}
+.wb{width:472px; line-height:20px; margin-left:5px; }
+.wb a{ text-decoration: none; color:#00a0ea;}
+.wb a:hover{ text-decoration: underline; color:#333;}
+.lct_cont{ width:242px; background:url(../../../images/dcx/index/lct_link.jpg) no-repeat; margin-bottom:15px;}
+.lct_cont:hover{width:242px;  background: url(../../../images/dcx/index/lct_hover.jpg) no-repeat;  }
+.wb_bg{width:264px; height:29px; padding-left:34px; padding-top:5px; _padding-top:10px; }
+.mffz{ font-size:24px; color:#999999; font-weight:bold;}
+/*fy start*/
+.qh_btn1{ display:block; overflow:hidden; width:23px; height:43px; background:url(../../../images/dcx/index/l_arrow.png) no-repeat; position:absolute; top:50%; margin-top:-22px; left:0px;}
+.qh_btn2{ display:block; overflow:hidden; width:23px; height:43px; background:url(../../../images/dcx/index/r_arrow.png) no-repeat; position:absolute; top:50%; margin-top:-22px; right:0px;}
+/*短长协服务手册弹出框 end*/
