@@ -1196,6 +1196,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
     clear: both;
     padding: 2px 5px;
     overflow: hidden;
+    list-style:none;
 }
 
 #faq dl dd i {

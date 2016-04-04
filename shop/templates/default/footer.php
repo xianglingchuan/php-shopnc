@@ -13,7 +13,7 @@
                             </dt>
                             <?php if (is_array($article_class['list']) && !empty($article_class['list'])) { ?>
                                 <?php foreach ($article_class['list'] as $article) { ?>
-                                    <dd><i></i><a
+                                    <dd><!--<i></i>--><a
                                             href="<?php if ($article['article_url'] != '') echo $article['article_url']; else echo urlShop('article', 'show', array('article_id' => $article['article_id'])); ?>"
                                             title="<?php echo $article['article_title']; ?>"> <?php echo $article['article_title']; ?> </a>
                                     </dd>

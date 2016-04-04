@@ -184,7 +184,7 @@
                 }                
             }
         });
-        url = url+="/index.php?act=search&op=index&cate_id="+cate_id+"&a_id="+a_id+"&keyword="+keyword;
+        url = url+="/index.php?act=search&op=index&cate_id="+cate_id+"&a_id="+a_id;
         $("#search_form").attr("action", url);
         $("#search_form").submit();
     }    
