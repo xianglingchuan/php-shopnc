@@ -166,12 +166,12 @@
         </div>
         <div class="quick-menu">
             <dl>
-                <dt class="selected my_cart_list" style="width:90px; margin-left: -15px;"><a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的三号线</a><i></i></dt>
-                <dd style="width: 90px;margin-left: -15px;">
+                <dt class="selected my_cart_list" style="width:90px;"><a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的3号线</a><i></i></dt>
+                <dd style="width: 90px;">
                     <ul style="width: 90px;">
-                        <li>
+<!--                        <li>
                             <a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart">购物车</a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order&state_type=state_new">待付款订单</a>
                         </li>
@@ -182,7 +182,7 @@
                     </ul>
                 </dd>
             </dl>
-            <dl>
+<!--            <dl>
                 <dt>
                     <a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_favorites&op=fglist"><?php echo $lang['nc_favorites']; ?></a><i></i>
                 </dt>
@@ -204,7 +204,7 @@
                         <li><a href="<?php echo urlShop('article', 'article', array('ac_id' => 6)); ?>">客服中心</a></li>
                     </ul>
                 </dd>
-            </dl>
+            </dl>-->
             <?php
             if (!empty($output['nav_list']) && is_array($output['nav_list'])) {
                 foreach ($output['nav_list'] as $nav) {
