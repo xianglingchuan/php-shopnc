@@ -23,6 +23,7 @@ class searchControl extends BaseHomeControl {
     private $_model_search;
 
     public function indexOp() {
+        Tpl::output('hidden_nctoolbar', 1);
         Language::read('home_goods_class_index');
         $this->_model_search = Model('search');
         //显示左侧分类

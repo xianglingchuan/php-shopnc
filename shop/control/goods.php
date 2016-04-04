@@ -25,6 +25,7 @@ class goodsControl extends BaseGoodsControl {
      * 单个煤炭信息页
      */
     public function indexOp() {
+        Tpl::output('hidden_nctoolbar', 1);
         $goods_id = intval($_GET['goods_id']);
 
         // 煤炭详细信息

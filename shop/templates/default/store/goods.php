@@ -363,13 +363,15 @@
                 <a href="javascript:void(0);" nctype="buynow_submit"
                    class="buynow <?php if ($output['goods']['goods_state'] == 0 || $output['goods']['goods_storage'] <= 0 || ($output['goods']['is_virtual'] == 1 && $output['goods']['virtual_indate'] < TIMESTAMP)) { ?>no-buynow<?php } ?>"
                    title="<?php echo $output['goods']['buynow_text']; ?>"><?php echo $output['goods']['buynow_text']; ?></a>
-                <?php if ($output['goods']['cart'] == true) { ?>
+                
+                
                 <!-- 加入采购平台-->
-                <a href="javascript:void(0);" nctype="addcart_submit"
+                <?php //if ($output['goods']['cart'] == true) { ?>
+<!--                <a href="javascript:void(0);" nctype="addcart_submit"
                    class="addcart <?php if ($output['goods']['goods_state'] == 0 || $output['goods']['goods_storage'] <= 0) { ?>no-addcart<?php } ?>"
                    title="<?php echo $lang['goods_index_add_to_cart']; ?>"><i
-                        class="icon-shopping-cart"></i><?php echo $lang['goods_index_add_to_cart']; ?></a>
-                <?php } ?>
+                        class="icon-shopping-cart"></i><?php echo $lang['goods_index_add_to_cart']; ?></a>-->
+                <?php //} ?>
 
                 <!-- S 加入采购平台弹出提示框 -->
                 <div class="ncs-cart-popup">

@@ -599,7 +599,7 @@
     <div class="x_pull_list">
         <div class="container">
             <div class="x_pull_top2">
-                <span>找合同</span>
+                <span>签合同</span>
             </div>	
             <div class="x_pull_container">
                 <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re111.png">

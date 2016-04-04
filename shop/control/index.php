@@ -22,6 +22,7 @@ class indexControl extends BaseHomeControl {
     }
 
     public function indexOp() {
+        Tpl::output('hidden_nctoolbar', 1);
         Language::read('home_index_index');
         Tpl::output('index_sign', 'index');
 

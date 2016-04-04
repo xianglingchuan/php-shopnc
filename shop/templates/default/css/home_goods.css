@@ -146,7 +146,7 @@ select option { line-height: 20px; height: 20px; padding: 4px;}
 .ncs-goods-summary .ncs-btn a.arrival i { font-size: 14px;}
 
 /* 立即购买和加入采购平台按钮 */
-.ncs-goods-summary .ncs-btn { display: inline-block; margin: 20px 0 0 20px; position: relative; z-index: 70;}
+.ncs-goods-summary .ncs-btn { display: inline-block; margin: 20px 0 0 140px; position: relative; z-index: 70;}
 .ncs-goods-summary .ncs-btn { *display: inline/*IE6,7*/; zoom: 1;}
 .ncs-goods-summary .ncs-btn a.buynow,
 .ncs-goods-summary .ncs-btn a.addcart,
