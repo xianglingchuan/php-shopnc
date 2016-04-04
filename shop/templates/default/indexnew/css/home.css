@@ -70,12 +70,12 @@ a.x_dong_list:hover{color: #000;}
 .x_recommend >a{float: left;}
 .x_recommend >a >img{width: 233px; height: 150px;}
 .x_recommend img{border:1px #ccc solid;border-left: none;}
-.col_right_list{overflow: hidden;zoom:1;padding: 7px 10px;border-bottom: 1px #ccc solid}
+.col_right_list{overflow: hidden;zoom:1;padding: 4px 10px;border-bottom: 1px #ccc solid}
 .col_top{float: left;margin-top: 17px;}
 .col_top i{display: block;color: #5c5c5c;}
 .col_top b{color: #e05543;}
 .col_right_list img{float: right;}
-.x_col_right{border:1px #ccc solid;border-bottom: none;}
+.x_col_right{border:1px #ccc solid;border-bottom: none; line-height: 20px;}
 .col_left{border-right: 1px #ccc solid;border-bottom: 1px #ccc solid;padding: 10px;margin: 0;}
 .col_right_list.row{margin: 0;padding: 0;border-bottom: none;}
 .col_left_x{margin-bottom: 5px;}

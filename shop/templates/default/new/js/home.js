@@ -50,16 +50,18 @@
         }
         GetObj('ISL_Cont').scrollLeft -= Space;
     }
-    function ISL_GoDown() { //下翻   
+    function ISL_GoDown() { //下翻  
+        
         clearInterval(MoveTimeObj);
-        if (MoveLock)
-            return;
+        if (MoveLock){
+            return;            
+        }
         clearInterval(AutoPlayObj);
         MoveLock = true;
         ISL_ScrDown();
         MoveTimeObj = setInterval('ISL_ScrDown()', Speed);
     }
-    function ISL_StopDown() { //下翻停止   
+    function ISL_StopDown() { //下翻停止  
         clearInterval(MoveTimeObj);
         if (GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0) {
             Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
@@ -69,7 +71,7 @@
         }
         AutoPlay();
     }
-    function ISL_ScrDown() { //下翻动作   
+    function ISL_ScrDown() { //下翻动作
         if (GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth) {
             GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;
         }

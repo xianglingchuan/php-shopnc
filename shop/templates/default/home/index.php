@@ -271,12 +271,16 @@
         .rollBox .Cont{width:100%;overflow:hidden;float:left;}   
         .rollBox .ScrCont{width:10000000px;}   
         .rollBox .Cont .pic{width:234px;float:left;text-align:center;}   
-        .rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto;}   
+        .rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto; width:234px; height: 118px;}   
         .rollBox .Cont .pic p{line-height:26px;color:#505050;}   
         .rollBox .Cont a:link,.rollBox .Cont a:visited{color:#626466;text-decoration:none;}   
         .rollBox .Cont a:hover{color:#f00;text-decoration:underline;}   
         .rollBox #List1,.rollBox #List2{float:left;}    
     </style>   
+    
+    
+    <?php if(!empty($output['brand_c'])) {?>
+    <?php $i = 0; foreach($output['brand_c'] as $key=>$brand_c){$i++; ?>    
     <div class="x_pull_list">
         <div class="container">
             <div class="x_pull_top2">
@@ -287,8 +291,14 @@
                     <div class="LeftBotton_home" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>   
                     <div class="Cont" id="ISL_Cont">   
                         <div class="ScrCont">   
-                            <div id="List1" class="row item_row">   
-                                <a  href="" class="pic">
+                            <div id="List1" class="row item_row"> 
+                            <?php if ($brand_c['image']){?>
+                            <?php foreach($brand_c['image'] as $key=>$brand){?>
+                                <a  href="<?php echo urlShop('brand', 'list', array('brand'=>$brand['brand_id']));?>" class="pic">
+                                <img src="<?php echo brandImage($brand['brand_pic']);?>"></a>                         
+                            <?php }?>
+                            <?php }?>                                
+<!--                                <a  href="" class="pic">
                                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
                                 </a>
                                 <a  href="" class="pic">
@@ -308,7 +318,7 @@
                                 </a>
                                 <a  href="" class="pic">
                                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>
+                                </a>-->
                             </div>   
                             <div id="List2"></div>   
                         </div>   
@@ -318,7 +328,8 @@
             </div>						
         </div>
     </div>
-
+    <?php }?>
+    <?php }?>
 
 
     <div class="x_pull_list">
