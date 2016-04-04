@@ -35,7 +35,7 @@ class searchControl extends BaseHomeControl {
             $goods_class_array = $this->_model_search->getTagCategory($_GET['keyword']);
             //取出第一个分类作为默认分类，从而显示相应的属性和企业
             $default_classid = $goods_class_array[0];
-            $goods_class_array = $this->_model_search->getLeftCategory($goods_class_array, 1);;
+            $goods_class_array = $this->_model_search->getLeftCategory($goods_class_array, 1);
         }
         Tpl::output('goods_class_array', $goods_class_array);
         Tpl::output('default_classid', $default_classid);

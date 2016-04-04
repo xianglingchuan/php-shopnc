@@ -88,13 +88,24 @@
                         </ul>
                         <form class="form-inline row">
                             <div id="search_form_3" class="myShow">
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputName01">地区</label>
-                                <input type="text" class="form-control" id="exampleInputName01" value="全国">
-                            </div>
+                                
+ 
+                                
+                                
+                                
                             <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
                                 <label for="exampleInputEmail02">仓库</label>
-                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">
+                                <select>
+                                    <option>全国</option>
+                                    <option>全国</option>
+                                    <option>全国</option>
+                                </select>
+                                
+                                
+                                
+                                
+                                
+<!--                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">-->
                             </div>
                             <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
                                 <label for="exampleInputEmail03">品名</label>
@@ -220,216 +231,78 @@
                             </ul>
                         </div>
                     </div>
+                    <!---动力煤_start-->
                     <div class="row x_all_dong myShow" id="data_content_3">
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
+                            <?php
+                            if(!empty($goodsList['dlm'])){
+                                foreach($goodsList['dlm'] as &$tmp){
+                            ?>    
+                        <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                <h3><?php echo $tmp['store_name']; ?></h3>
+                                <div class="x_price">
+                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                </div>
+                                <div class="x_class">
+                                    <b>动力煤</b>
+                                    <span>材质</span>
+                                </div>
+                            </a>
+                            <?php
+                                }                                
+                            }
+                            ?>   
                     </div>
+                    <!---动力煤_end-->
                     
-                    
+                    <!---炼焦煤_start-->
                     <div class="row x_all_dong myHidden" id="data_content_2">
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业22</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
+                            <?php
+                            if(!empty($goodsList['ljm'])){
+                                foreach($goodsList['ljm'] as &$tmp){
+                            ?>    
+                            <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                <h3><?php echo $tmp['store_name']; ?></h3>
+                                <div class="x_price">
+                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                </div>
+                                <div class="x_class">
+                                    <b>炼焦煤</b>
+                                    <span>材质</span>
+                                </div>
+                            </a>
+                            <?php
+                                }                                
+                            }
+                            ?>  
                     </div>
+                    <!---炼焦煤_end-->
                     
                     
-                    
+                    <!---无烟煤_start-->
                     <div class="row x_all_dong myHidden" id="data_content_4">
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业333</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
-                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                            <h3>东胜梁煤业</h3>
-                            <div class="x_price">
-                                <i class="x_green">￥215.00</i>
-                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                            </div>
-                            <div class="x_class">
-                                <b>动力煤</b>
-                                <span>材质</span>
-                            </div>
-                        </a>
+                            <?php
+                            if(!empty($goodsList['wym'])){
+                                foreach($goodsList['wym'] as &$tmp){
+                            ?>    
+                            <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                <h3><?php echo $tmp['store_name']; ?></h3>
+                                <div class="x_price">
+                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                </div>
+                                <div class="x_class">
+                                    <b>无烟煤</b>
+                                    <span>材质</span>
+                                </div>
+                            </a>
+                            <?php
+                                }                                
+                            }
+                            ?>   
                     </div>
-                    
+                    <!---无烟煤_end-->
                     
                     
                     <div class="x_recommend">

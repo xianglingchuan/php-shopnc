@@ -50,6 +50,11 @@ class indexControl extends BaseHomeControl {
         Tpl::output('brand_c', $brand_listnew);
 
 
+        $goodsList['dlm'] = $this->getGoodsListByCategoryId(3);//动力煤
+        $goodsList['ljm'] = $this->getGoodsListByCategoryId(2);//练焦煤
+        $goodsList['wym'] = $this->getGoodsListByCategoryId(4);//无烟煤
+        Tpl::output('goodsList', $goodsList);
+        
 
 
         Model('seo')->type('index')->show();
@@ -192,5 +197,17 @@ class indexControl extends BaseHomeControl {
         }
         return $goods_class[$gc_id]['gc_parent_id'] == 0 ? $goods_class[$gc_id] : $this->_getTopClass($goods_class, $goods_class[$gc_id]['gc_parent_id']);
     }
-
+    
+    
+    private function getGoodsListByCategoryId($categoryId, $order="goods_id asc", $limit=6){
+        $model_goods = Model('goods');    
+        if ($categoryId) {
+            $goods_class = Model('goods_class')->getGoodsClassForCacheModel();
+            $depth = $goods_class[$categoryId]['depth'];
+            $condition['gc_id_'.$depth] = $categoryId;
+        }
+        $fields = "goods_id,goods_commonid,goods_name,goods_jingle,gc_id,store_id,store_name,goods_price,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_storage,goods_image,goods_freight,goods_salenum,color_id,evaluation_good_star,evaluation_count,is_virtual,is_fcode,is_appoint,is_presell,have_gift";
+        $goods_list = $model_goods->getGoodsListByColorDistinct($condition, $fields, $order, $limit);
+        return $goods_list;
+    }
 }
