@@ -50,6 +50,7 @@ class searchControl extends BaseHomeControl {
         Tpl::output('checked_brand', $checked_brand);
         Tpl::output('checked_attr', $checked_attr);
 
+
         //处理排序
         $order = 'is_own_shop desc,goods_id desc';
         if (in_array($_GET['key'],array('1','2','3'))) {

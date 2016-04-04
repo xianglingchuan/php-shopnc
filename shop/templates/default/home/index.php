@@ -14,61 +14,52 @@
 <link type="text/css" rel="Stylesheet" media="screen" href="<?php echo SHOP_SITE_URL; ?>/resource/css/main.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo SHOP_SITE_URL; ?>/resource/css/slick.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo SHOP_SITE_URL; ?>/resource/css/slick-theme.css"/>
-<!-- 导航菜单-->
-<style type="text/css">
-    .category {
-        display: block !important;
-    }
-</style>
-<!-- 导航菜单-->
+
+
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/public.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/home.css">
 
 
 
-<style type="text/css">
-    <!--
-    .STYLE1 {
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .STYLE2 {
-        font-size: 16px;
-        font-weight: bold;
-        color: red;
-    }
-
-    -->
-</style>
-
-
 <body>
-    
-  <style>
-  </style>  
-  <script type="text/javascript">
-    function moduleDynamicClick(){
-        $("#module_dynamic ul li").click(function(){
-            var data_id = $(this).attr("data-id");   
-            $("#module_dynamic ul li").each(function(){
-                 var _data_id = $(this).attr("data-id");  
-                 if(_data_id == data_id){
-                     $(this).attr("class", "x_active");
-                     $("#model_content_"+_data_id).removeClass("myHidden");
-                     $("#model_content_"+_data_id).addClass("myShow");   
-                 }else{
-                     $(this).attr("class", "");
-                     $("#model_content_"+_data_id).removeClass("myShow");
-                     $("#model_content_"+_data_id).addClass("myHidden");
-                 }
+
+    <style>
+    </style>  
+    <script type="text/javascript">
+        function moduleDynamicClick() {
+            $("#module_dynamic ul li").click(function() {
+                var data_id = $(this).attr("data-id");
+                $("#module_dynamic ul li").each(function() {
+                    var _data_id = $(this).attr("data-id");
+                    if (_data_id == data_id) {
+                        $(this).attr("class", "x_active");
+                        $("#model_content_" + _data_id).removeClass("myHidden");
+                        $("#model_content_" + _data_id).addClass("myShow");
+                    } else {
+                        $(this).attr("class", "");
+                        $("#model_content_" + _data_id).removeClass("myShow");
+                        $("#model_content_" + _data_id).addClass("myHidden");
+                    }
+                });
             });
-        });
-    }    
-  </script>    
-    
-    
+        }
+    </script>    
+
+
+    <?php
+    function getGoodsAttr($goodsAttr, $name) {
+        if (!empty($goodsAttr)) {
+            foreach ($goodsAttr as $buf) {
+                $val = array_values($buf);
+                if ($val[0] == $name) {
+                    return $val[1];
+                }
+            }
+        }
+        return array();
+    }
+    ?>
     <div class="x_nav01"> 
         <div class="container">
             <div class="pull-left">
@@ -86,137 +77,325 @@
                             <li data-id="2">炼焦煤</li>
                             <li data-id="4">无烟煤</li>
                         </ul>
-                        <form class="form-inline row">
+                        <form id="search_form" class="form-inline row" method="POST" cate_id="3" action="<?php echo urlShop('search', 'index', array('cate_id' => 2)); ?>">
                             <div id="search_form_3" class="myShow">
-                                
- 
-                                
-                                
-                                
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail02">仓库</label>
-                                <select>
-                                    <option>全国</option>
-                                    <option>全国</option>
-                                    <option>全国</option>
-                                </select>
-                                
-                                
-                                
-                                
-                                
-<!--                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">-->
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">地区</label>
+                                    <select class="form-control">
+                                        <option value="0">全国</option>
+                                        <?php
+                                        $address = getGoodsAttr($goodsAttr['dlm'], "所在地");
+                                        if(!empty($address)){
+                                            foreach($address as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">煤种</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['dlm'], "煤种");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">粒度</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['dlm'], "粒度");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">灰份</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['dlm'], "灰份");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">水分</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['dlm'], "水分");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">热量</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['dlm'], "发热量");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail03">品名</label>
-                                <input type="text" class="form-control" id="exampleInputEmail03" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail04">规格</label>
-                                <input type="text" class="form-control" id="exampleInputEmail04" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail05">材质</label>
-                                <input type="text" class="form-control" id="exampleInputEmail05" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail06">煤场</label>
-                                <input type="text" class="form-control" id="exampleInputEmail06" value="">
-                            </div>
-                            </div>
-                            
+
                             <div id="search_form_2" class="myHidden">
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputName01">地区2</label>
-                                <input type="text" class="form-control" id="exampleInputName01" value="全国">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">地区</label>
+                                    <select class="form-control">
+                                        <option value="0">全国</option>
+                                        <?php
+                                        $address = getGoodsAttr($goodsAttr['ljm'], "所在地");
+                                        if(!empty($address)){
+                                            foreach($address as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">煤种</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['ljm'], "煤种");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">粒度</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['ljm'], "粒度");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">灰份</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['ljm'], "灰份");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">水分</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['ljm'], "水分");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">热量</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['ljm'], "发热量");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail02">仓库</label>
-                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail03">品名</label>
-                                <input type="text" class="form-control" id="exampleInputEmail03" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail04">规格</label>
-                                <input type="text" class="form-control" id="exampleInputEmail04" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail05">材质</label>
-                                <input type="text" class="form-control" id="exampleInputEmail05" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail06">煤场</label>
-                                <input type="text" class="form-control" id="exampleInputEmail06" value="">
-                            </div>
-                            </div>
-                            
+
                             <div id="search_form_4" class="myHidden">
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputName01">地区4</label>
-                                <input type="text" class="form-control" id="exampleInputName01" value="全国">
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">地区</label>
+                                    <select class="form-control">
+                                        <option value="0">全国</option>
+                                        <?php
+                                        $address = getGoodsAttr($goodsAttr['wym'], "所在地");
+                                        if(!empty($address)){
+                                            foreach($address as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">煤种</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['wym'], "煤种");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">粒度</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['wym'], "粒度");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">灰份</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['wym'], "灰份");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">水分</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['wym'], "水分");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                    <label for="exampleInputEmail02">热量</label>
+                                    <select class="form-control">
+                                        <option value="0">所有</option>
+                                        <?php
+                                        $vals = getGoodsAttr($goodsAttr['wym'], "发热量");
+                                        if(!empty($vals)){
+                                            foreach($vals as &$_tmp){
+                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail02">仓库</label>
-                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail03">品名</label>
-                                <input type="text" class="form-control" id="exampleInputEmail03" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail04">规格</label>
-                                <input type="text" class="form-control" id="exampleInputEmail04" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail05">材质</label>
-                                <input type="text" class="form-control" id="exampleInputEmail05" value="">
-                            </div>
-                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
-                                <label for="exampleInputEmail06">煤场</label>
-                                <input type="text" class="form-control" id="exampleInputEmail06" value="">
-                            </div>
-                            </div>
+                                <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8 class_add" style=" margin-top: 18px;">
+                                    <label for="exampleInputEmail03">名称</label>
+                                    <input type="text" style="width:250px;" name="search_keyword" class="form-control" id="search_keyword">
+                                </div>
                             
-                            <button type="submit" class="btn x_btn">搜索</button>
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+                            <button type="button" onclick="searchSubmit('<?php echo SHOP_SITE_URL; ?>')" class="btn x_btn">搜索</button>
+
                         </form>
-                        
+
                     </div>
                 </div>
-                
+
                 <div class="pull-left x_pullw myHidden" id="model_content_zwl">
                     <div class="pull_top" id="search_dynamic">
                         <div style="height: 180px; line-height: 50px; font-size: 14px;">
-                            正在加班加点开发中......
+                            正在开发中......
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="pull-left x_pullw myHidden" id="model_content_qht">
                     <div class="pull_top" id="search_dynamic">
                         <div style="height: 180px;line-height: 50px; font-size: 14px;">
-                            正在加班加点开发中......
+                            正在开发中......
                         </div>
                     </div>
                 </div>                
-                
-                
+
+
             </div>
         </div>
     </div>
-    
-    
+
+
     <div class="x_pull_list">
         <div class="container">
             <div class="row">
@@ -233,78 +412,78 @@
                     </div>
                     <!---动力煤_start-->
                     <div class="row x_all_dong myShow" id="data_content_3">
-                            <?php
-                            if(!empty($goodsList['dlm'])){
-                                foreach($goodsList['dlm'] as &$tmp){
-                            ?>    
-                        <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                <h3><?php echo $tmp['store_name']; ?></h3>
-                                <div class="x_price">
-                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
-                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                                </div>
-                                <div class="x_class">
-                                    <b>动力煤</b>
-                                    <span>材质</span>
-                                </div>
-                            </a>
-                            <?php
-                                }                                
+                        <?php
+                        if (!empty($goodsList['dlm'])) {
+                            foreach ($goodsList['dlm'] as &$tmp) {
+                                ?>    
+                                <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                    <h3><?php echo $tmp['store_name']; ?></h3>
+                                    <div class="x_price">
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                    </div>
+                                    <div class="x_class">
+                                        <b>动力煤</b>
+                                        <span>材质</span>
+                                    </div>
+                                </a>
+                                <?php
                             }
-                            ?>   
+                        }
+                        ?>   
                     </div>
                     <!---动力煤_end-->
-                    
+
                     <!---炼焦煤_start-->
                     <div class="row x_all_dong myHidden" id="data_content_2">
-                            <?php
-                            if(!empty($goodsList['ljm'])){
-                                foreach($goodsList['ljm'] as &$tmp){
-                            ?>    
-                            <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                <h3><?php echo $tmp['store_name']; ?></h3>
-                                <div class="x_price">
-                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
-                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                                </div>
-                                <div class="x_class">
-                                    <b>炼焦煤</b>
-                                    <span>材质</span>
-                                </div>
-                            </a>
-                            <?php
-                                }                                
+                        <?php
+                        if (!empty($goodsList['ljm'])) {
+                            foreach ($goodsList['ljm'] as &$tmp) {
+                                ?>    
+                                <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                    <h3><?php echo $tmp['store_name']; ?></h3>
+                                    <div class="x_price">
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                    </div>
+                                    <div class="x_class">
+                                        <b>炼焦煤</b>
+                                        <span>材质</span>
+                                    </div>
+                                </a>
+                                <?php
                             }
-                            ?>  
+                        }
+                        ?>  
                     </div>
                     <!---炼焦煤_end-->
-                    
-                    
+
+
                     <!---无烟煤_start-->
                     <div class="row x_all_dong myHidden" id="data_content_4">
-                            <?php
-                            if(!empty($goodsList['wym'])){
-                                foreach($goodsList['wym'] as &$tmp){
-                            ?>    
-                            <a href="<?php echo urlShop('goods', 'index', array('goods_id'=>$tmp['goods_id']));?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                <h3><?php echo $tmp['store_name']; ?></h3>
-                                <div class="x_price">
-                                    <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
-                                    <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
-                                </div>
-                                <div class="x_class">
-                                    <b>无烟煤</b>
-                                    <span>材质</span>
-                                </div>
-                            </a>
-                            <?php
-                                }                                
+                        <?php
+                        if (!empty($goodsList['wym'])) {
+                            foreach ($goodsList['wym'] as &$tmp) {
+                                ?>    
+                                <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                                    <h3><?php echo $tmp['store_name']; ?></h3>
+                                    <div class="x_price">
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                                    </div>
+                                    <div class="x_class">
+                                        <b>无烟煤</b>
+                                        <span>材质</span>
+                                    </div>
+                                </a>
+                                <?php
                             }
-                            ?>   
+                        }
+                        ?>   
                     </div>
                     <!---无烟煤_end-->
-                    
-                    
+
+
                     <div class="x_recommend">
                         <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend.png">
                         <a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend01.png"></a>
@@ -372,59 +551,63 @@
     </div>
 
 
-    
-    
-    <?php if(!empty($output['brand_c'])) {?>
-    <?php $i = 0; foreach($output['brand_c'] as $key=>$brand_c){$i++; ?>    
-    <div class="x_pull_list">
-        <div class="container">
-            <div class="x_pull_top2">
-                <span>煤炭企业</span>
-            </div>	
-            <div class="x_carousel">
-                <div class="rollBox">   
-                    <div class="LeftBotton_home" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>   
-                    <div class="Cont" id="ISL_Cont">   
-                        <div class="ScrCont">   
-                            <div id="List1" class="row item_row"> 
-                            <?php if ($brand_c['image']){?>
-                            <?php foreach($brand_c['image'] as $key=>$brand){?>
-                                <a  href="<?php echo urlShop('brand', 'list', array('brand'=>$brand['brand_id']));?>" class="pic">
-                                <img src="<?php echo brandImage($brand['brand_pic']);?>"></a>                         
-                            <?php }?>
-                            <?php }?>                                
-<!--                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a> 
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a> 
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>
-                                <a  href="" class="pic">
-                                    <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
-                                </a>-->
+
+
+    <?php if (!empty($output['brand_c'])) { ?>
+        <?php
+        $i = 0;
+        foreach ($output['brand_c'] as $key => $brand_c) {
+            $i++;
+            ?>    
+            <div class="x_pull_list">
+                <div class="container">
+                    <div class="x_pull_top2">
+                        <span>煤炭企业</span>
+                    </div>	
+                    <div class="x_carousel">
+                        <div class="rollBox">   
+                            <div class="LeftBotton_home" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>   
+                            <div class="Cont" id="ISL_Cont">   
+                                <div class="ScrCont">   
+                                    <div id="List1" class="row item_row"> 
+                                        <?php if ($brand_c['image']) { ?>
+            <?php foreach ($brand_c['image'] as $key => $brand) { ?>
+                                                <a  href="<?php echo urlShop('brand', 'list', array('brand' => $brand['brand_id'])); ?>" class="pic">
+                                                    <img src="<?php echo brandImage($brand['brand_pic']); ?>"></a>                         
+                                            <?php } ?>
+        <?php } ?>                                
+                                        <!--                                <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a>
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a> 
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a>
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a> 
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a>
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a>
+                                                                        <a  href="" class="pic">
+                                                                            <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/re05.png">
+                                                                        </a>-->
+                                    </div>   
+                                    <div id="List2"></div>   
+                                </div>   
                             </div>   
-                            <div id="List2"></div>   
-                        </div>   
-                    </div>   
-                    <div class="RightBotton_home" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></div>   
-                </div>            
-            </div>						
-        </div>
-    </div>
-    <?php }?>
-    <?php }?>
+                            <div class="RightBotton_home" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></div>   
+                        </div>            
+                    </div>						
+                </div>
+            </div>
+        <?php } ?>
+<?php } ?>
 
 
     <div class="x_pull_list">
@@ -475,4 +658,4 @@
             </div>
         </div>
     </div>
-<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/js/home.js"></script>
+    <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/js/home.js"></script>

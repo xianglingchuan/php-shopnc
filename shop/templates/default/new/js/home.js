@@ -146,6 +146,27 @@
                      $("#search_form_"+_data_id).addClass("myHidden");
                  }
             });
+            $("#search_form").attr("cate_id", data_id);
         });
     }
+    
+    
+    function searchSubmit(url){
+        var cate_id = $("#search_form").attr("cate_id");
+        var keyword = $("#search_keyword").val();
+        var a_id = "";
+        $("#search_form_"+cate_id+" select").each(function(){
+            var _id = $(this).val();
+            if(_id >=1){
+                if(a_id==""){
+                    a_id +=_id;                
+                }else{
+                    a_id += "_"+_id;                
+                }                
+            }
+        });
+        url = url+="/index.php?act=search&op=index&cate_id="+cate_id+"&a_id="+a_id+"&keyword="+keyword;
+        $("#search_form").attr("action", url);
+        $("#search_form").submit();
+    }    
     

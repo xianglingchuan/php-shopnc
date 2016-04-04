@@ -50,12 +50,23 @@ class indexControl extends BaseHomeControl {
         Tpl::output('brand_c', $brand_listnew);
 
 
+        //调价动态
         $goodsList['dlm'] = $this->getGoodsListByCategoryId(3);//动力煤
         $goodsList['ljm'] = $this->getGoodsListByCategoryId(2);//练焦煤
         $goodsList['wym'] = $this->getGoodsListByCategoryId(4);//无烟煤
         Tpl::output('goodsList', $goodsList);
         
-
+        
+        //获得经过属性过滤的煤炭信息
+        $this->_model_search = Model('search');
+        list($goods_param_dlm, $brand_array_dlm, $attr_array_dlm, $checked_brand_dlm, $checked_attr_dlm) = $this->_model_search->getAttr($_GET, 3);//动力煤
+        list($goods_param_ljm, $brand_array_ljm, $attr_array_ljm, $checked_brand_ljm, $checked_attr_ljm) = $this->_model_search->getAttr($_GET, 2);//练焦煤
+        list($goods_param_wym, $brand_array_wym, $attr_array_wym, $checked_brand_wym, $checked_attr_wym) = $this->_model_search->getAttr($_GET, 4);//无烟煤
+        $goodsAttr['dlm'] =  $attr_array_dlm;
+        $goodsAttr['ljm'] =  $attr_array_dlm;
+        $goodsAttr['wym'] =  $attr_array_dlm;
+        Tpl::output('goodsAttr', $goodsAttr);
+    
 
         Model('seo')->type('index')->show();
         Tpl::showpage('index');
