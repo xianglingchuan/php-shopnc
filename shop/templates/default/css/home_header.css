@@ -654,7 +654,7 @@
 /* 公用导航区域
 -------------------------------------- */
 .public-nav-layout {
-    background-color: #BE000E;
+    //background-color: #BE000E;
     width: 100%;
     height: 40px;
     position: relative;
@@ -681,10 +681,10 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 40px;
-    color: #FFF;
+    color: #000000;
     height: 40px;
     padding: 0 20px;
-    border-right: solid 1px #BE000E;
+    //border-right: solid 1px #BE000E;
     display: inline-block;
     *display: inline /*IE6、7*/;
     zoom: 1;
@@ -693,11 +693,13 @@
 .public-nav-layout .site-menu li a:hover {
     text-decoration: none;
     background-color: #BE000E;
+    color:#ffffff;
 }
 
 .public-nav-layout .site-menu li a.current {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #ca0000;
+    //background-color: rgba(255, 255, 255, 0.9);
+    background-color: #BE000E;
+    color: #FFFFFF;
 }
 
 /*分类导航菜单*/
