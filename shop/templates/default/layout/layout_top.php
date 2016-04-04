@@ -166,9 +166,9 @@
         </div>
         <div class="quick-menu">
             <dl>
-                <dt class="selected my_cart_list"><a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的订单</a><i></i></dt>
-                <dd>
-                    <ul>
+                <dt class="selected my_cart_list" style="width:90px; margin-left: -15px;"><a href="<?php echo SHOP_SITE_URL; ?>/index.php?act=member_order">我的三号线</a><i></i></dt>
+                <dd style="width: 90px;margin-left: -15px;">
+                    <ul style="width: 90px;">
                         <li>
                             <a href="<?php echo SHOP_SITE_URL;?>/index.php?act=cart" class="btn-cart">购物车</a>
                         </li>
