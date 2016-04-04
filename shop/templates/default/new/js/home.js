@@ -18,9 +18,9 @@
     AutoPlay();
     function GetObj(objName) {
         if (document.getElementById) {
-            return eval('document.getElementById("' + objName + '")')
+            return eval('document.getElementById("' + objName + '")');
         } else {
-            return eval('document.all.' + objName)
+            return eval('document.all.' + objName);
         }
     }
     function AutoPlay() { //自动滚动   
@@ -105,3 +105,47 @@
             setTimeout('CompScr()', Speed);
         }
     }
+    
+    
+    $(function () {
+        moduleDynamicClick();
+        searchDynamicClick();
+        priceDynamicClick();
+
+    });    
+    function priceDynamicClick(){
+        $("#price_dynamic ul li").click(function(){
+            var data_id = $(this).attr("data-id");   
+            $("#price_dynamic ul li").each(function(){
+                 var _data_id = $(this).attr("data-id");  
+                 if(_data_id == data_id){
+                     $(this).attr("class", "x_p_active");
+                     $("#data_content_"+_data_id).removeClass("myHidden");
+                     $("#data_content_"+_data_id).addClass("myShow");   
+                 }else{
+                     $(this).attr("class", "");
+                     $("#data_content_"+_data_id).removeClass("myShow");
+                     $("#data_content_"+_data_id).addClass("myHidden");
+                 }
+            });
+        });
+    }    
+    
+    function searchDynamicClick(){
+        $("#search_dynamic ul li").click(function(){
+            var data_id = $(this).attr("data-id");   
+            $("#search_dynamic ul li").each(function(){
+                 var _data_id = $(this).attr("data-id");  
+                 if(_data_id == data_id){
+                     $(this).attr("class", "x_p_active");
+                     $("#search_form_"+_data_id).removeClass("myHidden");
+                     $("#search_form_"+_data_id).addClass("myShow");   
+                 }else{
+                     $(this).attr("class", "");
+                     $("#search_form_"+_data_id).removeClass("myShow");
+                     $("#search_form_"+_data_id).addClass("myHidden");
+                 }
+            });
+        });
+    }
+    

@@ -13,7 +13,7 @@ background: url(../images/banner1.jpg) no-repeat center center;background-size: 
 .x_pull_left li.x_active{background: #fff;color: #e05543;}
 .x_pull_left li.x_active span{color: #e36656;border-bottom: none;}
 .pull_top ul{overflow: hidden;zoom:1;border-bottom: 1px #cbcbcb solid;}
-.pull_top ul li{float: left;padding: 4px 15px;}
+.pull_top ul li{float: left;padding: 4px 15px;    cursor: pointer;}
 .pull_top ul li.x_p_active{border-top: 2px #e05543 solid;border-left: 1px #e05543 solid;border-right: 1px #e05543 solid;color: #e05543;}
 .x_pullw{width: 500px;padding-left: 20px;padding-top: 18px;background: #fff;padding-right: 20px;padding-bottom:60px;}
 .x_pullw .form-control{width: 90px; height: 35px; font-size: 14px;}
@@ -98,3 +98,26 @@ a.x_dong_list:hover{color: #000;}
 .x_footer_list a{font-size: 13px;color: #5c5c5c;display: block;margin-bottom: 3px;}
 .x_footer_bottom{padding: 13px 0;text-align: center;background: #4d4a49;}
 .x_footer_bottom span{display: block;color: #fff;font-size: 13px;}
+
+
+
+.myHidden{ display: none;}
+.myShow{ display: block;}
+
+
+
+        .rollBox{width:100%;overflow:hidden;padding:0px 0 0px 0px; margin: auto; background-color: #FFFFFF; border-right: 1px solid #ccc;border-left: 1px solid #ccc;}   
+        .rollBox .LeftBotton_home{height:52px;width:19px;background:url(../img/index/left_button.png) no-repeat 0px 0;
+                             position: absolute;
+                             overflow:hidden;float:left;display:inline;margin:35px 0 0 0;cursor:pointer;}   
+        .rollBox .RightBotton_home{
+            position: absolute;
+            height:52px;width:19px;background:url(../img/index/right_button.png) no-repeat 0px 0;overflow:hidden;float:right;display:inline;margin:35px 0px 0 -19px;cursor:pointer;}   
+        .rollBox .Cont{width:100%;overflow:hidden;float:left;}   
+        .rollBox .ScrCont{width:10000000px;}   
+        .rollBox .Cont .pic{width:234px;float:left;text-align:center; height: 118px;}   
+        .rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto; width:234px; height: 118px;}   
+        .rollBox .Cont .pic p{line-height:26px;color:#505050;}   
+        .rollBox .Cont a:link,.rollBox .Cont a:visited{color:#626466;text-decoration:none;}   
+        .rollBox .Cont a:hover{color:#f00;text-decoration:underline;}   
+        .rollBox #List1,.rollBox #List2{float:left;}    

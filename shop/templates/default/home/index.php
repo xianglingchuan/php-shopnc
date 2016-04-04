@@ -21,21 +21,11 @@
     }
 </style>
 <!-- 导航菜单-->
-<script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery-1.4.1.min.js?1011"></script>
-<script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/swiper.min.js"></script>
-<script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/jquery.kxbdmarquee.js"></script>
-<script type="text/javascript" src="<?php echo SHOP_SITE_URL; ?>/resource/js/slick.min.js"></script>
-
-
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/public.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/home.css">
-<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/js/home.js"></script>
 
-<!-- 客服
-<link href="http://www.zg03.com/css/index.css" rel="stylesheet" type="text/css" />
-<script src="http://www.zg03.com/js/kefu.js"></script>
--->
+
 
 <style type="text/css">
     <!--
@@ -55,24 +45,49 @@
 
 
 <body>
+    
+  <style>
+  </style>  
+  <script type="text/javascript">
+    function moduleDynamicClick(){
+        $("#module_dynamic ul li").click(function(){
+            var data_id = $(this).attr("data-id");   
+            $("#module_dynamic ul li").each(function(){
+                 var _data_id = $(this).attr("data-id");  
+                 if(_data_id == data_id){
+                     $(this).attr("class", "x_active");
+                     $("#model_content_"+_data_id).removeClass("myHidden");
+                     $("#model_content_"+_data_id).addClass("myShow");   
+                 }else{
+                     $(this).attr("class", "");
+                     $("#model_content_"+_data_id).removeClass("myShow");
+                     $("#model_content_"+_data_id).addClass("myHidden");
+                 }
+            });
+        });
+    }    
+  </script>    
+    
+    
     <div class="x_nav01"> 
         <div class="container">
             <div class="pull-left">
-                <div class="pull-left x_pull_left">
+                <div class="pull-left x_pull_left" id="module_dynamic">
                     <ul>
-                        <li class="x_active"><span>找货</span></li>
-                        <li><span>找物流</span></li>
-                        <li><span>签合同</span></li>
+                        <li class="x_active" data-id="zh"><span>找货</span></li>
+                        <li data-id="zwl"><span>找物流</span></li>
+                        <li data-id="qht"><span>签合同</span></li>
                     </ul>
                 </div>
-                <div class="pull-left x_pullw">
-                    <div class="pull_top">
+                <div class="pull-left x_pullw myShow" id="model_content_zh">
+                    <div class="pull_top" id="search_dynamic">
                         <ul>
-                            <li class="x_p_active">动力煤</li>
-                            <li>炼焦煤</li>
-                            <li>无烟煤</li>
+                            <li class="x_p_active" data-id="3">动力煤</li>
+                            <li data-id="2">炼焦煤</li>
+                            <li data-id="4">无烟煤</li>
                         </ul>
                         <form class="form-inline row">
+                            <div id="search_form_3" class="myShow">
                             <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
                                 <label for="exampleInputName01">地区</label>
                                 <input type="text" class="form-control" id="exampleInputName01" value="全国">
@@ -97,28 +112,115 @@
                                 <label for="exampleInputEmail06">煤场</label>
                                 <input type="text" class="form-control" id="exampleInputEmail06" value="">
                             </div>
+                            </div>
+                            
+                            <div id="search_form_2" class="myHidden">
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputName01">地区2</label>
+                                <input type="text" class="form-control" id="exampleInputName01" value="全国">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail02">仓库</label>
+                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail03">品名</label>
+                                <input type="text" class="form-control" id="exampleInputEmail03" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail04">规格</label>
+                                <input type="text" class="form-control" id="exampleInputEmail04" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail05">材质</label>
+                                <input type="text" class="form-control" id="exampleInputEmail05" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail06">煤场</label>
+                                <input type="text" class="form-control" id="exampleInputEmail06" value="">
+                            </div>
+                            </div>
+                            
+                            <div id="search_form_4" class="myHidden">
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputName01">地区4</label>
+                                <input type="text" class="form-control" id="exampleInputName01" value="全国">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail02">仓库</label>
+                                <input type="text" class="form-control" id="exampleInputEmail02" value="全国">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail03">品名</label>
+                                <input type="text" class="form-control" id="exampleInputEmail03" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail04">规格</label>
+                                <input type="text" class="form-control" id="exampleInputEmail04" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail05">材质</label>
+                                <input type="text" class="form-control" id="exampleInputEmail05" value="">
+                            </div>
+                            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 class_add">
+                                <label for="exampleInputEmail06">煤场</label>
+                                <input type="text" class="form-control" id="exampleInputEmail06" value="">
+                            </div>
+                            </div>
+                            
                             <button type="submit" class="btn x_btn">搜索</button>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         </form>
+                        
                     </div>
                 </div>
+                
+                <div class="pull-left x_pullw myHidden" id="model_content_zwl">
+                    <div class="pull_top" id="search_dynamic">
+                        <div style="height: 180px; line-height: 50px; font-size: 14px;">
+                            正在加班加点开发中......
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pull-left x_pullw myHidden" id="model_content_qht">
+                    <div class="pull_top" id="search_dynamic">
+                        <div style="height: 180px;line-height: 50px; font-size: 14px;">
+                            正在加班加点开发中......
+                        </div>
+                    </div>
+                </div>                
+                
+                
             </div>
         </div>
     </div>
+    
+    
     <div class="x_pull_list">
         <div class="container">
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                     <div class="x_pull_top">
                         <span>调价动态</span>
-                        <div class="pull-right list_li">
+                        <div class="pull-right list_li" id="price_dynamic">
                             <ul>
-                                <li class="x_p_active">动力煤</li>
-                                <li>炼焦煤</li>
-                                <li>无烟煤</li>
+                                <li class="x_p_active" data-id="3">动力煤</li>
+                                <li data-id="2">炼焦煤</li>
+                                <li data-id="4">无烟煤</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="row x_all_dong">
+                    <div class="row x_all_dong myShow" id="data_content_3">
                         <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
                             <h3>东胜梁煤业</h3>
                             <div class="x_price">
@@ -185,16 +287,156 @@
                                 <span>材质</span>
                             </div>
                         </a>
-
-
-
                     </div>
+                    
+                    
+                    <div class="row x_all_dong myHidden" id="data_content_2">
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业22</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    
+                    
+                    <div class="row x_all_dong myHidden" id="data_content_4">
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业333</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                        <a href="" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
+                            <h3>东胜梁煤业</h3>
+                            <div class="x_price">
+                                <i class="x_green">￥215.00</i>
+                                <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
+                            </div>
+                            <div class="x_class">
+                                <b>动力煤</b>
+                                <span>材质</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    
+                    
                     <div class="x_recommend">
                         <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend.png">
-                        <a href=""><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend01.png"></a>
-                        <a href=""><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend02.png"></a>
-                        <a href=""><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend03.png"></a> 							
-
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend01.png"></a>
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-4-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend02.png"></a>
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-2-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend03.png"></a> 							
                     </div>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -257,26 +499,6 @@
     </div>
 
 
-
-
-    <style type="text/css">   
-        /*滑动CSS样式，不能合并到home.css有样式冲突*/
-        .rollBox{width:100%;overflow:hidden;padding:0px 0 0px 0px; margin: auto; background-color: #FFFFFF; border-right: 1px solid #ccc;border-left: 1px solid #ccc;}   
-        .rollBox .LeftBotton_home{height:52px;width:19px;background:url(./templates/default/new/img/index/left_button.png) no-repeat 0px 0;
-                             position: absolute;
-                             overflow:hidden;float:left;display:inline;margin:35px 0 0 0;cursor:pointer;}   
-        .rollBox .RightBotton_home{
-            position: absolute;
-            height:52px;width:19px;background:url(./templates/default/new/img/index/right_button.png) no-repeat 0px 0;overflow:hidden;float:right;display:inline;margin:35px 0px 0 -19px;cursor:pointer;}   
-        .rollBox .Cont{width:100%;overflow:hidden;float:left;}   
-        .rollBox .ScrCont{width:10000000px;}   
-        .rollBox .Cont .pic{width:234px;float:left;text-align:center;}   
-        .rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto; width:234px; height: 118px;}   
-        .rollBox .Cont .pic p{line-height:26px;color:#505050;}   
-        .rollBox .Cont a:link,.rollBox .Cont a:visited{color:#626466;text-decoration:none;}   
-        .rollBox .Cont a:hover{color:#f00;text-decoration:underline;}   
-        .rollBox #List1,.rollBox #List2{float:left;}    
-    </style>   
     
     
     <?php if(!empty($output['brand_c'])) {?>
@@ -380,3 +602,4 @@
             </div>
         </div>
     </div>
+<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/js/home.js"></script>
