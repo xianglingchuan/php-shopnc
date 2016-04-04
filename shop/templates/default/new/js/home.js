@@ -131,6 +131,25 @@
         });
     }    
     
+    
+        function moduleDynamicClick() {
+            $("#module_dynamic ul li").click(function() {
+                var data_id = $(this).attr("data-id");
+                $("#module_dynamic ul li").each(function() {
+                    var _data_id = $(this).attr("data-id");
+                    if (_data_id == data_id) {
+                        $(this).attr("class", "x_active");
+                        $("#model_content_" + _data_id).removeClass("myHidden");
+                        $("#model_content_" + _data_id).addClass("myShow");
+                    } else {
+                        $(this).attr("class", "");
+                        $("#model_content_" + _data_id).removeClass("myShow");
+                        $("#model_content_" + _data_id).addClass("myHidden");
+                    }
+                });
+            });
+        }    
+    
     function searchDynamicClick(){
         $("#search_dynamic ul li").click(function(){
             var data_id = $(this).attr("data-id");   

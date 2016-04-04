@@ -46,26 +46,12 @@
     6 => 
     array (
       'gc_id' => '6',
-      'gc_name' => '其他',
+      'gc_name' => '农村燃煤',
       'type_id' => '1',
       'type_name' => '煤炭属性',
       'gc_parent_id' => '0',
       'commis_rate' => '0',
       'gc_sort' => '4',
-      'gc_virtual' => '0',
-      'gc_title' => '',
-      'gc_keywords' => '',
-      'gc_description' => '',
-    ),
-    8 => 
-    array (
-      'gc_id' => '8',
-      'gc_name' => '物流服务',
-      'type_id' => '0',
-      'type_name' => '',
-      'gc_parent_id' => '0',
-      'commis_rate' => '0',
-      'gc_sort' => '6',
       'gc_virtual' => '0',
       'gc_title' => '',
       'gc_keywords' => '',
@@ -78,7 +64,6 @@
     2 => '0',
     4 => '0',
     6 => '0',
-    8 => '0',
   ),
   'children' => 
   array (
@@ -88,7 +73,6 @@
       1 => '2',
       2 => '4',
       3 => '6',
-      4 => '8',
     ),
   ),
 );

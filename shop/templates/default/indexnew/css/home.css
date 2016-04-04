@@ -43,7 +43,7 @@ body{background: #fff;}
 .x_pull_top2 >span{font-size: 16px; padding-bottom: 4px; display: /*block;float:*/ left;border-bottom: 2px #e05543 solid;  }
 
 
-.list_li ul{overflow: hidden;zoom:1;border-bottom: 1px #cbcbcb solid;}
+.list_li ul{overflow: hidden;zoom:1;/*border-bottom: 1px #cbcbcb solid;*/}
 .list_li ul li{float: left;padding: 4px 15px;cursor: pointer; line-height: 25px;}
 .list_li ul li.x_p_active{border-top: 2px #e05543 solid;border-left: 1px #e05543 solid;border-right: 1px #e05543 solid;color: #e05543; line-height: 25px;}
 .x_pull_top{overflow: hidden;zoom:1;border-bottom: 1px #e05543 solid;margin-bottom: 20px;}

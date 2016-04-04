@@ -388,10 +388,10 @@ $('#keyword').attr("value","<?php echo $_GET['keyword']; ?>");
                         echo 'class="current"';
                     } ?>> <?php echo $lang['nc_groupbuy']; ?></a></li>
             <?php } ?>
-            <li>
+<!--            <li>
                 <a href="<?php echo urlShop('brand', 'index'); ?>" <?php if ($output['index_sign'] == 'brand' && $output['index_sign'] != '0') {
                     echo 'class="current"';
-                } ?>> <?php echo $lang['nc_brand']; ?></a></li>
+                } ?>> <?php echo $lang['nc_brand']; ?></a></li>-->
             <?php if (C('points_isuse') && C('pointshop_isuse')) { ?>
                 <li>
                     <a href="<?php echo urlShop('pointshop', 'index'); ?>" <?php if ($output['index_sign'] == 'pointshop' && $output['index_sign'] != '0') {

@@ -19,35 +19,9 @@
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/public.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/home.css">
-
-
-
 <body>
-
-    <style>
-    </style>  
-    <script type="text/javascript">
-        function moduleDynamicClick() {
-            $("#module_dynamic ul li").click(function() {
-                var data_id = $(this).attr("data-id");
-                $("#module_dynamic ul li").each(function() {
-                    var _data_id = $(this).attr("data-id");
-                    if (_data_id == data_id) {
-                        $(this).attr("class", "x_active");
-                        $("#model_content_" + _data_id).removeClass("myHidden");
-                        $("#model_content_" + _data_id).addClass("myShow");
-                    } else {
-                        $(this).attr("class", "");
-                        $("#model_content_" + _data_id).removeClass("myShow");
-                        $("#model_content_" + _data_id).addClass("myHidden");
-                    }
-                });
-            });
-        }
-    </script>    
-
-
     <?php
+
     function getGoodsAttr($goodsAttr, $name) {
         if (!empty($goodsAttr)) {
             foreach ($goodsAttr as $buf) {
@@ -65,7 +39,7 @@
             <div class="pull-left">
                 <div class="pull-left x_pull_left" id="module_dynamic">
                     <ul>
-                        <li class="x_active" data-id="zh"><span>找货</span></li>
+                        <li class="x_active" data-id="zh"><span>找煤碳</span></li>
                         <li data-id="zwl"><span>找物流</span></li>
                         <li data-id="qht"><span>签合同</span></li>
                     </ul>
@@ -85,9 +59,9 @@
                                         <option value="0">全国</option>
                                         <?php
                                         $address = getGoodsAttr($goodsAttr['dlm'], "所在地");
-                                        if(!empty($address)){
-                                            foreach($address as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($address)) {
+                                            foreach ($address as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -100,9 +74,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['dlm'], "煤种");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -116,9 +90,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['dlm'], "粒度");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -131,9 +105,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['dlm'], "灰份");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -147,9 +121,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['dlm'], "水分");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -163,9 +137,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['dlm'], "发热量");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -180,9 +154,9 @@
                                         <option value="0">全国</option>
                                         <?php
                                         $address = getGoodsAttr($goodsAttr['ljm'], "所在地");
-                                        if(!empty($address)){
-                                            foreach($address as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($address)) {
+                                            foreach ($address as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -195,9 +169,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['ljm'], "煤种");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -211,9 +185,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['ljm'], "粒度");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -226,9 +200,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['ljm'], "灰份");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -242,9 +216,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['ljm'], "水分");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -258,9 +232,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['ljm'], "发热量");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -275,9 +249,9 @@
                                         <option value="0">全国</option>
                                         <?php
                                         $address = getGoodsAttr($goodsAttr['wym'], "所在地");
-                                        if(!empty($address)){
-                                            foreach($address as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($address)) {
+                                            foreach ($address as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -290,9 +264,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['wym'], "煤种");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -306,9 +280,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['wym'], "粒度");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -321,9 +295,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['wym'], "灰份");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -337,9 +311,9 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['wym'], "水分");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
@@ -353,20 +327,20 @@
                                         <option value="0">所有</option>
                                         <?php
                                         $vals = getGoodsAttr($goodsAttr['wym'], "发热量");
-                                        if(!empty($vals)){
-                                            foreach($vals as &$_tmp){
-                                                echo "<option value='".$_tmp['attr_value_id']."'>".$_tmp['attr_value_name']."</option>";
+                                        if (!empty($vals)) {
+                                            foreach ($vals as &$_tmp) {
+                                                echo "<option value='" . $_tmp['attr_value_id'] . "'>" . $_tmp['attr_value_name'] . "</option>";
                                             }
                                         }
                                         ?>
                                     </select>
                                 </div>
                             </div>
-                                <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8 class_add" style=" margin-top: 18px;">
-                                    <label for="exampleInputEmail03">名称</label>
-                                    <input type="text" style="width:250px;" name="search_keyword" class="form-control" id="search_keyword">
-                                </div>
-                            
+<!--                            <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8 class_add" style=" margin-top: 18px;">
+                                <label for="exampleInputEmail03">名称</label>
+                                <input type="text" style="width:250px;" name="search_keyword" class="form-control" id="search_keyword">
+                            </div>-->
+
                             <button type="button" onclick="searchSubmit('<?php echo SHOP_SITE_URL; ?>')" class="btn x_btn">搜索</button>
 
                         </form>
