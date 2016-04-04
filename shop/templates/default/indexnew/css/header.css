@@ -1,0 +1,68 @@
+/*
+顶部LOGO样式
+*/
+.policys { background-color: #FFF; width: 210px; height: 82px; padding: 8px 0 0;}
+.policys ul { width: 210px; height: 80px; }
+.policys ul li { line-height: 24px; color: #999; background: url('../images/CP.png') no-repeat; width: 50px; height: 24px; float: left; padding: 52px 10px 0 10px}
+.policys ul li.b1 { background-position: 0 0;}
+.policys ul li.b2 { background-position: -70px 0;}
+.policys ul li.b3 { background-position: -140px 0;}
+.head-app_img {
+    float: right;
+    font-size: 0px;
+    margin: 9px 0 0 0;
+}
+
+
+
+/* 公用导航区域
+-------------------------------------- */
+.public-nav-layout {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    z-index: 99;
+}
+
+/*站点导航菜单*/
+.public-nav-layout .site-menu {
+    font-size: 0;
+    *word-spacing: -1px /*IE6、7*/;
+    float: left;
+}
+
+.public-nav-layout .site-menu li {
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    *display: inline /*IE6、7*/;
+    *zoom: 1;
+}
+
+.public-nav-layout .site-menu li a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 40px;
+    color: #2e2e2e;
+    height: 40px;
+    padding: 0 20px;
+    //border-right: solid 1px #BE000E;
+    display: inline-block;
+    *display: inline /*IE6、7*/;
+    zoom: 1;
+}
+
+.public-nav-layout .site-menu li a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #BE000E;
+}
+
+.public-nav-layout .site-menu li a.current {
+    //background-color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
+    background-color: #BE000E;
+}
+

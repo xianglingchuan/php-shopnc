@@ -1,0 +1,22 @@
+ul{list-style: none;}
+html,body{font-family: "微软雅黑";height: 100%;}
+.header{position: fixed;top:10px;width: 100%;z-index: 1;}
+.top_left ul,.top_right ul{overflow: hidden;zoom:1;margin-bottom: 0;}
+.top_right li a{color: #fff;line-height: 30px;}
+.top_right li{float: left;margin-top: 20px;}
+.top_right li:first-child{margin-right: 20px;}
+.item{background-color: #000;text-align: center;}
+.item img{margin:0 auto;}
+.nav,.carousel{height: 100%;}
+.carousel-inner{height: 100%;}
+.carousel-slider1,.carousel-slider2,.carousel-slider3{height: 100%;}
+.carousel-slider1{background:url(../img/index/index.png) no-repeat center center;background-color: #000;}
+.carousel-slider2{background:url(../img/index/index.png) no-repeat center center;background-color: #000;}
+.carousel-slider3{background:url(../img/index/index.png) no-repeat center center;background-color: #000;}
+.take_care,.understand{background-color: #790000;border-radius: 5px;color: #fff;padding: 6px 10px;position: fixed;top:50%;left: 50%;cursor: pointer;}
+.take_care{left: 39%;}
+.understand{ left: 53%;}
+.take_care a,.understand a{color: #fff;}
+.take_care a:hover,.understand a:hover{color: #fff; text-decoration: none}
+.logo_span{ color: #FFFFFF; font-size: 14px; padding-top: 22px; padding-left: 10px; float: right}
+.load_foot{ position: fixed; bottom: 3%; left: 0%;color: #FFFFFF; width: 100%; text-align: center; line-height: 24px;}
