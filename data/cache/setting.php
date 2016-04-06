@@ -124,7 +124,7 @@
   'site_bank_account' => '',
   'site_email' => 'webmaster@zg03.com',
   'site_logo' => '04833236211317074.png',
-  'site_name' => '中国三号线煤炭网',
+  'site_name' => '中国3号线煤炭网',
   'site_phone' => '400-114-0369',
   'site_status' => '1',
   'statistics_code' => '&lt;div&gt;
