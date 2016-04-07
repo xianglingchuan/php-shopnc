@@ -61,10 +61,10 @@ body { background-color: #FFFFFF;}
 .nc-login-form .submit-div { margin-top: 15px;}
 .nc-login-form .submit-div .submit { font-family: "microsoft yahei"; font-size: 16px; font-weight: 600; color: #FFF; background-color: #F32613; width: 398px; height: 42px; border: solid 1px #D91E17; border-radius: 3px; cursor: pointer;}
 
-.nc-login-form label.error { color: #000; line-height: 24px; background: #FFF5D9 no-repeat 0 0; text-align: left; white-space: nowrap; height: 24px; padding: 8px 12px 8px 24px; position: absolute; z-index: 2; top: 5px; left: 300px; }
+.nc-login-form label.error { color: #000; line-height: 35px; background: #FFF5D9 no-repeat 0 0; text-align: left; white-space: nowrap; height: 35px; padding: 8px 12px 8px 24px; position: absolute; z-index: 2; top:0px; left: 300px; }
 .nc-login-form label.error i { font-size: 24px; margin-right: 12px; color: #FF875A; vertical-align: middle;}
 .nc-login-form .clause-div label.error { top: -5px; right: 50px;}
-.nc-login-form .code-div label.error { background: transparent none; min-width: auto; padding: 0; top: 15px; right: 0; left: auto;}
+.nc-login-form .code-div label.error {min-width: auto;  background: #FFF5D9 no-repeat 0 0; line-height: 35px; height: 35px; padding: 8px 12px 8px 24px; position: top: 0px; right: 0; left: auto;}
 
 .transition { -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out; -o-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out; transition: all .3s ease-in-out; -webkit-transition-delay: .3s; -moz-transition-delay: .3s; -o-transition-delay: .3s; -ms-transition-delay: .3s; transition-delay: .3s; }
 .make_transist { -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out; -o-transition: all .3s ease-in-out; -ms-transition: all .3s ease-in-out; transition: all .3s ease-in-out; }
