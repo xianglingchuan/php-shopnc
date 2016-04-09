@@ -278,6 +278,7 @@ class loginControl extends BaseHomeControl {
         $register_info['mobile'] = $_POST['user_mobile'];
         //互亿无线插件 end   -获取手机号码
         $member_info = $model_member->register($register_info);
+        
         if (!isset($member_info['error'])) {
             $model_member->createSession($member_info, true);
             process::addprocess('reg');

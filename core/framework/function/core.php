@@ -39,6 +39,33 @@ function makeSeccode($nchash){
 	return $seccode;
 }
 
+
+/**
+ * 产生验证码
+ *
+ * @param string $nchash 哈希数
+ * @return string
+ */
+function makeSeccodeByCompany($nchash){
+	$seccode = random(6, 1);
+	$seccodeunits = '';
+
+	$s = sprintf('%04s', base_convert($seccode, 10, 23));
+	$seccodeunits = 'ABCEFGHJKMPRTVXY2346789';
+	if($seccodeunits) {
+		$seccode = '';
+		for($i = 0; $i < 4; $i++) {
+			$unit = ord($s{$i});
+			$seccode .= ($unit >= 0x30 && $unit <= 0x39) ? $seccodeunits[$unit - 0x30] : $seccodeunits[$unit - 0x57];
+		}
+	}
+                
+	setNcCookie('companyseccode'.$nchash, encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY),3600);
+	return $seccode;
+}
+
+
+
 /**
  * 验证验证码
  *
@@ -52,6 +79,23 @@ function checkSeccode($nchash,$value){
 	if (!$return) setNcCookie('seccode'.$nchash,'',-3600);
 	return $return;
 }
+
+/**
+ * 验证验证码
+ *
+ * @param string $nchash 哈希数
+ * @param string $value 待验证值
+ * @return boolean
+ */
+function checkSeccodeByCompany($nchash,$value){
+    
+	list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));
+        
+	$return = $checkvalue == strtoupper($value) && $checkidhash == $nchash;
+	if (!$return) setNcCookie('company_seccode'.$nchash,'',-3600);
+	return $return;
+}
+
 
 /**
  * 设置cookie
@@ -278,6 +322,17 @@ function getReferer(){
  * @return string 字符串类型的返回结果
  */
 function getNchash($act = '', $op = ''){
+    $act = $act ? $act : $_GET['act'];
+    $op = $op ? $op : $_GET['op'];
+    if (C('captcha_status_login')){
+        return substr(md5(SHOP_SITE_URL.$act.$op),0,8);
+    } else {
+        return '';
+    }
+}
+
+
+function getNchashCompany($act = '', $op = ''){
     $act = $act ? $act : $_GET['act'];
     $op = $op ? $op : $_GET['op'];
     if (C('captcha_status_login')){

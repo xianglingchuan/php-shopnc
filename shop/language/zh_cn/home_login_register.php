@@ -7,6 +7,12 @@ defined('InShopNC') or exit('Access Invalid!');
 /**
  * 登录-注册
  */
+$lang['login_register_input_company_username']		= "企业名称不能为空";
+$lang['login_register_company_username_range']		= "企业名称必须在3-15个字符之间";
+$lang['login_register_company_username_lettersonly']= "企业名称不能包含敏感字符";
+$lang['login_register_company_username_exists']		= "该企业名称已经存在";
+
+
 $lang['login_register_input_username']		= "用户名不能为空";
 $lang['login_register_username_range']		= "用户名必须在3-15个字符之间";
 $lang['login_register_username_lettersonly']= "用户名不能包含敏感字符";
