@@ -58,9 +58,13 @@ function makeSeccodeByCompany($nchash){
 			$unit = ord($s{$i});
 			$seccode .= ($unit >= 0x30 && $unit <= 0x39) ? $seccodeunits[$unit - 0x30] : $seccodeunits[$unit - 0x57];
 		}
-	}
-                
+	}        
+        //        $info = 'name=====companyseccode'.$nchash.",value=".encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY);
+        //        file_put_contents("makeSeccodeByCompany.txt", $info);        
 	setNcCookie('companyseccode'.$nchash, encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY),3600);
+        //        list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));
+        //        $info = "checkvalue={$checkvalue},checkidhash={$checkidhash}";
+        //        file_put_contents("makeSeccodeByCompany2222.txt", $info);
 	return $seccode;
 }
 
@@ -88,11 +92,11 @@ function checkSeccode($nchash,$value){
  * @return boolean
  */
 function checkSeccodeByCompany($nchash,$value){
-    
-	list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));
-        
+    	list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));        
+        //        $info = "nchash={$nchash},value={$value},checkvalue={$checkvalue},checkidhash={$checkidhash}";
+        //        file_put_contents("checkSeccodeByCompany.txt", $info);
 	$return = $checkvalue == strtoupper($value) && $checkidhash == $nchash;
-	if (!$return) setNcCookie('company_seccode'.$nchash,'',-3600);
+	if (!$return) setNcCookie('companyseccode'.$nchash,'',-3600);
 	return $return;
 }
 
@@ -1306,6 +1310,39 @@ function chksubmit($check_token = false, $check_captcha = false, $return_type = 
 			}
 		}
 		setNcCookie('seccode'.$_POST['nchash'],'',-3600);
+	}
+	return true;
+}
+
+
+/**
+ * 检测FORM是否提交
+ * @param  $check_token 是否验证token
+ * @param  $check_captcha 是否验证验证码
+ * @param  $return_type 'alert','num'
+ * @return boolean
+ */
+function chksubmitCompany($check_token = false, $check_captcha = false, $return_type = 'alert'){
+	$submit = isset($_POST['form_submit']) ? $_POST['form_submit'] : $_GET['form_submit'];
+	if ($submit != 'ok') return false;
+	if ($check_token && !Security::checkToken()){
+		if ($return_type == 'alert'){
+			showDialog('Token error!');
+		}else{
+			return -11;
+		}
+	}
+	if ($check_captcha){
+                $_POST['captcha'] = $_POST['company_captcha'];
+		if (!checkSeccodeByCompany($_POST['nchash'],$_POST['captcha'])){
+		    setNcCookie('company_seccode'.$_POST['nchash'],'',-3600);
+			if ($return_type == 'alert'){
+				showDialog('验证码错误!');
+			}else{
+				return -12;
+			}
+		}
+		setNcCookie('company_seccode'.$_POST['nchash'],'',-3600);
 	}
 	return true;
 }

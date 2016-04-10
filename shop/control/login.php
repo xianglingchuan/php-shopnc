@@ -276,6 +276,7 @@ class loginControl extends BaseHomeControl {
         $register_info['email'] = $_POST['email'];
         //互亿无线插件 start - 获取手机号码
         $register_info['mobile'] = $_POST['user_mobile'];
+        $register_info['member_type'] = memberModel::TYPE_PERSON_KEY;
         //互亿无线插件 end   -获取手机号码
         $member_info = $model_member->register($register_info);
         
@@ -451,5 +452,64 @@ class loginControl extends BaseHomeControl {
         }
         showMessage('邮箱设置成功', 'index.php?act=member_security&op=index');
     }
+    
+    
+    /**
+     * 企业会员添加操作
+     *
+     * @param
+     * @return
+     */
+    public function companysaveOp() {
+        //重复注册验证
+        if (process::islock('reg')) {
+            showDialog(Language::get('nc_common_op_repeat'));
+        }
+        Language::read("home_login_register");
+        $lang = Language::getLangContent();
+        $model_member = Model('member');
+        $model_member->checkloginMember();
+        $result = chksubmitCompany(true, C('captcha_status_register'), 'num');
+        if ($result) {
+            if ($result === -11) {
+                showDialog($lang['invalid_request'], '', 'error');
+            } elseif ($result === -12) {
+                showDialog($lang['login_usersave_wrong_code'], '', 'error');
+            }
+        } else {
+            showDialog($lang['invalid_request'], '', 'error');
+        }
+        $register_info = array();
+        $register_info['username'] = $_POST['company_user_name'];
+        $register_info['password'] = $_POST['company_password'];
+        $register_info['password_confirm'] = $_POST['company_password_confirm'];
+        $register_info['email'] = $_POST['company_email'];
+        $register_info['tel'] = $_POST['company_tel'];
+        //互亿无线插件 start - 获取手机号码
+        $register_info['mobile'] = $_POST['company_user_mobile'];
+        
+        $register_info['member_type'] = memberModel::TYPE_COMPANY_KEY;
+        
+        //互亿无线插件 end   -获取手机号码
+        $member_info = $model_member->register($register_info);
+        
+        if (!isset($member_info['error'])) {
+            $model_member->createSession($member_info, true);
+            process::addprocess('reg');
+
+            // cookie中的cart存入数据库
+            Model('cart')->mergecart($member_info, $_SESSION['store_id']);
+
+            // cookie中的浏览记录存入数据库
+            Model('goods_browse')->mergebrowse($_SESSION['member_id'], $_SESSION['store_id']);
+
+            $_POST['ref_url'] = (strstr($_POST['ref_url'], 'logout') === false && !empty($_POST['ref_url']) ? $_POST['ref_url'] : 'index.php?act=member_information&op=member');
+            redirect($_POST['ref_url']);
+        } else {
+            showDialog($member_info['error']);
+        }
+    }    
+    
+    
 
 }

@@ -7,12 +7,6 @@ defined('InShopNC') or exit('Access Invalid!');
 /**
  * 登录-注册
  */
-$lang['login_register_input_company_username']		= "企业名称不能为空";
-$lang['login_register_company_username_range']		= "企业名称必须在3-15个字符之间";
-$lang['login_register_company_username_lettersonly']= "企业名称不能包含敏感字符";
-$lang['login_register_company_username_exists']		= "该企业名称已经存在";
-
-
 $lang['login_register_input_username']		= "用户名不能为空";
 $lang['login_register_username_range']		= "用户名必须在3-15个字符之间";
 $lang['login_register_username_lettersonly']= "用户名不能包含敏感字符";
@@ -94,4 +88,15 @@ $lang['login_password_input_email']			= '请输入邮箱地址';
 $lang['login_password_email_not_exists']	= '邮箱地址错误';
 $lang['login_password_email_fail']			= '邮件发送超时，请重新申请';
 $lang['login_password_email_success']		= '邮件已经发出，请查收';
+
+
+$lang['login_register_input_company_username']		= "企业名称不能为空";
+$lang['login_register_company_username_range']		= "企业名称必须在3-15个字符之间";
+$lang['login_register_company_username_lettersonly']= "企业名称不能包含敏感字符";
+$lang['login_register_company_username_exists']		= "该企业名称已经存在";
+
+
+$lang['login_register_input_tel_again']= "请输入公司联系电话";
+$lang['login_register_input_email_again']= "请输入常用的邮箱";
+
 ?>

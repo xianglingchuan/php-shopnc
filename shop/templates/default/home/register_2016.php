@@ -6,6 +6,7 @@
 <link type="text/css" rel="stylesheet" media="screen" href="<?php echo SHOP_TEMPLATES_URL; ?>/2016/css/register/font-awesome.min.css"/>
 <script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/2016/js/jquery.inputDefault.js" charset="utf-8"></script> 
 <script>
+var isCompanyDefault = false;    
 function tabRegister(type,_this){
     if(type=="person"){
         $("#default").show();
@@ -17,6 +18,11 @@ function tabRegister(type,_this){
         $("#register_company").show();
         $("#person").attr("class","");
         $("#person_tab").attr("class","");
+        if(isCompanyDefault == false){
+            var options = {attrName: 'cfs', size:0, bold: false, italic:false, color:'#CCC'};
+            $('[cfs]').inputDefault(options);  
+            isCompanyDefault = true;
+        }        
     }
     $(_this).attr("class","tabulous_active");
 }
@@ -175,11 +181,6 @@ function tabRegister(type,_this){
                             <input type="hidden" name="form_submit" value="ok" />
               </form>
             </div>
-              
-              
-              
-              
-              
             <div id="register_company" class="tabs-content" style="position: absolute; top: 0px; display: none;">
               <form id="register_company_form" class="nc-login-form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?act=login&op=companysave">
               	<input type="hidden" name="reg_source" id="reg_source" value="">
@@ -187,19 +188,19 @@ function tabRegister(type,_this){
                 <dl>
                   <dt>企业名称：</dt>
                   <dd>
-                    <input type="text"  id="company_user_name" name="company_user_name" class="text" title=""  style="color: rgb(187, 187, 187);" autofocus>
+                    <input type="text" cfs="<?php echo $lang['login_register_username_to_login'];?>"  id="company_user_name" name="company_user_name" class="text" title=""  style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>
                 <dl>
                   <dt><?php echo $lang['login_register_pwd'];?>：</dt>
                   <dd>
-                      <input type="password" id="company_password" name="company_password"  class="text" title="<?php echo $lang['login_register_password_to_login'];?>"  value="" style="color: rgb(187, 187, 187);">
+                      <input type="password" cfs="<?php echo $lang['login_register_input_password_again'];?>" id="company_password" name="company_password"  class="text" title="<?php echo $lang['login_register_password_to_login'];?>"  value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>                
                 <dl>
                   <dt><?php echo $lang['login_register_ensure_password'];?>：</dt>
                   <dd>
-                    <input type="password" id="company_password_confirm" name="company_password_confirm" class="text"  value="" style="color: rgb(187, 187, 187);">
+                    <input type="password" cfs="<?php echo $lang['login_register_input_password_again'];?>" id="company_password_confirm" name="company_password_confirm" class="text"  value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>
                 
@@ -207,14 +208,14 @@ function tabRegister(type,_this){
                 <dl>
                   <dt>公司电话：</dt>
                   <dd>
-                    <input type="text" id="company_tel" name="company_tel" class="text" value="" style="color: rgb(187, 187, 187);">
+                    <input type="text" cfs="<?php echo $lang['login_register_input_tel_again'];?>" id="company_tel" name="company_tel" class="text" value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>
                 
                 <dl>
                   <dt>公司邮箱：</dt>
                   <dd>
-                    <input type="text" id="company_email" name="company_email" class="text"  value="" style="color: rgb(187, 187, 187);">
+                    <input type="text" cfs="<?php echo $lang['login_register_input_email_again'];?>" id="company_email" name="company_email" class="text"  value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>
                 <?php if(C('captcha_status_register') == '1') { ?>   
@@ -223,7 +224,7 @@ function tabRegister(type,_this){
                   <dl>
                     <dt>验证码：</dt>
                     <dd>
-                      <input type="text" id="company_captcha" name="company_captcha" class="text w80" size="10" fs="<?php echo $lang['login_register_input_code'];?>" autocomplete="off" value="" style="color: rgb(187, 187, 187);">
+                      <input cfs="<?php echo $lang['login_register_input_code'];?>" type="text" id="company_captcha" name="company_captcha" class="text w80" size="10" autocomplete="off" value="" style="color: rgb(187, 187, 187);">
                     </dd>
                   </dl>
                   <span><img src="index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>" name="company_codeimage" id="company_codeimage"> <a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById('company_codeimage').src='index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>&t=' + Math.random();"><?php echo $lang['login_register_click_to_change_code'];?></a></span></div>
@@ -235,14 +236,14 @@ function tabRegister(type,_this){
                 <dl class="mt15">
                   <dt>手机号码：</dt>
                   <dd>
-                    <input type="text" id="company_user_mobile" name="company_user_mobile" class="text"  value="" style="color: rgb(187, 187, 187);">
+                    <input type="text" cfs="请输入手机号" id="company_user_mobile" name="company_user_mobile" class="text"  value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>              
                 <div class="tiptext" id="sms_text_1">确保上方手机号及验证码输入正确，点击<span><a href="javascript:void(0);"  id="company_getCode" onclick="company_register_code()"><i class="icon-mobile-phone"></i>发送短信验证</a></span>，并将您手机短信所接收到的“动态码”输入到下方短信验证，再点击“立即注册”。</div>  
                 <dl>
                   <dt>短信验证：</dt>
                   <dd>
-                    <input type="text" name="company_mobile_code" id="company_mobile_code" autocomplete="off"  class="text"  size="15" value="" style="color: rgb(187, 187, 187);">
+                    <input type="text" cfs="请输入手机验证码" name="company_mobile_code"  id="company_mobile_code" autocomplete="off"  class="text"  size="15" value="" style="color: rgb(187, 187, 187);">
                   </dd>
                 </dl>
                 <script  type="text/javascript">
@@ -331,7 +332,7 @@ function tabRegister(type,_this){
                             <div class="submit-div"><input type="submit" id="Submit" value="<?php echo $lang['login_register_regist_now'];?>" class="submit"></div>
 
                             <input type="hidden" value="<?php echo $_GET['ref_url']?>" name="ref_url">
-                            <input name="nchash" type="hidden" value="<?php echo getNchash();?>" />
+                            <input name="nchash" type="hidden" value="<?php echo getNchashCompany('register','companyusersave');?>" />
                             <input type="hidden" name="form_submit" value="ok" />              
               </form>
             </div>
@@ -395,6 +396,8 @@ function tabRegister(type,_this){
 $(function() {
     $('[fs]').inputDefault();
 });
+
+
 //注册表单提示
 $('.tip').poshytip({
 	className: 'tip-yellowsimple',

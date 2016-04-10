@@ -8,11 +8,12 @@ Date		2011/08/10
 
 (function($){
 	$.fn.inputDefault = function(options){
-		var defaults = {attrName: 'fs', size:0, bold: false, italic:false, color:'#CCC'};
+           	var defaults = {attrName: 'fs', size:0, bold: false, italic:false, color:'#CCC'};
 		var options = $.extend(defaults, options);
-		this.each(function(){
+                this.each(function(){
 			var $this = $(this);
 			var text = $this.attr(options.attrName);
+                        
 			
 			var offset = $this.position();
 	
@@ -37,9 +38,14 @@ Date		2011/08/10
 				var width = innerWidth - paddingRight;
 				var height = innerHeight - paddingBottom;
 			}
-		
+                        
 			var top = offset.top + plusTop;
-			var left = offset.left + plusLeft;
+			var left = offset.left + plusLeft;                    
+//                        if(options.attrName === "cfs"){
+//                            top += 10;
+//                            left += 100;
+//                        }
+		
 			
 			var lineHeight = $this.css('lineHeight');
 			var display = $this.val() ? 'none' : 'block';

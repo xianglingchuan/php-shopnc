@@ -18,6 +18,12 @@ class memberModel extends Model {
     public function __construct() {
         parent::__construct('member');
     }
+    
+    const TYPE_PERSON_KEY = "0";
+    const TYPE_PERSON_VALUE = "个人";
+    const TYPE_COMPANY_KEY = "1";
+    const TYPE_COMPANY_VALUE = "公司";
+    
 
     /**
      * 会员详细信息（查库）
@@ -166,6 +172,7 @@ class memberModel extends Model {
         //互亿无线插件 start - 添加到数据库
         $member_info['member_mobile'] = $register_info['mobile']; //手机号
         $member_info['member_mobile_bind'] = 1;  //1 注册验证后自动绑定手机  0 不绑定
+        $member_info['member_type'] = $register_info['member_type']; //用户的注册类型
         //互亿无线插件 end - 添加到数据库
         $insert_id = $this->addMember($member_info);
         if ($insert_id) {
@@ -226,6 +233,7 @@ class memberModel extends Model {
             //互亿无线插件 start - 添加到数据库
             $member_info['member_mobile'] = $param['member_mobile'];
             $member_info['member_mobile_bind'] = $param['member_mobile_bind'];
+            $member_info['member_type'] = $param['member_type'];
             //互亿无线插件 end - 添加到数据库
             $insert_id = $this->table('member')->insert($member_info);
             if (!$insert_id) {
@@ -233,6 +241,11 @@ class memberModel extends Model {
             }
             $insert = $this->addMemberCommon(array('member_id' => $insert_id));
             if (!$insert) {
+                throw new Exception();
+            }
+            //查入用户自定义护展信息
+            $_insert = $this->addMemberExpand(array('member_id' => $insert_id, 'tel'=> $param['tel']));
+            if (!$_insert) {
                 throw new Exception();
             }
             $this->commit();
@@ -428,5 +441,15 @@ class memberModel extends Model {
         }
         return $grade_arr;
     }
+    
+    
+    /**
+     * 插入扩展表信息
+     * @param unknown $data
+     * @return Ambigous <mixed, boolean, number, unknown, resource>
+     */
+    public function addMemberExpand($data) {
+        return $this->table('member_expand')->insert($data);
+    }    
 
 }
