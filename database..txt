@@ -1,0 +1,25 @@
+//2016-04-10修入
+ALTER TABLE  `shopnc_member` CHANGE  `member_email`  `member_email` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT  '' COMMENT  '会员邮箱';
+
+CREATE TABLE IF NOT EXISTS `shopnc_member_expand` (
+  `member_id` int(11) NOT NULL COMMENT '用户ID号',
+  `tel` varchar(20) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '公司电话',
+  `username` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '公司法人/真实姓名',
+  `identity` varchar(50) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '法人身份证号',
+  `identity_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '法人身份证照片',
+  `identity_hand_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '法人手拿身份证照片',
+  `bank_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '公司开户银行',
+  `bank_account` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公司银行帐号',
+  `id_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '纳税人识别码',
+  `business_license` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '营业执照图片',
+  `organization_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '组织机构代码',
+  `create_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '添加时间',
+  `create_uid` int(11) DEFAULT '0' COMMENT '添加用户',
+  `modify_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT '修改时间',
+  `modify_uid` int(11) DEFAULT '0' COMMENT '修改用户',
+  PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE  `shopnc_member` ADD  `member_type` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=企业用户/0=普通用户' AFTER  `member_exppoints` ,
+ADD  `is_expand` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=完成/0=没有完成' AFTER  `member_type`;
+
