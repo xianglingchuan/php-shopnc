@@ -24,7 +24,7 @@ class Model{
 	protected $unoptions = true;	//是否清空参数项，默认清除
 
 	public function __construct($table = null){
-		if (!is_null($table)){
+           	if (!is_null($table)){
 			$this->table_name = $table;
 			$this->tableInfo($table);
 		}
@@ -949,6 +949,7 @@ class ModelDb{
             	//防止条件传错，更新所有记录
             	return false;
             }
+        //echo $sql;    
         return DB::execute($sql);
     }
 

@@ -63,7 +63,7 @@ class member_informationControl extends BaseMemberControl {
 		}
 		Tpl::output('member_info',$this->member_info);
 
-		self::profile_menu('member','member');
+		self::profile_menu('member','member', $this->member_info['member_type']);
 		Tpl::output('menu_sign','profile');
 		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
 		Tpl::output('menu_sign1','baseinfo');
@@ -119,10 +119,12 @@ class member_informationControl extends BaseMemberControl {
 		}else{
 			$mtag_list = $mtag_array;
 		}
+                $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_avatar');
+                
 		Tpl::output('mtag_list', $mtag_list);
 		Tpl::output('mtm_list', $mtm_list);
 
-		self::profile_menu('member','more');
+		self::profile_menu('member','more', $member_info['member_type']);
 		Tpl::output('menu_sign','profile');
 		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
 		Tpl::output('menu_sign1','baseinfo');
@@ -155,7 +157,9 @@ class member_informationControl extends BaseMemberControl {
 		}else{
 			showMessage('上传失败，请尝试更换图片格式或小图片','','html','error');
 		}
-		self::profile_menu('member','avatar');
+                $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_avatar');
+                
+		self::profile_menu('member','avatar',$member_info['member_type']);
 		Tpl::output('menu_sign','profile');
 		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
 		Tpl::output('menu_sign1','avatar');
@@ -204,7 +208,7 @@ class member_informationControl extends BaseMemberControl {
 		Language::read('member_home_member,cut');
 		$member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_avatar');
 		Tpl::output('member_avatar',$member_info['member_avatar']);
-		self::profile_menu('member','avatar');
+		self::profile_menu('member','avatar', $member_info['member_type']);
 		Tpl::output('menu_sign','profile');
 		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
 		Tpl::output('menu_sign1','avatar');
@@ -218,12 +222,14 @@ class member_informationControl extends BaseMemberControl {
 	 * @param string 	$menu_key	当前导航的menu_key
 	 * @return
 	 */
-	private function profile_menu($menu_type,$menu_key='') {
-		$menu_array		= array();
+	private function profile_menu($menu_type,$menu_key='', $memberType=MemberModel::TYPE_PERSON_KEY) {
+                $memberTypeName =  $memberType == MemberModel::TYPE_PERSON_KEY ? "个人" : "企业"; 
+                $menu_array		= array();
 		switch ($menu_type) {
 			case 'member':
 				$menu_array	= array(
-				1=>array('menu_key'=>'member',	'menu_name'=>Language::get('home_member_base_infomation'),'menu_url'=>'index.php?act=member_information&op=member'),
+				0=>array('menu_key'=>'certification',	'menu_name'=>$memberTypeName."实名认证信息",'menu_url'=>'index.php?act=member_information&op=certification'),
+                                1=>array('menu_key'=>'member',	'menu_name'=>Language::get('home_member_base_infomation'),'menu_url'=>'index.php?act=member_information&op=member'),
 				2=>array('menu_key'=>'more',	'menu_name'=>Language::get('home_member_more'),'menu_url'=>'index.php?act=member_information&op=more'),
 				5=>array('menu_key'=>'avatar',	'menu_name'=>Language::get('home_member_modify_avatar'),'menu_url'=>'index.php?act=member_information&op=avatar'));
 				break;
@@ -231,4 +237,50 @@ class member_informationControl extends BaseMemberControl {
 		Tpl::output('member_menu',$menu_array);
 		Tpl::output('menu_key',$menu_key);
 	}
+        
+	/**
+	 * 认证信息
+	 *
+	 * @param
+	 * @return
+	 */ 
+        public function certificationOp(){
+		Language::read('member_home_member');
+		$lang	= Language::getLangContent();
+		$model_member	= Model('member');
+		if (chksubmit()){
+                    $expand_array = array(
+                        "member_id" =>$_SESSION['member_id'],
+                        "tel" => $_POST['tel'],
+                        "username" => $_POST['username'],
+                        "identity" => $_POST['identity'],
+                        "identity_img" => $_POST['identity_img'],
+                        "identity_hand_img" => $_POST['identity_hand_img'],
+                        "bank_name" => $_POST['bank_name'],
+                        "bank_account" => $_POST['bank_account'],
+                        "id_code" => $_POST['id_code'],
+                        "business_license" => $_POST['business_license'],
+                        "organization_code" => $_POST['organization_code'],
+                    );
+                    $result = $model_member->updateMemberExpand($expand_array);
+                    $message = $result? $lang['nc_common_save_succ'] : $lang['nc_common_save_fail'];
+                    showDialog($message,'reload',$result ? 'succ' : 'error');
+                }
+
+		if($this->member_info['member_privacy'] != ''){
+			$this->member_info['member_privacy'] = unserialize($this->member_info['member_privacy']);
+		} else {
+		    $this->member_info['member_privacy'] = array();
+		}
+                $expandInfo = Model('member_expand')->where(array("member_id"=>$_SESSION['member_id']))->find();
+                Tpl::output('expand_info',$expandInfo);
+                
+		Tpl::output('member_info',$this->member_info);
+
+		self::profile_menu('member','certification', $this->member_info['member_type']);
+		Tpl::output('menu_sign','profile');
+		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
+		Tpl::output('menu_sign1','baseinfo');
+		Tpl::showpage('member_profile.certification');
+        }        
 }

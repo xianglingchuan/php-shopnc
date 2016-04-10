@@ -451,5 +451,16 @@ class memberModel extends Model {
     public function addMemberExpand($data) {
         return $this->table('member_expand')->insert($data);
     }    
-
+    
+    
+    public function updateMemberExpand($data){
+        $data['create_uid'] = $data['modify_uid'] = $_SESSION['member_id'];
+        $info = Model('member_expand')->where(array("member_id"=>$data['member_id']))->find();
+        if(!empty($info)){
+            return $this->table('member_expand')->where(array("member_id"=>$data['member_id']))->update($data);
+        }else{
+            $data['create_datetime'] = date("Y-m-d H:i:s",time());
+            return $this->addMemberExpand($data);
+        }
+    }
 }

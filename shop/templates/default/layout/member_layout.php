@@ -126,7 +126,11 @@ $(function() {
         <a href="index.php?act=member_message&op=message" class="new-message" title="新消息"><?php echo intval($output['message_num']); ?></a>
         <?php }?>
       </div>
-      <div class="handle"><a href="index.php?act=member_information&op=avatar" title="修改头像"><i class="icon-camera"></i>修改头像</a><a href="index.php?act=member_information&op=member" title="修改资料"><i class="icon-pencil"></i>修改资料</a><a href="index.php?act=login&op=logout" title="安全退出"><i class="icon-off"></i>安全退出</a></div>
+      <div class="handle">
+          <a href="index.php?act=member_information&op=certification" title="实名认证"><i class="icon-pencil"></i>实名认证</a>
+          <a href="index.php?act=member_information&op=avatar" title="修改头像"><i class="icon-camera"></i>修改头像</a>
+          <a href="index.php?act=member_information&op=member" title="修改资料"><i class="icon-pencil"></i>修改资料</a>
+          <a href="index.php?act=login&op=logout" title="安全退出"><i class="icon-off"></i>安全退出</a></div>
       <div class="name"><?php echo $output['member_info']['member_name'];?>&nbsp;
         <?php if ($output['member_info']['level_name']){ ?>
         <div class="nc-grade-mini" style="cursor:pointer;" onclick="javascript:go('<?php echo urlShop('pointgrade','index');?>');"><?php echo $output['member_info']['level_name'];?></div>
