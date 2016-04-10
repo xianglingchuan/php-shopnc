@@ -391,17 +391,17 @@ class BaseMemberControl extends Control {
                         'member_security'   => array('name' => '账户安全', 'url'=>urlShop('member_security', 'index')),
                         'member_address'    => array('name' => '收货地址', 'url'=>urlShop('member_address', 'address')),
                         'member_message'    => array('name' => '我的消息', 'url'=>urlShop('member_message', 'message')),
-                        'member_snsfriend'  => array('name' => '我的好友', 'url'=>urlShop('member_snsfriend', 'find')),
-                        'member_goodsbrowse'=> array('name' => '我的足迹', 'url'=>urlShop('member_goodsbrowse', 'list')),
-                        'member_connect'    => array('name' => '第三方账号登录', 'url'=>urlShop('member_connect', 'qqbind')),
-                        'member_sharemanage'=> array('name' => '分享绑定', 'url'=>urlShop('member_sharemanage', 'index'))
+                        //'member_snsfriend'  => array('name' => '我的好友', 'url'=>urlShop('member_snsfriend', 'find')),
+                        //'member_goodsbrowse'=> array('name' => '我的足迹', 'url'=>urlShop('member_goodsbrowse', 'list')),
+                        //'member_connect'    => array('name' => '第三方账号登录', 'url'=>urlShop('member_connect', 'qqbind')),
+                        //'member_sharemanage'=> array('name' => '分享绑定', 'url'=>urlShop('member_sharemanage', 'index'))
                 )),
-                'app' => array('name' => '应用管理', 'child' => array(
-                        'sns'               => array('name' => '个人主页', 'url'=>urlShop('member_snshome', 'index')),
-                        'cms'               => array('name' => '我的CMS', 'url'=>urlCMS('member_article', 'article_list')),
-                        'circle'            => array('name' => '我的圈子', 'url'=>urlCircle('p_center', 'index')),
-                        // 'microshop'         => array('name' => '我的微平台', 'url'=>urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id'])))
-                ))
+//                'app' => array('name' => '应用管理', 'child' => array(
+//                        'sns'               => array('name' => '个人主页', 'url'=>urlShop('member_snshome', 'index')),
+//                        'cms'               => array('name' => '我的CMS', 'url'=>urlCMS('member_article', 'article_list')),
+//                        'circle'            => array('name' => '我的圈子', 'url'=>urlCircle('p_center', 'index')),
+//                        // 'microshop'         => array('name' => '我的微平台', 'url'=>urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id'])))
+//                ))
         );
         return $menu_list;
     }

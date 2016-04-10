@@ -303,6 +303,7 @@ class BaseMemberControl extends Control {
         if ($_GET['column'] && strtoupper(CHARSET) == 'GBK'){
             $_GET = Language::getGBK($_GET);
         }
+        echo "BaseMemberControl";
         //会员验证
         $this->checkLogin();
         //输出头部的公用信息
@@ -317,6 +318,7 @@ class BaseMemberControl extends Control {
 
         // 常用操作及导航
         $common_menu_list = $this->_getCommonOperationsAndNavLink();
+        var_dump($common_menu_list);
 
     }
 

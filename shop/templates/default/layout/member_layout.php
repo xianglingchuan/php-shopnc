@@ -87,7 +87,8 @@ $(function() {
 <div class="ncm-container">
   <div class="left-layout">
     <div class="ncm-l-top">
-      <h2><a href="index.php?act=member&op=home" title="我的平台">我的平台</a></h2>
+      <?php $typeName = $output['member_info']['member_type'] == memberModel::TYPE_COMPANY_KEY ? "企业" : "个人";?>
+      <h2><a href="index.php?act=member&op=home" title="我的平台">我的<?php echo $typeName; ?>平台</a></h2>
       <a href="javascript:void(0)" title="常用菜单设置" class="set-btn"></a>
       <div class="set-container-arrow"></div>
       <div class="set-container">
