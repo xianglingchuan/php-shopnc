@@ -87,86 +87,79 @@ function tabRegister(type,_this){
                   </dd>
                 </dl>
                 <script  type="text/javascript">
-        	
-			<?php //生成PHP随机数，请求时发送到后台，匹配是否存在和正确。防止恶意请求和站外调用。
+        		<?php //生成PHP随机数，请求时发送到后台，匹配是否存在和正确。防止恶意请求和站外调用。
 				$_SESSION['send_code']=rand(10000,99999);
 			 ?>
 			function register_code(){
 				var mobile = $("#user_mobile").val();//获取手机号
 				getCode(mobile);
 			}
-			 
 			//获取验证码
 			function getCode(mobile){
 				if($.trim(mobile)==""){
 					alert("请输入手机号");	
 					return false; 
 				}
-			  RemainTime("getCode",60);
-		
-				$.ajax({
-						type:"POST",
-						url:"index.php", 
-						cache:false,
-						data:{'act':'ihuyi','op':'register','send_code':<?php echo $_SESSION['send_code'];//防止恶意请求 ?>,'mobile':mobile},          
-						success:function(data){
-							if(data=="2"){
-								//倒计时
-								//RemainTime("getCode",20);  //发送成功   getCode ： 发送的按钮ID  ，20：倒计时时间
-							}else if(data=="-1"){
-								clearTimeout(timeid);
-								RemainTime("getCode",1);
-								alert("发送失败"); 
-								
-								
-							}
-						}       
+			        RemainTime("getCode",60);
+                                $.ajax({
+					type:"POST",
+					url:"index.php", 
+					cache:false,
+					data:{'act':'ihuyi','op':'register', 'type':'user', 'send_code':<?php echo $_SESSION['send_code'];//防止恶意请求 ?>,'mobile':mobile},          
+					success:function(data){
+					    if(data=="2"){
+						//倒计时
+						//RemainTime("getCode",20);  //发送成功   getCode ： 发送的按钮ID  ，20：倒计时时间
+					   }else if(data=="-1"){
+						clearTimeout(timeid);
+						RemainTime("getCode",1);
+						alert("发送失败"); 
+					  }
+				        }       
 				});
 			}
 
-		//倒计时itime =秒
-		function RemainTime(id,iTime){
+                        //倒计时itime =秒
+                        function RemainTime(id,iTime){
+                                iTime=iTime-1;
+                                if(iTime!=0){
+                                  timeid=setTimeout("RemainTime('"+id+"',"+iTime+")",1000);
+                                  $("#"+id).removeAttr("onclick");
+                                  $("#"+id).text(iTime+"秒");
+                                }else if(iTime<=0){
+                                  $("#"+id).attr("onclick","register_code();");
+                                  $("#"+id).text("获取")
+                                }
+                        }
 		
-			iTime=iTime-1;
-			if(iTime!=0){
-			  timeid=setTimeout("RemainTime('"+id+"',"+iTime+")",1000);
-				$("#"+id).removeAttr("onclick");
-				$("#"+id).text(iTime+"秒");
-			}else if(iTime<=0){
-				$("#"+id).attr("onclick","register_code();");
-				$("#"+id).text("获取")
-			}
-		}
-		
-		//验证码是否正确
-		function bool_code(){
-			var user_mobile = $("#user_mobile").val();
-			var mobile_code = $("#mobile_code").val();
-			
-			if(user_mobile ==""){
-				alert ("请出入手机号码");
-				return false;
-			}
-			if(mobile_code ==""){
-				alert ("请输出手机验证码");
-				return false;
-			}
-			$.ajax({
-						type:"POST",
-						url:"<?php echo ADMIN_SITE_URL;?>/index.php", 
-						cache:false,
-						data:{'act':'ihuyi','op':'boolReg','mobile_code':mobile_code,'mobile':mobile},          
-						success:function(data){
-							 if(data=="1"){
-								 return true;
-							}else{
-								 return false;
-							}
-							
-						}       
-			});
-			return false;
-		}
+                        //验证码是否正确
+                        function bool_code(){
+                                var user_mobile = $("#user_mobile").val();
+                                var mobile_code = $("#mobile_code").val();
+                                if(user_mobile ==""){
+                                    alert ("请出入手机号码");
+                                    return false;
+                                }
+                                if(mobile_code ==""){
+                                    alert ("请输出手机验证码");
+                                    return false;
+                                }
+                                alert("bool_code.....");
+                                $.ajax({
+                                    type:"POST",
+                                    url:"<?php echo ADMIN_SITE_URL;?>/index.php", 
+                                    cache:false,
+                                    data:{'act':'ihuyi','op':'boolReg','mobile_code':mobile_code,'mobile':mobile},          
+                                    success:function(data){
+                                        if(data=="1"){
+                                             return true;
+                                        }else{
+                                             return false;
+                                        }
+                                    }       
+                                });
+                                return false;
+                        }
 		</script>
                 
                 
@@ -248,7 +241,7 @@ function tabRegister(type,_this){
                 </dl>
                 <script  type="text/javascript">
         	<?php //生成PHP随机数，请求时发送到后台，匹配是否存在和正确。防止恶意请求和站外调用。
-		$_SESSION['send_code']=rand(10000,99999);
+		$_SESSION['company_send_code']=rand(10000,99999);
 		?>
 		function company_register_code(){
 		    var mobile = $("#company_user_mobile").val();//获取手机号
@@ -265,7 +258,7 @@ function tabRegister(type,_this){
 				type:"POST",
 				url:"index.php", 
 				cache:false,
-				data:{'act':'ihuyi','op':'register','send_code':<?php echo $_SESSION['send_code'];//防止恶意请求 ?>,'mobile':mobile},          
+				data:{'act':'ihuyi','op':'register','type':'company','send_code':<?php echo $_SESSION['company_send_code'];//防止恶意请求 ?>,'mobile':mobile},          
 				success:function(data){
 				if(data=="2"){
 				//倒计时

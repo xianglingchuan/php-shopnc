@@ -34,12 +34,16 @@ class ihuyiControl extends BaseGoodsControl {
 	/*注册验证*/
 	public function registerOp(){
 		
-		if(empty($_SESSION['send_code']) or $_POST["send_code"]!=$_SESSION['send_code']){//防用户恶意请求站外调用，不需要可删除
+                if($_POST['type'] == "company"){
+                    $sendCodeKey = "company_send_code";
+                }else{
+                    $sendCodeKey = "send_code";
+                }
+		if(empty($_SESSION[$sendCodeKey]) or $_POST["send_code"]!=$_SESSION[$sendCodeKey]){//防用户恶意请求站外调用，不需要可删除
 			
 			echo '请求超时，请刷新页面后重试';
 			return true;
 		}
-		
 		
 		$mobile =$_POST['mobile'];
 		$mobile_code=rand(100000,999999);
