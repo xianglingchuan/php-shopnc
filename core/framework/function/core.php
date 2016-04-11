@@ -59,12 +59,14 @@ function makeSeccodeByCompany($nchash){
 			$seccode .= ($unit >= 0x30 && $unit <= 0x39) ? $seccodeunits[$unit - 0x30] : $seccodeunits[$unit - 0x57];
 		}
 	}        
-        //        $info = 'name=====companyseccode'.$nchash.",value=".encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY);
-        //        file_put_contents("makeSeccodeByCompany.txt", $info);        
+        //$info = 'name=====companyseccode'.$nchash.",value=".encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY);
+        //file_put_contents("makeSeccodeByCompany.txt", $info);  
+                
 	setNcCookie('companyseccode'.$nchash, encrypt(strtoupper($seccode)."\t".(time())."\t".$nchash,MD5_KEY),3600);
-        //        list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));
-        //        $info = "checkvalue={$checkvalue},checkidhash={$checkidhash}";
-        //        file_put_contents("makeSeccodeByCompany2222.txt", $info);
+        list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));
+                
+        //$info = "checkvalue={$checkvalue},checkidhash={$checkidhash}";
+        //file_put_contents("makeSeccodeByCompany2222.txt", $info);
 	return $seccode;
 }
 
@@ -93,8 +95,9 @@ function checkSeccode($nchash,$value){
  */
 function checkSeccodeByCompany($nchash,$value){
     	list($checkvalue, $checktime, $checkidhash) = explode("\t", decrypt(cookie('companyseccode'.$nchash),MD5_KEY));        
-        //        $info = "nchash={$nchash},value={$value},checkvalue={$checkvalue},checkidhash={$checkidhash}";
-        //        file_put_contents("checkSeccodeByCompany.txt", $info);
+        //$info = "nchash={$nchash},value={$value},checkvalue={$checkvalue},checkidhash={$checkidhash}";
+        //echo $info;
+        //file_put_contents("checkSeccodeByCompany.txt", $info);
 	$return = $checkvalue == strtoupper($value) && $checkidhash == $nchash;
 	if (!$return) setNcCookie('companyseccode'.$nchash,'',-3600);
 	return $return;
@@ -1335,14 +1338,14 @@ function chksubmitCompany($check_token = false, $check_captcha = false, $return_
 	if ($check_captcha){
                 $_POST['captcha'] = $_POST['company_captcha'];
 		if (!checkSeccodeByCompany($_POST['nchash'],$_POST['captcha'])){
-		    setNcCookie('company_seccode'.$_POST['nchash'],'',-3600);
+		        setNcCookie('companyseccode'.$_POST['nchash'],'',-3600);
 			if ($return_type == 'alert'){
 				showDialog('验证码错误!');
 			}else{
 				return -12;
 			}
 		}
-		setNcCookie('company_seccode'.$_POST['nchash'],'',-3600);
+		setNcCookie('companyseccode'.$_POST['nchash'],'',-3600);
 	}
 	return true;
 }

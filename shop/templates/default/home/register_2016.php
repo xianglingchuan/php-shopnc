@@ -220,7 +220,7 @@ function tabRegister(type,_this){
                       <input cfs="<?php echo $lang['login_register_input_code'];?>" type="text" id="company_captcha" name="company_captcha" class="text w80" size="10" autocomplete="off" value="" style="color: rgb(187, 187, 187);">
                     </dd>
                   </dl>
-                  <span><img src="index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>" name="company_codeimage" id="company_codeimage"> <a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById('company_codeimage').src='index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>&t=' + Math.random();"><?php echo $lang['login_register_click_to_change_code'];?></a></span></div>
+                  <span><img src="index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>" name="company_codeimage" id="company_codeimage"><a class="makecode" href="javascript:void(0)" onclick="javascript:document.getElementById('company_codeimage').src='index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>&t=' + Math.random();"><?php echo $lang['login_register_click_to_change_code'];?></a></span></div>
                 </div>
                 <?php } ?>   
                 
@@ -249,6 +249,7 @@ function tabRegister(type,_this){
 		}			 
 		//获取验证码
 		function company_getCode(mobile){
+                    alert("mobile..."+mobile);
 		    if($.trim(mobile)==""){
 			alert("请输入手机号");	
 			return false; 
@@ -281,7 +282,7 @@ function tabRegister(type,_this){
 				$("#"+id).removeAttr("onclick");
 				$("#"+id).text(iTime+"秒");
 			}else if(iTime<=0){
-				$("#"+id).attr("onclick","register_code();");
+				$("#"+id).attr("onclick","company_register_code();");
 				$("#"+id).text("获取")
 			}
 		}
@@ -620,7 +621,7 @@ $("#register_company_form").validate({
             company_captcha : {
                 required : true,
                 remote   : {
-                    url : 'index.php?act=seccode&op=checkcompany&nchash=<?php echo getNchash();?>',
+                    url : 'index.php?act=seccode&op=checkcompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>',
                     type: 'get',
                     data:{
                         captcha : function(){
@@ -629,7 +630,7 @@ $("#register_company_form").validate({
                     },
                     complete: function(data) {
                         if(data.responseText == 'false') {
-                        	document.getElementById('company_codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchash();?>&t=' + Math.random();
+                        	document.getElementById('company_codeimage').src='<?php echo SHOP_SITE_URL?>/index.php?act=seccode&op=makecodecompany&nchash=<?php echo getNchashCompany('register','companyusersave');?>&t=' + Math.random();
                         }
                     }
                 }

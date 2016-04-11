@@ -20,7 +20,6 @@ class ihuyiControl extends BaseGoodsControl {
 	/*提交验证*/
 	public function boolRegOp(){
 		//注册
-
 		if($_GET['mobile']!=$_SESSION['mobile'] or $_GET['mobile_code']!=$_SESSION['mobile_code']){
 			echo "false";
 		}else{
