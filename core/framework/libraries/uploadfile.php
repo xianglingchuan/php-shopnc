@@ -143,8 +143,7 @@ class UploadFile{
 	 * @return bool
 	 */
 	public function upfile($field){
-
-		//上传文件
+         	//上传文件
 		$this->upload_file = $_FILES[$field];
 		if ($this->upload_file['tmp_name'] == ""){
 			$this->setError(Language::get('cant_find_temporary_files'));
@@ -247,7 +246,7 @@ class UploadFile{
 			die();
 		}
 		if ($this->error != '') return false;
-		if(@move_uploaded_file($this->upload_file['tmp_name'],BASE_UPLOAD_PATH.DS.$this->save_path.DS.$this->file_name)){
+                if(@move_uploaded_file($this->upload_file['tmp_name'],BASE_UPLOAD_PATH.DS.$this->save_path.DS.$this->file_name)){
 			//产生缩略图
 			if ($ifresize){
 				$resizeImage	= new ResizeImage();

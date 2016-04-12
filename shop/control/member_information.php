@@ -245,23 +245,36 @@ class member_informationControl extends BaseMemberControl {
 	 * @return
 	 */ 
         public function certificationOp(){
+            header("Content-type: text/html; charset=utf-8"); 
 		Language::read('member_home_member');
 		$lang	= Language::getLangContent();
 		$model_member	= Model('member');
 		if (chksubmit()){
+                    
                     $expand_array = array(
                         "member_id" =>$_SESSION['member_id'],
                         "tel" => $_POST['tel'],
                         "username" => $_POST['username'],
                         "identity" => $_POST['identity'],
-                        "identity_img" => $_POST['identity_img'],
-                        "identity_hand_img" => $_POST['identity_hand_img'],
                         "bank_name" => $_POST['bank_name'],
                         "bank_account" => $_POST['bank_account'],
                         "id_code" => $_POST['id_code'],
-                        "business_license" => $_POST['business_license'],
                         "organization_code" => $_POST['organization_code'],
                     );
+                    
+                    //上传图片
+                    $fileArray = array("identity_img", "identity_hand_img", "business_license");
+                    foreach($fileArray as &$buf){
+                        if(isset($_FILES[$buf]) && !empty($_FILES[$buf]['tmp_name'])){
+                            $upload = new UploadFile();
+                            $upload->set('default_dir',ATTACH_MALBUM);
+                            $upload->set('max_size',1024);
+                            $result = $upload->upfile($buf);
+                            if($result){
+                                $expand_array[$buf] = $upload->get("save_path").DS.$upload->get("file_name");
+                            } 
+                        }
+                    }                    
                     $result = $model_member->updateMemberExpand($expand_array);
                     $message = $result? $lang['nc_common_save_succ'] : $lang['nc_common_save_fail'];
                     showDialog($message,'reload',$result ? 'succ' : 'error');
@@ -283,4 +296,6 @@ class member_informationControl extends BaseMemberControl {
 		Tpl::output('menu_sign1','baseinfo');
 		Tpl::showpage('member_profile.certification');
         }        
+        
+        
 }

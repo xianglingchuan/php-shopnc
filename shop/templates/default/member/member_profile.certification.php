@@ -1,7 +1,9 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
 <link rel="stylesheet" type="text/css" href="<?php echo RESOURCE_SITE_URL;?>/js/jquery-ui/themes/ui-lightness/jquery.ui.css"  />
+<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/js/uploadPreview.js"></script>
 <style>
   .inputWidth{ width: 250px;}  
+  .updateImageHelp{float:left; text-align: center; margin-left: 20px;}
 </style>
 <div class="wrap">
   <div class="tabmenu">
@@ -10,10 +12,14 @@
   <div class="ncm-user-profile">
 <!--    <div class="user-avatar"><span><img src="<?php echo getMemberAvatar($output['member_info']['member_avatar']);?>"></span></div>-->
     <div class="ncm-default-form fr" style="width:100%;">
-      <form method="post" id="profile_form" action="index.php?act=member_information&op=certification">
+      <form method="post" id="profile_form" enctype="multipart/form-data" action="index.php?act=member_information&op=certification">
         <input type="hidden" name="form_submit" value="ok" />
         <dl>
-            <dt>公司法人姓名：</dt>
+            <dt>
+            <?php 
+            echo $member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY ? "公司法人姓名：" : "真实姓名：";
+            ?>
+            </dt>
           <dd>
               <span class="w400">
                   <input type="text" class="text inputWidth" maxlength="20" name="username" value="<?php echo $expandInfo['username'];?>" />
@@ -21,9 +27,12 @@
          </dd>
         </dl>
        
-        
         <dl>
-          <dt>公司法人身份证号：</dt>
+          <dt>
+            <?php 
+            echo $member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY ? "公司法人身份证号：" : "身份证号：";
+            ?>
+          </dt>
           <dd>
               <span class="w400">
                   <input type="text" class="text inputWidth" maxlength="20" name="identity" value="<?php echo $expandInfo['identity'];?>" />
@@ -32,22 +41,68 @@
         </dl>
         
         <dl>
-          <dt>公司法人身份证照片：</dt>
+          <dt style="line-height:100px;">
+            <?php 
+            echo $member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY ? "公司法人身份证照片：" : "个人身份证照片：";
+            ?>
+          </dt>
           <dd>
-              <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="identity_img" value="<?php echo $expandInfo['identity_img'];?>" />
-              </span>
+              <span class="w400" style="float:left;">
+                  <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
+                  <input type="file" hidefocus="true" size="1" class="input-file" name="identity_img" id="identity_img" file_id="0" multiple="" maxlength="0"/>
+                  </span>
+                  <p><i class="icon-upload-alt"></i>上传图片</p>
+                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                  </a>
+                </div>
+                <?php if(!empty($expandInfo['identity_img'])){?>
+                <img id="identity_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_img'];?>" style=" border:2px solid #CCCACC;"/>    
+                <?php }else{ ?>
+                <img id="identity_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                <?php  } ?>
+                  
+                  
+             </span>
+              <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_img_default.jpg">
+                  <BR><span style="color:red;">请按图例上传认证照片</span>
+              </div>
          </dd>
+         
         </dl>
         <dl>
-          <dt>法人手拿身份证照片：</dt>
+           <dt style="line-height: 100px;">
+           <?php 
+           echo $member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY ? "公司法人认证照片：" : "个人认证照片：";
+           ?>
+          </dt>
           <dd>
-              <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="identity_hand_img" value="<?php echo $expandInfo['identity_hand_img'];?>" />
-              </span>
+              <span class="w400" style="float:left;">
+                <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
+                  <input type="file" hidefocus="true" size="1" class="input-file" name="identity_hand_img" id="identity_hand_img" file_id="0" multiple="" maxlength="0"/>
+                  </span>
+                  <p><i class="icon-upload-alt"></i>上传图片</p>
+                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                  </a>
+                </div>
+                <?php if(!empty($expandInfo['identity_hand_img'])){?>
+                <img id="identity_hand_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_hand_img'];?>" style=" border:2px solid #CCCACC;"/>    
+                <?php }else{ ?>
+                <img id="identity_hand_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                <?php  } ?>
+                
+                
+                
+             </span>
+              <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_hand_img_default.jpg">
+                  <BR><span style="color:red;">请按图例上传认证照片</span>
+              </div>
          </dd>
         </dl>
         
+        
+        
+        
+        <?php if($member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY){?>
         <dl>
           <dt>公司开户银行：</dt>
           <dd>
@@ -56,7 +111,6 @@
               </span>
          </dd>
         </dl>        
-        
         <dl>
           <dt>公司银行帐号：</dt>
           <dd>
@@ -65,7 +119,6 @@
               </span>
          </dd>
         </dl>    
-        
         <dl>
           <dt>纳税人识别码：</dt>
           <dd>
@@ -78,11 +131,22 @@
           <dt>营业执照图片：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="business_license" value="<?php echo $expandInfo['business_license'];?>" />
-              </span>
+                <div class="ncm-upload-btn"> <a href="javascript:void(0);"><span>
+                  <input type="file" hidefocus="true" size="1" class="input-file" name="business_license" id="business_license" file_id="0" multiple="" maxlength="0"/>
+                  </span>
+                  <p><i class="icon-upload-alt"></i>上传图片</p>
+                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                  </a>
+                </div>
+                  
+                <?php if(!empty($expandInfo['business_license'])){?>
+                <img id="ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['business_license'];?>" style=" border:2px solid #CCCACC;"/>    
+                <?php }else{ ?>
+                <img id="ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                <?php  } ?>
+             </span>
          </dd>
         </dl>        
-        
         <dl>
           <dt>组织机构代码：</dt>
           <dd>
@@ -91,7 +155,6 @@
               </span>
          </dd>
         </dl>       
-        
         <dl>
             <dt>公司电话号码：</dt>
           <dd>
@@ -99,7 +162,11 @@
                   <input type="text" class="text inputWidth" maxlength="20" name="tel" value="<?php echo $expandInfo['tel'];?>" />
               </span>
          </dd>
-        </dl>        
+        </dl>   
+        <?php } ?>
+        
+        
+        
         
         
         <dl class="bottom">
@@ -114,41 +181,12 @@
     </div>
   </div>
 </div>
-<!--<script type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/common_select.js" charset="utf-8"></script> -->
-<script type="text/javascript">
-////注册表单验证
-//$(function(){
-//	regionInit("region");
-//	$('#birthday').datepicker({dateFormat: 'yy-mm-dd'});
-//    $('#profile_form').validate({
-//    	submitHandler:function(form){
-//    		if ($('select[class="valid"]').eq(0).val()>0) $('#province_id').val($('select[class="valid"]').eq(0).val());
-//			if ($('select[class="valid"]').eq(1).val()>0) $('#city_id').val($('select[class="valid"]').eq(1).val());
-//			ajaxpost('profile_form', '', '', 'onerror')
-//		},
-//        rules : {
-//            member_truename : {
-//				minlength : 2,
-//                maxlength : 20
-//            },
-//            member_qq : {
-//				digits  : true,
-//                minlength : 5,
-//                maxlength : 12
-//            }
-//        },
-//        messages : {
-//            member_truename : {
-//				minlength : '<?php echo $lang['home_member_username_range'];?>',
-//                maxlength : '<?php echo $lang['home_member_username_range'];?>'
-//            },
-//            member_qq  : {
-//				digits    : '<?php echo $lang['home_member_input_qq'];?>',
-//                minlength : '<?php echo $lang['home_member_input_qq'];?>',
-//                maxlength : '<?php echo $lang['home_member_input_qq'];?>'
-//            }
-//        }
-//    });
-//});
-</script> 
-<!--<script charset="utf-8" type="text/javascript" src="<?php echo RESOURCE_SITE_URL;?>/js/jquery-ui/i18n/zh-CN.js" ></script>-->
+
+<script>
+$(function () {
+    //营业执照图片
+    $("#business_license").uploadPreview({ Img: "ImgPr", Width: 120, Height: 120, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],Callback: function () { $("#ImgPr").show(); } });
+    $("#identity_img").uploadPreview({ Img: "identity_img_ImgPr", Width: 120, Height: 120, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],Callback: function () { $("#identity_img_ImgPr").show(); } });
+    $("#identity_hand_img").uploadPreview({ Img: "identity_hand_img_ImgPr", Width: 120, Height: 120, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],Callback: function () { $("#identity_hand_img_ImgPr").show(); } });
+});
+</script>

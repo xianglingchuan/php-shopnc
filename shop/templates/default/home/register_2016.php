@@ -144,7 +144,6 @@ function tabRegister(type,_this){
                                     alert ("请输出手机验证码");
                                     return false;
                                 }
-                                alert("bool_code.....");
                                 $.ajax({
                                     type:"POST",
                                     url:"<?php echo ADMIN_SITE_URL;?>/index.php", 
@@ -249,8 +248,7 @@ function tabRegister(type,_this){
 		}			 
 		//获取验证码
 		function company_getCode(mobile){
-                    alert("mobile..."+mobile);
-		    if($.trim(mobile)==""){
+                    if($.trim(mobile)==""){
 			alert("请输入手机号");	
 			return false; 
 		    }
