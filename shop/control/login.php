@@ -220,7 +220,7 @@ class loginControl extends BaseHomeControl {
      * @param
      * @return
      */
-    public function registerOp() {
+    public function register2Op() {
         Language::read("home_login_register");
         $lang = Language::getLangContent();
         $model_member = Model('member');
@@ -235,7 +235,7 @@ class loginControl extends BaseHomeControl {
      * @param
      * @return
      */
-    public function register2Op() {
+    public function registerOp() {
         Language::read("home_login_register");
         $lang = Language::getLangContent();
         $model_member = Model('member');

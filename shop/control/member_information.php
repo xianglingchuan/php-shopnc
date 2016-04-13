@@ -288,7 +288,8 @@ class member_informationControl extends BaseMemberControl {
                 $expandInfo = Model('member_expand')->where(array("member_id"=>$_SESSION['member_id']))->find();
                 Tpl::output('expand_info',$expandInfo);
                 
-		Tpl::output('member_info',$this->member_info);
+                $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_type');
+                Tpl::output('member_info',$member_info);
 
 		self::profile_menu('member','certification', $this->member_info['member_type']);
 		Tpl::output('menu_sign','profile');
