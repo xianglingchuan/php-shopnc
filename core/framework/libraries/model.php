@@ -650,6 +650,7 @@ class ModelDb{
             	return $_cache[$key];
             }
         }
+        //echo $sql;
         $result = DB::getAll($sql,($options['lock'] === true || $options['master'] === true || defined('TRANS_MASTER')) ? 'master' : 'slave');
 //         if ($options['cache'] !== false && !isset($_cache[$key])){
 //         	$_cache[$key] = $result;

@@ -15,7 +15,7 @@ use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
 
-class memberControl extends SystemControl{
+class certificationControl extends SystemControl{
 	const EXPORT_SIZE = 1000;
 	public function __construct(){
 		parent::__construct();
@@ -25,65 +25,89 @@ class memberControl extends SystemControl{
 	/**
 	 * 会员管理
 	 */
-	public function memberOp(){
+	public function indexOp(){
                 $lang	= Language::getLangContent();
 		//会员级别
 		$model_member = Model('member');
-		$member_grade = $model_member->getMemberGradeArr();
-		if ($_GET['search_field_value'] != '') {
-    		switch ($_GET['search_field_name']){
-    			case 'member_name':
-    				$condition['member_name'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
-    				break;
-    			case 'member_email':
-    				$condition['member_email'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
-    				break;
-    			case 'member_truename':
-    				$condition['member_truename'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
-    				break;
-    		}
-		}
-		switch ($_GET['search_state']){
-			case 'no_informallow':
-				$condition['inform_allow'] = '2';
-				break;
-			case 'no_isbuy':
-				$condition['is_buy'] = '0';
-				break;
-			case 'no_isallowtalk':
-				$condition['is_allowtalk'] = '0';
-				break;
-			case 'no_memberstate':
-				$condition['member_state'] = '0';
-				break;
-		}
+//		$member_grade = $model_member->getMemberGradeArr();
+//		if ($_GET['search_field_value'] != '') {
+//                    switch ($_GET['search_field_name']){
+//                            case 'member_name':
+//                                    $condition['member_name'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
+//                                    break;
+//                            case 'member_email':
+//                                    $condition['member_email'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
+//                                    break;
+//                            case 'member_truename':
+//                                    $condition['member_truename'] = array('like', '%' . trim($_GET['search_field_value']) . '%');
+//                                    break;
+//                    }
+//		}
+//		switch ($_GET['search_state']){
+//			case 'no_informallow':
+//				$condition['inform_allow'] = '2';
+//				break;
+//			case 'no_isbuy':
+//				$condition['is_buy'] = '0';
+//				break;
+//			case 'no_isallowtalk':
+//				$condition['is_allowtalk'] = '0';
+//				break;
+//			case 'no_memberstate':
+//				$condition['member_state'] = '0';
+//				break;
+//		}
 		//会员等级
-		$search_grade = intval($_GET['search_grade']);
-		if ($search_grade >= 0 && $member_grade){
-		    $condition['member_exppoints'] = array(array('egt',$member_grade[$search_grade]['exppoints']),array('lt',$member_grade[$search_grade+1]['exppoints']),'and');
-		}
+//		$search_grade = intval($_GET['search_grade']);
+//		if ($search_grade >= 0 && $member_grade){
+//		    $condition['member_exppoints'] = array(array('egt',$member_grade[$search_grade]['exppoints']),array('lt',$member_grade[$search_grade+1]['exppoints']),'and');
+//		}
 		//排序
-		$order = trim($_GET['search_sort']);
-		if (empty($order)) {
-		    $order = 'member_id desc';
-		}
-		$member_list = $model_member->getMemberList($condition, '*', 10, $order);		
-		//整理会员信息
-		if (is_array($member_list)){
-			foreach ($member_list as $k=> $v){
-				$member_list[$k]['member_time'] = $v['member_time']?date('Y-m-d H:i:s',$v['member_time']):'';
-				$member_list[$k]['member_login_time'] = $v['member_login_time']?date('Y-m-d H:i:s',$v['member_login_time']):'';
-				$member_list[$k]['member_grade'] = ($t = $model_member->getOneMemberGrade($v['member_exppoints'], false, $member_grade))?$t['level_name']:'';
-			}
-		}
-		Tpl::output('member_grade',$member_grade);
-		Tpl::output('search_sort',trim($_GET['search_sort']));
-		Tpl::output('search_field_name',trim($_GET['search_field_name']));
-		Tpl::output('search_field_value',trim($_GET['search_field_value']));
+//		$order = trim($_GET['search_sort']);
+//		if (empty($order)) {
+//		    $order = 'member_id desc';
+//		}
+		//$member_list = $model_member->getMemberList($condition, '*', 10, $order);		
+//		//整理会员信息
+//		if (is_array($member_list)){
+//			foreach ($member_list as $k=> $v){
+//				$member_list[$k]['member_time'] = $v['member_time']?date('Y-m-d H:i:s',$v['member_time']):'';
+//				$member_list[$k]['member_login_time'] = $v['member_login_time']?date('Y-m-d H:i:s',$v['member_login_time']):'';
+//				$member_list[$k]['member_grade'] = ($t = $model_member->getOneMemberGrade($v['member_exppoints'], false, $member_grade))?$t['level_name']:'';
+//			}
+//		}
+                
+                $member_list = $model_member->getMemberExpandList($condition, '*', 10, $order);	
+                //var_dump($member_list);
+                
+                
+                
+//		Tpl::output('member_grade',$member_grade);
+//		Tpl::output('search_sort',trim($_GET['search_sort']));
+//		Tpl::output('search_field_name',trim($_GET['search_field_name']));
+//		Tpl::output('search_field_value',trim($_GET['search_field_value']));
 		Tpl::output('member_list',$member_list);
 		Tpl::output('page',$model_member->showpage());
-		Tpl::showpage('member.index');
+		Tpl::showpage('certification.index');
 	}
+        
+        
+	/**
+	 * 查看详情
+	 */
+        public function viewOp(){
+            Tpl::showpage('certification.view');
+        }
+        
+	/**
+	 * 审核通过
+	 */
+        public function setAudit(){
+            
+            
+        }
+        
+        
 
 	/**
 	 * 会员修改

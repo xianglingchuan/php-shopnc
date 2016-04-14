@@ -144,8 +144,8 @@ class SystemControl{
 		}
 		Language::read('common');
 		$lang = Language::getLangContent();
-		$array = require(BASE_PATH.'/include/menu.php');
-		$array = $this->parseMenu($array);
+                $array = require(BASE_PATH.'/include/menu.php');
+                $array = $this->parseMenu($array);
 		//管理地图
 		$map_nav = $array['left'];
 		unset($map_nav[0]);

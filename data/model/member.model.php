@@ -446,13 +446,18 @@ class memberModel extends Model {
     /**
      * 插入扩展表信息
      * @param unknown $data
-     * @return Ambigous <mixed, boolean, number, unknown, resource>
+     * @return 
      */
     public function addMemberExpand($data) {
         return $this->table('member_expand')->insert($data);
     }    
     
     
+    /**
+     * 修改扩展表信息
+     * @param unknown $data
+     * @return 
+     */  
     public function updateMemberExpand($data){
         $data['create_uid'] = $data['modify_uid'] = $_SESSION['member_id'];
         $info = Model('member_expand')->where(array("member_id"=>$data['member_id']))->find();
@@ -463,4 +468,20 @@ class memberModel extends Model {
             return $this->addMemberExpand($data);
         }
     }
+    
+    /**
+     * 会员扩展信息列表
+     * @param array $condition
+     * @param string $field
+     * @param number $page
+     * @param string $order
+     */
+    public function getMemberExpandList($condition = array(), $field = 'member_expand.*, member.member_name, member.member_avatar, member.member_type, member.is_expand', $page = 0, $order = 'member_expand.modify_datetime desc', $limit = '') {
+        return  $this->table('member_expand,member')
+                    ->join("inner")
+                    ->on("member.member_id=member_expand.member_id")
+                    ->where($condition)->page($page)->order($order)->limit($limit)->select();
+    }    
+    
+    
 }

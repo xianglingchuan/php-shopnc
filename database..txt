@@ -1,25 +1,28 @@
-//2016-04-10ĞŞÈë
-ALTER TABLE  `shopnc_member` CHANGE  `member_email`  `member_email` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT  '' COMMENT  '»áÔ±ÓÊÏä';
+//2016-04-10ä¿®å…¥
+ALTER TABLE  `shopnc_member` CHANGE  `member_email`  `member_email` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT  '' COMMENT  'ä¼šå‘˜é‚®ç®±';
 
 CREATE TABLE IF NOT EXISTS `shopnc_member_expand` (
-  `member_id` int(11) NOT NULL COMMENT 'ÓÃ»§IDºÅ',
-  `tel` varchar(20) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '¹«Ë¾µç»°',
-  `username` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '¹«Ë¾·¨ÈË/ÕæÊµĞÕÃû',
-  `identity` varchar(50) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '·¨ÈËÉí·İÖ¤ºÅ',
-  `identity_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '·¨ÈËÉí·İÖ¤ÕÕÆ¬',
-  `identity_hand_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '·¨ÈËÊÖÄÃÉí·İÖ¤ÕÕÆ¬',
-  `bank_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '¹«Ë¾¿ª»§ÒøĞĞ',
-  `bank_account` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '¹«Ë¾ÒøĞĞÕÊºÅ',
-  `id_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'ÄÉË°ÈËÊ¶±ğÂë',
-  `business_license` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'ÓªÒµÖ´ÕÕÍ¼Æ¬',
-  `organization_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '×éÖ¯»ú¹¹´úÂë',
-  `create_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'Ìí¼ÓÊ±¼ä',
-  `create_uid` int(11) DEFAULT '0' COMMENT 'Ìí¼ÓÓÃ»§',
-  `modify_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'ĞŞ¸ÄÊ±¼ä',
-  `modify_uid` int(11) DEFAULT '0' COMMENT 'ĞŞ¸ÄÓÃ»§',
+  `member_id` int(11) NOT NULL COMMENT 'ç”¨æˆ·IDå·',
+  `tel` varchar(20) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'å…¬å¸ç”µè¯',
+  `username` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'å…¬å¸æ³•äºº/çœŸå®å§“å',
+  `identity` varchar(50) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'æ³•äººèº«ä»½è¯å·',
+  `identity_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'æ³•äººèº«ä»½è¯ç…§ç‰‡',
+  `identity_hand_img` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'æ³•äººæ‰‹æ‹¿èº«ä»½è¯ç…§ç‰‡',
+  `bank_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'å…¬å¸å¼€æˆ·é“¶è¡Œ',
+  `bank_account` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'å…¬å¸é“¶è¡Œå¸å·',
+  `id_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'çº³ç¨äººè¯†åˆ«ç ',
+  `business_license` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'è¥ä¸šæ‰§ç…§å›¾ç‰‡',
+  `organization_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT '' COMMENT 'ç»„ç»‡æœºæ„ä»£ç ',
+  `create_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'æ·»åŠ æ—¶é—´',
+  `create_uid` int(11) DEFAULT '0' COMMENT 'æ·»åŠ ç”¨æˆ·',
+  `modify_datetime` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'ä¿®æ”¹æ—¶é—´',
+  `modify_uid` int(11) DEFAULT '0' COMMENT 'ä¿®æ”¹ç”¨æˆ·',
   PRIMARY KEY (`member_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-ALTER TABLE  `shopnc_member` ADD  `member_type` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=ÆóÒµÓÃ»§/0=ÆÕÍ¨ÓÃ»§' AFTER  `member_exppoints` ,
-ADD  `is_expand` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=Íê³É/0=Ã»ÓĞÍê³É' AFTER  `member_type`;
+ALTER TABLE  `shopnc_member` ADD  `member_type` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=ä¼ä¸šç”¨æˆ·/0=æ™®é€šç”¨æˆ·' AFTER  `member_exppoints` ,
+ADD  `is_expand` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=å®Œæˆ/0=æ²¡æœ‰å®Œæˆ' AFTER  `member_type`;
 
+
+//2016-04-14
+ALTER TABLE  `shopnc_member_expand` ADD  `audit` SMALLINT( 0 ) NOT NULL COMMENT  'å®¡æ ¸çŠ¶æ€' AFTER  `organization_code`;

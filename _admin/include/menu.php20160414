@@ -118,8 +118,7 @@ $arr = array(
 					array('args'=>'class_list,sns_malbum,member',			'text'=>$lang['nc_member_album_manage']),
 					array('args'=>'tracelist,snstrace,member',				'text'=>$lang['nc_snstrace']),
 					array('args'=>'member_tag,sns_member,member',			'text'=>$lang['nc_member_tag']),
-					array('args'=>'chat_log,chat_log,member',				'text'=>'聊天记录'),
-                                        array('args'=>'index,certification,member',				'text'=>'会员认证审核')
+					array('args'=>'chat_log,chat_log,member',				'text'=>'聊天记录')
 				)
 			),
 			5 => array(
