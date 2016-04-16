@@ -19,6 +19,12 @@
               <option <?php if($output['search_field_name'] == 'member_truename'){ ?>selected='selected'<?php } ?> value="member_truename"><?php echo $lang['member_index_true_name']?></option>
             </select></td>
           <td><input type="text" value="<?php echo $output['search_field_value'];?>" name="search_field_value" class="txt"></td>
+          <td><select name="audit">
+              <option <?php if($output['audit'] == '-1'){ ?>selected='selected'<?php } ?> value="-1">所有审核状态</option>
+              <option <?php if($output['audit'] == '0'){ ?>selected='selected'<?php } ?> value="0">待审核</option>
+              <option <?php if($output['audit'] == '2'){ ?>selected='selected'<?php } ?> value="2">审核拒绝</option>
+              <option <?php if($output['audit'] == '1'){ ?>selected='selected'<?php } ?> value="1">审核通过</option>
+            </select></td>
           <td>
               
           </td>
@@ -27,8 +33,8 @@
           <td>
           </td>
           <td><a href="javascript:void(0);" id="ncsubmit" class="btn-search " title="<?php echo $lang['nc_query'];?>">&nbsp;</a>
-            <?php if($output['search_field_value'] != '' or $output['search_sort'] != ''){?>
-            <a href="index.php?act=member&op=member" class="btns "><span><?php echo $lang['nc_cancel_search']?></span></a>
+            <?php if($output['search_field_value'] != '' or $output['search_sort'] != '' or $output['audit'] != '-1'){?>
+            <a href="index.php?act=certification&op=index" class="btns "><span><?php echo $lang['nc_cancel_search']?></span></a>
             <?php }?></td>
         </tr>
       </tbody>
@@ -57,6 +63,8 @@
           <th>&nbsp;</th>
           <th colspan="2"><?php echo $lang['member_index_name']?></th>
           <th class="align-center">类型</th>
+          <th class="align-center">真实姓名</th>
+          <th class="align-center">身份证号码</th>
           <th class="align-center">审核状态</th>
           <th class="align-center">最后提交时间</th>
 <!--          <th class="align-center"><?php echo $lang['member_index_prestore'];?></th>
@@ -74,23 +82,24 @@
           <td class="w48 picture"><div class="size-44x44"><span class="thumb size-44x44"><i></i><img src="<?php if ($v['member_avatar'] != ''){ echo UPLOAD_SITE_URL.DS.ATTACH_AVATAR.DS.$v['member_avatar'];}else { echo UPLOAD_SITE_URL.'/'.ATTACH_COMMON.DS.C('default_user_portrait');}?>?<?php echo microtime();?>"  onload="javascript:DrawImage(this,44,44);"/></span></div></td>
           <td><p class="name"><strong><?php echo $v['member_name']; ?></strong>(<?php echo $lang['member_index_true_name']?>: <?php echo $v['member_truename']; ?>)</p>
           </td>
-          <td class="align-center"><?php echo $v['member_type'] == 1 ? "企业" : "个人"; ?>
-          </td>
+          <td class="align-center"><?php echo $v['member_type'] == 1 ? "企业" : "个人"; ?></td>
+          <td class="align-center"><?php echo $v['username']; ?></td>
+          <td class="align-center"><?php echo $v['identity']; ?></td>
           <td class="align-center">
-          <?php 
+              <?php 
             if($v['audit'] == 0){
-                echo "待审核";
+                echo "<span style='color:red;'>待审核</span>";
             }else if($v['audit']== 1){
                 echo "审核通过";
             }else if($v['audit'] == 2){
-                echo "审核未通过";
+                echo "审核拒绝";
             }          
           ?></td>
           <td class="align-center"><?php echo $v['modify_datetime']; ?></td>
           <td class="align-center"><a href="index.php?act=certification&op=view&member_id=<?php echo $v['member_id']; ?>">查看</a>
-              <?php if($v['audit'] != 1){ ?>
-              | <a href="index.php?act=notice&op=notice&member_name=<?php echo ltrim(base64_encode($v['member_name']),'='); ?>">审核通过</a>
-              | <a href="index.php?act=notice&op=notice&member_name=<?php echo ltrim(base64_encode($v['member_name']),'='); ?>">审核未通过</a>
+              <?php if(intval($v['audit']) <= 0){ ?>
+              | <a href="index.php?act=certification&op=setAudit&member_id=<?php echo $v['member_id']; ?>&type=1">审核通过</a>
+              | <a href="index.php?act=certification&op=setAudit&member_id=<?php echo $v['member_id']; ?>&type=2">审核未通过</a>
               <?php } ?>
           </td>
         </tr>

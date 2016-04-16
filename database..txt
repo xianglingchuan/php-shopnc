@@ -26,3 +26,9 @@ ADD  `is_expand` SMALLINT NOT NULL DEFAULT  '0' COMMENT  '1=完成/0=没有完�
 
 //2016-04-14
 ALTER TABLE  `shopnc_member_expand` ADD  `audit` SMALLINT( 0 ) NOT NULL COMMENT  '审核状态' AFTER  `organization_code`;
+
+
+//2016-04-16
+ALTER TABLE  `shopnc_member_expand` ADD  `audit_createdate` DATETIME NULL COMMENT  '审核时间' AFTER  `audit` ,
+ADD  `audit_admin_id` INT( 11 ) NULL COMMENT  '审核管理员ID' AFTER  `audit_createdate` ,
+ADD  `audit_admin_name` VARCHAR( 30 ) NULL COMMENT  '审核管理员名称' AFTER  `audit_admin_id`

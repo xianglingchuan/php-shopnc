@@ -471,10 +471,6 @@ class memberModel extends Model {
     
     /**
      * 会员扩展信息列表
-     * @param array $condition
-     * @param string $field
-     * @param number $page
-     * @param string $order
      */
     public function getMemberExpandList($condition = array(), $field = 'member_expand.*, member.member_name, member.member_avatar, member.member_type, member.is_expand', $page = 0, $order = 'member_expand.modify_datetime desc', $limit = '') {
         return  $this->table('member_expand,member')
@@ -482,6 +478,24 @@ class memberModel extends Model {
                     ->on("member.member_id=member_expand.member_id")
                     ->where($condition)->page($page)->order($order)->limit($limit)->select();
     }    
+    
+    
+    /**
+     * 会员扩展信息
+     */
+    public function getMemberExpandInfo($condition = array(), $field = 'member_expand.*, member.member_name, member.member_avatar, member.member_type, member.is_expand') {
+        return  $this->table('member_expand,member')
+                    ->join("inner")
+                    ->on("member.member_id=member_expand.member_id")
+                    ->where($condition)->find();
+    }      
+    
+    /**
+     * 审批会员扩展信息
+     */
+    public function updateMemberExpandAudit($memberId, $data){
+        return $this->table("member_expand")->where("member_id='{$memberId}'")->update($data);
+    }
     
     
 }
