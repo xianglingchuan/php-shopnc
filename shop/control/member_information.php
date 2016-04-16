@@ -260,6 +260,7 @@ class member_informationControl extends BaseMemberControl {
                         "bank_account" => $_POST['bank_account'],
                         "id_code" => $_POST['id_code'],
                         "organization_code" => $_POST['organization_code'],
+                        "audit" => 0,
                     );
                     
                     //上传图片

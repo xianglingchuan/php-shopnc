@@ -22,7 +22,12 @@
             </dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="username" value="<?php echo $expandInfo['username'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['username'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="username" value="<?php echo $expandInfo['username'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>
@@ -35,7 +40,12 @@
           </dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="identity" value="<?php echo $expandInfo['identity'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['identity'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="identity" value="<?php echo $expandInfo['identity'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>
@@ -47,25 +57,29 @@
             ?>
           </dt>
           <dd>
-              <span class="w400" style="float:left;">
-                  <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
-                  <input type="file" hidefocus="true" size="1" class="input-file" name="identity_img" id="identity_img" file_id="0" multiple="" maxlength="0"/>
-                  </span>
-                  <p><i class="icon-upload-alt"></i>上传图片</p>
-                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
-                  </a>
-                </div>
-                <?php if(!empty($expandInfo['identity_img'])){?>
-                <img id="identity_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_img'];?>" style=" border:2px solid #CCCACC;"/>    
-                <?php }else{ ?>
-                <img id="identity_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
-                <?php  } ?>
-                  
-                  
-             </span>
-              <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_img_default.jpg">
-                  <BR><span style="color:red;">请按图例上传认证照片</span>
-              </div>
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){?>
+                        <span class="w400" style="float:left;"><img id="identity_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_img'];?>" style=" border:2px solid #CCCACC;"/></span>
+                  <?php                   
+                  }else{ ?>
+                        <span class="w400" style="float:left;">
+                            <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
+                            <input type="file" hidefocus="true" size="1" class="input-file" name="identity_img" id="identity_img" file_id="0" multiple="" maxlength="0"/>
+                            </span>
+                            <p><i class="icon-upload-alt"></i>上传图片</p>
+                            <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                            </a>
+                          </div>
+                          <?php if(!empty($expandInfo['identity_img'])){?>
+                          <img id="identity_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_img'];?>" style=" border:2px solid #CCCACC;"/>    
+                          <?php }else{ ?>
+                          <img id="identity_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                          <?php  } ?>
+                       </span>
+                        <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_img_default.jpg">
+                            <BR><span style="color:red;">请按图例上传认证照片</span>
+                        </div>                                                
+                 <?php } ?>
          </dd>
          
         </dl>
@@ -76,26 +90,28 @@
            ?>
           </dt>
           <dd>
-              <span class="w400" style="float:left;">
-                <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
-                  <input type="file" hidefocus="true" size="1" class="input-file" name="identity_hand_img" id="identity_hand_img" file_id="0" multiple="" maxlength="0"/>
-                  </span>
-                  <p><i class="icon-upload-alt"></i>上传图片</p>
-                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
-                  </a>
-                </div>
-                <?php if(!empty($expandInfo['identity_hand_img'])){?>
-                <img id="identity_hand_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_hand_img'];?>" style=" border:2px solid #CCCACC;"/>    
-                <?php }else{ ?>
-                <img id="identity_hand_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
-                <?php  } ?>
-                
-                
-                
-             </span>
-              <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_hand_img_default.jpg">
-                  <BR><span style="color:red;">请按图例上传认证照片</span>
-              </div>
+              <?php 
+                if(intval($expandInfo['audit']) == 1){?>
+                    <span class="w400" style="float:left;"><img id="identity_hand_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_hand_img'];?>" style=" border:2px solid #CCCACC;"/></span>
+                <?php }else{ ?>                    
+                    <span class="w400" style="float:left;">
+                      <div class="ncm-upload-btn" style="margin-top: 35px;"> <a href="javascript:void(0);"><span>
+                        <input type="file" hidefocus="true" size="1" class="input-file" name="identity_hand_img" id="identity_hand_img" file_id="0" multiple="" maxlength="0"/>
+                        </span>
+                        <p><i class="icon-upload-alt"></i>上传图片</p>
+                        <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                        </a>
+                      </div>
+                      <?php if(!empty($expandInfo['identity_hand_img'])){?>
+                      <img id="identity_hand_img_ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['identity_hand_img'];?>" style=" border:2px solid #CCCACC;"/>    
+                      <?php }else{ ?>
+                      <img id="identity_hand_img_ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                      <?php  } ?>
+                   </span>
+                   <div class="updateImageHelp"><img style="width:100px;" src="<?php echo SHOP_TEMPLATES_URL;?>/2016/images/identity_hand_img_default.jpg">
+                        <BR><span style="color:red;">请按图例上传认证照片</span>
+                   </div>                    
+                <?php } ?>
          </dd>
         </dl>
         
@@ -107,7 +123,12 @@
           <dt>公司开户银行：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="bank_name" value="<?php echo $expandInfo['bank_name'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['bank_name'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="bank_name" value="<?php echo $expandInfo['bank_name'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>        
@@ -115,7 +136,12 @@
           <dt>公司银行帐号：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="bank_account" value="<?php echo $expandInfo['bank_account'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['bank_account'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="bank_account" value="<?php echo $expandInfo['bank_account'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>    
@@ -123,7 +149,15 @@
           <dt>纳税人识别码：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="id_code" value="<?php echo $expandInfo['id_code'];?>" />
+                  
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['id_code'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="id_code" value="<?php echo $expandInfo['id_code'];?>" />
+                 <?php } ?>
+                  
+                  
               </span>
          </dd>
         </dl>           
@@ -131,19 +165,24 @@
           <dt>营业执照图片：</dt>
           <dd>
               <span class="w400">
-                <div class="ncm-upload-btn"> <a href="javascript:void(0);"><span>
-                  <input type="file" hidefocus="true" size="1" class="input-file" name="business_license" id="business_license" file_id="0" multiple="" maxlength="0"/>
-                  </span>
-                  <p><i class="icon-upload-alt"></i>上传图片</p>
-                  <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
-                  </a>
-                </div>
                   
-                <?php if(!empty($expandInfo['business_license'])){?>
-                <img id="ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['business_license'];?>" style=" border:2px solid #CCCACC;"/>    
-                <?php }else{ ?>
-                <img id="ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
-                <?php  } ?>
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){?>
+                      <img id="ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['business_license'];?>" style=" border:2px solid #CCCACC;"/>
+                  <?php }else{ ?>
+                    <div class="ncm-upload-btn"> <a href="javascript:void(0);"><span>
+                      <input type="file" hidefocus="true" size="1" class="input-file" name="business_license" id="business_license" file_id="0" multiple="" maxlength="0"/>
+                      </span>
+                      <p><i class="icon-upload-alt"></i>上传图片</p>
+                      <input id="submit_button" style="display:none" type="button" value="&nbsp;"/>
+                      </a>
+                    </div>
+                    <?php if(!empty($expandInfo['business_license'])){?>
+                    <img id="ImgPr" height="80px" src="<?php echo UPLOAD_SITE_URL.DS.$expandInfo['business_license'];?>" style=" border:2px solid #CCCACC;"/>    
+                    <?php }else{ ?>
+                    <img id="ImgPr" height="80px" style=" border:2px solid #CCCACC; display: none"/>
+                    <?php  } ?>
+                 <?php } ?>                  
              </span>
          </dd>
         </dl>        
@@ -151,7 +190,12 @@
           <dt>组织机构代码：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="organization_code" value="<?php echo $expandInfo['organization_code'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['organization_code'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="organization_code" value="<?php echo $expandInfo['organization_code'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>       
@@ -159,16 +203,62 @@
             <dt>公司电话号码：</dt>
           <dd>
               <span class="w400">
-                  <input type="text" class="text inputWidth" maxlength="20" name="tel" value="<?php echo $expandInfo['tel'];?>" />
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['tel'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="tel" value="<?php echo $expandInfo['tel'];?>" />
+                 <?php } ?>
               </span>
          </dd>
         </dl>   
         <?php } ?>
+        <dl>
+            <dt>审核状态：</dt>
+          <dd>
+              <span class="w400">
+                <?php 
+                if(intval($expandInfo['audit']) >= 1){
+                    if($expandInfo['audit']==1){
+                        echo "审核通过";
+                    }else if($expandInfo['audit'] == 2){
+                        echo "审核拒绝";
+                    }
+                }else{
+                    if(!empty($expandInfo['username'])){
+                        echo "正在等待平台管理员审核......";                        
+                    }
+                }
+                ?>                    
+              </span>
+         </dd>
+        </dl>
+        
+        
+        <?php if(intval($expandInfo['audit']) >= 1){?>
+        <dl>
+            <dt>最后审核时间：</dt>
+          <dd>
+              <span class="w400">
+                  <?php echo $expandInfo['audit_createdate'];?>
+              </span>
+         </dd>
+        <dl>
+            <dt>最后审核管理员名称：</dt>
+          <dd>
+              <span class="w400">
+                  <?php echo $expandInfo['audit_admin_name'];?>
+              </span>
+         </dd>
+        </dl> 
+        <?php } ?>  
         
         
         
         
         
+        
+        <?php if(intval($expandInfo['audit']) != 1){?>
         <dl class="bottom">
           <dt></dt>
           <dd>
@@ -177,6 +267,9 @@
             </label>
           </dd>
         </dl>
+        <?php } ?>  
+         
+         
       </form>
     </div>
   </div>

@@ -44,7 +44,7 @@ class certificationControl extends SystemControl{
                     }
 		}
                 
-                if($_GET['audit']!= "-1"){
+                if(isset($_GET['audit']) && $_GET['audit']!= "-1"){
                     $condition['member_expand.audit'] = array("eq", $_GET['audit']);
                 }
                 
