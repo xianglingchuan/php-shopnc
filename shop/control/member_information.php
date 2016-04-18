@@ -245,7 +245,6 @@ class member_informationControl extends BaseMemberControl {
 	 * @return
 	 */ 
         public function certificationOp(){
-            header("Content-type: text/html; charset=utf-8"); 
 		Language::read('member_home_member');
 		$lang	= Language::getLangContent();
 		$model_member	= Model('member');
@@ -280,6 +279,7 @@ class member_informationControl extends BaseMemberControl {
                     $message = $result? $lang['nc_common_save_succ'] : $lang['nc_common_save_fail'];
                     showDialog($message,'reload',$result ? 'succ' : 'error');
                 }
+                
 
 		if($this->member_info['member_privacy'] != ''){
 			$this->member_info['member_privacy'] = unserialize($this->member_info['member_privacy']);
@@ -291,12 +291,12 @@ class member_informationControl extends BaseMemberControl {
                 
                 $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_type');
                 Tpl::output('member_info',$member_info);
-
-		self::profile_menu('member','certification', $this->member_info['member_type']);
+                
+                self::profile_menu('member','certification', $this->member_info['member_type']);
 		Tpl::output('menu_sign','profile');
 		Tpl::output('menu_sign_url','index.php?act=member_information&op=member');
 		Tpl::output('menu_sign1','baseinfo');
-		Tpl::showpage('member_profile.certification');
+                Tpl::showpage('member_profile.certification');
         }        
         
         

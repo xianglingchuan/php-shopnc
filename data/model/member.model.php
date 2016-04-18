@@ -462,9 +462,10 @@ class memberModel extends Model {
         $data['create_uid'] = $data['modify_uid'] = $_SESSION['member_id'];
         $info = Model('member_expand')->where(array("member_id"=>$data['member_id']))->find();
         if(!empty($info)){
+            $data['modify_datetime'] =  date("Y-m-d H:i:s",time());
             return $this->table('member_expand')->where(array("member_id"=>$data['member_id']))->update($data);
         }else{
-            $data['create_datetime'] = date("Y-m-d H:i:s",time());
+            $data['modify_datetime'] = $data['create_datetime'] = date("Y-m-d H:i:s",time());
             return $this->addMemberExpand($data);
         }
     }
@@ -491,11 +492,17 @@ class memberModel extends Model {
     }      
     
     /**
-     * 审批会员扩展信息
+     * 审核会员扩展信息
      */
     public function updateMemberExpandAudit($memberId, $data){
         return $this->table("member_expand")->where("member_id='{$memberId}'")->update($data);
     }
     
     
+    /**
+     * 修改member表中扩展信息是否完成的值
+     */
+    public function updateMemberIsExpand($memberId, $isExpand){
+        return $this->table("member")->where("member_id='{$memberId}'")->update(array("	is_expand"=>$isExpand));
+    }
 }

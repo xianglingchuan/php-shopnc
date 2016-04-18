@@ -47,48 +47,9 @@ class certificationControl extends SystemControl{
                 if(isset($_GET['audit']) && $_GET['audit']!= "-1"){
                     $condition['member_expand.audit'] = array("eq", $_GET['audit']);
                 }
-                
-                
-//		switch ($_GET['search_state']){
-//			case 'no_informallow':
-//				$condition['inform_allow'] = '2';
-//				break;
-//			case 'no_isbuy':
-//				$condition['is_buy'] = '0';
-//				break;
-//			case 'no_isallowtalk':
-//				$condition['is_allowtalk'] = '0';
-//				break;
-//			case 'no_memberstate':
-//				$condition['member_state'] = '0';
-//				break;
-//		}
-		//会员等级
-//		$search_grade = intval($_GET['search_grade']);
-//		if ($search_grade >= 0 && $member_grade){
-//		    $condition['member_exppoints'] = array(array('egt',$member_grade[$search_grade]['exppoints']),array('lt',$member_grade[$search_grade+1]['exppoints']),'and');
-//		}
-		//排序
-//		$order = trim($_GET['search_sort']);
-//		if (empty($order)) {
-//		    $order = 'member_id desc';
-//		}
-		//$member_list = $model_member->getMemberList($condition, '*', 10, $order);		
-//		//整理会员信息
-//		if (is_array($member_list)){
-//			foreach ($member_list as $k=> $v){
-//				$member_list[$k]['member_time'] = $v['member_time']?date('Y-m-d H:i:s',$v['member_time']):'';
-//				$member_list[$k]['member_login_time'] = $v['member_login_time']?date('Y-m-d H:i:s',$v['member_login_time']):'';
-//				$member_list[$k]['member_grade'] = ($t = $model_member->getOneMemberGrade($v['member_exppoints'], false, $member_grade))?$t['level_name']:'';
-//			}
-//		}
-                
                 $member_list = $model_member->getMemberExpandList($condition, '*', 10, $order);	
-                //var_dump($member_list);
                 
-                
-                
-		Tpl::output('member_grade',$member_grade);
+		//Tpl::output('member_grade',$member_grade);
 		Tpl::output('search_sort',trim($_GET['search_sort']));
 		Tpl::output('search_field_name',trim($_GET['search_field_name']));
 		Tpl::output('search_field_value',trim($_GET['search_field_value']));
@@ -129,6 +90,9 @@ class certificationControl extends SystemControl{
                 $data = array("audit"=>$type, "member_id"=>$member_id, "audit_createdate"=>date("Y-m-d H:i:s",time()), "audit_admin_id"=>$this->admin_info['id'],"audit_admin_name"=>$this->admin_info['name']);
                 $result = $model_member->updateMemberExpandAudit($member_id, $data);
                 if($result){
+                    if(intval($data['audit']) === 1){ //如果是审核通过，那么更新member表中的is_expand值为1
+                        $model_member->updateMemberIsExpand($member_id,$data['audit']);
+                    }
                     showMessage("审核操作成功!");
                 }else{
                     showMessage("审核操作失败!");
@@ -137,166 +101,4 @@ class certificationControl extends SystemControl{
                 showMessage("用户ID号审核状态值非法操作!");
             }
         }
-        
-        
-
-	/**
-	 * 会员修改
-	 */
-	public function member_editOp(){
-		$lang	= Language::getLangContent();
-		$model_member = Model('member');
-		/**
-		 * 保存
-		 */
-		if (chksubmit()){
-			/**
-			 * 验证
-			 */
-			$obj_validate = new Validate();
-			$obj_validate->validateparam = array(
-			array("input"=>$_POST["member_email"], "require"=>"true", 'validator'=>'Email', "message"=>$lang['member_edit_valid_email']),
-			);
-			$error = $obj_validate->validate();
-			if ($error != ''){
-				showMessage($error);
-			}else {
-				$update_array = array();
-				$update_array['member_id']			= intval($_POST['member_id']);
-				if (!empty($_POST['member_passwd'])){
-					$update_array['member_passwd'] = md5($_POST['member_passwd']);
-				}
-				$update_array['member_email']		= $_POST['member_email'];
-				$update_array['member_truename']	= $_POST['member_truename'];
-				$update_array['member_sex'] 		= $_POST['member_sex'];
-				$update_array['member_qq'] 			= $_POST['member_qq'];
-				$update_array['member_ww']			= $_POST['member_ww'];
-				$update_array['inform_allow'] 		= $_POST['inform_allow'];
-				$update_array['is_buy'] 			= $_POST['isbuy'];
-				$update_array['is_allowtalk'] 		= $_POST['allowtalk'];
-				$update_array['member_state'] 		= $_POST['memberstate'];
-				if (!empty($_POST['member_avatar'])){
-					$update_array['member_avatar'] = $_POST['member_avatar'];
-				}
-				$result = $model_member->editMember(array('member_id'=>intval($_POST['member_id'])),$update_array);
-				if ($result){
-					$url = array(
-					array(
-					'url'=>'index.php?act=member&op=member',
-					'msg'=>$lang['member_edit_back_to_list'],
-					),
-					array(
-					'url'=>'index.php?act=member&op=member_edit&member_id='.intval($_POST['member_id']),
-					'msg'=>$lang['member_edit_again'],
-					),
-					);
-					$this->log(L('nc_edit,member_index_name').'[ID:'.$_POST['member_id'].']',1);
-					showMessage($lang['member_edit_succ'],$url);
-				}else {
-					showMessage($lang['member_edit_fail']);
-				}
-			}
-		}
-		$condition['member_id'] = intval($_GET['member_id']);
-		$member_array = $model_member->getMemberInfo($condition);
-
-		Tpl::output('member_array',$member_array);
-		Tpl::showpage('member.edit');
-	}
-
-	/**
-	 * 新增会员
-	 */
-	public function member_addOp(){
-		$lang	= Language::getLangContent();
-		$model_member = Model('member');
-		/**
-		 * 保存
-		 */
-		if (chksubmit()){
-			/**
-			 * 验证
-			 */
-			$obj_validate = new Validate();
-			$obj_validate->validateparam = array(
-			    array("input"=>$_POST["member_name"], "require"=>"true", "message"=>$lang['member_add_name_null']),
-			    array("input"=>$_POST["member_passwd"], "require"=>"true", "message"=>'密码不能为空'),
-			    array("input"=>$_POST["member_email"], "require"=>"true", 'validator'=>'Email', "message"=>$lang['member_edit_valid_email'])
-			);
-			$error = $obj_validate->validate();
-			if ($error != ''){
-				showMessage($error);
-			}else {
-				$insert_array = array();
-				$insert_array['member_name']	= trim($_POST['member_name']);
-				$insert_array['member_passwd']	= trim($_POST['member_passwd']);
-				$insert_array['member_email']	= trim($_POST['member_email']);
-				$insert_array['member_truename']= trim($_POST['member_truename']);
-				$insert_array['member_sex'] 	= trim($_POST['member_sex']);
-				$insert_array['member_qq'] 		= trim($_POST['member_qq']);
-				$insert_array['member_ww']		= trim($_POST['member_ww']);
-                //默认允许举报煤炭
-                $insert_array['inform_allow'] 	= '1';
-				if (!empty($_POST['member_avatar'])){
-					$insert_array['member_avatar'] = trim($_POST['member_avatar']);
-				}
-
-				$result = $model_member->addMember($insert_array);
-				if ($result){
-					$url = array(
-					array(
-					'url'=>'index.php?act=member&op=member',
-					'msg'=>$lang['member_add_back_to_list'],
-					),
-					array(
-					'url'=>'index.php?act=member&op=member_add',
-					'msg'=>$lang['member_add_again'],
-					),
-					);
-					$this->log(L('nc_add,member_index_name').'[	'.$_POST['member_name'].']',1);
-					showMessage($lang['member_add_succ'],$url);
-				}else {
-					showMessage($lang['member_add_fail']);
-				}
-			}
-		}
-		Tpl::showpage('member.add');
-	}
-
-	/**
-	 * ajax操作
-	 */
-	public function ajaxOp(){
-		switch ($_GET['branch']){
-			/**
-			 * 验证会员是否重复
-			 */
-			case 'check_user_name':
-				$model_member = Model('member');
-				$condition['member_name']	= $_GET['member_name'];
-				$condition['member_id']	= array('neq',intval($_GET['member_id']));
-				$list = $model_member->getMemberInfo($condition);
-				if (empty($list)){
-					echo 'true';exit;
-				}else {
-					echo 'false';exit;
-				}
-				break;
-				/**
-			 * 验证邮件是否重复
-			 */
-			case 'check_email':
-				$model_member = Model('member');
-				$condition['member_email'] = $_GET['member_email'];
-				$condition['member_id'] = array('neq',intval($_GET['member_id']));
-				$list = $model_member->getMemberInfo($condition);
-				if (empty($list)){
-					echo 'true';exit;
-				}else {
-					echo 'false';exit;
-				}
-				break;
-		}
-	}
-
 }

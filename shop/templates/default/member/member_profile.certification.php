@@ -213,6 +213,8 @@
          </dd>
         </dl>   
         <?php } ?>
+        
+        <?php if(!empty($expandInfo)){ ?>
         <dl>
             <dt>审核状态：</dt>
           <dd>
@@ -234,7 +236,6 @@
          </dd>
         </dl>
         
-        
         <?php if(intval($expandInfo['audit']) >= 1){?>
         <dl>
             <dt>最后审核时间：</dt>
@@ -252,6 +253,8 @@
          </dd>
         </dl> 
         <?php } ?>  
+         
+        <?php } ?>
         
         
         
