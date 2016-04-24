@@ -104,6 +104,7 @@
   'mb_user_token' => 'token_id',
   'member' => 'member_id',
   'member_common' => 'member_id',
+  'member_expand' => 'member_id',
   'member_msg_setting' => 'mmt_code',
   'member_msg_tpl' => 'mmt_code',
   'message' => 'message_id',
