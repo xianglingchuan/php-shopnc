@@ -391,6 +391,7 @@ class BaseMemberControl extends Control {
                         'member_security'   => array('name' => '账户安全', 'url'=>urlShop('member_security', 'index')),
                         'member_address'    => array('name' => '收货地址', 'url'=>urlShop('member_address', 'address')),
                         'member_message'    => array('name' => '我的消息', 'url'=>urlShop('member_message', 'message')),
+                        'member_contract'    => array('name' => '我的合同', 'url'=>urlShop('member_contract', 'index')),
                         //'member_snsfriend'  => array('name' => '我的好友', 'url'=>urlShop('member_snsfriend', 'find')),
                         //'member_goodsbrowse'=> array('name' => '我的足迹', 'url'=>urlShop('member_goodsbrowse', 'list')),
                         //'member_connect'    => array('name' => '第三方账号登录', 'url'=>urlShop('member_connect', 'qqbind')),
