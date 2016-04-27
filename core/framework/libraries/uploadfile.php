@@ -22,7 +22,7 @@ class UploadFile{
 	/**
 	 * 允许上传的文件类型
 	 */
-	private $allow_type=array('gif','jpg','jpeg','bmp','png','swf','tbi');
+	private $allow_type=array('gif','jpg','jpeg','bmp','png','swf','tbi','doc','pdf');
 	/**
 	 * 允许的最大文件大小，单位为KB
 	 */
@@ -456,5 +456,80 @@ class UploadFile{
 		}
 		return $subpath;
 	}
+        
+        
+	/**
+	 * 上传操作
+	 *
+	 * @param string $field 上传表单名
+	 * @return bool
+	 */
+	public function upfile2($field){
+         	//上传文件
+		$this->upload_file = $_FILES[$field];
+		if ($this->upload_file['tmp_name'] == ""){
+			$this->setError(Language::get('cant_find_temporary_files'));
+			return false;
+		}
 
+		//对上传文件错误码进行验证
+		$error = $this->fileInputError();
+		if (!$error){
+			return false;
+		}
+		//验证是否是合法的上传文件
+		if(!is_uploaded_file($this->upload_file['tmp_name'])){
+			$this->setError(Language::get('upload_file_attack'));
+			return false;
+		}
+
+		//验证文件大小
+		if ($this->upload_file['size']==0){
+			$error = Language::get('upload_file_size_none');
+			$this->setError($error);
+			return false;
+		}
+		if($this->upload_file['size'] > $this->max_size*1024){
+			$error = Language::get('upload_file_size_cant_over').$this->max_size.'KB';
+			$this->setError($error);
+			return false;
+		}
+
+		//文件后缀名
+		$tmp_ext = explode(".", $this->upload_file['name']);
+		$tmp_ext = $tmp_ext[count($tmp_ext) - 1];
+		$this->ext = strtolower($tmp_ext);
+
+		//验证文件格式是否为系统允许
+		if(!in_array($this->ext,$this->allow_type)){
+			$error = Language::get('image_allow_ext_is').implode(',',$this->allow_type);
+			$this->setError($error);
+			return false;
+		}
+		//设置图片路径
+		$this->save_path = $this->setPath();
+
+		//设置文件名称
+		if(empty($this->file_name)){
+			$this->setFileName();
+		}
+
+		//是否立即弹出错误
+		if($this->if_show_error){
+			echo "<script type='text/javascript'>alert('". ($this->if_show_error_one ? $error : $this->error) ."');history.back();</script>";
+			die();
+		}
+		if ($this->error != '') return false;
+                if(@move_uploaded_file($this->upload_file['tmp_name'],BASE_UPLOAD_PATH.DS.$this->save_path.DS.$this->file_name)){
+			//删除原图
+			if ($this->ifremove && is_file(BASE_UPLOAD_PATH.DS.$this->save_path.DS.$this->file_name)) {
+				@unlink(BASE_UPLOAD_PATH.DS.$this->save_path.DS.$this->file_name);
+			}
+			return true;
+		}else {
+			$this->setError(Language::get('upload_file_fail'));
+			return false;
+		}
+		return $this->error;
+	}        
 }

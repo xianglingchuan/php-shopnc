@@ -30,10 +30,61 @@ class member_contractControl extends BaseMemberControl {
      * 发布合同
      */
     public function addOp() {
+        header("Content-type: text/html; charset=utf-8");    
+        $contractModel	= Model('eqb_contract');
+        $storeList = $contractModel->getStoreList();
+        if (chksubmit()) {
+            $message = "";
+            $title = isset($_POST['title']) && !empty($_POST['title']) ? trim($_POST['title']) : "";
+            $description = isset($_POST['description']) && !empty($_POST['description']) ? trim($_POST['description']) : "";
+            $storeId = isset($_POST['store_id']) && intval($_POST['store_id']) >= 1 ? intval($_POST['store_id']) : 0;
+            $fileObject = $_FILES['contract_file'];
+            if (!empty($title) && intval($storeId) >= 1) {
+                $storeInfo = $contractModel->getStoreInfo($storeId);
+                if (!empty($storeInfo)) {
+                    if (!empty($fileObject['name'])) {
+                        //获取文件的格式
+                        $pathInfo = pathinfo($fileObject['name']);
+                        $extensionArray = array("doc", "pdf");
+                        if (in_array($pathInfo['extension'], $extensionArray)) {
+                            $upload = new UploadFile();
+                            $upload->set('default_dir',ATTACH_MALBUM);
+                            $upload->set('max_size',10240);
+                            $uploadResult = $upload->upfile2("contract_file");
+                            if($uploadResult){
+                                $filePath = $upload->get("save_path").DS.$upload->get("file_name");
+                                $data = array("title" => $title, "description" => $description, "store_id"=>$storeId, 
+                                              "store_member_id"=>$storeInfo['member_id'], "member_id"=>$_SESSION['member_id'],
+                                              "file_path"=>$filePath, "file_path_proto"=>$filePath);
+                                $result = $contractModel->memberAdd($data);
+                                if($result){
+                                    $message = "操作成功!";
+                                }else{
+                                    $message = "操作失败!";
+                                }
+                            }else{
+                                $message = "合同文件上传失败!";
+                            }             
+                        } else {
+                            $message = "只能上传doc和pdf格式文件!";
+                        }
+                    } else {
+                        $message = "请选择上传合同文件!";
+                    }
+                } else {
+                    $message = "煤企信息不存在!";
+                }
+            } else {
+                $message = "合同标题和煤企为必填项!";
+            }
+            showDialog($message,'reload',$result ? 'succ' : 'error');
+        }
+        Tpl::output('storeList', $storeList);
         $this->profile_menu('add');
         Tpl::showpage('member_contract.add');
     }
 
+    
     /**
      * 待我签署
      */

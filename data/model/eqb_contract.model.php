@@ -60,7 +60,46 @@ class eqb_contractModel extends Model {
     
     
     public function __construct() {
-        parent::__construct();
+        parent::__construct('eqb_contract');
+    }
+    
+    
+    /**
+     * 获取煤企信息列表 
+     */ 
+    public function getStoreList(){
+        return  $this->table('store')->field("store_id, store_name, member_id, member_name, seller_name")->select();
+    }
+    
+
+    /**
+     * 获取煤企信息 
+     */ 
+    public function getStoreInfo($storeId){
+        return  $this->table('store')->field("store_id, store_name, member_id, member_name, seller_name")->where("store_id='{$storeId}'")->find();
+    }    
+    
+    
+    /**
+     * 添加合同信息 
+     */ 
+    public function add($data){
+        return $this->table('eqb_contract')->insert($data);
+    }
+    
+    
+    /**
+     * 普通用户添加合同信息 
+     */ 
+    public function memberAdd($data){
+        $data['createuid'] = $data['member_id'];
+        $data['createdate'] = date("Y-m-d H:i:s",time());
+        $data['create_store_id'] = 0;
+        $data['modifyuid'] = $data['member_id'];
+        $data['modifydate'] = date("Y-m-d H:i:s",time());
+        return $this->add($data);
     }
 
+    
+    
 }
