@@ -76,9 +76,6 @@
             }
             ?>
         </ul>
-        <?php if ($output['isallowsend']) { ?>
-            <a href="index.php?act=member_message&op=sendmsg" class="ncm-btn ncm-btn-orange" title="<?php echo $lang['home_message_send_message']; ?>"><i class="icon-envelope-alt"></i><?php echo $lang['home_message_send_message']; ?></a>
-<?php } ?>
     </div>
     
     
@@ -86,37 +83,37 @@
         <ul>
             <li class="li_first" style="border-left-color: #fff;">
                 <div class="f32">
-                    <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view-batch&amp;type=4" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/doc.png"><span id="waitForMeCount">0</span></a>
+                    <a href="index.php?act=member_contract&op=waitMeList" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/doc.png"><span id="waitForMeCount"><?php echo $output['data'][0]['waitmeCount'];?></span></a>
                 </div>
                 <div class="f14 pt5">需要我完成的</div>
             </li>
             <li class="line1">
                 <div class="f32">
-                    <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view&amp;type=5" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/write.png"><span id="waitForTaCount">0</span></a>
+                    <a href="index.php?act=member_contract&op=waitOthersList" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/write.png"><span id="waitForTaCount"><?php echo $output['data'][0]['waitothersCount'];?></span></a>
                 </div>
                 <div class="f14 pt5">等待他人完成的</div>
             </li>
             <li class="line1">
                 <div class="f32">
-                    <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view&amp;type=2" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/done.png"><span id="doneCount">0</span></a>
+                    <a href="index.php?act=member_contract&op=bothSuccessList" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/done.png"><span id="doneCount"><?php echo $output['data'][0]['bothsuccessCount'];?></span></a>
                 </div>
                 <div class="f14 pt5">已经完成的</div>
             </li>
-            <li class="li_first">
+<!--            <li class="li_first">
                 <div class="f32">
                     <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view&amp;type=3" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/cloud.png"><span id="cloudCount">0</span></a>
                 </div>
                 <div class="f14 pt5">云文件</div>
-            </li>
+            </li>-->
             <li class="line1">
                 <div class="f32">
-                    <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view&amp;type=10" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/returned.png"><span id="sendbackCount">0</span></a>
+                    <a href="index.php?act=member_contract&op=returnList" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/returned.png"><span id="sendbackCount"><?php echo $output['data'][0]['returnCount'];?></span></a>
                 </div>
                 <div class="f14 pt5">退回文件</div>
             </li>
             <li class="line1">
                 <div class="f32">
-                    <a href="https://smlweb.tsign.cn/user/doc!page?skip=doclist-view&amp;type=11" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/close.png"><span id="closeCount">0</span></a>
+                    <a href="index.php?act=member_contract&op=closeList" style="cursor: pointer;"><img src="<?php echo SHOP_TEMPLATES_URL ?>/2016/images/close.png"><span id="closeCount"><?php echo $output['data'][0]['closeCount'];?></span></a>
                 </div>
                 <div class="f14 pt5">关闭文件</div>
             </li>

@@ -22,6 +22,9 @@ class member_contractControl extends BaseMemberControl {
      * 合同首页
      */
     public function indexOp() {
+        $contractModel	= Model('eqb_contract');
+        $data = $contractModel->getStatistics($_SESSION['member_id']);  //合同统计信息
+        Tpl::output('data',$data);  
         $this->profile_menu('index');
         Tpl::showpage('member_contract.index');
     }
@@ -89,14 +92,85 @@ class member_contractControl extends BaseMemberControl {
      * 待我签署
      */
     public function waitMeListOp() {
+        $contractModel	= Model('eqb_contract');
+        //读取当前登录用户接受或者发起的合同
+        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
+                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitme');
         Tpl::showpage('member_contract.waitmelist');
     }
+    
+    
+     /**
+     * 关闭合同 - 只有自己发启的合同才能被自己关闭
+     */
+    public function closeOp(){
+        $contractModel	= Model('eqb_contract');
+        $id = isset($_GET['id']) && intval($_GET['id'])>=1 ? intval($_GET['id']) : 0;
+        $message = "";
+        $result = false;
+        if(intval($id) >= 1){
+            $info = $contractModel->getInfo("id='{$id}'");
+            if(intval($info['createuid']) == intval($_SESSION['member_id'])){
+                $result = $contractModel->close($id, $_SESSION['member_id']);
+                if($result){
+                    $message = "关闭合同成功.";
+                }else{
+                    $message = "关闭合同失败.";
+                }
+            }else{
+                $message = "不能关闭其他人发起的合同.";
+            }
+        }else{
+            $message = "参数错误.";
+        }
+        showDialog("关闭合同成功.",'reload',  ($result ? 'succ':'error'));
+    }
+    
+    
+     /**
+     * 退回合同 - 只有发给自己的合同才有权退回
+     */
+    public function sendbackOp(){
+        $contractModel	= Model('eqb_contract');
+        $id = isset($_GET['id']) && intval($_GET['id'])>=1 ? intval($_GET['id']) : 0;
+        $message = "";
+        $result = false;
+        if(intval($id) >= 1){
+            $info = $contractModel->getInfo("id='{$id}'");
+            if(intval($info['member_id']) == intval($_SESSION['member_id'])  &&   intval($info['createuid'])!=intval($_SESSION['member_id'])){
+                $result = $contractModel->sendback($id, $_SESSION['member_id']);
+                if($result){
+                    $message = "退回合同成功.";
+                }else{
+                    $message = "退回合同失败.";
+                }
+            }else{
+                $message = "不能非法退回合同.";
+            }
+        }else{
+            $message = "参数错误.";
+        }
+        showDialog("关闭合同成功.",'reload',  ($result ? 'succ':'error'));
+    }
+    
+    
+    
 
     /**
      * 待他人签署
      */
     public function waitOthersListOp() {
+        $contractModel	= Model('eqb_contract');
+        //读取当前登录用户接受或者发起的合同
+        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
+                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitothers');
         Tpl::showpage('member_contract.waitotherslist');
     }
@@ -105,6 +179,12 @@ class member_contractControl extends BaseMemberControl {
      * 已完成签署 - 双方签署成功
      */
     public function bothSuccessListOp() {
+        $contractModel	= Model('eqb_contract');
+        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
+                   . "AND eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('bothsuccess');
         Tpl::showpage('member_contract.bothsuccesslist');
     }
@@ -113,6 +193,11 @@ class member_contractControl extends BaseMemberControl {
      * 退回的文件 - 对方拒绝签署请求
      */
     public function returnListOp() {
+        $contractModel	= Model('eqb_contract');
+        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND eqb_contract.createuid='".$_SESSION['member_id']."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('return');
         Tpl::showpage('member_contract.returnlist');
     }
@@ -121,6 +206,11 @@ class member_contractControl extends BaseMemberControl {
      * 已关闭 - 关闭合同
      */
     public function closeListOp() {
+        $contractModel	= Model('eqb_contract');
+        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND eqb_contract.createuid='".$_SESSION['member_id']."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('close');
         Tpl::showpage('member_contract.closelist');
     }
