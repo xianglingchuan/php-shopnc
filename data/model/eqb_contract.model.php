@@ -246,4 +246,23 @@ class eqb_contractModel extends Model {
               . " (select count(*) from shopnc_eqb_contract WHERE {$closeWhere}) as closeCount";
       return Model()->query($sql);
     }    
+    
+    
+    /**
+     * 获取单条合同详细内容
+     */ 
+    public function getDetailInfo($where){
+        $info =   $this->table('eqb_contract,member,store')->field("eqb_contract.*, member.member_name, store.store_name")
+                       ->join("inner,inner")
+                       ->on("member.member_id=eqb_contract.member_id,store.store_id=eqb_contract.store_id")
+                       ->where($where)->find();
+        if(!empty($info)){
+                $info['status_name'] = $this->getStatusByKey($info['status']);
+                $info['member_signed_status_name'] = $this->getMemberSignedStatusByKey($info['member_signed_status']);
+                $info['store_signed_status_name'] = $this->getMemberSignedStatusByKey($info['store_signed_status']);
+        }
+        return $info;
+    }     
+    
+    
 }

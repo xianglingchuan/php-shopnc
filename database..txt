@@ -32,3 +32,60 @@ ALTER TABLE  `shopnc_member_expand` ADD  `audit` SMALLINT( 0 ) NOT NULL COMMENT 
 ALTER TABLE  `shopnc_member_expand` ADD  `audit_createdate` DATETIME NULL COMMENT  '审核时间' AFTER  `audit` ,
 ADD  `audit_admin_id` INT( 11 ) NULL COMMENT  '审核管理员ID' AFTER  `audit_createdate` ,
 ADD  `audit_admin_name` VARCHAR( 30 ) NULL COMMENT  '审核管理员名称' AFTER  `audit_admin_id`
+
+
+//2016-04-28
+
+CREATE TABLE IF NOT EXISTS `shopnc_eqb_account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID号自增长',
+  `type` smallint(1) NOT NULL DEFAULT '0' COMMENT '类型0=个人/1=企业默认为0',
+  `member_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID号',
+  `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '店铺或者说是企业ID号',
+  `account_id` int(11) NOT NULL DEFAULT '0' COMMENT 'e签号认证唯一标记',
+  `createuid` int(11) NOT NULL DEFAULT '0' COMMENT '创建ID号',
+  `createdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建日期',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户和企业与e签号帐号绑定关系表' AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `shopnc_eqb_contract` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID号自增长',
+  `title` varchar(300) NOT NULL COMMENT '标题信息',
+  `description` text NOT NULL COMMENT '描述',
+  `file_path` varchar(200) NOT NULL COMMENT '合同文件的地址(用于保存已经签署了的文件地址)',
+  `file_path_proto` varchar(200) NOT NULL COMMENT '上传的最原始文件地址',
+  `status` smallint(1) NOT NULL COMMENT '是否同意签署文件的状态以衣文件签署到那一步的状态',
+  `member_id` int(11) NOT NULL COMMENT '个人用户ID号',
+  `store_id` int(11) NOT NULL COMMENT '店铺或者说是企业ID号',
+  `store_member_id` int(11) NOT NULL COMMENT '店铺操作人员的ID号',
+  `member_signed_status` smallint(1) DEFAULT '0' COMMENT '默认为0=等待/1=已签置/2=签署失败  个人用户签署合同状态',
+  `member_signed_file_path` varchar(200) DEFAULT NULL COMMENT '签署以后保存到本地的文件路径',
+  `member_signed_datetime` datetime DEFAULT NULL COMMENT '签署的回调时间',
+  `member_signed_data` text COMMENT '签署回调的其它数据',
+  `store_signed_status` smallint(1) DEFAULT '0' COMMENT '默认为0=等待/1=已签置/2=签署失败   企业用户签署合同状态',
+  `store_signed_file_path` text COMMENT '签署以后保存到本地的文件路径',
+  `store_signed_datetime` datetime DEFAULT NULL COMMENT '签署的回调时间',
+  `store_signed_data` text COMMENT '签署回调的其它数据',
+  `createuid` int(11) NOT NULL DEFAULT '0',
+  `createdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `create_store_id` int(11) NOT NULL DEFAULT '0' COMMENT '如果是企业主动发启的合同将写入企业ID号，如果是用户则没有store_id号',
+  `modifyuid` int(11) NOT NULL DEFAULT '0',
+  `modifydate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='合同签署信息表' AUTO_INCREMENT=6 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `shopnc_eqb_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID号自增长(int)',
+  `type` smallint(1) NOT NULL DEFAULT '1' COMMENT '类型(1=本地数据操作/2=请求e签保操作/3=e签保回调操作)',
+  `member_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID号',
+  `store_id` int(11) NOT NULL DEFAULT '0' COMMENT '企业ID号',
+  `title` varchar(300) NOT NULL COMMENT '标题',
+  `description` text NOT NULL COMMENT '描述',
+  `data` text NOT NULL COMMENT '内容',
+  `createuid` int(11) NOT NULL DEFAULT '0' COMMENT '创建用户ID',
+  `createdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建日期',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='e签保相关操作日志文件' AUTO_INCREMENT=1 ;
+

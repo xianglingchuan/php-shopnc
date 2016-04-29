@@ -214,6 +214,25 @@ class member_contractControl extends BaseMemberControl {
         $this->profile_menu('close');
         Tpl::showpage('member_contract.closelist');
     }
+    
+    
+    /**
+     * 合同的详情展示
+     */    
+    public function viewOp(){
+        $id = isset($_GET['id']) && intval($_GET['id'])>=1 ? intval($_GET['id']) : 0;
+        $member_menu = isset($_GET['member_menu']) ? trim($_GET['member_menu']) : "";
+        if(intval($id) >=1){
+            $contractModel = Model('eqb_contract');
+            $info = $contractModel->getDetailInfo("eqb_contract.id='{$id}'");
+            Tpl::output('info', $info);
+            $this->profile_menu($member_menu);
+            Tpl::showpage('member_contract.view');            
+        }else{
+            $message = "合同ID不合法.";
+            showDialog($message,'reload', 'error');
+        }
+    }
 
     /**
      * 用户中心右边，小导航

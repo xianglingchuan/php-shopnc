@@ -60,7 +60,7 @@
             <?php echo $value['createdate']; ?>        
         </td>
         <td class="ncm-table-handle tl">
-          <span><a href="javascript:void(0)" class="btn-red" onclick="ajax_get_confirm('<?php echo $lang['nc_ensure_del'];?>', 'index.php?act=member_address&op=address&id=<?php echo $address['address_id'];?>');">
+          <span><a href="index.php?act=member_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitothers" class="btn-red">
           <p>查看详情</p>
           </a></span>
         </td>
