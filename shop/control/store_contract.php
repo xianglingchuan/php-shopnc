@@ -230,7 +230,7 @@ class store_contractControl extends BaseSellerControl {
             $info = $contractModel->getDetailInfo("eqb_contract.id='{$id}'");
             Tpl::output('info', $info);
             $this->profile_menu($member_menu);
-            Tpl::showpage('member_contract.view');
+            Tpl::showpage('store_contract.view');
         } else {
             $message = "合同ID不合法.";
             showDialog($message, 'reload', 'error');

@@ -136,15 +136,7 @@
                     </dd>
                 </dl> 
                 <?php } ?>
-                
-<!--                <dl class="bottom">
-                    <dt></dt>
-                    <dd>
-                        <label class="submit-border">
-                            <input type="button" class="submit" value="返回" />
-                        </label>
-                    </dd>
-                </dl>-->
+               
             </form>
         </div>
     </div>    

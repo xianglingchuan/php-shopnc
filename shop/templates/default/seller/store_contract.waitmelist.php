@@ -13,29 +13,6 @@
   
 
 
-<!--<form method="get" action="index.php" target="_self">
-  <table class="search-form">
-    <input type="hidden" name="act" value="store_deliver" />
-    <input type="hidden" name="op" value="index" />
-    <?php if ($_GET['state'] !='') { ?>
-    <input type="hidden" name="state" value="<?php echo $_GET['state']; ?>" />
-    <?php } ?>
-    <tr>
-      <td></td>
-      <th><?php echo $lang['store_order_add_time'];?></th>
-      <td class="w240"><input type="text" class="text w70" name="query_start_date" id="query_start_date" value="<?php echo $_GET['query_start_date']; ?>" /><label class="add-on"><i class="icon-calendar"></i></label>
-        &nbsp;&#8211;&nbsp;
-        <input id="query_end_date" class="text w70" type="text" name="query_end_date" value="<?php echo $_GET['query_end_date']; ?>" /><label class="add-on"><i class="icon-calendar"></i></label></td>
-      <th><?php echo $lang['store_order_buyer'];?></span></th>
-      <td class="w100"><input type="text" class="text w80" name="buyer_name" value="<?php echo trim($_GET['buyer_name']); ?>" /></td>
-      <th><?php echo $lang['store_order_order_sn'];?></th>
-      <td class="w160"><input type="text" class="text w150" name="order_sn" value="<?php echo trim($_GET['order_sn']); ?>" /></td>
-      <td class="w70 tc"><label class="submit-border">
-          <input type="submit" class="submit"value="<?php echo $lang['store_order_search'];?>" />
-        </label></td>
-    </tr>
-  </table>
-</form>-->
 <table class="ncsc-default-table order deliver">
   <tbody>
     <thead>
@@ -71,7 +48,7 @@
       </td>
       <td class="bdl bdr order-info w180"><?php echo $value['createdate']; ?>   </td>
         <td class="ncm-table-handle w100">
-          <span><a href="index.php?act=member_contract&op=signContract&id=<?php echo $value['id'];?>&member_menu=waitme" target="_black" class="btn-red"><p>签置合同</p></a></span>   
+          <span><a href="index.php?act=store_contract&op=signContract&id=<?php echo $value['id'];?>&member_menu=waitme" target="_black" class="btn-red"><p>签置合同</p></a></span>   
           <?php 
           if($value['createuid'] == $value['store_member_id']){ ?>
           <span><a href="javascript:void(0)" class="btn-red" onclick="ajax_get_confirm('确认要关闭合同', 'index.php?act=store_contract&op=close&id=<?php echo $value['id'];?>');">
@@ -84,7 +61,7 @@
           </a></span>           
           <?php 
           } ?>           
-          <span><a href="index.php?act=member_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitme" class="btn-red">
+          <span><a href="index.php?act=store_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitme" class="btn-red">
           <p>查看详情</p>
           </a></span>
         </td>      

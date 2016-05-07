@@ -43,7 +43,7 @@
       </td>
       <td class="bdl bdr order-info w180"><?php echo $value['createdate']; ?>   </td>
         <td class="ncm-table-handle w100">
-          <span><a href="index.php?act=member_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitme" class="btn-red">
+          <span><a href="index.php?act=store_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitothers" class="btn-red">
           <p>查看详情</p>
           </a></span>
         </td>      
