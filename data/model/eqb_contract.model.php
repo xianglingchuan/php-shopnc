@@ -236,7 +236,7 @@ class eqb_contractModel extends Model {
                    . "AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
         //退回的文件
         $returnWhere = " shopnc_eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND shopnc_eqb_contract.createuid='".$memberId."' ";
-        //关团的文件
+        //关闭的文件
         $closeWhere = " shopnc_eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND shopnc_eqb_contract.createuid='".$memberId."' ";
         
         $sql = "select (select count(*) from shopnc_eqb_contract WHERE {$waitemWhere}) as waitmeCount, "

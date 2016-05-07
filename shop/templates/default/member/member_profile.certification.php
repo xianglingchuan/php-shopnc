@@ -119,6 +119,22 @@
         
         
         <?php if($member_info['member_type'] == MemberModel::TYPE_COMPANY_KEY){?>
+        
+        <dl>
+          <dt>公司名称：</dt>
+          <dd>
+              <span class="w400">
+                  <?php 
+                  if(intval($expandInfo['audit']) == 1){
+                      echo $expandInfo['company_name'];
+                  }else{ ?>
+                      <input type="text" class="text inputWidth" maxlength="20" name="company_name" value="<?php echo $expandInfo['company_name'];?>" />
+                 <?php } ?>
+              </span>
+         </dd>
+        </dl>
+        
+        
         <dl>
           <dt>公司开户银行：</dt>
           <dd>

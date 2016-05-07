@@ -255,6 +255,7 @@ class member_informationControl extends BaseMemberControl {
                         "tel" => $_POST['tel'],
                         "username" => $_POST['username'],
                         "identity" => $_POST['identity'],
+                        "company_name" => $_POST['company_name'],
                         "bank_name" => $_POST['bank_name'],
                         "bank_account" => $_POST['bank_account'],
                         "id_code" => $_POST['id_code'],

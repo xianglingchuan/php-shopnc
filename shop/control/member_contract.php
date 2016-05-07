@@ -1,5 +1,5 @@
 <?php
-
+header("Content-type: text/html; charset=utf-8"); 
 /**
  * SNS我的空间
  *
@@ -11,7 +11,7 @@
 use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-
+include_once 'eSign.php';
 class member_contractControl extends BaseMemberControl {
 
     public function __construct() {
@@ -234,6 +234,53 @@ class member_contractControl extends BaseMemberControl {
         }
     }
 
+    
+    /**
+     * 签署合同
+     */  
+    public function signContractOp(){
+        $id = isset($_GET['id']) && intval($_GET['id'])>=1 ? intval($_GET['id']) : 0;
+        $message = "";
+        if(intval($id)>=1){
+            $accountMode = Model('eqb_account');
+            //获取用户的扩展信息
+            $accountInfo = $accountMode->getMemberExpandInfo($_SESSION['member_id']);
+            if(!empty($accountInfo)){
+                $resultAccount = $accountMode->getEsignAccountId($_SESSION['member_id'], $accountInfo);
+                $message = $resultAccount['message'];
+                $accountId = $resultAccount['accountId'];
+                if(empty($message) && intval($accountId)>=1){
+                    //开始上传合同文件
+                    echo "开始上传合同文件......";
+                    //获取合同文件路径信息
+                    $eqbContractModel = Model('eqb_contract');
+                    $info = $eqbContractModel->getInfo("id='{$id}'");
+                    if(!empty($info)){
+                        //还需要判断合同文件是否上传了E签宝了........
+                        $file_path = $info['file_path'];
+                        if(!empty($file_path)){
+                            echo $file_path;
+                            $eSignClass = new eSgin();
+                            $result = $eSignClass->updateFile($file_path, $info['title']);
+                            var_dump($result);
+                        }else{
+                            $message = "合同文件不存在!";
+                        }
+                    }else{
+                        $message = "合同信息不存在!";
+                    }
+                }
+            }else{
+                $message = "请先完成实名认证信息!";
+                showDialog($message,'index.php?act=member_information&op=certification','error');
+                die();
+            }
+        }else{
+            $message = "参数错误!";
+        }
+    }
+    
+    
     /**
      * 用户中心右边，小导航
      *
