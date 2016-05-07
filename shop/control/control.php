@@ -1018,6 +1018,7 @@ class BaseSellerControl extends Control {
                 array('name' => '运单模板', 'act'=>'store_waybill', 'op'=>'waybill_manage'),
                 array('name' => '评价管理', 'act'=>'store_evaluate', 'op'=>'list'),
                 array('name' => '物流工具', 'act'=>'store_transport', 'op'=>'index'),
+                array('name' => '我的合同', 'act'=>'store_contract', 'op'=>'index'),
             )),
             // 'promotion' => array('name' => '促销', 'child' => array(
                 // array('name' => '团购管理', 'act'=>'store_groupbuy', 'op'=>'index'),

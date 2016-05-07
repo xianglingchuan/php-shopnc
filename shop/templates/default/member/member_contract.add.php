@@ -30,12 +30,16 @@
                 <form enctype="multipart/form-data" method="post" id="send_form" action="index.php?act=member_contract&op=add">
                     <input type="hidden" name="form_submit" value="ok" />
                     <dl>
-                        <dt><i class="required">*</i>标题</dt>
+                        <dt><i class="required">*</i>合同名称</dt>
                         <dd>
                             <input type="text" class="text w300" name="title" id="title" value=""/>
                             <p class ="error"></p>
                         </dd>
                     </dl>
+                    
+                    
+                    
+                    
 
                     <dl>
                         <dt><i class="required">*</i>3号线煤企</dt>

@@ -169,6 +169,20 @@ class eqb_contractModel extends Model {
         $data['modifydate'] = date("Y-m-d H:i:s",time());
         return $this->add($data);
     }
+    
+    
+    /**
+     * 普通用户添加合同信息 
+     */ 
+    public function storeAdd($data){
+        $data['createuid'] = $data['store_member_id'];
+        $data['createdate'] = date("Y-m-d H:i:s",time());
+        $data['create_store_id'] = $data['store_id'];
+        $data['modifyuid'] = $data['store_member_id'];
+        $data['modifydate'] = date("Y-m-d H:i:s",time());
+        return $this->add($data);
+    }    
+    
 
     /**
      * 获取合同并且展示分类内容
@@ -263,6 +277,22 @@ class eqb_contractModel extends Model {
         }
         return $info;
     }     
+    
+    
+    /**
+     * 获取煤企信息列表 
+     */ 
+    public function getMemberCompanyList(){
+        return  $this->table('member')->where("member_type='".memberModel::TYPE_COMPANY_KEY."'")->field("member_id, member_name")->select();
+    }
+    
+
+    /**
+     * 获取煤企信息 
+     */ 
+    public function getMemberCompanyInfo($memberId){
+        return  $this->table('member')->field("*")->where("member_id='{$memberId}'")->find();
+    }       
     
     
 }
