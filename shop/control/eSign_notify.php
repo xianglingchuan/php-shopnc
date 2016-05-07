@@ -20,6 +20,7 @@ include_once './config/esign.config.ini.php';
 require_once("./api/esign/eSignOpenAPI.php");
 require_once("./api/esign/class/eSign.class.php");
 require_once("./api/esign/comm/utils.php");
+require_once 'eSign.php';
 
 class eSign_notifyControl extends Control {
 
@@ -34,6 +35,7 @@ class eSign_notifyControl extends Control {
     public function indexOp() {
         $json_result = isset($_POST['esign_return']) ? $_POST['esign_return'] : "";
         $sign = isset($_GET['sign']) ? $_GET['sign'] : "async";
+        eSgin::write("eSign_notify.php--->indexOp.post-------->".$json_result);
         $message = "";
         if (!empty($json_result)) {
             $str = str_replace('\\', '', $json_result);
@@ -116,9 +118,9 @@ class eSign_notifyControl extends Control {
         } else {
             $message = "E签宝回调内容为空!";
         }
+        eSgin::write("eSign_notify.php--->indexOp.message-------->".$message);
         if ($sign == "sync") {
             showDialog($message, 'index.php', 'succ');
         }
     }
-
 }
