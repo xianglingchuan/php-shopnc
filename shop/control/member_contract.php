@@ -16,6 +16,13 @@ class member_contractControl extends BaseMemberControl {
 
     public function __construct() {
         parent::__construct();
+        
+        $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_type');
+        if($member_info['member_type'] != memberModel::TYPE_COMPANY_KEY){
+            $message = "个人用户不能使用网签合同功能!";
+            showDialog($message,'index.php?act=member&op=home','error');
+            die();
+        }        
     }
 
     /**

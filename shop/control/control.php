@@ -391,7 +391,7 @@ class BaseMemberControl extends Control {
                         'member_security'   => array('name' => '账户安全', 'url'=>urlShop('member_security', 'index')),
                         'member_address'    => array('name' => '收货地址', 'url'=>urlShop('member_address', 'address')),
                         'member_message'    => array('name' => '我的消息', 'url'=>urlShop('member_message', 'message')),
-                        'member_contract'    => array('name' => '我的合同', 'url'=>urlShop('member_contract', 'index')),
+                        //'member_contract'    => array('name' => '我的合同', 'url'=>urlShop('member_contract', 'index')),
                         //'member_snsfriend'  => array('name' => '我的好友', 'url'=>urlShop('member_snsfriend', 'find')),
                         //'member_goodsbrowse'=> array('name' => '我的足迹', 'url'=>urlShop('member_goodsbrowse', 'list')),
                         //'member_connect'    => array('name' => '第三方账号登录', 'url'=>urlShop('member_connect', 'qqbind')),
@@ -404,6 +404,11 @@ class BaseMemberControl extends Control {
 //                        // 'microshop'         => array('name' => '我的微平台', 'url'=>urlMicroshop('home', 'index', array('member_id' => $_SESSION['member_id'])))
 //                ))
         );
+        //获取当前登录用户的类型，只有企业用户才显示"我的合同"
+        $member_info = Model('member')->getMemberInfoByID($_SESSION['member_id'],'member_type');
+        if($member_info['member_type'] == memberModel::TYPE_COMPANY_KEY){
+            $menu_list['info']['child']['member_contract'] = array('name' => '我的合同', 'url'=>urlShop('member_contract', 'index'));
+        }
         return $menu_list;
     }
 }
