@@ -292,7 +292,35 @@ class eqb_contractModel extends Model {
      */ 
     public function getMemberCompanyInfo($memberId){
         return  $this->table('member')->field("*")->where("member_id='{$memberId}'")->find();
-    }       
+    }      
+    
+    
+    
+    /**
+     * 统计信息 
+     */ 
+    public function getStoreStatistics($storeId){
+        //待我签署的合同
+        $waitemWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
+                   . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //待他们签署的合同
+        $waitothersWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
+                        . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //已签署完成
+        $bothsuccessWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
+                   . "AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
+        //退回的文件
+        $returnWhere = " shopnc_eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND shopnc_eqb_contract.create_store_id='".$storeId."' ";
+        //关闭的文件
+        $closeWhere = " shopnc_eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND shopnc_eqb_contract.create_store_id='".$storeId."' ";
+        
+        $sql = "select (select count(*) from shopnc_eqb_contract WHERE {$waitemWhere}) as waitmeCount, "
+              . " (select count(*) from shopnc_eqb_contract WHERE {$waitothersWhere}) as waitothersCount, "
+              . " (select count(*) from shopnc_eqb_contract WHERE {$bothsuccessWhere}) as bothsuccessCount,  "
+              . " (select count(*) from shopnc_eqb_contract WHERE {$returnWhere}) as returnCount,  "
+              . " (select count(*) from shopnc_eqb_contract WHERE {$closeWhere}) as closeCount";
+      return Model()->query($sql);
+    }        
     
     
 }

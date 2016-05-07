@@ -27,53 +27,11 @@ class store_contractControl extends BaseSellerControl {
      *
      */
     public function indexOp() {
-        echo "Index";
+        $contractModel	= Model('eqb_contract');
+        $data = $contractModel->getStoreStatistics($_SESSION['store_id']);  //合同统计信息
+        Tpl::output('data',$data);  
         $this->profile_menu("index");
-//	        $model_order = Model('order');
-//		if (!in_array($_GET['state'],array('deliverno','delivering','delivered'))) $_GET['state'] = 'deliverno';
-//		$order_state = str_replace(array('deliverno','delivering','delivered'),
-//		        array(ORDER_STATE_PAY,ORDER_STATE_SEND,ORDER_STATE_SUCCESS),$_GET['state']);
-//		$condition = array();
-//		$condition['store_id'] = $_SESSION['store_id'];
-//		$condition['order_state'] = $order_state;
-//		if ($_GET['buyer_name'] != '') {
-//		    $condition['buyer_name'] = $_GET['buyer_name'];
-//		}
-//		if ($_GET['order_sn'] != '') {
-//		    $condition['order_sn'] = $_GET['order_sn'];
-//		}
-//		$if_start_date = preg_match('/^20\d{2}-\d{2}-\d{2}$/',$_GET['query_start_date']);
-//		$if_end_date = preg_match('/^20\d{2}-\d{2}-\d{2}$/',$_GET['query_end_date']);
-//		$start_unixtime = $if_start_date ? strtotime($_GET['query_start_date']) : null;
-//		$end_unixtime = $if_end_date ? strtotime($_GET['query_end_date']): null;
-//		if ($start_unixtime || $end_unixtime) {
-//		    $condition['add_time'] = array('time',array($start_unixtime,$end_unixtime));
-//		}
-//		$order_list = $model_order->getOrderList($condition,5,'*','order_id desc','',array('order_goods','order_common','member'));
-//		foreach ($order_list as $key => $order_info) {
-//		    foreach ($order_info['extend_order_goods'] as $value) {
-//		        $value['image_60_url'] = cthumb($value['goods_image'], 60, $value['store_id']);
-//		        $value['image_240_url'] = cthumb($value['goods_image'], 240, $value['store_id']);
-//		        $value['goods_type_cn'] = orderGoodsType($value['goods_type']);
-//		        $value['goods_url'] = urlShop('goods','index',array('goods_id'=>$value['goods_id']));
-//		        if ($value['goods_type'] == 5) {
-//		            $order_info['zengpin_list'][] = $value;
-//		        } else {
-//		            $order_info['goods_list'][] = $value;
-//		        }
-//		    }
-//
-//		    if (empty($order_info['zengpin_list'])) {
-//		        $order_info['goods_count'] = count($order_info['goods_list']);
-//		    } else {
-//		        $order_info['goods_count'] = count($order_info['goods_list']) + 1;
-//		    }
-//		    $order_list[$key] = $order_info;
-//		}
-//		Tpl::output('order_list',$order_list);
-//		Tpl::output('show_page',$model_order->showpage());
-//		self::profile_menu('deliver',$_GET['state']);
-        Tpl::showpage('store_contract.index');
+	Tpl::showpage('store_contract.index');
     }
 
     /**
@@ -143,13 +101,13 @@ class store_contractControl extends BaseSellerControl {
      * 待我签署
      */
     public function waitMeListOp() {
-//        $contractModel	= Model('eqb_contract');
-//        //读取当前登录用户接受或者发起的合同
-//        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
-//                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-//        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
-//        Tpl::output('list',$list);
-//        Tpl::output('show_page',$contractModel->showpage());          
+        $contractModel	= Model('eqb_contract');
+        //读取当前登录用户接受或者发起的合同
+        $condition = "eqb_contract.store_member_id='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
+                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitme');
         Tpl::showpage('store_contract.waitmelist');
     }
@@ -164,7 +122,7 @@ class store_contractControl extends BaseSellerControl {
         $result = false;
         if (intval($id) >= 1) {
             $info = $contractModel->getInfo("id='{$id}'");
-            if (intval($info['createuid']) == intval($_SESSION['member_id'])) {
+            if (intval($info['create_store_id']) == intval($_SESSION['store_id'])) {
                 $result = $contractModel->close($id, $_SESSION['member_id']);
                 if ($result) {
                     $message = "关闭合同成功.";
@@ -190,7 +148,7 @@ class store_contractControl extends BaseSellerControl {
         $result = false;
         if (intval($id) >= 1) {
             $info = $contractModel->getInfo("id='{$id}'");
-            if (intval($info['member_id']) == intval($_SESSION['member_id']) && intval($info['createuid']) != intval($_SESSION['member_id'])) {
+            if (intval($info['store_id']) == intval($_SESSION['store_id']) && intval($info['createuid']) != intval($_SESSION['member_id'])) {
                 $result = $contractModel->sendback($id, $_SESSION['member_id']);
                 if ($result) {
                     $message = "退回合同成功.";
@@ -210,13 +168,13 @@ class store_contractControl extends BaseSellerControl {
      * 待他人签署
      */
     public function waitOthersListOp() {
-//        $contractModel	= Model('eqb_contract');
-//        //读取当前登录用户接受或者发起的合同
-//        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
-//                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-//        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
-//        Tpl::output('list',$list);
-//        Tpl::output('show_page',$contractModel->showpage());          
+        $contractModel	= Model('eqb_contract');
+        //读取当前登录用户接受或者发起的合同
+        $condition = "eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
+                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitothers');
         Tpl::showpage('store_contract.waitotherslist');
     }
@@ -225,12 +183,12 @@ class store_contractControl extends BaseSellerControl {
      * 已完成签署 - 双方签署成功
      */
     public function bothSuccessListOp() {
-//        $contractModel	= Model('eqb_contract');
-//        $condition = "eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
-//                   . "AND eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
-//        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
-//        Tpl::output('list',$list);
-//        Tpl::output('show_page',$contractModel->showpage());   
+        $contractModel	= Model('eqb_contract');
+        $condition = "eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
+                   . "AND eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('bothsuccess');
         Tpl::showpage('store_contract.bothsuccesslist');
     }
@@ -239,11 +197,11 @@ class store_contractControl extends BaseSellerControl {
      * 退回的文件 - 对方拒绝签署请求
      */
     public function returnListOp() {
-//        $contractModel	= Model('eqb_contract');
-//        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND eqb_contract.createuid='".$_SESSION['member_id']."' ";
-//        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
-//        Tpl::output('list',$list);
-//        Tpl::output('show_page',$contractModel->showpage());   
+        $contractModel	= Model('eqb_contract');
+        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND eqb_contract.create_store_id='".$_SESSION['store_id']."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('return');
         Tpl::showpage('store_contract.returnlist');
     }
@@ -252,11 +210,11 @@ class store_contractControl extends BaseSellerControl {
      * 已关闭 - 关闭合同
      */
     public function closeListOp() {
-//        $contractModel	= Model('eqb_contract');
-//        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND eqb_contract.createuid='".$_SESSION['member_id']."' ";
-//        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
-//        Tpl::output('list',$list);
-//        Tpl::output('show_page',$contractModel->showpage());   
+        $contractModel	= Model('eqb_contract');
+        $condition = " eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND eqb_contract.create_store_id='".$_SESSION['store_id']."' ";
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        Tpl::output('list',$list);
+        Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu("close");
         Tpl::showpage('store_contract.closelist');
     }
