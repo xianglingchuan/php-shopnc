@@ -140,4 +140,38 @@ class eSgin{
             }
             
         }
+        
+        
+        /**
+	 * 合同签署完成以后通知
+	 */  
+        public function notify(){
+	header("Content-type: text/html; charset=utf-8"); 
+	$json_result = $_POST['esign_return'];
+	echo '<br><br>json_result:-------<br>';
+
+	$str=str_replace('\\','',$json_result);
+	var_dump(json_decode($str));
+	$json_result = json_decode($str,TRUE);
+
+	echo '<br><br>errCode: ';
+	echo $json_result['errCode'];
+	echo '<br><br>code: ';
+	echo $json_result['code'];
+	$url = $json_result['urls'];
+	echo '<br><br>------------------------------------<br>';
+	echo '<br><br>docId:';
+	echo $json_result['docId'];
+	echo '<br><br>downUrl:';
+	echo $url[0];
+
+	$errCode = $json_result['errCode'];
+	if($errCode == 0)
+	{
+		echo "<br><a href='{$url[0]}' title='查看签章后文档'>查看签章后文档</a>";
+		
+	}
+            
+        }
+        
 }
