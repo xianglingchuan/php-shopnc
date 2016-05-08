@@ -103,7 +103,7 @@
             </dd>
         </dl>   
         <?php
-        if ($info['store_signed_status'] != 0) {
+        if ($info['member_signed_status'] != 0) {
             ?>
             <dl>
                 <dt>用户签署时间：</dt>

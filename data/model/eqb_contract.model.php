@@ -322,5 +322,30 @@ class eqb_contractModel extends Model {
       return Model()->query($sql);
     }        
     
-    
+    /**
+     * 上传合同文件到E签宝
+     */    
+    public function uploadFile($file_path, $title, $id, $eSignClass) {
+        $ret = 0;
+        $message = "";
+        if (!empty($file_path)) {
+            $file_path = BASE_PATH . "/../data/upload/" . $file_path;
+            $result = $eSignClass->updateFile($file_path, $title);
+            if ($result['ret'] == 1 && intval($result['doc_id']) >= 1) {
+                $docId = $result['doc_id'];
+                $_result = $this->myUpdate("id='{$id}'", array("doc_id" => $result['doc_id']));
+                if ($_result) {
+                    $ret = 1;
+                    $message = "更新合同文档标记成功!";
+                } else {
+                    $message = "更新合同文档标记失败!";
+                }
+            } else {
+                $message = $result['msg'];
+            }
+        } else {
+            $message = "合同文件不存在!";
+        }
+        return array("ret"=>$ret, "message"=>$message);
+    } 
 }

@@ -14,7 +14,7 @@ header("Content-type: text/html; charset=utf-8");
 use Shopnc\Tpl;
 
 defined('InShopNC') or exit('Access Invalid!');
-
+include_once 'eSign.php';
 class store_contractControl extends BaseSellerControl {
 
     public function __construct() {
@@ -241,49 +241,90 @@ class store_contractControl extends BaseSellerControl {
      * 签署合同
      */
     public function signContractOp() {
-//        $id = isset($_GET['id']) && intval($_GET['id']) >= 1 ? intval($_GET['id']) : 0;
-//        $message = "";
-//        if (intval($id) >= 1) {
-//            $accountMode = Model('eqb_account');
-//            //获取用户的扩展信息
-//            $accountInfo = $accountMode->getMemberExpandInfo($_SESSION['member_id']);
-//            if (!empty($accountInfo)) {
-//                die();
-//                $resultAccount = $accountMode->getEsignAccountId($_SESSION['member_id'], $accountInfo);
-//                $message = $resultAccount['message'];
-//                $accountId = $resultAccount['accountId'];
-//                if (empty($message) && intval($accountId) >= 1) {
-//                    //开始上传合同文件
-//                    echo "开始上传合同文件......";
-//                    //获取合同文件路径信息
-//                    $eqbContractModel = Model('eqb_contract');
-//                    $info = $eqbContractModel->getInfo("id='{$id}'");
-//                    if (!empty($info)) {
-//                        //还需要判断合同文件是否上传了E签宝了........
-//                        $file_path = $info['file_path'];
-//                        if (!empty($file_path)) {
-//                            echo $file_path;
-//                            $eSignClass = new eSgin();
-//                            $result = $eSignClass->updateFile($file_path, $info['title']);
-//                            var_dump($result);
-//                        } else {
-//                            $message = "合同文件不存在!";
-//                        }
-//                    } else {
-//                        $message = "合同信息不存在!";
-//                    }
-//                }
-//            } else {
-//                $message = "请先完成实名认证信息!";
-//                showDialog($message, 'index.php?act=member_information&op=certification', 'error');
-//                die();
-//            }
-//        } else {
-//            $message = "参数错误!";
-//        }
+        $id = isset($_GET['id']) && intval($_GET['id']) >= 1 ? intval($_GET['id']) : 0;
+        $message = "";
+        if (intval($id) >= 1) {
+            $accountMode = Model('eqb_account');
+            //获取企业的认证信息------这个需要开发
+            //$accountInfo = $accountMode->getMemberExpandInfo($_SESSION['member_id']);
+            $storeInfo = Model("store")->where("store_id=".$_SESSION['store_id'])->find();
+            if (!empty($storeInfo)) {
+                $storeInfo['organization_code'] = "111111112";
+                $resultAccount = $accountMode->getEsignStoreAccountId($_SESSION['member_id'], $_SESSION['store_id'],  $storeInfo);
+                $message = $resultAccount['message'];
+                $accountId = $resultAccount['accountId'];
+                if (empty($message) && intval($accountId) >= 1) {
+                    //获取合同文件路径信息
+                    $eqbContractModel = Model('eqb_contract');
+                    $info = $eqbContractModel->getInfo("id='{$id}'");
+                    $eSignClass = new eSgin();
+                    if (!empty($info)) {
+                        $title = $info['title'];
+                        $docId = $info['doc_id'];
+                        if (intval($info['doc_id']) <= 0) {
+                            $uploadResult = $eqbContractModel->uploadFile($info['file_path'], $title, $id, $eSignClass);
+                            $ret = $uploadResult['ret'];
+                            $message = $uploadResult['message'];
+                        } else {
+                            $ret = 1;
+                            $message = "成功,开始签署文件!";
+                        }
+                        $customNum = "0_0_0";
+                        $member_mobile = "";
+                        if (intval($ret)) {
+                            $customNum = "{$info['id']}_{$info['store_member_id']}_{$info['store_id']}";
+                            $memberModel = Model('member');
+                            $memberInfo = $memberModel->getInfo($info['store_member_id']);
+                            $member_mobile = $memberInfo['member_mobile'];
+                        }
+                        $data = array(
+                            "redirectUrl" => APP_SITE_URL . $eSignClass::REDIRECTURL,
+                            "notifyUrl" => APP_SITE_URL . $eSignClass::NOTIFYURL,
+                            "customNum" => $customNum,
+                            "signerType" => 1, //手机
+                            "signer" => $member_mobile, //用户的手机号
+                            "sealType" => 1, //0-实时手绘印章
+                            "authType" => "3,4", //身份认证类型，1-手机/验证码验证，2-手机接收授权短信验证，3-邮箱/签署口令，4-手机/签署口令，5-UKEY证书，默认1。支持多种认证类型，多个以“,”隔开
+                            "docId" => $docId
+                        );
+                        Tpl::output('data', $data);
+                    } else {
+                        $message = "合同信息不存在!";
+                    }
+                }
+            } else {
+                $message = "请先完成实名认证信息!";
+                showDialog($message, 'index.php?act=member_information&op=certification', 'error');
+                die();
+            }
+        } else {
+            $message = "参数错误!";
+        }
+        Tpl::output('id', $id);
+        Tpl::output('ret', $ret);
+        Tpl::output('message', $message);
+        Tpl::output('title', $title);
+        Tpl::showpage('store_contract.uploadfile', 'null_layout');
+        die();        
     }
 
-    
+    /**
+     * 签署合同 - 显示签署页面
+     */
+    public function signShowFileOp() {
+        $data = array(
+            "notifyUrl" => urlencode($_POST['notifyUrl']),
+            "redirectUrl" => urlencode($_POST['redirectUrl']),
+            "signerType"  => $_POST['signerType'],
+            "signer" => $_POST['signer'],
+            "sealType" => $_POST['sealType'],
+            "authType" => $_POST['authType'],
+            "docId" => $_POST['docId'],
+            "customNum" =>$_POST['customNum']
+        );
+        $eSignClass = new eSgin();
+        $eSignClass->signShowFile($data);
+    }
 
     /**
      * 用户中心右边，小导航

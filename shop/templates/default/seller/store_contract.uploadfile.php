@@ -1,9 +1,8 @@
-<?php defined('InShopNC') or exit('Access Invalid!');?>
-
+<?php defined('InShopNC') or exit('Access Invalid!'); ?>
 <div class="eject_con">
   <div class="adds">
     <div id="warning"></div>
-    <form method="post" action="index.php?act=member_contract&op=signShowFile" id="address_form" target="_blank">
+    <form method="post" action="index.php?act=store_contract&op=signShowFile" id="address_form" target="_blank">
       <?php
       if($output['ret'] != 1){
           echo $output['message'];
@@ -27,7 +26,7 @@
 <!--      <dl>
         <dt>认证类型</dt>
         <dd>-->
-    <input type="hidden" class="text w100" name="authType" value="<?php echo $output['data']['authType'];?>"/>
+          <input type="hidden" class="text w100" name="authType" value="<?php echo $output['data']['authType'];?>"/>
           <!--（身份认证类型，1-手机/验证码验证，2-手机接收授权短信验证，3-邮箱/签署口令，4-手机/签署口令，5-UKEY证书，默认1。支持多种认证类型，多个以“,”隔开）-->
 <!--        </dd>
       </dl>-->
@@ -67,22 +66,19 @@
         <dd>-->
           <input type="hidden" class="text w100" name="customNum" value="<?php echo $output['data']['customNum'];?>"/>
 <!--        </dd>
-      </dl>  -->
-        
-        
-        
+      </dl>      -->
 <!--      <dl>
         <dt>同步通知地址</dt>
         <dd>-->
           <input type="hidden" class="text w100" name="redirectUrl" value="<?php echo $output['data']['redirectUrl'];?>"/>
 <!--        </dd>
-      </dl> -->
+      </dl>  -->
         
         
 <!--      <dl>
         <dt>异步通知地址</dt>
         <dd>-->
-          <input type="hidden" class="text w100" name="notifyUrl" value="<?php echo $output['data']['notifyUrl'];?>"/>
+<input type="hidden" class="text w100" name="notifyUrl" value="<?php echo $output['data']['notifyUrl'];?>"/>
 <!--        </dd>
       </dl>        -->
       

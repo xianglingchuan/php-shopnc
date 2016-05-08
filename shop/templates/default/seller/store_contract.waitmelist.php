@@ -10,9 +10,6 @@
 </div>
 
 
-  
-
-
 <table class="ncsc-default-table order deliver">
   <tbody>
     <thead>
@@ -48,7 +45,7 @@
       </td>
       <td class="bdl bdr order-info w180"><?php echo $value['createdate']; ?>   </td>
         <td class="ncm-table-handle w100">
-          <span><a href="index.php?act=store_contract&op=signContract&id=<?php echo $value['id'];?>&member_menu=waitme" target="_black" class="btn-red"><p>签置合同</p></a></span>   
+          <span><a href="javascript:void(0)" class="btn-red" nc_type="dialog" dialog_title="签署合同确认" dialog_id="my_address_edit"  uri="index.php?act=store_contract&op=signContract&id=<?php echo $value['id'];?>" dialog_width="550" title="签署合同"><p>签署合同</p></a></span> 
           <?php 
           if($value['createuid'] == $value['store_member_id']){ ?>
           <span><a href="javascript:void(0)" class="btn-red" onclick="ajax_get_confirm('确认要关闭合同', 'index.php?act=store_contract&op=close&id=<?php echo $value['id'];?>');">

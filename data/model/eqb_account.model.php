@@ -88,7 +88,7 @@ class eqb_accountModel extends Model {
                 $message = "企业认证信息不完成,无法创建e签宝帐号!";
             }
         }
-        return array("message"=>$message, "accountId"=>$accountId);
+        return array("message" => $message, "accountId" => $accountId);
     }
 
     /**
@@ -97,5 +97,43 @@ class eqb_accountModel extends Model {
     public function getMemberExpandInfo($memberId) {
         return Model('member_expand')->where(array("member_id" => $memberId))->find();
     }
+
+    /**
+     * 添加企业用户
+     */
+    public function getEsignStoreAccountId($memberId, $storeId, $storeInfo) {
+        //获取E签宝用户注册唯一码
+        $info = $this->getInfo($memberId, eqb_accountModel::TYPE_STORE_KEY, $storeId);
+        $accountId = $info['account_id'];
+        $message = "";
+        if (empty($info)) {
+            //开始注册E签宝
+            $memberInfo = Model('member')->getMemberInfoByID($memberId, 'member_mobile');
+            $member_mobile = $memberInfo['member_mobile'];
+            $companyName = $storeInfo['store_company_name'];      //企业名称
+            $organization_code = $storeInfo['organization_code']; //企业代码
+            if (!empty($member_mobile) && !empty($companyName) && !empty($organization_code)) {
+                $eSignClass = new eSgin();
+                $result = $eSignClass->accountStore($member_mobile, $companyName, $organization_code, '1', '1');
+                if ($result['ret'] == 1 && intval($result['accountId']) >= 1) {
+                    $data = array("type" => eqb_accountModel::TYPE_STORE_KEY,
+                        "member_id" => $memberId,
+                        "store_id" => $storeId,
+                        "account_id" => $result['accountId']);
+                    $result = $this->accountAdd($data);
+                    $accountId = $data['account_id'];
+                    if (!$result) {
+                        $message = "E签宝的account_id写入失败,account_id值为{$result['accountId']}!";
+                    }
+                } else {
+                    $message = $result['msg'];
+                }
+            } else {
+                $message = "企业认证信息不完成,无法创建e签宝帐号!";
+            }
+        }
+        return array("message" => $message, "accountId" => $accountId);
+    }
+
 
 }

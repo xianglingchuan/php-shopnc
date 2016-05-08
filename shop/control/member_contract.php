@@ -260,27 +260,10 @@ class member_contractControl extends BaseMemberControl {
                     if (!empty($info)) {
                         $title = $info['title'];
                         $docId = $info['doc_id'];
-                        //还需要判断合同文件是否上传了E签宝了........
                         if (intval($info['doc_id']) <= 0) {
-                            $file_path = $info['file_path'];
-                            if (!empty($file_path)) {
-                                $file_path = BASE_PATH . "/../data/upload/" . $file_path;
-                                $result = $eSignClass->updateFile($file_path, $title);
-                                if ($result['ret'] == 1 && intval($result['doc_id']) >= 1) {
-                                    $docId = $result['doc_id'];
-                                    $_result = $eqbContractModel->myUpdate("id='{$id}'", array("doc_id" => $result['doc_id']));
-                                    if ($_result) {
-                                        $ret = 1;
-                                        $message = "更新合同文档标记成功!";
-                                    } else {
-                                        $message = "更新合同文档标记失败!";
-                                    }
-                                } else {
-                                    $message = $result['msg'];
-                                }
-                            } else {
-                                $message = "合同文件不存在!";
-                            }
+                            $uploadResult = $eqbContractModel->uploadFile($info['file_path'], $title, $id, $eSignClass);
+                            $ret = $uploadResult['ret'];
+                            $message = $uploadResult['message'];
                         } else {
                             $ret = 1;
                             $message = "成功,开始签署文件!";
