@@ -58,7 +58,7 @@
             <?php echo $value['createdate']; ?>        
         </td>
         <td class="ncm-table-handle tl">
-          <span><a href="index.php?act=member_contract&op=signContract&id=<?php echo $value['id'];?>&member_menu=waitme" target="_black" class="btn-red"><p>签置合同</p></a></span>   
+          <span><a href="javascript:void(0)" class="btn-red" nc_type="dialog" dialog_title="签署合同确认" dialog_id="my_address_edit"  uri="index.php?act=member_contract&op=signContract&id=<?php echo $value['id'];?>" dialog_width="550" title="签署合同"><p>签署合同确认</p></a></span>   
           <?php 
           if($value['createuid'] == $value['member_id']){ ?>
           <span><a href="javascript:void(0)" class="btn-red" onclick="ajax_get_confirm('确认要关闭合同', 'index.php?act=member_contract&op=close&id=<?php echo $value['id'];?>');">
@@ -74,6 +74,9 @@
           <span><a href="index.php?act=member_contract&op=view&id=<?php echo $value['id'];?>&member_menu=waitme" class="btn-red">
           <p>查看详情</p>
           </a></span>
+          
+        
+          
         </td>
       </tr>
       <?php }?>

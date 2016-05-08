@@ -505,4 +505,13 @@ class memberModel extends Model {
     public function updateMemberIsExpand($memberId, $isExpand){
         return $this->table("member")->where("member_id='{$memberId}'")->update(array("	is_expand"=>$isExpand));
     }
+    
+    
+    /**
+     * 修改member表中扩展信息是否完成的值
+     */
+    public function getInfo($memberId){
+        return $this->table("member")->where("member_id='{$memberId}'")->find();
+    }    
+    
 }

@@ -82,9 +82,9 @@ class eSign_notifyControl extends Control {
                                 }                                
                             }
                             $data = array("store_signed_status" => $signedStatus,
-                                "store_signed_file_path" => $downUrl,
-                                "store_signed_datetime" => date("Y-m-d H:i:s", time()),
-                                "store_signed_data" => json_encode($json_result));
+                                            "store_signed_file_path" => $downUrl,
+                                            "store_signed_datetime" => date("Y-m-d H:i:s", time()),
+                                            "store_signed_data" => json_encode($json_result));
                         } else {
                             $status =  (intval($errCode) != 0) ? eqb_contractModel::STATUS_PERSON_SUCCESS_KEY : eqb_contractModel::STATUS_PERSON_FAIL_KEY;
                             if($status == eqb_contractModel::STATUS_PERSON_SUCCESS_KEY){
@@ -96,6 +96,9 @@ class eSign_notifyControl extends Control {
                                 "member_signed_file_path" => $downUrl,
                                 "member_signed_datetime" => date("Y-m-d H:i:s", time()),
                                 "member_signed_data" => json_encode($json_result));
+                        }
+                        if(!empty($downUrl)){
+                            $data['path'] = $downUrl;
                         }
                         $data['modifyuid'] = $memberId;
                         $data['modifydate'] = date("Y-m-d H:i:s",time());          
