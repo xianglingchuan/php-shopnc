@@ -130,7 +130,7 @@ class eqb_contractModel extends Model {
      * 获取煤企信息列表 
      */ 
     public function getStoreList(){
-        return  $this->table('store')->field("store_id, store_name, member_id, member_name, seller_name")->select();
+        return  $this->table('store')->limit(300)->field("store_id, store_name, member_id, member_name, seller_name")->select();
     }
     
 
@@ -240,11 +240,28 @@ class eqb_contractModel extends Model {
      */ 
     public function getStatistics($memberId){
         //待我签署的合同
-        $waitemWhere = "shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
-                   . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-        //待他们签署的合同
-        $waitothersWhere = "shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
-                        . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //        $waitemWhere = "shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
+        //                   . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $waitemWhere = " shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //我自己发起的 并且对方已经签署好了的合同，合同总状态状态为个人签署成功
+        $waitemWhere .= " AND ((shopnc_eqb_contract.createuid='".$memberId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_STORE_SUCCESS_KEY."')  ";
+        //他人发起的 并且我自己还没有签署的合同
+        $waitemWhere .= " OR (shopnc_eqb_contract.createuid != '".$memberId."' AND shopnc_eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
+        
+
+       //待他们签署的合同
+        //        $waitothersWhere = "shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
+        //                        . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $waitothersWhere = " shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //他自己发起的 并且我已经签署好了的合同，合同总状态状态为个人签署成功
+        $waitothersWhere .= " AND ((shopnc_eqb_contract.createuid != '".$memberId."' AND shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_PERSON_SUCCESS_KEY."')  ";
+        //我自己发起的 但对方还没有签署的
+        $waitothersWhere .= " OR (shopnc_eqb_contract.createuid = '".$memberId."' AND shopnc_eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."')) ";
+        
+        
+
         //已签署完成
         $bothsuccessWhere = "shopnc_eqb_contract.member_id='".$memberId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
                    . "AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
@@ -301,11 +318,28 @@ class eqb_contractModel extends Model {
      */ 
     public function getStoreStatistics($storeId){
         //待我签署的合同
-        $waitemWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
-                   . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-        //待他们签署的合同
-        $waitothersWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
-                        . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //        $waitemWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
+        //                   . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $waitemWhere = " shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //我自己发起的 并且对方已经签署好了的合同，合同总状态状态为个人签署成功
+        $waitemWhere .= " AND ((shopnc_eqb_contract.create_store_id='".$storeId."' AND shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_PERSON_SUCCESS_KEY."')  ";
+        //他人发起的 并且我自己还没有签署的合同
+        $waitemWhere .= " OR (shopnc_eqb_contract.create_store_id != '".$storeId."' AND shopnc_eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."')) ";
+                
+
+        
+        //        $waitothersWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
+        //                        . "AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
+         //待他们签署的合同
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $waitothersWhere = " shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //他自己发起的 并且我已经签署好了的合同，合同总状态状态为企业签署成功
+        $waitothersWhere .= " AND ((shopnc_eqb_contract.create_store_id != '".$storeId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_STORE_SUCCESS_KEY."')  ";
+        //我自己发起的 但对方还没有签署的
+        $waitothersWhere .= " OR (shopnc_eqb_contract.create_store_id = '".$storeId."' AND shopnc_eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
+     
+        
         //已签署完成
         $bothsuccessWhere = "shopnc_eqb_contract.store_id='".$storeId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
                    . "AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
@@ -346,6 +380,6 @@ class eqb_contractModel extends Model {
         } else {
             $message = "合同文件不存在!";
         }
-        return array("ret"=>$ret, "message"=>$message);
+        return array("ret"=>$ret, "message"=>$message, "doc_id"=>$docId);
     } 
 }

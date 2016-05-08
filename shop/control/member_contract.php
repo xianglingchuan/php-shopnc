@@ -102,9 +102,18 @@ class member_contractControl extends BaseMemberControl {
      */
     public function waitMeListOp() {
         $contractModel = Model('eqb_contract');
-        //读取当前登录用户接受或者发起的合同
-        $condition = "eqb_contract.member_id='" . $_SESSION['member_id'] . "' AND eqb_contract.member_signed_status IN(" . eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY . "," . eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY . ") "
-                . "AND eqb_contract.status NOT IN(" . eqb_contractModel::STATUS_REJECT_KEY . ", " . eqb_contractModel::STATUS_BOTH_SUCCESS_KEY . ", " . eqb_contractModel::STATUS_CLOSE_KEY . ")";
+//        //读取当前登录用户接受或者发起的合同
+//        $condition = "eqb_contract.member_id='" . $_SESSION['member_id'] . "' AND eqb_contract.member_signed_status IN(" . eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY . "," . eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY . ") "
+//                . "AND eqb_contract.status NOT IN(" . eqb_contractModel::STATUS_REJECT_KEY . ", " . eqb_contractModel::STATUS_BOTH_SUCCESS_KEY . ", " . eqb_contractModel::STATUS_CLOSE_KEY . ")";
+
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $condition .= " eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //我自己发起的 并且对方已经签署好了的合同，合同总状态状态为个人签署成功
+        $condition .= " AND ((eqb_contract.createuid='".$_SESSION['member_id']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND status='".eqb_contractModel::STATUS_STORE_SUCCESS_KEY."')  ";
+        //他人发起的 并且我自己还没有签署的合同
+        $condition .= " OR (eqb_contract.createuid != '".$_SESSION['member_id']."' AND eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
+        
+        
         $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
@@ -169,9 +178,17 @@ class member_contractControl extends BaseMemberControl {
      */
     public function waitOthersListOp() {
         $contractModel = Model('eqb_contract');
-        //读取当前登录用户接受或者发起的合同
-        $condition = "eqb_contract.member_id='" . $_SESSION['member_id'] . "' AND eqb_contract.store_signed_status IN(" . eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY . "," . eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY . ") "
-                . "AND eqb_contract.status NOT IN(" . eqb_contractModel::STATUS_REJECT_KEY . ", " . eqb_contractModel::STATUS_BOTH_SUCCESS_KEY . ", " . eqb_contractModel::STATUS_CLOSE_KEY . ")";
+//        //读取当前登录用户接受或者发起的合同
+//        $condition = "eqb_contract.member_id='" . $_SESSION['member_id'] . "' AND eqb_contract.store_signed_status IN(" . eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY . "," . eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY . ") "
+//                . "AND eqb_contract.status NOT IN(" . eqb_contractModel::STATUS_REJECT_KEY . ", " . eqb_contractModel::STATUS_BOTH_SUCCESS_KEY . ", " . eqb_contractModel::STATUS_CLOSE_KEY . ")";
+
+        //退回签署-双方签署完成-关闭的三种合同不管      
+        $condition .= " eqb_contract.member_id='".$_SESSION['member_id']."' AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
+        //他自己发起的 并且我已经签署好了的合同，合同总状态状态为个人签署成功
+        $condition .= " AND ((eqb_contract.createuid != '".$_SESSION['member_id']."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' AND status='".eqb_contractModel::STATUS_PERSON_SUCCESS_KEY."')  ";
+        //我自己发起的 但对方还没有签署的
+        $condition .= " OR (eqb_contract.createuid = '".$_SESSION['member_id']."' AND eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."')) ";
+           
         $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
@@ -259,15 +276,11 @@ class member_contractControl extends BaseMemberControl {
                     $info = $eqbContractModel->getInfo("id='{$id}'");
                     if (!empty($info)) {
                         $title = $info['title'];
-                        $docId = $info['doc_id'];
-                        if (intval($info['doc_id']) <= 0) {
-                            $uploadResult = $eqbContractModel->uploadFile($info['file_path'], $title, $id, $eSignClass);
-                            $ret = $uploadResult['ret'];
-                            $message = $uploadResult['message'];
-                        } else {
-                            $ret = 1;
-                            $message = "成功,开始签署文件!";
-                        }
+                        //每次签合同都需要重新上传文件的
+                        $uploadResult = $eqbContractModel->uploadFile($info['file_path'], $title, $id, $eSignClass);
+                        $ret = $uploadResult['ret'];
+                        $message = $uploadResult['message'];
+                        $docId = $uploadResult['doc_id'];
                         $customNum = "0_0_0";
                         $member_mobile = "";
                         if (intval($ret)) {
