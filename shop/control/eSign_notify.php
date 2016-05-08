@@ -33,7 +33,8 @@ class eSign_notifyControl extends Control {
      *               例如： 10_178_0  或者 10_179_24
      */
     public function indexOp() {
-        $json_result = isset($_POST['esign_return']) ? $_POST['esign_return'] : "";
+        $_json_result = $json_result = isset($_POST['esign_return']) ? $_POST['esign_return'] : "";
+        $json_result = htmlspecialchars_decode($json_result);
         $sign = isset($_GET['sign']) ? $_GET['sign'] : "async";
         eSgin::write("eSign_notify.php--->indexOp.post-------->".$json_result);
         $message = "";
@@ -42,7 +43,6 @@ class eSign_notifyControl extends Control {
             $json_result = json_decode($str, TRUE);
             //错误码，0标识成功，其他均标识失败，详见错误码索引
             $errCode = $json_result['errCode']; //错误码
-            //if($errCode == 0){
             $customNum = isset($json_result['customNum']) ? $json_result['customNum'] : ""; //客户自定义标识
             if (!empty($customNum)) {
                 $customNumArray = explode("_", $customNum);
@@ -57,48 +57,48 @@ class eSign_notifyControl extends Control {
                     $errorShow = isset($json_result['errorShow']) ? $json_result['errorShow'] : ""; //错误信息是否
                     $signerEmail = isset($json_result['signerEmail']) ? $json_result['signerEmail'] : ""; //签署账户邮箱
                     $signerMobile = isset($json_result['signerMobile']) ? $json_result['signerMobile'] : ""; //签署账户手机
-                    $urls = isset($json_result['urls']) ? $json_result['urls'] : array();  //签署后文档下载地址
-                    $downUrl = isset($urls['downUrl']) ? $urls['downUrl'] : "";   //签章后文档下载地址
-                    $docId = isset($urls['docId']) ? $urls['docId'] : 0;       //文档标识
-                    $signedStatus = eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY;
+                    $urls = isset($json_result['urls'][0]) ? $json_result['urls'][0] : array();  //签署后文档下载地址
+                    $downUrl = $urls;
+                    //$downUrl = isset($urls['downUrl']) ? $urls['downUrl'] : "";   //签章后文档下载地址
+                    $docId = isset($json_result['docId'][0]) ? $json_result['docId'][0] : 0;       //文档标识
+                    
+                    $contractModel = Model('eqb_contract');
+                    $signedStatus = $contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY;
                     if (intval($errCode) != 0) {
                         $message = "签署合同失败!" . $json_result['msg'];
-                        $signedStatus = eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY;
+                        $signedStatus = $contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY;
                     }else{
-                        $signedStatus = eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY;
+                        $signedStatus = $contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY;
                     }
-                    //开始更新合同状态
-                    //根据ID号查询合同信息
-                    $contractModel = Model('eqb_contract');
-                    $contractInfo = $contractModel->getInfo("id='{$contractId}' AND doc_id='{$docId}'");
+                    $contractInfo = $contractModel->getInfo("id='{$contractId}' AND doc_id='{$docId}'");                    
                     if (!empty($contractInfo)) {
                         //判断是用户还是企业签署合同
                         $status = "";
                         if (intval($storeId) >= 1) {
-                            $status =  (intval($errCode) != 0) ? eqb_contractModel::STATUS_STORE_SUCCESS_KEY : eqb_contractModel::STATUS_STORE_FAIL_KEY;
-                            if($status == eqb_contractModel::STATUS_STORE_SUCCESS_KEY){
-                                if($contractInfo['status'] == eqb_contractModel::STATUS_PERSON_SUCCESS_KEY && $contractInfo['member_signed_status']==eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY){
-                                    $status = eqb_contractModel::STATUS_BOTH_SUCCESS_KEY;
+                            $status =  (intval($errCode) == 0) ? $contractModel::STATUS_STORE_SUCCESS_KEY : $contractModel::STATUS_STORE_FAIL_KEY;
+                            if($status == $contractModel::STATUS_STORE_SUCCESS_KEY){
+                                if($contractInfo['status'] == $contractModel::STATUS_PERSON_SUCCESS_KEY && $contractInfo['member_signed_status']==$contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY){
+                                    $status = $contractModel::STATUS_BOTH_SUCCESS_KEY;
                                 }                                
                             }
                             $data = array("store_signed_status" => $signedStatus,
                                             "store_signed_file_path" => $downUrl,
                                             "store_signed_datetime" => date("Y-m-d H:i:s", time()),
-                                            "store_signed_data" => json_encode($json_result));
+                                            "store_signed_data" => $_json_result);
                         } else {
-                            $status =  (intval($errCode) != 0) ? eqb_contractModel::STATUS_PERSON_SUCCESS_KEY : eqb_contractModel::STATUS_PERSON_FAIL_KEY;
-                            if($status == eqb_contractModel::STATUS_PERSON_SUCCESS_KEY){
-                                if($contractInfo['status'] == eqb_contractModel::STATUS_STORE_SUCCESS_KEY && $contractInfo['store_signed_status']==eqb_contractModel::STATUS_STORE_SUCCESS_KEY){
-                                    $status = eqb_contractModel::STATUS_BOTH_SUCCESS_KEY;
+                            $status =  (intval($errCode) == 0) ? $contractModel::STATUS_PERSON_SUCCESS_KEY : $contractModel::STATUS_PERSON_FAIL_KEY;
+                            if($status == $contractModel::STATUS_PERSON_SUCCESS_KEY){
+                                if($contractInfo['status'] == $contractModel::STATUS_STORE_SUCCESS_KEY && $contractInfo['store_signed_status']==$contractModel::STATUS_STORE_SUCCESS_KEY){
+                                    $status = $contractModel::STATUS_BOTH_SUCCESS_KEY;
                                 }                                
                             }
                             $data = array("member_signed_status" => $signedStatus,
                                 "member_signed_file_path" => $downUrl,
                                 "member_signed_datetime" => date("Y-m-d H:i:s", time()),
-                                "member_signed_data" => json_encode($json_result));
+                                "member_signed_data" => $_json_result);
                         }
                         if(!empty($downUrl)){
-                            $data['path'] = $downUrl;
+                            $data['file_path'] = $downUrl;
                         }
                         $data['modifyuid'] = $memberId;
                         $data['modifydate'] = date("Y-m-d H:i:s",time());          
@@ -121,6 +121,7 @@ class eSign_notifyControl extends Control {
         } else {
             $message = "E签宝回调内容为空!";
         }
+        echo $message;
         eSgin::write("eSign_notify.php--->indexOp.message-------->".$message);
         if ($sign == "sync") {
             showDialog($message, 'index.php', 'succ');
