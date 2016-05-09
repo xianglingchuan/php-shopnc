@@ -62,7 +62,13 @@
                  <dl>
                     <dt>合同文件地址：</dt>
                     <dd>
-                        <span class="w400"><?php echo $info['file_path']; ?></span>
+                <span class="w400">
+                <?php 
+                if(!empty($info['file_path'])){
+                    $filePath = APP_SITE_URL."/../data/upload/".$info['file_path'];
+                    echo "<a href='{$filePath}' target='_black'>打开合同</a>";
+                }
+                ?></span>
                     </dd>
                 </dl>
                 
@@ -107,7 +113,13 @@
                  <dl>
                     <dt>企业签署文件：</dt>
                     <dd>
-                        <span class="w400"><?php echo $info['store_signed_file_path']; ?></span>
+                <span class="w400">
+                <?php 
+                if(!empty($info['store_signed_file_path'])){
+                    $filePath = APP_SITE_URL."/../data/upload/".$info['store_signed_file_path'];
+                    echo "<a href='{$filePath}' target='_black'>打开企业签署合同文件</a>";
+                }
+                ?></span>
                     </dd>
                 </dl> 
                 <?php } ?>
@@ -132,7 +144,15 @@
                  <dl>
                     <dt>用户签署文件：</dt>
                     <dd>
-                        <span class="w400"><?php echo $info['member_signed_file_path']; ?></span>
+                <span class="w400">
+                <?php 
+                if(!empty($info['member_signed_file_path'])){
+                    $filePath = APP_SITE_URL."/../data/upload/".$info['member_signed_file_path'];
+                    echo "<a href='{$filePath}' target='_black'>打开用户签署合同文件</a>";
+                }else{
+                    echo "为空";
+                }
+                ?></span> 
                     </dd>
                 </dl> 
                 <?php } ?>

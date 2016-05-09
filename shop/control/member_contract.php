@@ -114,7 +114,7 @@ class member_contractControl extends BaseMemberControl {
         $condition .= " OR (eqb_contract.createuid != '".$_SESSION['member_id']."' AND eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
         
         
-        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
+        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', 'eqb_contract.id DESC');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
         $this->profile_menu('waitme');
@@ -189,7 +189,7 @@ class member_contractControl extends BaseMemberControl {
         //我自己发起的 但对方还没有签署的
         $condition .= " OR (eqb_contract.createuid = '".$_SESSION['member_id']."' AND eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."')) ";
            
-        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
+        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', 'eqb_contract.id DESC');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
         $this->profile_menu('waitothers');
@@ -203,7 +203,7 @@ class member_contractControl extends BaseMemberControl {
         $contractModel = Model('eqb_contract');
         $condition = "eqb_contract.member_id='" . $_SESSION['member_id'] . "' AND eqb_contract.store_signed_status='" . eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY . "' AND eqb_contract.member_signed_status='" . eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY . "' "
                 . "AND eqb_contract.status='" . eqb_contractModel::STATUS_BOTH_SUCCESS_KEY . "' ";
-        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
+        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', 'eqb_contract.id DESC');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
         $this->profile_menu('bothsuccess');
@@ -216,7 +216,7 @@ class member_contractControl extends BaseMemberControl {
     public function returnListOp() {
         $contractModel = Model('eqb_contract');
         $condition = " eqb_contract.status='" . eqb_contractModel::STATUS_REJECT_KEY . "' AND eqb_contract.createuid='" . $_SESSION['member_id'] . "' ";
-        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
+        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', 'eqb_contract.id DESC');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
         $this->profile_menu('return');
@@ -229,7 +229,7 @@ class member_contractControl extends BaseMemberControl {
     public function closeListOp() {
         $contractModel = Model('eqb_contract');
         $condition = " eqb_contract.status='" . eqb_contractModel::STATUS_CLOSE_KEY . "' AND eqb_contract.createuid='" . $_SESSION['member_id'] . "' ";
-        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name', '', 'eqb_contract.id');
+        $list = $contractModel->getList($condition, '', 'eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list', $list);
         Tpl::output('show_page', $contractModel->showpage());
         $this->profile_menu('close');

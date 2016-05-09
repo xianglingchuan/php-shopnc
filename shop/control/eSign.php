@@ -143,6 +143,44 @@ class eSgin {
         }
     }
     
+    
+    /**
+     * 
+     * 保存PDF文件
+     * 
+     */
+    public function saveSignedFile($dstPdfFile) {
+        // 初始化e签宝 PHP SDK
+        $sign = new eSign();
+        $iRet = $sign->init(E_PROJECT_ID, E_PROJECT_SECRET);
+        // 初始化成功，执行项目账户登录
+        if (0 == $iRet) {
+            // 项目账户登录成功
+            if ($sign->projectid_login()) {
+                $accountId = $sign->getDevId();
+                $accountId = str_replace("prj_", "", $accountId);
+                if(!empty($dstPdfFile)){
+                    $pathInfo = pathinfo($dstPdfFile);
+                    $fileName = $pathInfo['basename'];
+                    //$saveRet = $sign->saveSignedFile($_POST['dstPdfFile'], $_POST['fileName'], $_POST['accountId']);
+                    echo "destPdfFile={$dstPdfFile},fileName={$fileName},accountId={$accountId}<BR>";
+                    $saveRet = $sign->saveSignedFile($dstPdfFile, $fileName, $accountId);
+                    echo "文档保全结果<br>";
+                    print_r($saveRet);
+                    echo "<br><br>";
+                    //文档保全成功后，获取保全文档的下载地址
+                    if ($saveRet['errCode'] == 0) {
+                        $downRet = $sign->getSignedFile($saveRet['docId']);
+                        echo "保全文档下载地址<br>";
+                        print_r($downRet);
+                        echo "<br><br>";
+                    }                    
+                }
+            }
+        }
+    }
+    
+    
 
     /**
      *
@@ -160,5 +198,7 @@ class eSgin {
         @fwrite($fp, $info);
         @fclose($fp);
     }
+    
+    
 
 }

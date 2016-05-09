@@ -74,6 +74,21 @@ class eSign_notifyControl extends Control {
                     }
                     $contractInfo = $contractModel->getInfo("id='{$contractId}' AND doc_id='{$docId}'");
                     if (!empty($contractInfo)) {
+
+                        //下载远程PDF文件
+                        $filepathProto = $contractInfo['file_path_proto'];
+                        $pathInfo = pathinfo($filepathProto);
+                        $extension = $pathInfo['extension'];
+                        $newFileName = "_" . date("Ymd", time()) . "_" . $customNum;
+                        $newFilePath = str_replace("." . $extension, $newFileName . ".pdf", $filepathProto);
+                        $savePdfresult = $this->savePdfFile($downUrl, BASE_PATH . "/../data/upload/" . $newFilePath);
+                        $filePath = "";
+                        if ($savePdfresult['ret'] == 1) {
+                            $filePath = $newFilePath;
+                        } else {
+                            $message = $savePdfresult["msg"];
+                        }
+
                         //判断是用户还是企业签署合同
                         $status = "";
                         if (intval($storeId) >= 1) {
@@ -84,7 +99,7 @@ class eSign_notifyControl extends Control {
                                 }
                             }
                             $data = array("store_signed_status" => $signedStatus,
-                                "store_signed_file_path" => $downUrl,
+                                "store_signed_file_path" => $filePath,
                                 "store_signed_datetime" => date("Y-m-d H:i:s", time()),
                                 "store_signed_data" => $_json_result);
                         } else {
@@ -95,20 +110,34 @@ class eSign_notifyControl extends Control {
                                 }
                             }
                             $data = array("member_signed_status" => $signedStatus,
-                                "member_signed_file_path" => $downUrl,
+                                "member_signed_file_path" => $filePath,
                                 "member_signed_datetime" => date("Y-m-d H:i:s", time()),
                                 "member_signed_data" => $_json_result);
                         }
-                        $this->savePdfFile($downUrl);
 
-                        if (!empty($downUrl)) {
-                            //$data['file_path'] = $downUrl; 暂时不更新源文件
+                        //如果双方合同都签署完成了,完成本地pdf到E签宝服务器,以备以后举证使用
+//                        if ($status == $contractModel::STATUS_BOTH_SUCCESS_KEY && !empty($filePath)) {
+//                            $eSignClass = new eSgin();
+//                            $filePath = BASE_PATH . "/../data/upload/" . $filePath;
+//                            $eSignClass->saveSignedFile($filePath);
+//                            die();
+//                        }
+
+                        
+                        if (!empty($filePath)) {
+                            $data['file_path'] = $filePath;
                         }
                         $data['modifyuid'] = $memberId;
                         $data['modifydate'] = date("Y-m-d H:i:s", time());
                         $data['status'] = $status;
                         $result = $contractModel->myUpdate("id='{$contractId}' AND doc_id='{$docId}'", $data);
                         if ($result) {
+                            //如果双方合同都签署完成了,完成本地pdf到E签宝服务器,以备以后举证使用
+                            if ($status == $contractModel::STATUS_BOTH_SUCCESS_KEY && !empty($filePath)) {
+                                $eSignClass = new eSgin();
+                                $filePath = BASE_PATH . "/../data/upload/" . $filePath;
+                                $eSignClass->saveSignedFile($filePath);
+                            }
                             $message = "合同签署通知操作成功!";
                         } else {
                             $message = "更新合同各自状态失败!";
@@ -139,47 +168,35 @@ class eSign_notifyControl extends Control {
      * 保存PDF文件
      * 
      */
-    public function savePdfFile($pdfFile) {
-        //保存PDF文件
-        $pdfFile = "http://esignoss.oss-cn-hangzhou.aliyuncs.com/10878/PDF_668ff46b-28b7-469c-ad34-a331f516f0da?Expires=1462709385&OSSAccessKeyId=FBzUaPMorqiiUAfb&Signature=vR%2BZCmyHUknF8KFnvQ6TCHnSffI%3D";
-        echo $pdfFile;
-//        $fileObject = file_get_contents($pdfFile);
-//        var_dump($fileObject);
-//
-//        file_put_contents("a.pdf", $fileObject);
-        
-        $this->getImg($pdfFile, "bb.pdf");
-        
+    public function savePdfFile($url, $newfilePath) {
+        $data = $this->getHTTPS($url);
+        $ret = 0;
+        $msg = "";
+        if (!empty($data)) {
+            $result = file_put_contents($newfilePath, $data);
+            if ($result) {
+                $ret = 1;
+                $msg = "成功!";
+            } else {
+                $msg = "失败!";
+            }
+        } else {
+            $msg = "获取远程PDF文件内容为空!";
+        }
+        return array("ret" => $ret, "msg" => $msg);
     }
 
-    function getImg($url = "", $filename = "") {
-        if (is_dir(basename($filename))) {
-            echo "The Dir was not exits";
-            Return false;
-        }
-//去除URL连接上面可能的引号 
-        $url = preg_replace('/(?:^[\'"]+|[\'"\/]+$)/', '', $url);
-        $hander = curl_init();
-        $fp = fopen($filename, 'wb');
-        curl_setopt($hander, CURLOPT_URL, $url);
-        curl_setopt($hander, CURLOPT_FILE, $fp);
-        curl_setopt($hander, CURLOPT_HEADER, 0);
-        curl_setopt($hander, CURLOPT_FOLLOWLOCATION, 1);
-//curl_setopt($hander,CURLOPT_RETURNTRANSFER,false);//以数据流的方式返回数据,当为false是直接显示出来 
-        curl_setopt($hander, CURLOPT_TIMEOUT, 60);
-        /* $options = array( 
-          CURLOPT_URL=> 'http://jb51.net/content/uploadfile/201106/thum-f3ccdd27d2000e3f9255a7e3e2c4880020110622095243.jpg',
-          CURLOPT_FILE => $fp,
-          CURLOPT_HEADER => 0,
-          CURLOPT_FOLLOWLOCATION => 1,
-          CURLOPT_TIMEOUT => 60
-          );
-          curl_setopt_array($hander, $options);
-         */
-        curl_exec($hander);
-        curl_close($hander);
-        fclose($fp);
-        Return true;
+    function getHTTPS($url) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_REFERER, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
     }
 
 }

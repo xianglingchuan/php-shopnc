@@ -127,6 +127,7 @@ class eSign{
 		//print_r($login_url);
 		//echo '<br>==============';
 		$ret_json = json_decode($login_url,TRUE);
+                var_dump($ret_json);
 		$errCode = $ret_json['errCode'];
 		if($errCode == 0)
 		{
@@ -377,4 +378,10 @@ class eSign{
         errShow => false
       );
   }
+  
+  public function getDevId(){
+      return $this->devId;
+      
+  }
+  
 }

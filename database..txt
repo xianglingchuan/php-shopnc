@@ -34,8 +34,7 @@ ADD  `audit_admin_id` INT( 11 ) NULL COMMENT  '审核管理员ID' AFTER  `audit_
 ADD  `audit_admin_name` VARCHAR( 30 ) NULL COMMENT  '审核管理员名称' AFTER  `audit_admin_id`
 
 
-//2016-04-28
-
+//2016-05-09 同步服务器时间2016-05-09
 CREATE TABLE IF NOT EXISTS `shopnc_eqb_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID号自增长',
   `type` smallint(1) NOT NULL DEFAULT '0' COMMENT '类型0=个人/1=企业默认为0',
@@ -45,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `shopnc_eqb_account` (
   `createuid` int(11) NOT NULL DEFAULT '0' COMMENT '创建ID号',
   `createdate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建日期',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户和企业与e签号帐号绑定关系表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='用户和企业与e签号帐号绑定关系表' AUTO_INCREMENT=5 ;
 
 
 CREATE TABLE IF NOT EXISTS `shopnc_eqb_contract` (
@@ -54,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `shopnc_eqb_contract` (
   `description` text NOT NULL COMMENT '描述',
   `file_path` varchar(200) NOT NULL COMMENT '合同文件的地址(用于保存已经签署了的文件地址)',
   `file_path_proto` varchar(200) NOT NULL COMMENT '上传的最原始文件地址',
+  `doc_id` int(11) NOT NULL DEFAULT '0' COMMENT '文档保存到E签保以后的唯一标记',
   `status` smallint(1) NOT NULL COMMENT '是否同意签署文件的状态以衣文件签署到那一步的状态',
   `member_id` int(11) NOT NULL COMMENT '个人用户ID号',
   `store_id` int(11) NOT NULL COMMENT '店铺或者说是企业ID号',
@@ -72,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `shopnc_eqb_contract` (
   `modifyuid` int(11) NOT NULL DEFAULT '0',
   `modifydate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='合同签署信息表' AUTO_INCREMENT=6 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='合同签署信息表' AUTO_INCREMENT=18 ;
 
 
 CREATE TABLE IF NOT EXISTS `shopnc_eqb_log` (
@@ -89,3 +88,4 @@ CREATE TABLE IF NOT EXISTS `shopnc_eqb_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='e签保相关操作日志文件' AUTO_INCREMENT=1 ;
 
+ALTER TABLE  `shopnc_member_expand` ADD  `company_name` VARCHAR( 200 ) NOT NULL COMMENT  '企业认证时公司名称' AFTER  `identity_hand_img`

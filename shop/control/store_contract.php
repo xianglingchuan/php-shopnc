@@ -115,7 +115,7 @@ class store_contractControl extends BaseSellerControl {
         //        $condition = "eqb_contract.store_member_id='".$_SESSION['member_id']."' "
         //                . "  AND eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
         //                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitme');
@@ -192,7 +192,7 @@ class store_contractControl extends BaseSellerControl {
         
         
         
-        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());          
         $this->profile_menu('waitothers');
@@ -206,7 +206,7 @@ class store_contractControl extends BaseSellerControl {
         $contractModel	= Model('eqb_contract');
         $condition = "eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' "
                    . "AND eqb_contract.status='".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY."' ";
-        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('bothsuccess');
@@ -219,7 +219,7 @@ class store_contractControl extends BaseSellerControl {
     public function returnListOp() {
         $contractModel	= Model('eqb_contract');
         $condition = " eqb_contract.status='".eqb_contractModel::STATUS_REJECT_KEY."' AND eqb_contract.create_store_id='".$_SESSION['store_id']."' ";
-        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu('return');
@@ -232,7 +232,7 @@ class store_contractControl extends BaseSellerControl {
     public function closeListOp() {
         $contractModel	= Model('eqb_contract');
         $condition = " eqb_contract.status='".eqb_contractModel::STATUS_CLOSE_KEY."' AND eqb_contract.create_store_id='".$_SESSION['store_id']."' ";
-        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','','eqb_contract.id');
+        $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());   
         $this->profile_menu("close");
