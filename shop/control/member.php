@@ -32,7 +32,11 @@ class memberControl extends BaseMemberControl{
         //代金券数量
         $member_info['voucher_count'] = Model('voucher')->getCurrentAvailableVoucherCount($_SESSION['member_id']);
         Tpl::output('home_member_info',$member_info);
-
+        
+        //获取待我完成的合同数量
+        $contractModel = Model("eqb_contract");
+        $contract_count = $contractModel->getMemberWaitmeCount($_SESSION['member_id']);
+        Tpl::output('contract_count',$contract_count);
         Tpl::showpage('member_home.member_info','null_layout');
     }
 

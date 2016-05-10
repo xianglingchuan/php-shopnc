@@ -41,6 +41,7 @@ class esign_notifyControl extends Control {
         $sign = isset($_GET['amp;sign']) ? $_GET['sign'] : "async";
         //eSgin::write("eSign_notify.php--->indexOp.post-------->" . $json_result);
         $message = "";
+        $storeId = 0;
         if (!empty($json_result)) {
             $str = str_replace('\\', '', $json_result);
             $json_result = json_decode($str, TRUE);
@@ -75,7 +76,6 @@ class esign_notifyControl extends Control {
                     }
                     $contractInfo = $contractModel->getInfo("id='{$contractId}' AND doc_id='{$docId}'");
                     if (!empty($contractInfo)) {
-
                         //下载远程PDF文件
                         $filepathProto = $contractInfo['file_path_proto'];
                         $pathInfo = pathinfo($filepathProto);
@@ -157,7 +157,8 @@ class esign_notifyControl extends Control {
         }
         eSgin::write("eSign_notify.php--->indexOp.message-------->" . $message);
         if ($sign == "sync") {
-            showDialog($message, 'index.php', 'succ');
+            $url = intval($storeId)>=1 ? "index.php?act=store_contract&op=index" : "index.php?act=member_contract&op=index";
+            showDialog($message, $url, 'succ');
         } else {
             echo $message;
             die();

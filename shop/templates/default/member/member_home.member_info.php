@@ -7,9 +7,9 @@
           <li id="pre-deposit"><a href="index.php?act=predeposit&op=pd_log_list" title="查看我的余额">
             <h5><?php echo $lang['nc_predepositnum'];?></h5>
             <span class="icon"></span> <span class="value">￥<em><?php echo $output['member_info']['available_predeposit'];?></em></span></a> </li>
-          <li id="voucher"><a href="http://60.220.226.210:8090/APWebPF/" title="查看我的合同" target="_blank">
+            <li id="voucher"><a href="index.php?act=member_contract&op=index" title="查看我的合同">
             <h5>我的合同</h5>
-            <span class="icon"></span> <span class="value"><em><?php echo $output['home_member_info']['voucher_count']?$output['home_member_info']['voucher_count']:0;?></em>份</span></a> </li>
+            <span class="icon"></span> <span class="value"><em><?php echo $output['contract_count'] ?$output['contract_count']:0;?></em>份</span></a> </li>
           <li id="points"><a href="index.php?act=member_points&op=index" title="查看我的积分">
             <h5><?php echo $lang['nc_pointsnum'];?></h5>
             <span class="icon"></span> <span class="value"><em><?php echo $output['member_info']['member_points'];?></em>分</span></a> </li>
