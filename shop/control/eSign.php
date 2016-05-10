@@ -22,9 +22,9 @@ require_once("./api/esign/comm/utils.php");
 class eSgin {
 
     //同步地址
-    const REDIRECTURL = "/index.php?act=eSign_notify&op=index&sign=sync";
+    const REDIRECTURL = "/index.php?act=esign_notify&op=index&sign=sync";
     //异步地址
-    const NOTIFYURL = "/index.php?act=eSign_notify&op=index&sign=async";
+    const NOTIFYURL = "/index.php?act=esign_notify&op=index&sign=async";
 
     /**
      * E签宝用户注册

@@ -14,8 +14,8 @@
                         echo '<li class="' . $classname . '"><a href="' . $val['menu_url'] . '">' . $val['menu_name'] . '(<span style="color: red;">' . $output['newcommon'] . '</span>)</a></li>';
                     } elseif ($val['menu_key'] == 'system') {
                         echo '<li class="' . $classname . '"><a href="' . $val['menu_url'] . '">' . $val['menu_name'] . '(<span style="color: red;">' . $output['newsystem'] . '</span>)</a></li>';
-                    } elseif ($val['menu_key'] == 'close') {
-                        echo '<li class="' . $classname . '"><a href="' . $val['menu_url'] . '">' . $val['menu_name'] . '(<span style="color: red;">' . $output['newpersonal'] . '</span>)</a></li>';
+//                    } elseif ($val['menu_key'] == 'close') {
+//                        echo '<li class="' . $classname . '"><a href="' . $val['menu_url'] . '">' . $val['menu_name'] . '(<span style="color: red;">' . $output['newpersonal'] . '</span>)</a></li>';
                     } else {
                         echo '<li class="' . $classname . '"><a href="' . $val['menu_url'] . '">' . $val['menu_name'] . '</a></li>';
                     }

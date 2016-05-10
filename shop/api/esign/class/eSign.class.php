@@ -127,7 +127,7 @@ class eSign{
 		//print_r($login_url);
 		//echo '<br>==============';
 		$ret_json = json_decode($login_url,TRUE);
-                var_dump($ret_json);
+                //var_dump($ret_json);
 		$errCode = $ret_json['errCode'];
 		if($errCode == 0)
 		{
@@ -328,8 +328,8 @@ class eSign{
 	public function saveSignedFile ($docFilePath, $docName, $signer)
 	{
 		$keysArr = array(
-  		"token" => $this->token,
-  		"equipId" => $this->recorder->read("equipId"),
+                        "token" => $this->token,
+                        "equipId" => $this->recorder->read("equipId"),
 			"docName" => $docName,
 			"signer" => $signer,
 			"file"=> '@'.$docFilePath

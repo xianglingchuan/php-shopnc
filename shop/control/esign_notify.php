@@ -22,7 +22,7 @@ require_once("./api/esign/class/eSign.class.php");
 require_once("./api/esign/comm/utils.php");
 require_once 'eSign.php';
 
-class eSign_notifyControl extends Control {
+class esign_notifyControl extends Control {
 
     /**
      * 
@@ -37,8 +37,9 @@ class eSign_notifyControl extends Control {
     public function indexOp() {
         $_json_result = $json_result = isset($_POST['esign_return']) ? $_POST['esign_return'] : "";
         $json_result = htmlspecialchars_decode($json_result);
-        $sign = isset($_GET['sign']) ? $_GET['sign'] : "async";
-        eSgin::write("eSign_notify.php--->indexOp.post-------->" . $json_result);
+        $_GET['sign'] = !isset($_GET['sign']) ? $_GET['amp;sign'] : $_GET['sign'];
+        $sign = isset($_GET['amp;sign']) ? $_GET['sign'] : "async";
+        //eSgin::write("eSign_notify.php--->indexOp.post-------->" . $json_result);
         $message = "";
         if (!empty($json_result)) {
             $str = str_replace('\\', '', $json_result);
