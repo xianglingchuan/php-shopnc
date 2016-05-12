@@ -48,6 +48,7 @@ class eSgin {
                 }
             }
         }
+        $this->_addlog("访问接口eSign.php->accountPerson.addPersonAccount, ".$returnArray['msg'], $ret);
         return $returnArray;
     }
 
@@ -74,6 +75,7 @@ class eSgin {
                 }
             }
         }
+        $this->_addlog("访问接口eSign.php->accountStore.addOrganizeAccount, ".$returnArray['msg'], $ret);
         return $returnArray;
     }
 
@@ -127,6 +129,7 @@ class eSgin {
         } else {
             $returnArray['msg'] = "项目账户初始化失败!";
         }
+        $this->_addlog("访问接口eSign.php->updateFile.addFileByOssKey或addFile, ".$returnArray['msg'], $saveRet);
         return $returnArray;
     }
 
@@ -139,6 +142,7 @@ class eSgin {
         $iRet = $sign->init(E_PROJECT_ID, E_PROJECT_SECRET, $data['redirectUrl'], $data['notifyUrl']);
         // 初始化成功，显示签署页面
         if (0 == $iRet) {
+            $this->_addlog("访问接口eSign.php->signShowFile.quickSignPDFPage", $data);
             $sign->quickSignPDFPage($data['customNum'], $data['docId'], $data['authType'], $data['sealType'], $data['signer'], $data['signerType']);
         }
     }
@@ -149,7 +153,7 @@ class eSgin {
      * 保存PDF文件
      * 
      */
-    public function saveSignedFile($dstPdfFile) {
+    public function saveSignedFile($dstPdfFile, $signer) {
         // 初始化e签宝 PHP SDK
         $sign = new eSign();
         $iRet = $sign->init(E_PROJECT_ID, E_PROJECT_SECRET);
@@ -157,14 +161,12 @@ class eSgin {
         if (0 == $iRet) {
             // 项目账户登录成功
             if ($sign->projectid_login()) {
-                $accountId = $sign->getDevId();
-                $accountId = str_replace("prj_", "", $accountId);
                 if(!empty($dstPdfFile)){
                     $pathInfo = pathinfo($dstPdfFile);
                     $fileName = $pathInfo['basename'];
                     //$saveRet = $sign->saveSignedFile($_POST['dstPdfFile'], $_POST['fileName'], $_POST['accountId']);
-                    echo "destPdfFile={$dstPdfFile},fileName={$fileName},accountId={$accountId}<BR>";
-                    $saveRet = $sign->saveSignedFile($dstPdfFile, $fileName, $accountId);
+                    echo "destPdfFile={$dstPdfFile},fileName={$fileName},signer={$signer}<BR>";
+                    $saveRet = $sign->saveSignedFile($dstPdfFile, $fileName, $signer);
                     echo "文档保全结果<br>";
                     print_r($saveRet);
                     echo "<br><br>";
@@ -178,6 +180,10 @@ class eSgin {
                 }
             }
         }
+        
+        //写入日志文件
+        //$logModel =  Model("eqb_log");
+        //$logModel->add(eqb_logModel::TYPE_REQUEST_EQB_KEY, 0, 0,eqb_logModel::TYPE_REQUEST_EQB_VALUE, "访问接口saveSignedFile",json_encode($saveRet), 0);
     }
     
     
@@ -200,5 +206,9 @@ class eSgin {
     }
     
     
-
+    
+    private function _addlog($description, $data){
+        $logModel =  Model("eqb_log");
+        $logModel->add(eqb_logModel::TYPE_REQUEST_EQB_KEY, 0, 0,eqb_logModel::TYPE_REQUEST_EQB_VALUE, $description,json_encode($data), 0);
+    }       
 }

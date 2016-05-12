@@ -30,8 +30,24 @@
       <td class="bdl w100"><?php echo $value['id'];?></td>
       <td class="w300"><?php echo $value['title'];?></td>
       <td class="w200"><?php echo $value['member_name']; ?></td>
-      <td class="bdl bdr order-info w120"><?php echo $value['store_signed_status_name'];?></td>
-      <td class="bdl bdr order-info w120"><?php echo $value['member_signed_status_name'];?></td>
+      <td class="bdl bdr order-info w120"><?php //echo $value['store_signed_status_name'];?>
+        <?php
+        if($value['store_signed_status'] == eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY){
+            echo "<span style='color:red'>".$value['store_signed_status_name']."</span>";
+        }else{
+            echo $value['store_signed_status_name'];
+        }
+        ?>       
+      </td>
+      <td class="bdl bdr order-info w120"><?php //echo $value['member_signed_status_name'];?>
+        <?php
+        if($value['member_signed_status'] == eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY){
+            echo "<span style='color:red'>".$value['member_signed_status_name']."</span>";
+        }else{
+            echo $value['member_signed_status_name'];
+        }
+        ?> 
+      </td>
       <td class="bdl bdr order-info w120">
         <?php 
         if($value['createuid'] == $value['member_id']){

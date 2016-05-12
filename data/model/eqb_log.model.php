@@ -45,6 +45,6 @@ class eqb_logModel extends Model {
     public function add($type, $memberId, $storeId, $title, $description, $data, $userId){
         $data = array("type"=>$type, "member_id"=>$memberId, "store_id"=>$storeId, "title"=>$title, "description"=>$description,
                       "data"=>$data, "createuid"=>$userId);
-        return $this->add($data);
-    }     
+        $result =  $this->_add($data);
+    } 
 }

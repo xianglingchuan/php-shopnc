@@ -120,7 +120,8 @@ class esign_notifyControl extends Control {
 //                        if ($status == $contractModel::STATUS_BOTH_SUCCESS_KEY && !empty($filePath)) {
 //                            $eSignClass = new eSgin();
 //                            $filePath = BASE_PATH . "/../data/upload/" . $filePath;
-//                            $eSignClass->saveSignedFile($filePath);
+//                            $signer = $signerMobile;
+//                            $eSignClass->saveSignedFile($filePath, $signer);
 //                            die();
 //                        }
 
@@ -155,6 +156,12 @@ class esign_notifyControl extends Control {
         } else {
             $message = "E签宝回调内容为空!";
         }
+        
+        //写入日志文件
+        $logModel =  Model("eqb_log");
+        $logModel->add(eqb_logModel::TYPE_RESPONSE_EQB_KEY, $memberId, $storeId,eqb_logModel::TYPE_RESPONSE_EQB_VALUE, $message,json_encode($_POST), $memberId);
+        
+        
         eSgin::write("eSign_notify.php--->indexOp.message-------->" . $message);
         if ($sign == "sync") {
             $url = intval($storeId)>=1 ? "index.php?act=store_contract&op=index" : "index.php?act=member_contract&op=index";

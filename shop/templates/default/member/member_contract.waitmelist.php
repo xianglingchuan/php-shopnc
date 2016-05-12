@@ -43,8 +43,24 @@
         <td><?php echo $value['id'];?></td>
         <td class="tl"><?php echo $value['title'];?></td>
         <td><?php echo $value['store_name']; ?></td>
-         <td><?php echo $value['member_signed_status_name'];?></td>
-         <td><?php echo $value['store_signed_status_name'];?></td>
+         <td><?php //echo $value['member_signed_status_name'];?>
+        <?php
+        if($value['member_signed_status'] == eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY){
+            echo "<span style='color:red'>".$value['member_signed_status_name']."</span>";
+        }else{
+            echo $value['member_signed_status_name'];
+        }
+        ?>          
+         </td>
+         <td><?php //echo $value['store_signed_status_name'];?>
+        <?php
+        if($value['store_signed_status'] == eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY){
+            echo "<span style='color:red'>".$value['store_signed_status_name']."</span>";
+        }else{
+            echo $value['store_signed_status_name'];
+        }
+        ?> 
+         </td>
          <td>
         <?php 
         if($value['createuid'] == $value['member_id']){

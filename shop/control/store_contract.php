@@ -22,6 +22,7 @@ class store_contractControl extends BaseSellerControl {
         Language::read('member_store_index,deliver');
     }
 
+    
     /**
      * 发货列表
      *
@@ -89,6 +90,7 @@ class store_contractControl extends BaseSellerControl {
             } else {
                 $message = "合同标题和企业用户为必填项!";
             }
+            $this->_addlog("煤企添加合同，调用方法store_contract.php addOp--->".$message, $data);
             showDialog($message,'reload',$result ? 'succ' : 'error');
         }
         Tpl::output('memberList', $memberList);
@@ -101,20 +103,16 @@ class store_contractControl extends BaseSellerControl {
      * 待我签署
      */
     public function waitMeListOp() {
-        $contractModel	= Model('eqb_contract');
-        
+        $contractModel	= Model('eqb_contract');        
         //退回签署-双方签署完成-关闭的三种合同不管      
         $condition .= " eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
         //我自己发起的 并且对方已经签署好了的合同，合同总状态状态为个人签署成功
         $condition .= " AND ((eqb_contract.create_store_id='".$_SESSION['store_id']."' AND eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."' AND status='".eqb_contractModel::STATUS_PERSON_SUCCESS_KEY."')  ";
         //他人发起的 并且我自己还没有签署的合同
-        $condition .= " OR (eqb_contract.createuid != '".$_SESSION['member_id']."' AND eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."')) ";
+        $condition .= " OR (eqb_contract.createuid != '".$_SESSION['member_id']."' AND eqb_contract.store_signed_status != '".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."') ";
+        //企业签署状态为失败  合同总状态为企业签署失败
+        $condition .=" OR (eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY."' AND status='".eqb_contractModel::STATUS_STORE_FAIL_KEY."'))";
         
-
-        //读取当前登录用户接受或者发起的合同
-        //        $condition = "eqb_contract.store_member_id='".$_SESSION['member_id']."' "
-        //                . "  AND eqb_contract.store_signed_status IN(".eqb_contractModel::STORE_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::STORE_SIGNED_STATUS_FAIL_KEY.") "
-        //                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
         $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());          
@@ -145,7 +143,8 @@ class store_contractControl extends BaseSellerControl {
         } else {
             $message = "参数错误.";
         }
-        showDialog("关闭合同成功.", 'reload', ($result ? 'succ' : 'error'));
+        $this->_addlog("煤企关闭合同，调用方法store_contract.php closeOp--->".$message, $_GET);
+        showDialog($message, 'reload', ($result ? 'succ' : 'error'));
     }
 
     /**
@@ -171,7 +170,8 @@ class store_contractControl extends BaseSellerControl {
         } else {
             $message = "参数错误.";
         }
-        showDialog("关闭合同成功.", 'reload', ($result ? 'succ' : 'error'));
+        $this->_addlog("煤企退回合同，调用方法store_contract.php sendbackOp--->".$message, $_GET);
+        showDialog($message, 'reload', ($result ? 'succ' : 'error'));
     }
 
     /**
@@ -179,19 +179,15 @@ class store_contractControl extends BaseSellerControl {
      */
     public function waitOthersListOp() {
         $contractModel	= Model('eqb_contract');
-        //        //读取当前登录用户接受或者发起的合同
-        //        $condition = "eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.member_signed_status IN(".eqb_contractModel::MEMBER_SIGNED_STATUS_WAIT_KEY.",".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY.") "
-        //                   . "AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.")";
-        
         //退回签署-双方签署完成-关闭的三种合同不管      
         $condition .= " eqb_contract.store_id='".$_SESSION['store_id']."' AND eqb_contract.status NOT IN(".eqb_contractModel::STATUS_REJECT_KEY.", ".eqb_contractModel::STATUS_BOTH_SUCCESS_KEY.", ".eqb_contractModel::STATUS_CLOSE_KEY.") ";
         //他自己发起的 并且我已经签署好了的合同，合同总状态状态为企业签署成功
         $condition .= " AND ((eqb_contract.createuid != '".$_SESSION['createuid']."' AND eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND status='".eqb_contractModel::STATUS_STORE_SUCCESS_KEY."')  ";
         //我自己发起的 但对方还没有签署的
-        $condition .= " OR (eqb_contract.create_store_id = '".$_SESSION['store_id']."' AND eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
-        
-        
-        
+        $condition .= " OR (eqb_contract.create_store_id = '".$_SESSION['store_id']."' AND eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."') ";
+        //个人签署状态为失败  合同总状态为个人签署失败
+        $condition .=" OR (eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY."' AND status='".eqb_contractModel::STATUS_PERSON_FAIL_KEY."'))";
+
         $list = $contractModel->getList($condition,'','eqb_contract.*, member.member_name, store.store_name','eqb_contract.id DESC');
         Tpl::output('list',$list);
         Tpl::output('show_page',$contractModel->showpage());          
@@ -317,6 +313,7 @@ class store_contractControl extends BaseSellerControl {
         } else {
             $message = "参数错误!";
         }
+        $this->_addlog("煤企签署合同，调用方法store_contract.php signContractOp--->".$message, $_GET);
         Tpl::output('id', $id);
         Tpl::output('ret', $ret);
         Tpl::output('message', $message);
@@ -364,4 +361,10 @@ class store_contractControl extends BaseSellerControl {
         Tpl::output('menu_key', $menu_key);
     }
 
+    
+    private function _addlog($description, $data){
+        //写入日志文件
+        $logModel =  Model("eqb_log");
+        $logModel->add(eqb_logModel::TYPE_DB_KEY, $_SESSION['member_id'], $_SESSION['store_id'],eqb_logModel::TYPE_DB_VALUE, $description, json_encode($data), $_SESSION['member_id']);            
+    }
 }
