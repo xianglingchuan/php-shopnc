@@ -77,17 +77,19 @@ class esign_notifyControl extends Control {
                     $contractInfo = $contractModel->getInfo("id='{$contractId}' AND doc_id='{$docId}'");
                     if (!empty($contractInfo)) {
                         //下载远程PDF文件
-                        $filepathProto = $contractInfo['file_path_proto'];
-                        $pathInfo = pathinfo($filepathProto);
-                        $extension = $pathInfo['extension'];
-                        $newFileName = "_" . date("Ymd", time()) . "_" . $customNum;
-                        $newFilePath = str_replace("." . $extension, $newFileName . ".pdf", $filepathProto);
-                        $savePdfresult = $this->savePdfFile($downUrl, BASE_PATH . "/../data/upload/" . $newFilePath);
-                        $filePath = "";
-                        if ($savePdfresult['ret'] == 1) {
-                            $filePath = $newFilePath;
-                        } else {
-                            $message = $savePdfresult["msg"];
+                        if($errCode == 0){ //合同签成功以后才下载文件
+                            $filepathProto = $contractInfo['file_path_proto'];
+                            $pathInfo = pathinfo($filepathProto);
+                            $extension = $pathInfo['extension'];
+                            $newFileName = "_" . date("Ymd", time()) . "_" . $customNum;
+                            $newFilePath = str_replace("." . $extension, $newFileName . ".pdf", $filepathProto);
+                            $savePdfresult = $this->savePdfFile($downUrl, BASE_PATH . "/../data/upload/" . $newFilePath);
+                            $filePath = "";
+                            if ($savePdfresult['ret'] == 1) {
+                                $filePath = $newFilePath;
+                            } else {
+                                $message = $savePdfresult["msg"];
+                            }                            
                         }
 
                         //判断是用户还是企业签署合同
@@ -131,9 +133,11 @@ class esign_notifyControl extends Control {
                                 $signer = $signerMobile;
                                 $eSignClass->saveSignedFile($filePath, $signer);
                             }
-                            $message = "合同签署通知操作成功!";
+                            $message = !empty($message) ? $message : "合同签署通知操作成功!";
+                            //$message = "合同签署通知操作成功!";
                         } else {
-                            $message = "更新合同各自状态失败!";
+                            $message = !empty($message) ? $message : "更新合同各自状态失败!";
+                            //$message = "更新合同各自状态失败!";
                         }
                     } else {
                         $message = "查询不到合同基本信息!";

@@ -463,12 +463,12 @@ class eSign{
 			"signer" => $signer,
 			"file"=> '@'.$docFilePath
 		);
-		print_r($keysArr);
-		echo "<br>";
-		echo $this->recorder->read('saveSignedFile');
-		echo "<br>";
+//		print_r($keysArr);
+//		echo "<br>";
+//		echo $this->recorder->read('saveSignedFile');
+//		echo "<br>";
   	$response = $this->urlUtils->post($this->recorder->read('saveSignedFile'), $keysArr);
-    echo "string".$response;
+//    echo "string".$response;
 
   	if(empty($response))
   	{
