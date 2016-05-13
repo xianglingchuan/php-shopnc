@@ -394,7 +394,7 @@ class eqb_contractModel extends Model {
         //我自己发起的 并且对方已经签署好了的合同，合同总状态状态为个人签署成功
         $waitemWhere .= " AND ((shopnc_eqb_contract.createuid='".$memberId."' AND shopnc_eqb_contract.store_signed_status='".eqb_contractModel::STORE_SIGNED_STATUS_SUCCESS_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_STORE_SUCCESS_KEY."')  ";
         //他人发起的 并且我自己还没有签署的合同
-        $waitemWhere .= " OR (shopnc_eqb_contract.createuid != '".$memberId."' AND shopnc_eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."')) ";
+        $waitemWhere .= " OR (shopnc_eqb_contract.createuid != '".$memberId."' AND shopnc_eqb_contract.member_signed_status != '".eqb_contractModel::MEMBER_SIGNED_STATUS_SUCCESS_KEY."') ";
         //个人签署状态为失败  合同总状态为个人签署失败
         $waitemWhere .=" OR (shopnc_eqb_contract.member_signed_status='".eqb_contractModel::MEMBER_SIGNED_STATUS_FAIL_KEY."' AND shopnc_eqb_contract.status='".eqb_contractModel::STATUS_PERSON_FAIL_KEY."'))";
         $sql = "select count(*) as count from shopnc_eqb_contract WHERE {$waitemWhere}";
