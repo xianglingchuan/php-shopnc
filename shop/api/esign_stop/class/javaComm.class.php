@@ -26,16 +26,16 @@ class javaComm{
 		//-------请求参数列表
     $keysArr = array(
         "projectId" => $project_id,
-		"projectSecret" => $project_secret,
-		"redirectUrl" => $redirectUrl,
-		"notifyUrl" => $notifyUrl
+				"projectSecret" => $project_secret,
+				"redirectUrl" => $redirectUrl,
+				"notifyUrl" => $notifyUrl
     );		
 		
 		$response = $this->urlUtils->post($this->recorder->read('javaInitUrl'), $keysArr);
 		
-		// echo 'java服务初始化结果：<br>';
-		// print_r($response);;
-		// echo '<br>';
+		/*echo 'java服务初始化结果：<br>';
+		print_r($response);;
+		echo '<br>';*/
 		
 		if(empty($response)){
 			return 9999;
@@ -76,8 +76,7 @@ class javaComm{
   	} else {
   		$posType = 0;
   	}
-
-
+  	
   	$keysArr = array(
   		"code" => $code,
   		"srcPdfFile" => $srcPdfFile,
@@ -90,15 +89,14 @@ class javaComm{
 			"posY" => $posY,
 			"key" => $key
 		);
-  //       echo "调用的网站".$this->recorder->read('javaSignByCode');
-		// echo '本地文件签署（印章通知专用）传参：<br>';
-		// print_r($keysArr);
-		// echo '<br>';
+		/*echo '本地文件签署（印章通知专用）传参：<br>';
+		print_r($keysArr);
+		echo '<br>';*/
 		
 		$response = $this->urlUtils->post($this->recorder->read('javaSignByCode'), $keysArr);
-		// echo '本地文件签署（印章通知专用）结果：<br>';
-		// echo $response;
-		// echo '<br>';
+		/*echo '本地文件签署（印章通知专用）结果：<br>';
+		echo $response;
+		echo '<br>';*/
 		
 		if(empty($response)){
 			return array(

@@ -115,16 +115,6 @@ class esign_notifyControl extends Control {
                                 "member_signed_datetime" => date("Y-m-d H:i:s", time()),
                                 "member_signed_data" => $_json_result);
                         }
-
-                        //如果双方合同都签署完成了,完成本地pdf到E签宝服务器,以备以后举证使用
-//                        if ($status == $contractModel::STATUS_BOTH_SUCCESS_KEY && !empty($filePath)) {
-//                            $eSignClass = new eSgin();
-//                            $filePath = BASE_PATH . "/../data/upload/" . $filePath;
-//                            $signer = $signerMobile;
-//                            $eSignClass->saveSignedFile($filePath, $signer);
-//                            die();
-//                        }
-
                         
                         if (!empty($filePath)) {
                             $data['file_path'] = $filePath;
@@ -138,7 +128,8 @@ class esign_notifyControl extends Control {
                             if ($status == $contractModel::STATUS_BOTH_SUCCESS_KEY && !empty($filePath)) {
                                 $eSignClass = new eSgin();
                                 $filePath = BASE_PATH . "/../data/upload/" . $filePath;
-                                $eSignClass->saveSignedFile($filePath);
+                                $signer = $signerMobile;
+                                $eSignClass->saveSignedFile($filePath, $signer);
                             }
                             $message = "合同签署通知操作成功!";
                         } else {
@@ -207,5 +198,4 @@ class esign_notifyControl extends Control {
         curl_close($ch);
         return $result;
     }
-
 }

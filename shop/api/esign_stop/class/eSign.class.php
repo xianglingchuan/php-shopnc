@@ -3,11 +3,10 @@ require_once(CLASS_PATH."Recorder.class.php");
 require_once(CLASS_PATH."URL.class.php");
 require_once(CLASS_PATH."javaComm.class.php");
 require_once (CLASS_PATH . "MacAddr.class.php");
-require_once (CLASS_PATH . "ErrorConstant.class.php");
+
 class eSign{
   const VERSION = "1.0";
-  private $ITSM_GETAPIINFO_URL = "http://121.40.164.61:8080/tgmonitor/rest/app!getAPIInfo2";
-  //private $ITSM_GETAPIINFO_URL = "http://121.43.159.210:8080/tgmonitor/rest/app!getAPIInfo2";
+	private $ITSM_GETAPIINFO_URL = "http://121.40.164.61:8080/tgmonitor/rest/app!getAPIInfo2";
 	private $TECH_SERVICE_PORT = "8080";
 	private $project_id;
 	private $project_secret;
@@ -20,7 +19,6 @@ class eSign{
   public $urlUtils;
   protected $error;
   protected $javaComm;
-  protected $ErrorConstant;
 
   function __construct(){
   	$this->recorder = new Recorder();
@@ -32,17 +30,10 @@ class eSign{
 		//-------生成唯一随机串防CSRF攻击
     $state = md5(uniqid(rand(), TRUE));
     $this->recorder->write('state',$state);
-    $this->ErrorConstant = new ErrorConstant();
   }
 	
 	public function init($project_id, $project_secret, $redirectUrl='', $notifyUrl='')
 	{
-    if(empty($project_id)){
-        return $this->ErrorConstant->PROJECT_ID_NULLPOINTER;
-    }
-    if(empty($project_secret)){
-        return $this->ErrorConstant->PROJECT_SECRET_NULLPOINTER;
-    }
 		$this->redirectUrl = $redirectUrl;
 		$this->notifyUrl = $notifyUrl;
 			
@@ -77,7 +68,7 @@ class eSign{
         echo "eSign init error <br>";
         return (int)$itsm->errCode;
     }
-    $this->saveUrlInfo($itsm->https_urls);
+    $this->saveUrlInfo($itsm->urls);
     return 0;
   }
   
@@ -117,27 +108,6 @@ class eSign{
 			{
 				$this->recorder->write('techGetDocUrlUrl', $url->urlValue);
 			}
-
-      if(0 == strcmp($url->urlKey, 'localPdfToImageUrl'))
-      {
-        $this->recorder->write('localPdfToImageUrl', $url->urlValue);
-      } 
-
-      if(0 == strcmp($url->urlKey, 'pdfToImageUrl'))
-      {
-        $this->recorder->write('pdfToImageUrl', $url->urlValue);
-      }
-
-      if(0 == strcmp($url->urlKey, 'getRefAccountInfoUrl'))
-      {
-        $this->recorder->write('getRefAccountInfoUrl', $url->urlValue);
-      } 
-
-      if(0 == strcmp($url->urlKey, 'saveSignedFile'))
-      {
-        $this->recorder->write('saveSignedFile', $url->urlValue);
-      } 
-
 		}
 	}
         
@@ -157,6 +127,7 @@ class eSign{
 		//print_r($login_url);
 		//echo '<br>==============';
 		$ret_json = json_decode($login_url,TRUE);
+                //var_dump($ret_json);
 		$errCode = $ret_json['errCode'];
 		if($errCode == 0)
 		{
@@ -170,25 +141,12 @@ class eSign{
 		return false;		
   }	
   
-  public function addPersonAccount($mobile, $name, $idNo, $email='', $organ='', $title='', $address='',$personarea=0)
+  public function addPersonAccount($mobile, $name, $idNo, $email='', $organ='', $title='', $address='',$personarea)
   {
-    if(empty($mobile)){
-        return $this->ErrorConstant->MOBILE_NULLPOINTER;
-    }
-    if(empty($name)){
-        return $this->ErrorConstant->PERSON_NAME_NULLPOINTER;
-    }
-    if(empty($idNo)){
-        return $this->ErrorConstant->PERSON_IDNO_NULLPOINTER;
-    }
     $personareaArr=array(0=>"0",1=>"1",2=>"2",3=>"3",4=>"4");
-
-    $personarea=(string)$personarea;
-    // echo "string".$personarea.'&nbsp;<br/>';
-
     if(($personarea!="0"&&empty($personarea))||!in_array($personarea, $personareaArr,true))
     {
-      return $this->ErrorConstant->PERSON_AREA_ILLEGAL;
+      return $this->showError('用户或企业法人归属地非法');
     }
   	$keysArr = array(
   		"token" => $this->token,
@@ -220,22 +178,12 @@ class eSign{
   	return json_decode($return_content,TRUE);
   }
   
-  public function addOrganizeAccount($mobile, $name, $organCode, $email='', $organType=0, $regCode ='', $legalName='',$legalArea=0)
+  public function addOrganizeAccount($mobile, $name, $organCode, $email='', $organType=0, $regCode ='', $legalName='',$legalArea)
   { 
-    if(empty($mobile)){
-        return $this->ErrorConstant->MOBILE_NULLPOINTER;
-    }
-    if(empty($name)){
-        return $this->ErrorConstant->ORGANIZE_NAME_NULLPOINTER;
-    }
-    if(empty($organCode)){
-        return $this->ErrorConstant->ORGAN_CODE_NULLPOINTER;
-    }
     $personareaArr=array(0=>"0",1=>"1",2=>"2",3=>"3",4=>"4");
-    $legalArea=(string)$legalArea;
-    if(($legalArea!='0'&&empty($legalArea))||!in_array($legalArea, $personareaArr))
+    if(empty($legalArea)||!in_array($legalArea, $personareaArr))
     {
-      return $this->ErrorConstant->LEGAL_AREA_INVALIDATE;
+      return $this->showError('用户或企业法人归属地非法');
     } 	
   	$keysArr = array(
   		"token" => $this->token,
@@ -267,12 +215,9 @@ class eSign{
   	}
   	return json_decode($return_content,TRUE);
   }
-  public function conv2pdf($docFilePath, $docType='doc')
+  
+  public function conv2pdf($docFilePath, $docType)
   {
-    if($docFilePath!="0" && empty($docFilePath))
-    {
-      return $this->ErrorConstant->FILE_NOT_EXIST;
-    }
   	$keysArr = array(
   		"token" => $this->token,
   		"equipId" => $this->recorder->read("equipId"),
@@ -291,19 +236,9 @@ class eSign{
   	}
   	return json_decode($response,TRUE);
   }
-
+  
   public function addFileByOssKey($ossKey, $docName)
   {
-    if($ossKey!="0"&&empty($ossKey))
-    {
-        return $this->ErrorConstant->OSS_APPLY_NULLPOINTER;
-    }
-
-    if($ossKey!="0"&&empty($docName))
-    {
-        return $this->ErrorConstant->DOC_NAME_NULLPOINTER;
-    }
-
   	$keysArr = array(
   		"token" => $this->token,
   		"equipId" => $this->recorder->read("equipId"),
@@ -326,15 +261,6 @@ class eSign{
   
   public function addFile($docFilePath,$docName)
   {
-    if($docFilePath!="0"&&empty($docFilePath))
-    {
-       return $this->ErrorConstant->FILE_NOT_EXIST;
-    }
-    if($docName!="0"&&empty($docName))
-    {
-      return $this->ErrorConstant->DOC_NAME_NULLPOINTER;
-    }
-
   	$keysArr = array(
   		"token" => $this->token,
   		"equipId" => $this->recorder->read("equipId"),
@@ -356,14 +282,6 @@ class eSign{
   
   public function quickSignPDFPage($customNum, $docId, $authType=1, $sealType=0, $signer='', $signerType=0)
   {
-    if($customNum!="0"&&empty($customNum))
-    {
-       return $this->ErrorConstant->CUSTOMFLAG_NULLPOINTER;
-    }
-    if($docId!="0"&&empty($docId))
-    {
-      return $this->ErrorConstant->DOCID_NULLPOINTER;
-    }
   	$keysArr = array(
   		"response_type" => "get",
   		"equipId" => $this->recorder->read("equipId"),
@@ -383,10 +301,6 @@ class eSign{
   
   public function getSealPage($customNum, $authType=1, $sealType=0, $signer='', $signerType=0)
   {
-    if($customNum!="0"&&empty($customNum))
-    {
-       return $this->ErrorConstant->CUSTOMFLAG_NULLPOINTER;
-    }
   	$keysArr = array(
   		"equipId" => $this->recorder->read("equipId"),
   		"signer" => $signer,
@@ -401,75 +315,30 @@ class eSign{
   	Header("Location:". $this->recorder->read('toEsignServerQuickSealUrl') . '?esign_json='.json_encode($keysArr));
   }
   
-  public function localSignPDFByCode($code, $srcPdfFile, $dstPdfFile, $seaId, $signType='1', $posPage, $posX, $posY, $key)
+  public function localSignPDFByCode($code, $srcPdfFile, $dstPdfFile, $seaId, $signType, $posPage, $posX, $posY, $key)
   {
-    if($code!="0"&&empty($code))
-    {
-       return $this->ErrorConstant->ACCOUNT_NULLPOINTER;
-    }
-    if($srcPdfFile!="0"&&empty($srcPdfFile))
-    {
-       return $this->ErrorConstant->SING_FILE_NOT_EXISTS;
-    }
-    if($dstPdfFile!="0"&&empty($dstPdfFile))
-    {
-       return $this->ErrorConstant->SIGNED_FILE_NOT_EXISTS;
-    }
-    if($seaId!="0"&&empty($seaId))
-    {
-       return $this->ErrorConstant->SESEALID_NULLPOINTER;
-    }
-
-    if($signType!="0"&&empty($signType))
-    {
-       return $this->ErrorConstant->SIGNTYPE_NULLPOINTER;
-    }
-
   	return $this->javaComm->localSignPDFByCode($code, $srcPdfFile, $dstPdfFile, $seaId, $signType, $posPage, $posX, $posY, $key);
   }
   
   public function localSignPDF($srcPdfFile,	$dstPdfFile, $seaId, $signType, $posPage, $posX, $posY, $key)
   {
-   if($srcPdfFile!="0"&&empty($srcPdfFile))
-    {
-       return $this->ErrorConstant->SING_FILE_NOT_EXISTS;
-    }
-    if($dstPdfFile!="0"&&empty($dstPdfFile))
-    {
-       return $this->ErrorConstant->SIGNED_FILE_NOT_EXISTS;
-    }
-
   	return $this->javaComm->localSignPDF($this->devId, $srcPdfFile, $dstPdfFile, $seaId, $signType, $posPage, $posX, $posY, $key);
   }
     
 	public function saveSignedFile ($docFilePath, $docName, $signer)
 	{
-    if(empty($docFilePath)){
-      return $this->ErrorConstant->FILE_NOT_EXIST; 
-    }
-
-    if(empty($docName)){
-      return $this->ErrorConstant->DOC_NAME_NULLPOINTER; 
-    }
-
-    if(empty($signer)){
-      return $this->ErrorConstant->SIGNER_NOT_EXISTS; 
-    }
-
 		$keysArr = array(
-  		"token" => $this->token,
-  		"equipId" => $this->recorder->read("equipId"),
+                        "token" => $this->token,
+                        "equipId" => $this->recorder->read("equipId"),
 			"docName" => $docName,
 			"signer" => $signer,
 			"file"=> '@'.$docFilePath
 		);
 		print_r($keysArr);
 		echo "<br>";
-		echo $this->recorder->read('saveSignedFile');
+		echo $this->recorder->read('techSaveSignedFile');
 		echo "<br>";
-  	$response = $this->urlUtils->post($this->recorder->read('saveSignedFile'), $keysArr);
-    echo "string".$response;
-
+  	$response = $this->urlUtils->post($this->recorder->read('techSaveSignedFile'), $keysArr);
   	if(empty($response))
   	{
   		return array(
@@ -509,101 +378,10 @@ class eSign{
         errShow => false
       );
   }
-
-  //pdf文档转化为图片(本地文件)
-  public function localPdf2Image($docFilePath, $pageNum="", $imageSize="max")
-  {
-    if(empty($docFilePath) ||!file_exists($docFilePath))
-    {
-        return $this->ErrorConstant->FILE_NOT_EXIST;
-    }
-    $keysArr=array(
-        "token" =>$this->token,
-        "equipId"=>$this->recorder->read("equipId"),
-        "file"=> '@'.$docFilePath,
-        "pageNum"=>$pageNum,
-        "imageSize"=>$imageSize);
-    $response = $this->urlUtils->post($this->recorder->read('localPdfToImageUrl'), $keysArr);
-    if(empty($response))
-    {
-      return array(
-        errCode => 101,
-        msg => "网络错误",
-        httpRet =>$response,
-        errShow => false);
-    }
-    return json_decode($response,TRUE);
+  
+  public function getDevId(){
+      return $this->devId;
+      
   }
-
-  //pdf文档转化为图片(oss文件)
-  public function ossPdf2Image($osskey, $pageNum="", $imageSize="max")
-  {
-    if(empty($osskey))
-    {
-        return $this->ErrorConstant->OSS_APPLY_NULLPOINTER;
-    }
-    $keysArr=array(
-        "token" =>$this->token,
-        "equipId"=>$this->recorder->read("equipId"),
-        "osskey"=> $osskey,
-        "pageNum"=>$pageNum,
-        "imageSize"=>$imageSize);
-
-    list($return_code, $return_content) = $this->urlUtils->http_post_json($this->recorder->read('pdfToImageUrl'), json_encode($keysArr)); 
-    // print_r($keysArr);
-    // echo "string<br/>";
-    // echo $this->recorder->read('pdfToImageUrl');
-    if($return_code != 200)
-    {
-      return array(
-        errCode => 101,
-        msg => "网络错误",
-        httpError=>$return_code,
-        httpRet =>$return_content,
-        errShow => false);
-    } 
-    return json_decode($return_content,TRUE);
-  }
-
-  //获取项目关联的用户信息
-  public function getAccountInfo($infoId)
-  {
-      if(empty($infoId)){
-        return $this->ErrorConstant->PARAM_NULLPOINTER;
-      }
-      if(strpos($infoId, '@')==false){
-        $mobile=$infoId;
-      }else{
-        $email=$infoId;
-      }
-
-    $keysArr = array(
-      "token" => $this->token,
-      "equipId" => $this->recorder->read("equipId"),
-      "mobile" => $mobile,
-      "email" => $email,
-    );
-    list($return_code, $return_content) = $this->urlUtils->http_post_json($this->recorder->read('getRefAccountInfoUrl'), json_encode($keysArr));  
-    if($return_code != 200)
-    {
-      return array(
-        errCode => 101,
-        msg => "网络错误",
-        httpError=>$return_code,
-        httpRet =>$return_content,
-        errShow => false);
-    }
-    else
-    {
-      $ret = json_decode($return_content,TRUE);
-      $type = $ret['type'];
-      if($type=="1"){
-        $ret['type']="person";
-      }else{
-        $ret['type']="organize";
-      }
-      return $ret;
-    }
-    //return json_decode($return_content,TRUE);
-  }
+  
 }

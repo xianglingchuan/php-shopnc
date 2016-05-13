@@ -158,32 +158,25 @@ class eSgin {
         $sign = new eSign();
         $iRet = $sign->init(E_PROJECT_ID, E_PROJECT_SECRET);
         // 初始化成功，执行项目账户登录
+        $message = "";
         if (0 == $iRet) {
             // 项目账户登录成功
             if ($sign->projectid_login()) {
                 if(!empty($dstPdfFile)){
                     $pathInfo = pathinfo($dstPdfFile);
                     $fileName = $pathInfo['basename'];
-                    //$saveRet = $sign->saveSignedFile($_POST['dstPdfFile'], $_POST['fileName'], $_POST['accountId']);
-                    echo "destPdfFile={$dstPdfFile},fileName={$fileName},signer={$signer}<BR>";
+                    //echo "destPdfFile={$dstPdfFile},fileName={$fileName},signer={$signer}<BR>";
                     $saveRet = $sign->saveSignedFile($dstPdfFile, $fileName, $signer);
-                    echo "文档保全结果<br>";
-                    print_r($saveRet);
-                    echo "<br><br>";
                     //文档保全成功后，获取保全文档的下载地址
                     if ($saveRet['errCode'] == 0) {
-                        $downRet = $sign->getSignedFile($saveRet['docId']);
-                        echo "保全文档下载地址<br>";
-                        print_r($downRet);
-                        echo "<br><br>";
+                       $message = "上传合同文件成功!".$saveRet['msg'];
+                    }else{
+                        $message = "上传合同文件失败!".$saveRet['msg'];
                     }                    
                 }
             }
         }
-        
-        //写入日志文件
-        //$logModel =  Model("eqb_log");
-        //$logModel->add(eqb_logModel::TYPE_REQUEST_EQB_KEY, 0, 0,eqb_logModel::TYPE_REQUEST_EQB_VALUE, "访问接口saveSignedFile",json_encode($saveRet), 0);
+        $this->_addlog("访问接口eSign.php->saveSignedFile.saveSignedFile, ".$message, $saveRet);
     }
     
     
