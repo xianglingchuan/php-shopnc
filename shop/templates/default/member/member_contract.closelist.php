@@ -70,6 +70,14 @@
       </tr>
       <?php }?>
     </tbody>
+    
+    <tfoot>
+      <?php  if (count($output['list'])>0) { ?>
+      <tr>
+        <td colspan="20"><div class="pagination"><?php echo $output['show_page'];?></div></td>
+      </tr>
+      <?php } ?>
+    </tfoot>
   </table>
     
     
