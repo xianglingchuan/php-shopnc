@@ -134,10 +134,8 @@ class esign_notifyControl extends Control {
                                 $eSignClass->saveSignedFile($filePath, $signer);
                             }
                             $message = !empty($message) ? $message : "合同签署通知操作成功!";
-                            //$message = "合同签署通知操作成功!";
                         } else {
                             $message = !empty($message) ? $message : "更新合同各自状态失败!";
-                            //$message = "更新合同各自状态失败!";
                         }
                     } else {
                         $message = "查询不到合同基本信息!";
