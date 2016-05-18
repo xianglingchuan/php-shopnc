@@ -295,7 +295,7 @@ class member_contractControl extends BaseMemberControl {
                             "customNum" => $customNum,
                             "signerType" => 1, //手机
                             "signer" => $member_mobile, //用户的手机号
-                            "sealType" => 0, //0-实时手绘印章
+                            "sealType" => 1, //1=预先定义的默认印章
                             "authType" => "3,4", //身份认证类型，1-手机/验证码验证，2-手机接收授权短信验证，3-邮箱/签署口令，4-手机/签署口令，5-UKEY证书，默认1。支持多种认证类型，多个以“,”隔开
                             "docId" => $docId
                         );

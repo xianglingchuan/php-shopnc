@@ -6,7 +6,10 @@ require_once (CLASS_PATH . "MacAddr.class.php");
 require_once (CLASS_PATH . "ErrorConstant.class.php");
 class eSign{
   const VERSION = "1.0";
+  //测试环境
   private $ITSM_GETAPIINFO_URL = "http://121.40.164.61:8080/tgmonitor/rest/app!getAPIInfo2";
+  //正式地址
+  //private $ITSM_GETAPIINFO_URL = "http://itsm.tsign.cn/tgmonitor/rest/app!getAPIInfo2";
   //private $ITSM_GETAPIINFO_URL = "http://121.43.159.210:8080/tgmonitor/rest/app!getAPIInfo2";
 	private $TECH_SERVICE_PORT = "8080";
 	private $project_id;

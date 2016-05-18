@@ -17,9 +17,10 @@
       
       
       <dl>
-        <dt>待签署文档标识</dt>
+        <dt>待签署文档标识：</dt>
         <dd>
-          <input type="text" class="text w100" name="docId" value="<?php echo $output['data']['docId'];?>"/>
+            <?php echo $output['data']['docId'];?>
+            <input type="hidden" class="text w100" name="docId" value="<?php echo $output['data']['docId'];?>"/>
         </dd>
       </dl>
       
@@ -32,9 +33,10 @@
       </dl>-->
       
       <dl>
-        <dt>印章获取类型</dt>
+        <dt>印章获取类型：</dt>
         <dd>
-          <input type="text" class="text w100" name="sealType" value="<?php echo $output['data']['sealType'];?>"/>
+          预先定义的默认印章  
+          <input type="hidden" class="text w100" name="sealType" value="<?php echo $output['data']['sealType'];?>"/>
           <!--印章获取方式。0-实时手绘印章，1-预先定义的默认印章，2-实施模板印章，3-选择历史印章。默认0。支持多种印章获取方式，多个以“,”隔开-->
         </dd>
       </dl>
@@ -42,7 +44,7 @@
       
       
       <dl>
-        <dt>签署账户标识信息</dt>
+        <dt>签署账户标识：</dt>
         <dd>
           <input type="text" class="text w100" name="signer" value="<?php echo $output['data']['signer'];?>"/>
           <!---手机号-->
