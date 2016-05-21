@@ -7,7 +7,7 @@
     <h4>注意事项：</h4>
     以下所需要上传的电子版资质文件仅支持JPG\GIF\PNG格式图片，大小请控制在1M之内。</div>
   <form id="form_credentials_info" action="index.php?act=store_joinin&op=step3" method="post" enctype="multipart/form-data" >
-    <!--<table border="0" cellpadding="0" cellspacing="0" class="all">
+    <table border="0" cellpadding="0" cellspacing="0" class="all">
       <thead>
         <tr>
           <th colspan="20">开户银行信息</th>
@@ -96,7 +96,7 @@
           </tr>
         </tfoot>
       </table>
-    </div>-->
+    </div>
     <table border="0" cellpadding="0" cellspacing="0" class="all">
       <thead>
         <tr>
@@ -131,7 +131,7 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function(){
-   /* var use_settlement_account = true;
+   /**/ var use_settlement_account = true;
     $("#bank_address").nc_region();
     $("#settlement_bank_address").nc_region();
 
@@ -148,28 +148,28 @@ $(document).ready(function(){
             use_settlement_account = true;  
             $("#div_settlement").show();
         }
-    });*/
+    });
 
     $('#form_credentials_info').validate({
         errorPlacement: function(error, element){
             element.nextAll('span').first().after(error);
         },
         rules : {
-        /*bank_account_name: {
+        /**/bank_account_name: {
                 required: true,
-                maxlength: 0 
+                maxlength: 50 
             },
             bank_account_number: {
                 required: true,
-                maxlength: 0 
+                maxlength: 50 
             },
             bank_name: {
                 required: true,
-                maxlength: 0 
+                maxlength: 50
             },
             bank_code: {
                 required: true,
-                maxlength: 0 
+                maxlength: 50 
             },
             bank_address: {
                 required: true
@@ -179,23 +179,23 @@ $(document).ready(function(){
             },
             settlement_bank_account_name: {
                 required: function() { return use_settlement_account; },    
-                maxlength: 0 
+                maxlength: 50 
             },
             settlement_bank_account_number: {
                 required: function() { return use_settlement_account; },
-                maxlength: 0 
+                maxlength: 50 
             },
             settlement_bank_name: {
                 required: function() { return use_settlement_account; },
-                maxlength: 0 
+                maxlength:50 
             },
             settlement_bank_code: {
                 required: function() { return use_settlement_account; },
-                maxlength: 0 
+                maxlength: 50
             },
             settlement_bank_address: {
                 required: function() { return use_settlement_account; }
-            },*/
+            },
             tax_registration_certificate: {
                 required: true,
                 maxlength: 20
@@ -210,7 +210,7 @@ $(document).ready(function(){
 
         },
        messages : {
-          /*bank_account_name: {
+          /**/bank_account_name: {
                 required: '请填写银行开户名',
                 maxlength: jQuery.validator.format("最多{0}个字")
             },
@@ -250,7 +250,7 @@ $(document).ready(function(){
             },
             settlement_bank_address: {
                 required: '请选择开户银行所在地'
-            },*/
+            },
             tax_registration_certificate: {
                 required: '请填写税务登记证号',
                 maxlength: jQuery.validator.format("最多{0}个字")

@@ -86,7 +86,7 @@
         </tr>
       </tbody>
     </table>
-    <!--<table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
+    <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
       <thead>
         <tr>
           <th colspan="2">煤炭经营许可证：</th>
@@ -161,7 +161,7 @@
           <td><?php echo $output['joinin_detail']['settlement_bank_address'];?></td>
         </tr>
       </tbody>
-    </table>-->
+    </table>
     <table border="0" cellpadding="0" cellspacing="0" class="store-joinin">
       <thead>
         <tr>

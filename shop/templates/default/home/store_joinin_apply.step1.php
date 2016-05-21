@@ -131,7 +131,7 @@
         </tr>
       </tfoot>
     </table>
-    <!--<table border="0" cellpadding="0" cellspacing="0" class="all">
+    <table border="0" cellpadding="0" cellspacing="0" class="all">
       <thead>
         <tr>
           <th colspan="20">煤炭经营许可证<em>注：所属企业具有煤炭经营许可证时，此项为必填。</em></th>
@@ -149,7 +149,7 @@
           <td colspan="20">&nbsp;</td>
         </tr>
       </tfoot>
-    </table>-->
+    </table>
   </form>
   <div class="bottom"><a id="btn_apply_company_next" href="javascript:;" class="btn">下一步，提交税务资质信息</a></div>
 </div>
@@ -239,7 +239,11 @@ $(document).ready(function(){
             },
             organization_code_electronic: {
                 required: true
-            }
+            },
+            general_taxpayer: {
+                required: true
+            }            
+            
         },
         messages : {
             company_name: {
@@ -305,7 +309,10 @@ $(document).ready(function(){
             },
             organization_code_electronic: {
                 required: '请选择上传组织机构代码证电子版文件'
-            }
+            },
+            general_taxpayer: {
+                required: '请选择上传煤炭经营许可证文件'
+            }             
         }
     });
 
