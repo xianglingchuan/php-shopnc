@@ -146,12 +146,12 @@ select option { line-height: 20px; height: 20px; padding: 4px;}
 .ncs-goods-summary .ncs-btn a.arrival i { font-size: 14px;}
 
 /* 立即购买和加入采购平台按钮 */
-.ncs-goods-summary .ncs-btn { display: inline-block; margin: 20px 0 0 140px; position: relative; z-index: 70;}
+.ncs-goods-summary .ncs-btn { display: inline-block; margin: 20px 0 0 64px; position: relative; z-index: 70;}
 .ncs-goods-summary .ncs-btn { *display: inline/*IE6,7*/; zoom: 1;}
 .ncs-goods-summary .ncs-btn a.buynow,
 .ncs-goods-summary .ncs-btn a.addcart,
 .ncs-goods-summary .ncs-btn a.no-buynow,
-.ncs-goods-summary .ncs-btn a.no-addcart { font: lighter 20px/25px "Microsoft Yahei"; color: #FFF; text-align: center; display: inline-block; /*height: 28px;*/ padding: 6px 14px; margin-right: 10px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 0 0 2px rgba(204,204,204,0.25);}
+.ncs-goods-summary .ncs-btn a.no-addcart { font: lighter 20px/25px "Microsoft Yahei"; color: #FFF; text-align: center; display: inline-block; /*height: 28px;*/ padding: 6px 38px; margin-right: 10px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 0 0 2px rgba(204,204,204,0.25);}
 .ncs-goods-summary .ncs-btn a.buynow:hover,
 .ncs-goods-summary .ncs-btn a.addcart:hover,
 .ncs-goods-summary .ncs-btn a.no-buynow:hover,

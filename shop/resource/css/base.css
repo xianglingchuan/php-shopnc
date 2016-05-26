@@ -61,7 +61,7 @@ input[type=text] { padding: 0px 5px 0px 5px; line-height: 25px; border: solid 1p
 .input2 { padding: 0px 5px 0px 5px; line-height: 25px; border: solid 1px gray; height: 29px; width: 231px; }
 .input:focus { border: solid 1px #1fa2f2; }
 #key:focus { border: none; }
-.focus { border: solid 1px #1fa2f2; }
+.focus { border-top: 0px;border-bottom: 0px;border-left: 0px;border-color: #ff0012;border-style: solid;border-right: 0px; }
 input[type=password] { padding: 0px 5px 0px 5px; line-height: 25px; border: solid 1px gray; height: 29px; width: 211px; }
 
 .cForm .cft { display: inline-block; width: 150px; text-align: right; padding-right: 5px; }

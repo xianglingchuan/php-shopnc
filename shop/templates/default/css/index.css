@@ -26,7 +26,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu { dis
  * 常用宽度、高度、边距、边框属性
  * ========================== */
 .w { width: 100%}
-.wrapper { width: 1200px; margin: auto;}
+.wrapper { width: 1170px; margin: auto;}
 
 .fl { float: left;}
 .fr { float: right;}

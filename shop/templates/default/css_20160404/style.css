@@ -1,0 +1,13 @@
+@charset "utf-8";
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+/*课程介绍 轮播*/
+#mr_fu img{width:100%;height:500px; }
+.friend{height:500px;margin:-20px 0 -20px 0;margin:-20px 0 0 0\0;overflow:hidden;width:100%;float:left;}
+.mr_frbox{height:auto;padding:0px 0px 0px;}
+.mr_frBtnL{cursor:pointer;display:inline;float:left;height:46px;margin:13% 10px 0 0;width:28px;position:absolute;left:17%;}
+.mr_frUl{float:left;height:202px;width:1900px;margin-left:0px;}
+.mr_frBtnR{float:right;margin-top:13%;cursor:pointer;width:28px;height:46px;position:absolute;right:17%;}
+.mr_frUl ul li{display:inline;float:left;/*height:389px;*/width:100%;;overflow:static;position:relative;}
+.mr_frUl ul li a img{/*display:block;*/width:100%;}

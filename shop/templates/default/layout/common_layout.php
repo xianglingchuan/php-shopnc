@@ -215,66 +215,25 @@ $('#keyword').attr("value","<?php echo $_GET['keyword']; ?>");
                     src="<?php echo UPLOAD_SITE_URL . DS . ATTACH_COMMON . DS . $output['setting_config']['site_logo']; ?>"
                     class="pngFix"></a></h1>
 
-        <span
-            style="background-color: #cecece; width: 1px; height:60px; display: inline-block; margin:20px 10px 10px 0px; float:left"></span>
+     <!--   <span
+            style="background-color: #cecece; width: 1px; height:60px; display: inline-block; margin:20px 10px 10px 0px; float:left"></span>  -->
 
-        <div class="policys" style="float: left;" >
-            <ul>
-                <li class="b1">快捷购煤</li>
-                <li class="b2">三号保证</li>
-                <li class="b3">煤质担保</li>
-            </ul>
-        </div>
-
-        <!---注释掉下载动画->
-       <!-- <?php /*if (C('mobile_isuse') && C('mobile_app')) { */ ?>
-            <div class="head-app"><span class="pic"></span>
-
-                <div class="download-app">
-                    <div class="qrcode"><img
-                            src="<?php /*echo UPLOAD_SITE_URL . DS . ATTACH_COMMON . DS . C('mobile_app'); */ ?>"></div>
-                    <div class="hint">
-                        <h4>扫描二维码</h4>
-                        下载手机客户端
-                    </div>
-                    <div class="addurl">
-                        <?php /*if (C('mobile_apk')) { */ ?>
-                            <a href="<?php /*echo C('mobile_apk'); */ ?>" target="_blank"><i class="icon-android"></i>Android</a>
-                        <?php /*} */ ?>
-                        <?php /*if (C('mobile_ios')) { */ ?>
-                            <a href="<?php /*echo C('mobile_ios'); */ ?>" target="_blank"><i
-                                    class="icon-apple"></i>iPhone</a>
-                        <?php /*} */ ?>
-                    </div>
-                </div>
-            </div>
-        --><?php /*} */ ?>
-
-        <div id="search" class="head-search-bar" style="display: none">
-            <!--煤炭和企业-->
-            <ul class="tab">
-                <li title="请输入您要搜索的煤炭关键字" act="search" class="current">煤炭</li>
-                <li title="请输入您要搜索的企业关键字" act="store_list">企业</li>
-            </ul>
-            <form class="search-form" method="background-color: #cecece; width: 2px; height:60px; display: inline-block; margin:15px 10px 10px 0px; float:left" action="<?php echo SHOP_SITE_URL; ?>">
-                <input type="hidden" value="search" id="search_act" name="act">
-                <input placeholder="请输入您要搜索的煤炭关键字" name="keyword" id="keyword" type="text" class="input-text"
-                       value="<?php echo $_GET['keyword']; ?>" maxlength="60" x-webkit-speech lang="zh-CN"
-                       onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search"/>
-                <input type="submit" id="button" value="<?php echo $lang['nc_common_search']; ?>" class="input-submit">
-            </form>
-            <!--搜索关键字-->
-            <div class="keyword"><?php echo $lang['hot_search'] . $lang['nc_colon']; ?>
-                <ul>
-                    <?php if (is_array($output['hot_search']) && !empty($output['hot_search'])) {
-                        foreach ($output['hot_search'] as $val) { ?>
-                            <li>
-                                <a href="<?php echo urlShop('search', 'index', array('keyword' => $val)); ?>"><?php echo $val; ?></a>
-                            </li>
-                        <?php }
-                    } ?>
-                </ul>
-            </div>
+       <div class="policys" style="float: left;">
+            
+               <div id="search" class="head-search-bar" style="display: block; margin-left: 30%; margin-top: 4%;">
+               
+                <form class="search-form" method="get" action="<?php echo SHOP_SITE_URL; ?>">
+                    <input type="hidden" value="search" id="search_act" name="act">
+                    <input placeholder="请输入您要搜索的煤炭关键字" name="keyword" id="keyword" type="text" class="input-text"
+                           value="<?php echo $_GET['keyword']; ?>" maxlength="60" x-webkit-speech lang="zh-CN"
+                           onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search"/>
+                    <!--<img src="/shop/templates/default/images/sousuoicon.png"
+                         style="margin-top: 10px; margin-left: 18px;width: 21px;">-->
+                    <input type="submit" id="button" value="搜 索"
+                           class="input-submit">
+                </form>
+               
+				</div>
         </div>
 
 
@@ -295,9 +254,7 @@ $('#keyword').attr("value","<?php echo $_GET['keyword']; ?>");
       </div>
     </div>-->
 
-        <div class="head-app_img">
-            <img src="<?php echo SHOP_SITE_URL; ?>/resource/images/erweima.png">
-        </div>
+       
         <div class="head-user-menu" style="display: none;">
             <dl class="my-mall">
                 <dt><span class="ico"></span>我的账户<i class="arrow"></i></dt>
@@ -365,7 +322,15 @@ $('#keyword').attr("value","<?php echo $_GET['keyword']; ?>");
                 </dd>
             </dl>
         </div>
-    </header>
+		<div style="
+    float: right;
+    margin-top: 30px;
+    width: 250px;
+" id="top_pho"><img src="http://www.zg03.com/shop/images/kf.png" style="
+    width: 220px;  height: 70px;
+    float: right;
+"></div>
+	</header>
 </div>
 <!-- PublicHeadLayout End -->
 

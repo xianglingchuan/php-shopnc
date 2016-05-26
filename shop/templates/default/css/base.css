@@ -991,7 +991,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
 }
 
 .public-top-layout .quick-menu a {
-    color: #777 !important;
+    color: #777;
 }
 
 .public-top-layout .quick-menu dl {
@@ -1037,7 +1037,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
     transition: .2s ease-in;
 }
 
-.public-top-layout .quick-menu dl.hover dt i {
+.public-top-layout .quick-menu dl:hover dt i {
     FILTER: progid: DXImageTransform . Microsoft . BasicImage(rotation = 2);
     -moz-transform: rotate(180deg);
     -moz-transform-origin: 50% 30%;
@@ -1060,7 +1060,7 @@ article, aside, dialog, footer, header, section, footer, nav, figure, menu {
     left: 0;
 }
 
-.public-top-layout .quick-menu dl.hover dd {
+.public-top-layout .quick-menu dl:hover dd {
     display: block;
 }
 

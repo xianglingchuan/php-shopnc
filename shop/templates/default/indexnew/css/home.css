@@ -48,28 +48,36 @@ body{background: #fff;}
 .list_li ul li.x_p_active{border-top: 2px #e05543 solid;border-left: 1px #e05543 solid;border-right: 1px #e05543 solid;color: #e05543; line-height: 25px;}
 .x_pull_top{overflow: hidden;zoom:1;border-bottom: 1px #e05543 solid;margin-bottom: 20px;}
 .x_pull_list{padding-top: 20px;background: #fff;padding-bottom: 20px;}
-a.x_dong_list:hover{color: #000;}
-.x_pull_top >span{font-size: 16px; padding-bottom: 13px; display: /*block;float:*/ left;border-bottom: 2px #e05543 solid;  }
-.x_dong_list{border:1px #cccccc solid;padding: 5px 10px 5px 10px;border-left: none; line-height: 25px;}
-.x_dong_list:first-child{border-left: 1px #ccc solid;}
-.x_dong_list >h3{font-size: 14px;font-weight: bold;overflow: hidden;zoom:1;}
-.x_price{float: left;}
+a.x_dong_list:hover{color: #ff0012;}
+.x_pull_top >span{font-size: 16px; padding-bottom: 11px; display: /*block;float:*/ left;border-bottom: 2px #e05543 solid;  }
+.x_dong_list{padding: 5px 10px 5px 10px;border-left: 1px rgba(214, 0, 0, 0.34) solid; line-height: 25px;margin-top: 10px;}
+.x_dong_list:first-child{border-left: 1px rgba(214, 0, 0, 0.34) solid;}
+.x_dong_list span >h3{font-size: 14px;font-weight: bold;zoom:1;overflow:inherit;margin-left: -5px;}
+.x_dong_list span >i{background: url(http://www.zg03.com/shop/templates/default/images/zhuye.png) no-repeat -2px 3px;background-size: cover;width: 18px;height: 18px;display: inline-block;}
+.x_price{float: left; margin-top:10px;}
 .x_price i{ font-size: 14px;}
-.x_class{float: right;}
+.x_class{float: right;margin-top:10px;}
 .x_red{color: #e05543;}
-.x_green{color: #37c945;}
+.x_green{color: #C93737;}
 .x_class b{ font-weight: 500;}
 .x_class >*{display: block;}
 .x_price >*{display: block;}
 .x_price>span,.x_class>span{color: #999;}
 .x_all_dong{margin: 0;}
 .x_recommend{overflow: hidden;zoom:1;margin-top: 11px;}
+.x_recommend .left_d{width: 288px;height: 148px;border: 1px #ccc solid;}
+.x_recommend .left_d .left_span{width: 170px;float: left;}
+.x_recommend .left_d .left_span .name_s{display: block;margin-top: 9px;margin-left: 26px;color:#E44E3A;font-size: 22px;font-weight: 600;text-align: left;line-height: 40px;letter-spacing:4px;}
+.x_recommend .left_d .left_span .name_n{display: block;margin-top: 50px;margin-left: 27px;color:#393939;font-size: 18px;font-weight: 600;text-align: left;line-height: 30px;}
+.x_recommend .left_d .right_img{display: inline-block;width: 100px;height: auto;margin-top: 37px;}
+.x_recommend .left_d .right_img >img{width:90px;}
+
 .x_recommend >img{display: block;float: left;height: 150px;}
 .recommend_list{width: 580px;margin: 0;float: left;overflow: hidden;}
 .recommend_list img{width: 100%;}
 .x_recommend >a{float: left;}
-.x_recommend >a >img{width: 233px; height: 150px;}
-.x_recommend img{border:1px #ccc solid;border-left: none;}
+/*.x_recommend >a >img{width: 290px; height: 150px;}
+.x_recommend img{border:1px #ccc solid;border-left: none;}*/
 .col_right_list{overflow: hidden;zoom:1;padding: 4px 10px;border-bottom: 1px #ccc solid}
 .col_top{float: left;margin-top: 17px;}
 .col_top i{display: block;color: #5c5c5c;}
@@ -89,8 +97,10 @@ a.x_dong_list:hover{color: #000;}
 .x_pull_container{overflow: hidden;zoom:1;}
 .x_pull_container img{float: left;height: 307px;border:1px #e6e6e6 solid;}
 .x_relist{padding: 20px;}
-.x_relist span{font-size: 14px; padding: 5px;}
-.x_relist_row >div{text-align: center;}
+.x_relist a:hover{color:#ff0012;}
+.x_relist span{font-size:18px; padding: 5px;}
+.x_relist a{text-decoration:none;color: #777777;}
+.x_relist_row >div{text-align: center;border-left: 1px #e8e8e8 solid;}
 .x_footer{width: 100%;background: #fff;padding: 30px 0;}
 .x_footer_info{width: 765px;margin: 0 auto;overflow: hidden;zoom:1;}
 .x_footer_list{float: left;width: 33%;}
@@ -106,18 +116,74 @@ a.x_dong_list:hover{color: #000;}
 
 
 
-.rollBox{width:100%;overflow:hidden;padding:0px 0 0px 0px; margin: auto; background-color: #FFFFFF; border-right: 1px solid #ccc;border-left: 1px solid #ccc;}   
-.rollBox .LeftBotton_home{height:52px;width:19px;background:url(../img/index/left_button.png) no-repeat 0px 0;
-                          position: absolute;
-                          overflow:hidden;float:left;display:inline;margin:35px 0 0 0;cursor:pointer;}   
-.rollBox .RightBotton_home{
-    position: absolute;
-    height:52px;width:19px;background:url(../img/index/right_button.png) no-repeat 0px 0;overflow:hidden;float:right;display:inline;margin:35px 0px 0 -19px;cursor:pointer;}   
+.rollBox{width: 90%;
+overflow: hidden;
+padding: 0px 0 0px 0px;
+margin: auto;
+background-color: rgb(247,247,247);}   
+.x_carousel .LeftBotton_home{height: 88px;
+width: 25px;
+background: url(http://www.zg03.com/shop/templates/default/indexnew/img/index/left_button.png) no-repeat 0px 0;
+overflow: hidden;
+float: left;
+display: block;
+margin: 65px 0 0 20px;
+cursor: pointer;}   
+.x_carousel .RightBotton_home{height: 88px;
+width: 25px;
+background: url(http://www.zg03.com/shop/templates/default/indexnew/img/index/right_button.png) no-repeat 0px 0;
+overflow: hidden;
+float: right;
+display: inline-block;
+margin: 65px 20px 0 0px;
+cursor: pointer;}   
 .rollBox .Cont{width:100%;overflow:hidden;float:left;}   
 .rollBox .ScrCont{width:10000000px;}   
-.rollBox .Cont .pic{width:234px;float:left;text-align:center; height: 118px;}   
-.rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto; width:234px; height: 118px;}   
+.rollBox .Cont .pic{width: 166px;
+float: left;
+text-align: center;
+height: 213px;
+margin-left:10px;
+}   
+.rollBox .Cont .pic img{padding: 0px;
+background: #fff;
+border-bottom: 1px solid #eee;
+display: block;
+margin: 10px;
+width: 145px;
+height: 50px;}   
 .rollBox .Cont .pic p{line-height:26px;color:#505050;}   
 .rollBox .Cont a:link,.rollBox .Cont a:visited{color:#626466;text-decoration:none;}   
-.rollBox .Cont a:hover{color:#f00;text-decoration:underline;}   
-.rollBox #List1,.rollBox #List2{float:left;}    
+.rollBox .Cont a:hover{color:#f00;text-decoration:none;}   
+.rollBox .Cont a:hover .w_adbu{background-color:#ff0012;}  
+.rollBox #List1,.rollBox #List2{float:left;margin-left: 10px;}    
+
+.rollBox .Cont .pic div{
+	background-color: #fff;
+    height: 185px;
+    border: 1px rgb(235,235,235) solid;
+    border-radius: 8px;
+    margin: 14px 0 14px 0;
+}
+.rollBox .Cont .pic .w_adr{
+	display: block;
+    font-size: 12px;
+    color: rgb(184, 184, 184);
+    margin-top: 14px;
+}
+.rollBox .Cont .pic .w_adrt{
+	display: block;
+    font-size: 13px;
+    color: rgb(130, 130, 130);
+    margin-top: 3px;
+}
+.rollBox .Cont .pic .w_adbu{
+	display: inline-block;
+    width: 72px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #f04c4f;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 25px;
+}

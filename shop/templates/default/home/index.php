@@ -19,6 +19,22 @@
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/public.css">
 <link rel="stylesheet" href="<?php echo SHOP_TEMPLATES_URL; ?>/indexnew/css/home.css">
+
+<link href="<?php echo SHOP_TEMPLATES_URL; ?>/css/datouwang.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="<?php echo SHOP_TEMPLATES_URL; ?>/js/koala.min.1.5.js"></script>
+<!-- 导航菜单-->
+<style type="text/css">
+    .category {
+        display: block !important;
+    }
+</style>
+<!-- 导航菜单-->
+<script type="text/javascript" src="/js/jquery-1.4.1.min.js?1011"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript" src="/js/jquery.kxbdmarquee.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+
 <body>
     <?php
 
@@ -34,7 +50,69 @@
         return array();
     }
     ?>
-    <div class="x_nav01"> 
+ 
+ <!-- 代码 开始 -->
+<div id="focus" style="position: absolute;z-index: 1;">
+<div id="fsD1" class="focus">  
+    <div id="D1pic1" class="fPic">  
+        <div class="fcon" style="display: none; background:url(http://www.zg03.com/shop/templates/default/images/b001.jpg) center 0 no-repeat;"></div>
+        <div class="fcon" style="display: none; background:url(http://www.zg03.com/shop/templates/default/images/b002.jpg) center 0 no-repeat;"></div>
+        <div class="fcon" style="display: none; background:url(http://www.zg03.com/shop/templates/default/images/b003.jpg) center 0 no-repeat;"></div> 
+
+    </div>
+    
+    <div class="fbg">  
+        <div class="D1fBt" id="D1fBt">  
+            <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>  
+            <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  
+            <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>
+
+        </div>  
+    </div> 
+  
+</div>  
+
+</div>
+
+
+<div style="position: relative;width:1200px;border:0px #000 solid;text-align: center;margin: 0 auto;height: 280px;z-index: 999;">
+	<div style="width: 250px;height: 88px;float:right;border:0px #000 solid;z-index: 999;margin-top: 98px;/* line-height: 280px; */">
+      <div style=" width:100%; text-align: center; background-color:#fff; height:88px; /* margin-top: 8px; */opacity: 0.95;">
+                        <div class="w" style="padding: 10px;vertical-align: middle;">
+                            <img src="/shop/templates/default/images/meiqiruzhu.png" style="float: left; width: 60px; margin-top: 5px;  ">
+
+                            <div style="float:left;padding-top: 10px; width: 150px;">
+                                <a href="/shop/index.php?act=show_joinin&amp;op=index" title="煤炭企业申请入驻；已提交申请，可查看当前审核状态。" target="_blank" style="color: #706f6f;font-size:20px;display: block;">煤企入驻</a>
+                                <span style="color:#a6a6a6; font-family:arial; font-size:12px; display: block;clear: both;padding-top:5px;">COAL ENTERPRISE SETTLED</span>
+                            </div>
+                    </div></div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+	Qfast.add('widgets', { path: "<?php echo SHOP_TEMPLATES_URL; ?>/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+	Qfast(false, 'widgets', function () {
+		K.tabs({
+			id: 'fsD1',   //焦点图包裹id  
+			conId: "D1pic1",  //** 大图域包裹id  
+			tabId:"D1fBt",  
+			tabTn:"a",
+			conCn: '.fcon', //** 大图域配置class       
+			auto: 1,   //自动播放 1或0
+			effect: 'fade',   //效果配置
+			eType: 'mouseover', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class                          
+			interval: 3000  //** 停顿时间  
+		}) 
+	})  
+</script>
+<!-- 代码 结束 -->
+ 
+ <!-- 
+ <div class="x_nav01"> 
         <div class="container">
             <div class="pull-left">
                 <div class="pull-left x_pull_left" id="module_dynamic">
@@ -336,10 +414,10 @@
                                     </select>
                                 </div>
                             </div>
-<!--                            <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8 class_add" style=" margin-top: 18px;">
+                          <div class="form-group col-xs-8 col-sm-8 col-md-8 col-lg-8 class_add" style=" margin-top: 18px;">
                                 <label for="exampleInputEmail03">名称</label>
                                 <input type="text" style="width:250px;" name="search_keyword" class="form-control" id="search_keyword">
-                            </div>-->
+                            </div>
 
                             <button type="button" onclick="searchSubmit('<?php echo SHOP_SITE_URL; ?>')" class="btn x_btn">搜索</button>
 
@@ -368,7 +446,7 @@
             </div>
         </div>
     </div>
-
+-->
 
     <div class="x_pull_list">
         <div class="container">
@@ -391,14 +469,16 @@
                             foreach ($goodsList['dlm'] as &$tmp) {
                                 ?>    
                                 <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                    <h3><?php echo $tmp['store_name']; ?></h3>
+                                    <span style="display: block;padding-bottom: 7px;border-bottom: 1px rgba(0, 0, 0, 0.18) solid;">
+									<i></i>
+									<h3 style="display:inline-block;"><?php echo $tmp['store_name']; ?></h3>
+									</span>
                                     <div class="x_price">
-                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        
                                         <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
                                     </div>
                                     <div class="x_class">
-                                        <b>动力煤</b>
-                                        <span>材质</span>
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
                                     </div>
                                 </a>
                                 <?php
@@ -415,15 +495,18 @@
                             foreach ($goodsList['ljm'] as &$tmp) {
                                 ?>    
                                 <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                    <h3><?php echo $tmp['store_name']; ?></h3>
+								<span style="display: block;padding-bottom: 7px;border-bottom: 1px rgba(0, 0, 0, 0.18) solid;">
+								<i></i>
+                                    <h3 style="display:inline-block;"><?php echo $tmp['store_name']; ?></h3>
+								</span>
                                     <div class="x_price">
-                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        
                                         <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
                                     </div>
                                     <div class="x_class">
-                                        <b>炼焦煤</b>
-                                        <span>材质</span>
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
                                     </div>
+								
                                 </a>
                                 <?php
                             }
@@ -440,14 +523,16 @@
                             foreach ($goodsList['wym'] as &$tmp) {
                                 ?>    
                                 <a href="<?php echo urlShop('goods', 'index', array('goods_id' => $tmp['goods_id'])); ?>" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 x_dong_list">
-                                    <h3><?php echo $tmp['store_name']; ?></h3>
+								<span style="display: block;padding-bottom: 7px;border-bottom: 1px rgba(0, 0, 0, 0.18) solid;">
+								<i></i>
+                                    <h3 style="display:inline-block;"><?php echo $tmp['store_name']; ?></h3>
+								</span>
                                     <div class="x_price">
-                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
+                                        
                                         <span>价格<span class="glyphicon glyphicon-triangle-bottom x_green"></span></span>
                                     </div>
                                     <div class="x_class">
-                                        <b>无烟煤</b>
-                                        <span>材质</span>
+                                        <i class="x_green">￥<?php echo $tmp['goods_price']; ?></i>
                                     </div>
                                 </a>
                                 <?php
@@ -457,15 +542,99 @@
                     </div>
                     <!---无烟煤_end-->
 
+					<div class="x_pull_top2" style="margin-top:50px;">
+                        <span>直购专区</span>
+                    </div>
 
                     <div class="x_recommend">
-                        <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend.png">
-                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend01.png"></a>
-                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-4-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend02.png"></a>
-                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-2-0-0-0-0-0-0-0-0.html"><img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend03.png"></a> 							
+                        <!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend.png">-->
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><!--<img style="border-left:1px #ccc solid;" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend05.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">清洁型燃煤</span>
+<span class="name_n">新建煤业</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend05.png">
+</div>
+  
+</div></a>
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-4-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend02.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">无烟煤</span>
+<span class="name_n">长沁集团</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend02.png">
+</div>
+  
+</div></a>
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-2-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend03.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">炼焦煤</span>
+<span class="name_n">晋瑞选煤</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend03.png">
+</div>
+  
+</div></a> 
+						<a href="<?php echo SHOP_SITE_URL; ?>/cate-6-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend04.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">焦炭</span>
+<span class="name_n">三元王庄煤矿</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend04.png">
+</div>
+  
+</div></a>	
+<a href="<?php echo SHOP_SITE_URL; ?>/cate-3-0-0-0-0-0-0-0-0.html"><!--<img style="border-left:1px #ccc solid;" src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend01.png">-->
+<div class="left_d">
+  <div class="left_span">
+<span class="name_s">动力煤</span>
+<span class="name_n">晋瑞选煤</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend01.png">
+</div>
+  
+</div>
+</a>
+
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-4-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend06.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">焦粉</span>
+<span class="name_n">雄山煤炭</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend06.png">
+</div>
+  
+</div></a>
+                        <a href="<?php echo SHOP_SITE_URL; ?>/cate-2-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend07.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">焦炭化工品</span>
+<span class="name_n">雄山煤炭</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend07.png">
+</div>
+  
+</div></a> 
+						<a href="<?php echo SHOP_SITE_URL; ?>/cate-6-0-0-0-0-0-0-0-0.html"><!--<img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/recommend08.png">--><div class="left_d">
+  <div class="left_span">
+<span class="name_s">民用炭块</span>
+<span class="name_n">西山煤业</span>
+</div>
+<div class="right_img">
+<img src="http://www.zg03.com/shop/templates/default/new/img/index/recommend08.png">
+</div>
+  
+</div></a>							
                     </div>
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				
+                <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="x_col_right">
                         <div class="col_right_list"> 
                             <div class="col_top">
@@ -519,6 +688,10 @@
                         </div>
                     </div>
                 </div>
+				-->
+				
+				
+				
             </div>
 
         </div>
@@ -536,18 +709,33 @@
             <div class="x_pull_list">
                 <div class="container">
                     <div class="x_pull_top2">
-                        <span>煤炭企业</span>
+                        <span>煤企推荐</span>
                     </div>	
-                    <div class="x_carousel">
-                        <div class="rollBox">   
-                            <div class="LeftBotton_home" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>   
-                            <div class="Cont" id="ISL_Cont">   
+                    <div class="x_carousel" style="
+    border: 1px rgb(235,235,235) solid;
+    background-color: rgb(247,247,247);
+	position: relative;
+">
+                        <div class="RightBotton_home" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></div><div class="LeftBotton_home" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>
+						
+						<div class="rollBox">   
+                               
+                            <div class="Cont" id="ISL_Cont" style="
+">   
                                 <div class="ScrCont">   
                                     <div id="List1" class="row item_row"> 
                                         <?php if ($brand_c['image']) { ?>
             <?php foreach ($brand_c['image'] as $key => $brand) { ?>
                                                 <a  href="<?php echo urlShop('brand', 'list', array('brand' => $brand['brand_id'])); ?>" class="pic">
-                                                    <img src="<?php echo brandImage($brand['brand_pic']); ?>"></a>                         
+												  <div>
+                                                    <img src="<?php echo brandImage($brand['brand_pic']); ?>">
+													
+													<span class="w_adr" >所在地</span>
+<span class="w_adrt">山西长治
+</span>
+<span class="w_adbu">进入煤企</span>
+</div>
+													</a>                         
                                             <?php } ?>
         <?php } ?>                                
                                         <!--                                <a  href="" class="pic">
@@ -575,15 +763,17 @@
                                     <div id="List2"></div>   
                                 </div>   
                             </div>   
-                            <div class="RightBotton_home" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></div>   
+                               
                         </div>            
-                    </div>						
-                </div>
+                    </div>
+<div class="x_pull_top2" style="width: 1170px;margin: 30px auto 0px auto;">
+<span>我的3号线</span>					
+</div>
             </div>
         <?php } ?>
 <?php } ?>
 
-
+<!--
     <div class="x_pull_list">
         <div class="container">
             <div class="x_pull_top2">
@@ -608,26 +798,76 @@
         </div>
     </div>
 
+-->
 
-
-    <div class="x_relist">
-        <div class="container">
-            <div class="row x_relist_row">
+		
+        </div>
+    <div class="x_relist" style="
+    background-color: #fff;
+">
+        <div class="container" style="
+    height: 214px;
+">
+            <div class="x_relist_row">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/relist120.png">
-                    <span>免费找货找车</span>
+                    <a href="./index.php?act=member_contract&op=index" style="
+    display: block;
+    margin-top: 28px;
+"><span style="
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-family: 微软雅黑;
+">我的合同</span></a><span style="
+    font-size: 15px;
+    margin-top: 2px;
+    display: block;
+">方便快捷 一键签署</span>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/relist121.png">
-                    <span>商城煤企直供</span>
+                    <a href="#" style="
+    display: block;
+    margin-top: 28px;
+"><span style="
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 微软雅黑;
+">我的物流</span></a><span style="
+    font-size: 15px;
+    margin-top: 2px;
+    display: block;
+">全程监管 质量监控</span>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/relist122.png">
-                    <span>品种规格</span>
+                    <a href="#" style="
+    display: block;
+    margin-top: 28px;
+"><span style="
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 微软雅黑;
+">我的金融</span></a><span style="
+    font-size: 15px;
+    margin-top: 2px;
+    display: block;
+">第三方监管 保驾护航</span>
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="border-right:1px #e8e8e8 solid;">
                     <img src="<?php echo SHOP_TEMPLATES_URL; ?>/new/img/index/relist123.png">
-                    <span>安全有效</span>
+                    <a href="#" style="
+    display: block;
+    margin-top: 28px;
+"><span style="
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 微软雅黑;
+">我的化验单</span></a><span style="
+    font-size: 15px;
+    margin-top: 2px;
+    display: block;
+">第三方权威验证机构</span>
                 </div>
             </div>
         </div>

@@ -21,14 +21,14 @@
 /* 站点logo */
 .public-head-layout .site-logo {
     width: 240px;
-    height: 60px;
+    height: 85px;
     float: left;
     margin: 15px 10px auto 0;
 }
 
 .public-head-layout .site-logo img {
     max-width: 240px;
-    max-height: 60px;
+    max-height: 95px;
 }
 
 /* 头部搜索 */
@@ -83,9 +83,10 @@
 
 .head-search-bar .search-form {
     /*margin-top: 31px;*/
-    background-color: #BE000E;
+    background-color: #de2b2d;
     height: 36px;
     padding: 3px;
+	width:449px;
 }
 
 .head-search-bar .input-text {
@@ -101,7 +102,7 @@
 .head-search-bar .input-submit,
 .head-search-bar .input-submit:hover {
     font-family: "Microsoft YaHei", sans-serif;
-    font-size: 21px;
+    font-size: 18px;
     color: #FFF;
     font-weight: 500;
     background-color: transparent;
@@ -110,7 +111,7 @@
     float: right;
     border: none;
     cursor: pointer;
-    margin-top: -3px;
+   margin-right:10px;
 }
 
 .head-search-bar .keyword {
@@ -656,9 +657,10 @@
 .public-nav-layout {
     //background-color: #BE000E;
     width: 100%;
-    height: 40px;
+    height: 45px;
     position: relative;
     z-index: 99;
+	margin:5px -3px -4px 0px;
 }
 
 /*站点导航菜单*/
@@ -666,6 +668,7 @@
     font-size: 0;
     *word-spacing: -1px /*IE6、7*/;
     float: left;
+	margin-left: -38px;
 }
 
 .public-nav-layout .site-menu li {
@@ -678,12 +681,13 @@
 }
 
 .public-nav-layout .site-menu li a {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 40px;
-    color: #000000;
+
+    color: #5f5b5b;
     height: 40px;
-    padding: 0 20px;
+    padding: 0 40px;
     //border-right: solid 1px #BE000E;
     display: inline-block;
     *display: inline /*IE6、7*/;
@@ -692,14 +696,14 @@
 
 .public-nav-layout .site-menu li a:hover {
     text-decoration: none;
-    background-color: #BE000E;
-    color:#ffffff;
+   /* background-color: #BE000E;*/
+    color: #FF1526;
 }
 
 .public-nav-layout .site-menu li a.current {
-    //background-color: rgba(255, 255, 255, 0.9);
+    /*//background-color: rgba(255, 255, 255, 0.9);
     background-color: #BE000E;
-    color: #FFFFFF;
+    color: #5f5b5b;*/
 }
 
 /*分类导航菜单*/
