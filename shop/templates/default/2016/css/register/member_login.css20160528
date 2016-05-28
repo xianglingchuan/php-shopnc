@@ -87,25 +87,13 @@ body { background-color: #FFFFFF;}
 .nc-register-layout .right .api-login a.sina i { background-position: -168px -32px;}
 .nc-register-layout .right .api-login a.wx i { background-position: -210px -32px;}
 .nc-register-layout .right .reister-after li { color: #999; line-height: 24px; margin-bottom: 10px; padding-left: 12px;}
-//.nc-register-layout .right .reister-after li i { background: url(../images/login_pic.png) no-repeat; vertical-align: middle; display: inline-block; width: 24px; height: 24px; margin-right: 8px;}
-.nc-register-bg .right .reister-after {text-align:left;}
-
-.nc-register-bg .right .reister-after i {background: url(../../images/regis_ino.png) no-repeat; vertical-align: middle; display: inline-block; width: 23px; height: 20px; margin-right: 8px;}
-
-.nc-register-bg .right .reister-after {text-align:left;}
-.nc-register-bg .right .reister-after .ico01 i { background-position: 0 -9px;}
-.nc-register-bg .right .reister-after .ico02 i { background-position: 0 -49px;}
-.nc-register-bg .right .reister-after .ico03 i { background-position: 0 -84px;}
-.nc-register-bg .right .reister-after .ico04 i { background-position: 0 -122px;}
-.nc-register-bg .right .reister-after .ico05 i { background-position: 0 -160px;}
-.nc-register-bg .right .reister-after .ico06 i { background-position: 0 -197px;}
-/*
-.nc-register-layout .right .reister-after  .ico01 i { background-position: 0 -76px;}
+.nc-register-layout .right .reister-after i { background: url(../images/login_pic.png) no-repeat; vertical-align: middle; display: inline-block; width: 24px; height: 24px; margin-right: 8px;}
+.nc-register-layout .right .reister-after .ico01 i { background-position: 0 -76px;}
 .nc-register-layout .right .reister-after .ico02 i { background-position: -30px -76px;}
 .nc-register-layout .right .reister-after .ico03 i { background-position: -60px -76px;}
 .nc-register-layout .right .reister-after .ico04 i { background-position: -90px -76px;}
 .nc-register-layout .right .reister-after .ico05 i { background-position: -120px -76px;}
-.nc-register-layout .right .reister-after .ico06 i { background-position: -150px -76px;}*/
+.nc-register-layout .right .reister-after .ico06 i { background-position: -150px -76px;}
 
 
 /* 注册表单样式 */

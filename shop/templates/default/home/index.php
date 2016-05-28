@@ -453,7 +453,7 @@
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                     <div class="x_pull_top">
-                        <span>调价动态</span>
+                        <span style=" padding-bottom: 12px;">调价动态</span>
                         <div class="pull-right list_li" id="price_dynamic">
                             <ul>
                                 <li class="x_p_active" data-id="3">动力煤</li>

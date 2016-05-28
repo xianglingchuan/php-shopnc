@@ -100,7 +100,7 @@ class loginControl extends BaseHomeControl {
             if ($_GET['inajax'] == 1) {
                 Tpl::showpage('login_inajax', 'null_layout');
             } else {
-                Tpl::showpage('login');
+                Tpl::showpage('login', 'login_layout');
             }
         }
     }
@@ -241,7 +241,7 @@ class loginControl extends BaseHomeControl {
         $model_member = Model('member');
         $model_member->checkloginMember();
         Tpl::output('html_title', C('site_name') . ' - ' . $lang['login_register_join_us']);
-        Tpl::showpage('register_2016');
+        Tpl::showpage('register_2016', 'login_layout');
     }
 
     /**

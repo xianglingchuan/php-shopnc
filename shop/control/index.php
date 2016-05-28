@@ -49,8 +49,10 @@ class indexControl extends BaseHomeControl {
         $brands = $this->_tidyBrand($brand_c_list);
         extract($brands);
         Tpl::output('brand_c', $brand_listnew);
-
-
+        
+        //$storeList = $model->table('store')->where(array())->order('store_id DESC')->select();
+        //var_dump($storeList);
+        
         //调价动态
         $goodsList['dlm'] = $this->getGoodsListByCategoryId(3);//动力煤
         $goodsList['ljm'] = $this->getGoodsListByCategoryId(2);//练焦煤

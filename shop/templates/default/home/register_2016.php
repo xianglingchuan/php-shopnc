@@ -39,7 +39,7 @@ function tabRegister(type,_this){
               <li><a href="javascript:void(0)" id="company_tab" onclick="tabRegister('company', this)" class="">企业注册<i></i></a></li><span class="tabulousclear"></span>
           </ul>
           <div id="tabs_container" class="tabs-container" style="height: 549px;">
-            <div id="default" class="tabs-content" style="position: absolute; top: 0px;">
+            <div id="default" class="tabs-content" style="position: absolute; top: -15px;">
               <form id="register_form" class="nc-login-form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?act=login&op=usersave">
               	<input type="hidden" name="reg_source" id="reg_source" value="">
                 <?php Security::getToken();?>
@@ -173,7 +173,7 @@ function tabRegister(type,_this){
                             <input type="hidden" name="form_submit" value="ok" />
               </form>
             </div>
-            <div id="register_company" class="tabs-content" style="position: absolute; top: 0px; display: none;">
+            <div id="register_company" class="tabs-content" style="position: absolute; top: -15px; display: none;">
               <form id="register_company_form" class="nc-login-form" method="post" action="<?php echo SHOP_SITE_URL;?>/index.php?act=login&op=companysave">
               	<input type="hidden" name="reg_source" id="reg_source" value="">
                 <?php Security::getToken();?>

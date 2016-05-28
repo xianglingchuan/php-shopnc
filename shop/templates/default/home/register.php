@@ -1,10 +1,4 @@
 <?php defined('InShopNC') or exit('Access Invalid!');?>
-
-
-
-
-
-
 <style type="text/css">
 .public-top-layout, .head-app, .head-search-bar, .head-user-menu, .public-nav-layout, .nch-breadcrumb-layout, #faq {
 	display: none !important;
